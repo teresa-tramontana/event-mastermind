@@ -32,6 +32,10 @@
   --kat-pitch: #7a4426;           /* Zimt */
 
 
+  /* Eingabefelder: weiß mit ruhigem Rahmen (gut lesbar) */
+  --feld: #ffffff;
+  --feld-rand: #d9cec3;
+
   --radius: 14px;
   --radius-klein: 9px;
   --schatten: 0 1px 2px rgba(43, 35, 32, .06), 0 4px 16px rgba(43, 35, 32, .06);
@@ -371,7 +375,7 @@ button { font: inherit; color: inherit; }
 .event-drawer {
   position: fixed; top: 0; right: 0; bottom: 0; z-index: 42;
   width: min(720px, 100vw); display: flex; flex-direction: column;
-  background: var(--hintergrund); box-shadow: -12px 0 40px rgba(43, 35, 32, .18);
+  background: var(--flaeche); box-shadow: -12px 0 40px rgba(43, 35, 32, .18);
   transform: translateX(100%); transition: transform .25s ease;
 }
 .event-drawer.offen { transform: translateX(0); }
@@ -403,7 +407,46 @@ button { font: inherit; color: inherit; }
 .knopf.bearbeiten { background: var(--akzent-dunkel); border-color: var(--akzent-dunkel); color: #fff; font-weight: 700; }
 .knopf.bearbeiten:hover { background: color-mix(in srgb, var(--akzent-dunkel) 85%, black); border-color: transparent; }
 .knopf.bearbeiten[hidden] { display: none; }
-.drawer-inhalt .beschreibung[open], .drawer-inhalt details.beschreibung { margin-top: 10px; }
+/* Details: Description offen als eigener Abschnitt unter einer Trennlinie */
+.drawer-abschnitt { border-top: 1px solid var(--linie); margin-top: 18px; padding-top: 16px; }
+.drawer-abschnitt > h3, .f-abschnitt > h3 {
+  margin: 0 0 10px; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+  color: var(--text-leise); display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap;
+}
+.beschreibung-offen .b-kopf { display: none; }
+.beschreibung-offen p { white-space: pre-line; margin: 4px 0 10px; }
+
+/* Bearbeiten-Formular in der Schublade: weiß, Abschnitte mit Trennlinien, klare Beschriftungen */
+.f-abschnitt { display: grid; gap: 16px; padding: 22px 0; border-top: 1px solid var(--linie); }
+.f-abschnitt:first-child { border-top: none; padding-top: 4px; }
+.f-abschnitt > h3 { margin: 0; }
+.f-reihe { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.f-feld { display: flex; flex-direction: column; gap: 6px; }
+.f-label { font-size: .88rem; font-weight: 600; color: var(--text); }
+.f-feld input, .f-feld select, .f-feld textarea {
+  font: inherit; font-size: .95rem; color: var(--text); width: 100%; box-sizing: border-box;
+  background: var(--feld); border: 1px solid var(--feld-rand); border-radius: 8px; padding: 10px 12px;
+}
+.f-feld textarea { resize: vertical; line-height: 1.45; }
+.f-feld input:focus, .f-feld select:focus, .f-feld textarea:focus {
+  border-color: var(--akzent); box-shadow: 0 0 0 3px var(--akzent-hell); outline: none;
+}
+.f-feld ::placeholder { color: #b3a598; }
+.pflicht { font-size: .72rem; font-weight: 600; color: var(--akzent-dunkel); margin-left: 4px; }
+.f-hilfe { font-size: .78rem; font-weight: 400; color: var(--text-leise); margin-left: 4px; }
+.f-fehlt { font-size: .72rem; font-weight: 600; color: var(--kritisch); margin-left: 4px; }
+.f-status { font-size: .78rem; font-weight: 500; text-transform: none; letter-spacing: 0; }
+.f-vorschlag { display: flex; gap: 12px; align-items: flex-end; flex-wrap: wrap; }
+.f-vorschlag .f-feld { flex: 1; min-width: 220px; }
+.f-hinweis { font-size: .82rem; color: var(--text-leise); margin: 4px 0 0; }
+.drawer-formular .tag-wahl { display: inline-flex; position: relative; cursor: pointer; }
+.drawer-formular .tag-wahl span { background: var(--feld); border-color: var(--feld-rand); }
+.drawer-formular #vorschlaege:empty { display: none; }
+.drawer-formular #vorschlaege {
+  display: flex; flex-direction: column; gap: 10px;
+  border: 1px solid var(--feld-rand); border-radius: 8px; padding: 12px 14px; background: var(--feld);
+}
+.drawer-formular .vorschlag-teil .vorschlag-text { background: none; padding: 0; }
 .event-karte {
   background: var(--flaeche); border: 1px solid var(--linie); border-left: 5px solid var(--kat);
   border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; box-shadow: var(--schatten);
@@ -617,5 +660,5 @@ details.vorschau { background: var(--flaeche); border-radius: 8px; padding: 6px 
   .drawer-inhalt { padding: 16px; }
   .drawer-fuss { padding: 10px 16px; }
   .fuss-luecke { flex-basis: 100%; height: 0; }
-  .formular { grid-template-columns: 1fr; }
+  .formular, .f-reihe { grid-template-columns: 1fr; }
 }

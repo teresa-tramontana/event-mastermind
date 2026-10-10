@@ -635,7 +635,7 @@
           </div>
         </div>
         ${lueckenHinweis(e)}
-        ${beschreibungsStand(e) !== "keine" ? `<details class="beschreibung"><summary>Description${beschreibungsStand(e) === "luecken" ? " (incomplete)" : ""}</summary>${beschreibungHtml(e.beschreibung, e.kategorie)}</details>` : ""}
+        ${beschreibungsStand(e) !== "keine" ? `<section class="drawer-abschnitt beschreibung-offen"><h3>Description${beschreibungsStand(e) === "luecken" ? ' <span class="text-kritisch">· incomplete</span>' : ""}</h3>${beschreibungHtml(e.beschreibung, e.kategorie)}</section>` : ""}
         ${r ? `<div class="reminder ${r.stufe}">${esc(r.text)}</div>` : ""}
       </article>`;
   }
@@ -1367,42 +1367,62 @@
         <button type="button" class="knopf leise" data-schliessen>Cancel</button>
         <button type="submit" class="knopf bearbeiten" form="event-formular">Save</button>`,
     });
+    // Kleiner Baustein: Beschriftung (+ Zusatz) und Eingabefeld
+    const feldHtml = (beschriftung, eingabe, zusatz, extra) =>
+      `<label class="f-feld" ${extra || ""}><span class="f-label">${beschriftung}${zusatz ? " " + zusatz : ""}</span>${eingabe}</label>`;
+    const pflicht = '<span class="pflicht">required</span>';
     drawerInhalt.innerHTML = `
       <form id="event-formular" class="drawer-formular" novalidate>
-        <div>
-          <div class="formular">
-            <label>Category<select name="kategorie">${auswahl(KATEGORIEN, e.kategorie)}</select></label>
-            <label>Status<select name="status">${auswahl(STATUS, e.status)}</select></label>
-            <label class="breit">Title *<input name="titel" required value="${esc(e.titel)}" placeholder="e.g. Storytelling for Impact Startups"></label>
-            <div class="breit feld-gruppe">
-              <span class="feld-titel">Tags</span>
-              <div class="tag-auswahl">${tagAuswahl}</div>
-            </div>
-            <div class="breit vorschlag-box">
-              <label>Topic (for suggestions)<input name="thema" id="thema" value="${esc(themaAusTitel(e.titel))}" placeholder="e.g. crowdfunding, circular fashion"></label>
-              <button type="button" class="knopf" id="vorschlaege-knopf">✨ Suggest title, description &amp; summary</button>
-              <div id="vorschlaege"></div>
-            </div>
-            <label class="breit">Summary (one line)<input name="zusammenfassung" maxlength="200" value="${esc(e.zusammenfassung)}" placeholder="Short teaser, e.g. for Eventbrite"></label>
-            <fieldset class="breit beschreibung-felder">
-              <legend>Description <span class="leise" id="luecken-info"></span></legend>
-              ${BESCHREIBUNG_TEILE.map((t) => `
-                <label>${esc(t.frage)}<textarea name="b-${t.schluessel}" rows="${t.schluessel === "agenda" ? 5 : 3}" placeholder="⚠ Missing – ${esc(t.hilfe)}">${esc(eb[t.schluessel])}</textarea></label>`).join("")}
-            </fieldset>
-            <label>Date *<input type="date" name="datum" required min="${jahr}-01-01" max="${jahr}-12-31" value="${esc(e.datum)}"></label>
-            <label>Start time<input type="time" name="startzeit" value="${esc(e.startzeit)}"></label>
-            <label class="breit">Location<input name="ort" list="orte" value="${esc(e.ort)}"></label>
-            <label>Capacity (spots)<input type="number" name="kapazität" min="0" value="${esc(e["kapazität"])}"></label>
-            <label>Registrations<input type="number" name="anmeldungen" min="0" value="${esc(e.anmeldungen)}"></label>
-            <label class="breit">Owner (a role, no real names)<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}"></label>
-            <label>Eventbrite ID<input name="eventbriteId" value="${esc(e.eventbriteId)}" placeholder="automatic later"></label>
-            <label>Calendar ID<input name="kalenderId" value="${esc(e.kalenderId)}" placeholder="automatic later"></label>
+        <section class="f-abschnitt">
+          ${feldHtml("Title", `<input name="titel" required value="${esc(e.titel)}" placeholder="e.g. Storytelling for Impact Startups">`, pflicht)}
+          <div class="f-reihe">
+            ${feldHtml("Category", `<select name="kategorie">${auswahl(KATEGORIEN, e.kategorie)}</select>`)}
+            ${feldHtml("Status", `<select name="status">${auswahl(STATUS, e.status)}</select>`)}
           </div>
-          <datalist id="team">${team.map((t) => `<option value="${esc(t)}">`).join("")}</datalist>
-          <datalist id="orte">${orte.map((t) => `<option value="${esc(t)}">`).join("")}</datalist>
-          <p class="leise" style="font-size:.82rem">Saved in this browser only. “Reset demo data” (bottom of the page) undoes everything.</p>
-          <p id="formular-fehler" style="color:var(--kritisch)"></p>
-        </div>
+          <div class="f-reihe">
+            ${feldHtml("Date", `<input type="date" name="datum" required min="${jahr}-01-01" max="${jahr}-12-31" value="${esc(e.datum)}">`, pflicht)}
+            ${feldHtml("Start time", `<input type="time" name="startzeit" value="${esc(e.startzeit)}">`)}
+          </div>
+          <div class="f-reihe">
+            ${feldHtml("Location", `<input name="ort" list="orte" value="${esc(e.ort)}">`)}
+            ${feldHtml("Owner", `<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}">`, '<span class="f-hilfe">a role, no real names</span>')}
+          </div>
+        </section>
+
+        <section class="f-abschnitt">
+          <h3>Tags</h3>
+          <div class="tag-auswahl">${tagAuswahl}</div>
+        </section>
+
+        <section class="f-abschnitt">
+          <h3>Summary &amp; description <span class="f-status" id="luecken-info"></span></h3>
+          <div class="f-vorschlag">
+            ${feldHtml("Topic", `<input name="thema" id="thema" value="${esc(themaAusTitel(e.titel))}" placeholder="e.g. crowdfunding, circular fashion">`, '<span class="f-hilfe">for suggestions</span>')}
+            <button type="button" class="knopf" id="vorschlaege-knopf">✨ Suggest title, description &amp; summary</button>
+          </div>
+          <div id="vorschlaege"></div>
+          ${feldHtml("Summary", `<input name="zusammenfassung" maxlength="200" value="${esc(e.zusammenfassung)}" placeholder="Short teaser, e.g. for Eventbrite">`, '<span class="f-hilfe">one line</span>')}
+          ${BESCHREIBUNG_TEILE.map((t) => feldHtml(esc(t.frage),
+            `<textarea name="b-${t.schluessel}" rows="${t.schluessel === "agenda" ? 5 : 3}" placeholder="${esc(t.hilfe)}">${esc(eb[t.schluessel])}</textarea>`,
+            '<span class="f-fehlt"></span>', `data-teil="${t.schluessel}"`)).join("")}
+        </section>
+
+        <section class="f-abschnitt">
+          <h3>Registrations &amp; links</h3>
+          <div class="f-reihe">
+            ${feldHtml("Capacity (spots)", `<input type="number" name="kapazität" min="0" value="${esc(e["kapazität"])}">`)}
+            ${feldHtml("Registrations", `<input type="number" name="anmeldungen" min="0" value="${esc(e.anmeldungen)}">`)}
+          </div>
+          <div class="f-reihe">
+            ${feldHtml("Eventbrite ID", `<input name="eventbriteId" value="${esc(e.eventbriteId)}" placeholder="automatic later">`)}
+            ${feldHtml("Calendar ID", `<input name="kalenderId" value="${esc(e.kalenderId)}" placeholder="automatic later">`)}
+          </div>
+        </section>
+
+        <datalist id="team">${team.map((x) => `<option value="${esc(x)}">`).join("")}</datalist>
+        <datalist id="orte">${orte.map((x) => `<option value="${esc(x)}">`).join("")}</datalist>
+        <p class="f-hinweis">Only title and date are required. Saved in this browser only – “Reset demo data” (bottom of the page) undoes everything.</p>
+        <p id="formular-fehler" class="text-kritisch"></p>
       </form>`;
     document.querySelectorAll("#drawer-fuss [data-schliessen]").forEach((b) => b.addEventListener("click", abbrechen));
     drawerInhalt.querySelector('input[name="titel"]').focus();
@@ -1417,17 +1437,19 @@
     const schonGeaendert = !!gespeichertesEvent && JSON.stringify(gespeichertesEvent) !== JSON.stringify(e);
     drawerStand.geaendert = () => schonGeaendert || formularStand() !== anfangsStand;
 
-    // Leere Description-Felder rot markieren und mitzählen
+    // Leere Description-Felder zählen. Bei neuen Events ist alles optional (keine Markierung),
+    // bei bestehenden steht neben leeren Feldern dezent "missing".
     const markiereLuecken = () => {
       let fehlt = 0;
       BESCHREIBUNG_TEILE.forEach((t) => {
         const leer = !feld("b-" + t.schluessel).value.trim();
-        feld("b-" + t.schluessel).classList.toggle("fehlt", leer);
+        formular.querySelector(`[data-teil="${t.schluessel}"] .f-fehlt`).textContent = !neu && leer ? "missing" : "";
         if (leer) fehlt++;
       });
       const info = document.getElementById("luecken-info");
-      info.textContent = fehlt ? `⚠ ${fehlt} of ${BESCHREIBUNG_TEILE.length} sections missing` : "✓ complete";
-      info.className = fehlt ? "text-kritisch" : "leise";
+      info.textContent = neu ? "optional – you can add this later"
+        : fehlt ? `⚠ ${fehlt} of ${BESCHREIBUNG_TEILE.length} sections missing` : "✓ complete";
+      info.className = "f-status " + (!neu && fehlt ? "text-kritisch" : "leise");
     };
     BESCHREIBUNG_TEILE.forEach((t) => feld("b-" + t.schluessel).addEventListener("input", markiereLuecken));
     markiereLuecken();
