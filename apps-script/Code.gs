@@ -51,8 +51,10 @@ function sendeTestReminder(betreff, text) {
 }
 
 // ======================================================================
-// Ask AI (Gemini) – NUR LESEND: Gemini bekommt die Daten der App und
-// beantwortet Fragen dazu. Es kann nichts anlegen, ändern oder löschen.
+// Ask AI (Gemini): Gemini bekommt die Daten der App und beantwortet Fragen dazu.
+// Es kann selbst NICHTS speichern. Es darf aber Änderungen VORSCHLAGEN (als
+// "change"-Block im Text). Die App zeigt den Vorschlag an, und erst wenn ein
+// Mensch auf "Apply" klickt, wird gespeichert (über data-layer.js).
 // ======================================================================
 
 // Modelle in dieser Reihenfolge probieren (Free Tier von Google AI Studio):
@@ -73,12 +75,37 @@ function kiSchluessel_() {
 
 const KI_ANWEISUNG = [
   "You are the assistant inside 'Event Mastermind', the event planning app of the Impact Hub community team.",
-  "You can ONLY READ. You cannot create, change, delete, send or publish anything. If the user asks for that,",
-  "explain briefly where in the app they can do it themselves (e.g. 'open the event and click Edit').",
-  "Answer ONLY from the JSON data below. If something is not in the data, say so – never invent events, numbers or people.",
+  "You cannot save, send or publish anything yourself. But you CAN SUGGEST changes to events (title, summary, tags,",
+  "description sections incl. ticket info, date, time, place, capacity, status) and new events. The app shows each",
+  "suggestion with an 'Apply' button – a human always reviews and decides. Never claim that you changed something.",
+  "",
+  "HOW TO SUGGEST: write one fenced block per event, exactly like this (valid JSON, double quotes):",
+  "```change",
+  '{"id": "evt-012", "grund": "Fills the 3 missing description sections", "felder": {"titel": "…", "zusammenfassung": "…",',
+  ' "tags": ["…"], "beschreibung": {"worum": "…", "tickets": "…"}}}',
+  "```",
+  "- 'id' = id of an existing event. For a NEW event leave out 'id' and give at least titel, datum (YYYY-MM-DD),",
+  "  startzeit (HH:MM) and kategorie in 'felder'.",
+  "- Only include the fields you want to change. Allowed fields: titel, zusammenfassung, tags, beschreibung, datum,",
+  "  startzeit, ort, kapazität, status, kategorie, verantwortlich.",
+  "- 'beschreibung' sections: worum, rahmen, haeufigkeit, warum, zielgruppe, ergebnis, agenda (one line per item,",
+  "  e.g. '18:00 – Welcome'), tickets, betreuung. Only include the sections you change.",
+  "- tags: the COMPLETE new tag list (it replaces the old one), ONLY tags from the 'tags' list in the data (exact",
+  "  spelling). kategorie: Workshop, Networking, Talk,",
+  "  Community Lunch, Pitch Night. status: Idea, Planned, Published, Done.",
+  "- verantwortlich and betreuung are ROLES or teams (e.g. 'Community Lead', 'Host team'), never names of people.",
+  "- Write texts in English, in the style of the category template ('vorlagen'). Use the event's own data, the",
+  "  template of its category (replace placeholders like {thema}, {ort}, {kapazitaet}) and the 'satz' of its tags.",
+  "- Never invent facts (prices, speakers, partners, numbers). If a fact is not in the event or its template,",
+  "  leave that section out and say in one sentence what a human still has to add.",
+  "- Before the block(s), write one short sentence what you suggest. Max. 10 blocks per answer.",
+  "Only suggest changes when the user asks for them (e.g. 'fill in', 'write', 'improve', 'create', 'change').",
+  "",
+  "For questions: answer ONLY from the JSON data below. If something is not in the data, say so – never invent",
+  "events, numbers or people.",
   "Use the precomputed values in 'auswertungMonate', 'auswertungQuartale' and 'eventsMitFehlendenInfos' for plan deviations",
   "and missing information, so your numbers match the app.",
-  "Answer in the language of the question. Be short and concrete: a sentence or a short bullet list.",
+  "Answer in the language of the question (texts inside change blocks are always English). Be short and concrete.",
   "Mention dates as e.g. 'Tue, 14 Oct' and refer to events by their title.",
   "All data is fictional demo data.",
   "",
@@ -112,7 +139,7 @@ function frageKI(frage, verlauf, kontextJson) {
     contents: inhalte,
     // KEINE eigene Temperatur setzen: Google warnt, dass Gemini 3.x bei Werten unter 1.0
     // in Endlosschleifen geraten kann. maxOutputTokens begrenzt eine zu lange Antwort.
-    generationConfig: { maxOutputTokens: 8192 },
+    generationConfig: { maxOutputTokens: 16384 },
   });
   const start = Date.now();
 

@@ -39,7 +39,7 @@ data/demo-daten.js    AUTOMATISCH erzeugt aus den JSON-Dateien (das liest data-l
 tools/erzeuge-demodaten.py   würfelt die Demo-Daten neu (fester Zufall, immer gleiches Ergebnis)
 tools/baue-demo-daten.py     kopiert JSON -> data/demo-daten.js
 tools/baue-apps-script.py    packt alles in apps-script/Index.html (eine Datei für Apps Script)
-apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet), Benutzer, Test-Mail, Ask AI (Gemini)
+apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet), Benutzer, Test-Mail, Ask AI (Gemini, Anweisung KI_ANWEISUNG inkl. Format der Änderungs-Vorschläge)
 apps-script/Geheim.gs        AUTOMATISCH von der Action erzeugt (nicht im Repo, .gitignore): Gemini-Schlüssel
 apps-script/Index.html       AUTOMATISCH erzeugt (nicht im Repo, .gitignore): komplette App in einer Datei
 apps-script/appsscript.json  Apps-Script-Einstellungen (Zeitzone, Zugriff "DOMAIN" = nur Impact-Hub-Konten, "USER_ACCESSING" = läuft als die zugreifende Person)
@@ -102,7 +102,9 @@ Regeln:
 3. **Eventbrite:** Entwürfe aus Vorlagen anlegen, Anmeldezahlen zurücklesen (`eventbriteId`). Zugang: Secret `EVENTBRITE_PRIVATE_TOKEN` (noch nicht nutzen). Die Organisations-ID ist nicht geheim und wird per API abgefragt.
 4. **Google Calendar und Gmail:** Login mit Google (OAuth), minimale Rechte; Kalendereinträge anlegen (`kalenderId`), Mails nur als **Entwurf**, nie automatisch senden.
 5. **Social-Vorschläge und Mail-Intelligenz via Gemini:** Vorlagentexte als Grundlage, KI verfeinert sie; Mensch gibt immer frei.
-   - **Schon eingebaut: „Ask AI“** (Knopf unten rechts, Chat-Fenster). **Nur lesend:** `app.js` (`kiKontext`) schickt alle Daten der App plus die eigenen Auswertungen (Soll/Ist je Monat/Quartal, fehlende Infos) über `DataLayer.frageKI` an `frageKI` in `Code.gs`, das Gemini per `UrlFetchApp` fragt (Modelle `KI_MODELLE`: erst `gemini-flash-latest`, bei 403/404/429/5xx automatisch `gemini-flash-lite-latest`; Free Tier von Google AI Studio). Gemini bekommt keine Werkzeuge zum Ändern. Schreibende KI-Funktionen nur, wenn die Nutzerin sie ausdrücklich will, und immer mit Freigabe durch einen Menschen.
+   - **Schon eingebaut: „Ask AI“** (Knopf unten rechts, Chat-Fenster; an jeder Event-Karte Knopf „Complete/Improve with AI“). `app.js` (`kiKontext`) schickt alle Daten der App plus die eigenen Auswertungen (Soll/Ist je Monat/Quartal, fehlende Infos) über `DataLayer.frageKI` an `frageKI` in `Code.gs`, das Gemini per `UrlFetchApp` fragt (Modelle `KI_MODELLE`: erst `gemini-flash-latest`, bei 403/404/429/5xx automatisch `gemini-flash-lite-latest`; Free Tier von Google AI Studio). Gemini bekommt keine Werkzeuge zum Ändern.
+   - **Änderungs-Vorschläge (von der Nutzerin ausdrücklich gewünscht):** Gemini darf in der Antwort ```` ```change ```` -Blöcke schreiben (JSON: `{id?, grund, felder{titel, zusammenfassung, tags, beschreibung{…}, datum, startzeit, ort, kapazität, status, kategorie, verantwortlich}}`; ohne `id` = neues Event). `app.js` (`kiPruefeVorschlag`) lässt nur erlaubte Felder/Werte durch (Tags nur aus `tags.json`, Datum nur im Modell-Jahr) und zeigt eine Karte „alt → neu“ mit **Apply** / **Edit first** (bzw. „Open as draft“ für neue Events) / **Dismiss**, nach Apply auch **Undo**. Gespeichert wird **nur nach Klick eines Menschen**, über `DataLayer.speichereEvent`. Neue Events werden nie direkt angelegt, nur als Formular-Entwurf geöffnet.
+   - Später (nach Roadmap 1) sieht die KI automatisch auch die Notion-Daten, weil sie alles bekommt, was die App geladen hat.
    - **Datenschutz:** Der Schlüssel stammt aus Google AI Studio. Ohne hinterlegte Bezahlung darf Google Eingaben zur Produktverbesserung nutzen → **nur Demo-Daten**. Vor echten Daten: Vertex AI in einem EU-Cloud-Projekt (IT-Leitfaden, Punkt 6).
 
 ## Gesprächsleitfaden für die IT

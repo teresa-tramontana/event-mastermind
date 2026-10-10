@@ -124,7 +124,7 @@ button { font: inherit; color: inherit; }
 .ki-knopf .funkel { color: var(--kat-networking); }
 .ki-fenster {
   position: fixed; right: 20px; bottom: 20px; z-index: 45;
-  width: min(400px, calc(100vw - 32px)); height: min(560px, calc(100vh - 40px));
+  width: min(440px, calc(100vw - 32px)); height: min(620px, calc(100vh - 40px));
   display: flex; flex-direction: column; overflow: hidden;
   background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius-klein);
   box-shadow: 0 16px 48px rgba(43, 35, 32, .22);
@@ -151,6 +151,21 @@ button { font: inherit; color: inherit; }
 .ki-modell { font-size: .72rem; color: var(--text-leise); margin-top: 6px !important; }
 .ki-beispiele { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: 10px; }
 .ki-beispiele .knopf { text-align: left; }
+/* Änderungs-Vorschläge der KI (Karte mit alt → neu) */
+.ki-vorschlag { margin: 8px 0; padding: 10px; background: var(--flaeche); border: 1px solid var(--linie); border-left: 4px solid var(--akzent); border-radius: 10px; }
+.ki-vorschlag.fehler { border-left-color: var(--kritisch); background: var(--kritisch-hell); }
+.ki-vorschlag.verworfen { opacity: .55; }
+.ki-vorschlag-kopf { font-size: .88rem; margin-bottom: 4px; }
+.ki-vorschlag p.leise { font-size: .8rem; }
+.ki-diff { display: flex; flex-direction: column; gap: 6px; margin: 6px 0; }
+.ki-diff-zeile { font-size: .8rem; line-height: 1.35; }
+.ki-diff-zeile del, .ki-diff-zeile ins { white-space: pre-line; }
+.ki-diff-feld { display: block; font-weight: 700; color: var(--text-leise); font-size: .72rem; text-transform: uppercase; letter-spacing: .03em; }
+.ki-diff-zeile del { display: block; color: var(--text-leise); }
+.ki-diff-zeile ins { display: block; text-decoration: none; background: var(--ok-hell); border-radius: 4px; padding: 1px 4px; }
+.ki-diff-leer { display: block; color: var(--kritisch); font-style: italic; }
+.ki-vorschlag-knoepfe { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
+.ki-erledigt { color: var(--ok); font-weight: 700; font-size: .85rem; }
 .punkte i {
   display: inline-block; width: 6px; height: 6px; margin-right: 3px; border-radius: 50%;
   background: var(--akzent); animation: punkt 1s infinite ease-in-out;

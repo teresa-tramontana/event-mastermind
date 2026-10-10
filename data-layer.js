@@ -10,7 +10,7 @@
  *   - Grunddaten kommen aus data/demo-daten.js (automatisch erzeugt aus data/*.json)
  *   - Eigene Änderungen werden nur im Browser gespeichert (localStorage)
  *   - In der Apps-Script-Version (online): Benutzer-Menü, Test-Reminder-Mail und
- *     "Ask AI" (Gemini, nur lesend)
+ *     "Ask AI" (Gemini; schlägt Änderungen nur vor, gespeichert wird per speichereEvent nach Klick)
  *     über apps-script/Code.gs (google.script.run). Per Doppelklick gibt es beides nicht.
  *
  * Alle Funktionen geben ein "Promise" zurück (= "Antwort kommt gleich").
@@ -174,7 +174,8 @@
     },
 
     /**
-     * Frage an die KI (Gemini) – NUR LESEND. → { antwort, modell }
+     * Frage an die KI (Gemini) → { antwort, modell }. Die KI speichert nichts selbst;
+     * ihre Vorschläge stehen als "change"-Blöcke im Antworttext (app.js zeigt sie an).
      * verlauf: [{ rolle: "user" | "model", text }] · kontext: alle Daten, die die KI sehen darf
      */
     async frageKI(frage, verlauf, kontext) {

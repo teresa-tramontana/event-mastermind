@@ -8,7 +8,7 @@
  *   4. Vorschläge     – Titel, Description und Summary aus Vorlage + Tags bauen
  *   5. Ansichten      – Year, Quarter, Month, Week, Search, Deviations, Templates, Connections
  *   6. Dialoge        – Event-Formular, Social-Post-/Mail-Vorschlag
- *   7. Start          – Daten laden, Knöpfe verbinden
+ *   7. Start          – Daten laden, Knöpfe verbinden, Ask AI (Fragen + Änderungs-Vorschläge zum Übernehmen)
  *
  * WICHTIG: Diese Datei holt Daten NIE selbst, sondern immer über window.DataLayer.
  */
@@ -656,6 +656,7 @@
         <div class="event-aktionen">
           <button class="knopf klein" data-aktion="social">✨ Social post suggestion</button>
           <button class="knopf klein" data-aktion="mail">✉️ Reminder email suggestion</button>
+          ${zustand.benutzer.kiMoeglich ? `<button class="knopf klein" data-aktion="ki">✨ ${beschreibungsStand(e) === "ok" ? "Improve" : "Complete"} with AI</button>` : ""}
           <button class="knopf klein leise" data-aktion="bearbeiten">Edit</button>
         </div>
       </article>`;
@@ -675,6 +676,8 @@
       karte.querySelector('[data-aktion="social"]').addEventListener("click", () => zeigeVorschlag(event, "social"));
       karte.querySelector('[data-aktion="mail"]').addEventListener("click", () => zeigeVorschlag(event, "mail"));
       karte.querySelector('[data-aktion="bearbeiten"]').addEventListener("click", () => oeffneEventFormular(event));
+      const ki = karte.querySelector('[data-aktion="ki"]');
+      if (ki) ki.addEventListener("click", () => kiFuerEvent(event));
     });
   }
 
@@ -1183,15 +1186,20 @@
   }
 
   /** Formular zum Anlegen (ohne id) oder Bearbeiten (mit id) */
-  function oeffneEventFormular(vorlage) {
-    const neu = !vorlage || !vorlage.id;
-    const e = vorlage || {
+  /** Ein leeres neues Event mit Standardwerten */
+  function leeresEvent() {
+    return {
       titel: "", datum: alsText(zustand.datum || heute()), startzeit: "18:00", kategorie: KATEGORIEN[0],
       status: "Idea", ort: "Loft – Event Space", "kapazität": 30, anmeldungen: 0,
       verantwortlich: "Community Lead", eventbriteId: "", kalenderId: "", tags: [],
       zusammenfassung: "", beschreibung: normBeschreibung(null),
       aufgaben: STANDARD_AUFGABEN.map((text) => ({ text, erledigt: false })),
     };
+  }
+
+  function oeffneEventFormular(vorlage) {
+    const neu = !vorlage || !vorlage.id;
+    const e = vorlage || leeresEvent();
     const jahr = zustand.model.jahr;
     const eb = normBeschreibung(e.beschreibung);
     const team = [...new Set(zustand.events.map((x) => x.verantwortlich))].sort();
@@ -1474,13 +1482,16 @@
     });
   }
 
-  // ---------- Ask AI (Gemini) – nur lesend: die KI bekommt die Daten und beantwortet Fragen
+  // ---------- Ask AI (Gemini): die KI bekommt die Daten und beantwortet Fragen.
+  // Sie kann selbst nichts speichern. Wenn man sie darum bittet, schreibt sie Änderungs-Vorschläge
+  // ("change"-Blöcke). Die App zeigt sie als Karte; gespeichert wird erst, wenn ein Mensch "Apply" klickt.
 
   const KI_BEISPIELE = [
     "Which months deviate most from the plan?",
     "Which upcoming events are missing description info?",
     "What's on in the next two weeks?",
     "How full were our workshops on average?",
+    "Fill in the missing description info of the next 3 events",
   ];
   const kiVerlauf = []; // { rolle: "user" | "model", text } – nur solange die Seite offen ist
 
@@ -1531,6 +1542,191 @@
     return html;
   }
 
+  // ---------- Änderungs-Vorschläge der KI ("change"-Blöcke)
+
+  // Diese Felder darf ein Vorschlag ändern (alles andere wird ignoriert)
+  const KI_FELDER = ["titel", "zusammenfassung", "tags", "beschreibung", "datum", "startzeit", "ort",
+    "kapazität", "status", "kategorie", "verantwortlich"];
+  const KI_FELD_NAMEN = {
+    titel: "Title", zusammenfassung: "Summary", tags: "Tags", datum: "Date", startzeit: "Start time", ort: "Location",
+    "kapazität": "Capacity", status: "Status", kategorie: "Category", verantwortlich: "Owner",
+  };
+
+  /** Antwort zerlegen in Text-Stücke und ```change …```-Blöcke */
+  function kiZerlege(text) {
+    const teile = [];
+    const muster = /```change\s*\n?([\s\S]*?)```/g;
+    let rest = 0;
+    let treffer;
+    while ((treffer = muster.exec(text))) {
+      if (treffer.index > rest) teile.push({ art: "text", text: text.slice(rest, treffer.index) });
+      teile.push({ art: "change", text: treffer[1] });
+      rest = muster.lastIndex;
+    }
+    if (rest < text.length) teile.push({ art: "text", text: text.slice(rest) });
+    return teile;
+  }
+
+  /**
+   * Einen Vorschlag prüfen und aufräumen. Nur erlaubte Felder und gültige Werte bleiben übrig.
+   * → { id, grund, felder, hinweise[] } oder { fehler }
+   */
+  function kiPruefeVorschlag(rohText) {
+    let roh;
+    try { roh = JSON.parse(rohText); } catch (e) { return { fehler: "The AI sent a suggestion I couldn't read." }; }
+    if (!roh || typeof roh !== "object" || !roh.felder || typeof roh.felder !== "object") {
+      return { fehler: "The AI sent an incomplete suggestion." };
+    }
+    const id = roh.id ? String(roh.id) : "";
+    if (id && !zustand.events.some((e) => e.id === id)) return { fehler: `Event “${id}” does not exist.` };
+    const felder = {};
+    const hinweise = [];
+    const jahr = String(zustand.model.jahr);
+    Object.keys(roh.felder).forEach((name) => {
+      const wert = roh.felder[name];
+      if (!KI_FELDER.includes(name)) return;
+      if (name === "tags") {
+        if (!Array.isArray(wert)) return;
+        const erlaubt = zustand.tags.map((t) => t.tag);
+        const gut = [...new Set(wert.map(String).filter((t) => erlaubt.includes(t)))];
+        const unbekannt = wert.map(String).filter((t) => !erlaubt.includes(t));
+        if (unbekannt.length) hinweise.push("Ignored unknown tags: " + unbekannt.join(", "));
+        felder.tags = gut;
+      } else if (name === "beschreibung") {
+        if (!wert || typeof wert !== "object") return;
+        const b = {};
+        BESCHREIBUNG_TEILE.forEach((t) => {
+          if (wert[t.schluessel] == null) return;
+          const inhalt = Array.isArray(wert[t.schluessel]) ? wert[t.schluessel].join("\n") : String(wert[t.schluessel]);
+          if (inhalt.trim()) b[t.schluessel] = inhalt.trim();
+        });
+        if (Object.keys(b).length) felder.beschreibung = b;
+      } else if (name === "kapazität") {
+        const zahl = Math.round(Number(wert));
+        if (zahl >= 0) felder[name] = zahl;
+      } else if (name === "datum") {
+        if (/^\d{4}-\d{2}-\d{2}$/.test(String(wert)) && String(wert).startsWith(jahr)) felder.datum = String(wert);
+        else hinweise.push(`Ignored date “${wert}” (must be in ${jahr}).`);
+      } else if (name === "startzeit") {
+        if (/^\d{2}:\d{2}$/.test(String(wert))) felder.startzeit = String(wert);
+      } else if (name === "status") {
+        if (STATUS.includes(String(wert))) felder.status = String(wert);
+      } else if (name === "kategorie") {
+        if (KATEGORIEN.includes(String(wert))) felder.kategorie = String(wert);
+      } else if (String(wert).trim()) {
+        felder[name] = String(wert).trim();
+      }
+    });
+    if (!id && (!felder.titel || !felder.datum)) return { fehler: "A new event needs at least a title and a date." };
+    if (!Object.keys(felder).length) return { fehler: "The suggestion contains no usable changes." };
+    return { id, grund: String(roh.grund || "").trim(), felder, hinweise };
+  }
+
+  /** Vorschlag auf ein Event anwenden (ohne zu speichern) → neues Event-Objekt */
+  function kiWendeAn(basis, felder) {
+    const e = JSON.parse(JSON.stringify(basis));
+    Object.keys(felder).forEach((name) => {
+      if (name === "beschreibung") e.beschreibung = Object.assign(normBeschreibung(e.beschreibung), felder.beschreibung);
+      else e[name] = felder[name];
+    });
+    return e;
+  }
+
+  /** Zeilen "Feld: alt → neu" für die Vorschlags-Karte */
+  function kiUnterschiede(alt, neu) {
+    const zeilen = [];
+    const zeile = (name, a, b) => {
+      if (String(a) === String(b)) return;
+      zeilen.push(`<div class="ki-diff-zeile"><span class="ki-diff-feld">${esc(name)}</span>` +
+        (a !== "" && a != null ? `<del>${esc(a)}</del>` : '<span class="ki-diff-leer">(empty)</span>') +
+        `<ins>${esc(b)}</ins></div>`);
+    };
+    Object.keys(KI_FELD_NAMEN).forEach((f) => {
+      const a = f === "tags" ? (alt.tags || []).join(", ") : alt[f];
+      const b = f === "tags" ? (neu.tags || []).join(", ") : neu[f];
+      zeile(KI_FELD_NAMEN[f], a == null ? "" : a, b == null ? "" : b);
+    });
+    const ba = normBeschreibung(alt.beschreibung), bn = normBeschreibung(neu.beschreibung);
+    BESCHREIBUNG_TEILE.forEach((t) => zeile(t.frage, ba[t.schluessel], bn[t.schluessel]));
+    return zeilen.join("");
+  }
+
+  /** Eine Vorschlags-Karte in die Chat-Blase setzen und ihre Knöpfe verbinden */
+  function kiVorschlagKarte(blase, rohText) {
+    const karte = document.createElement("div");
+    karte.className = "ki-vorschlag";
+    blase.appendChild(karte);
+    const v = kiPruefeVorschlag(rohText);
+    if (v.fehler) {
+      karte.classList.add("fehler");
+      karte.innerHTML = `<p>⚠ ${esc(v.fehler)}</p>`;
+      return;
+    }
+    const basis = v.id ? zustand.events.find((e) => e.id === v.id) : Object.assign(leeresEvent(), { titel: "" });
+    const vorschlag = kiWendeAn(basis, v.felder);
+    // Bei neuen Events alles als "neu" zeigen (Vergleich mit einem leeren Event)
+    const unterschiede = kiUnterschiede(v.id ? basis : {}, vorschlag);
+    karte.innerHTML = `
+      <div class="ki-vorschlag-kopf">${v.id ? "✏️ Change" : "➕ New event"}: <strong>${esc(vorschlag.titel || basis.titel)}</strong>
+        <span class="leise">${esc(datumSchoen(vorschlag.datum))}</span></div>
+      ${v.grund ? `<p class="leise">${esc(v.grund)}</p>` : ""}
+      <div class="ki-diff">${unterschiede || '<p class="leise">No differences to the current event.</p>'}</div>
+      ${v.hinweise.map((h) => `<p class="hinweis-klein">⚠ ${esc(h)}</p>`).join("")}
+      <div class="ki-vorschlag-knoepfe">
+        ${v.id && unterschiede ? '<button type="button" class="knopf klein haupt" data-ki="apply">Apply</button>' : ""}
+        ${unterschiede ? `<button type="button" class="knopf klein" data-ki="edit">${v.id ? "Edit first" : "Open as draft"}</button>` : ""}
+        <button type="button" class="knopf klein leise" data-ki="dismiss">Dismiss</button>
+      </div>`;
+    const knoepfe = karte.querySelector(".ki-vorschlag-knoepfe");
+    const status = (html) => { knoepfe.innerHTML = html; };
+
+    const apply = karte.querySelector('[data-ki="apply"]');
+    if (apply) apply.addEventListener("click", async () => {
+      // immer vom aktuellen Stand ausgehen (falls man inzwischen selbst etwas geändert hat)
+      const aktuell = zustand.events.find((e) => e.id === v.id);
+      if (!aktuell) { status('<span class="leise">⚠ This event no longer exists.</span>'); return; }
+      const vorher = JSON.parse(JSON.stringify(aktuell));
+      await window.DataLayer.speichereEvent(kiWendeAn(aktuell, v.felder));
+      await ladeNeu();
+      zeichne();
+      zeigeMeldung("AI suggestion applied ✓");
+      status('<span class="ki-erledigt">✓ Applied</span> <button type="button" class="knopf klein leise" data-ki="undo">Undo</button>');
+      knoepfe.querySelector('[data-ki="undo"]').addEventListener("click", async () => {
+        await window.DataLayer.speichereEvent(vorher);
+        await ladeNeu();
+        zeichne();
+        zeigeMeldung("Change undone");
+        status('<span class="leise">↩ Undone</span>');
+      });
+    });
+    const edit = karte.querySelector('[data-ki="edit"]');
+    if (edit) edit.addEventListener("click", () => {
+      // Formular mit dem Vorschlag öffnen – gespeichert wird erst mit "Save"
+      const aktuell = v.id ? zustand.events.find((e) => e.id === v.id) : basis;
+      if (!aktuell) { status('<span class="leise">⚠ This event no longer exists.</span>'); return; }
+      oeffneEventFormular(kiWendeAn(aktuell, v.felder));
+    });
+    karte.querySelector('[data-ki="dismiss"]').addEventListener("click", () => {
+      status('<span class="leise">Dismissed</span>');
+      karte.classList.add("verworfen");
+    });
+  }
+
+  /** KI-Antwort in eine Blase schreiben: Text als einfaches Markdown, Vorschläge als Karten */
+  function kiAntwortZeigen(blase, antwort, modell) {
+    blase.innerHTML = "";
+    kiZerlege(antwort).forEach((teil) => {
+      if (teil.art === "change") {
+        kiVorschlagKarte(blase, teil.text);
+      } else if (teil.text.trim()) {
+        const div = document.createElement("div");
+        div.innerHTML = kiHtml(teil.text);
+        blase.appendChild(div);
+      }
+    });
+    if (modell) blase.insertAdjacentHTML("beforeend", `<p class="ki-modell">${esc(modell)}</p>`);
+  }
+
   function kiNachricht(rolle, html) {
     const verlauf = document.getElementById("ki-verlauf");
     const blase = document.createElement("div");
@@ -1545,7 +1741,8 @@
     const verlauf = document.getElementById("ki-verlauf");
     verlauf.innerHTML = "";
     kiNachricht("model", `<p>Hi! Ask me anything about the events, the plan and the deviations in this app.
-      I can only <strong>read</strong> – I can't change anything.</p>
+      I can also <strong>suggest changes</strong> (titles, summaries, tags, descriptions, ticket info …) –
+      nothing is saved until you click <strong>Apply</strong>.</p>
       <div class="ki-beispiele">${KI_BEISPIELE.map((b) =>
         `<button type="button" class="knopf klein" data-ki-beispiel>${esc(b)}</button>`).join("")}</div>`);
     verlauf.querySelectorAll("[data-ki-beispiel]").forEach((b) =>
@@ -1581,8 +1778,7 @@
       ]);
       const antwort = ergebnis.antwort;
       warten.className = "ki-blase model";
-      warten.innerHTML = kiHtml(antwort) +
-        (ergebnis.modell ? `<p class="ki-modell">${esc(ergebnis.modell)}</p>` : "");
+      kiAntwortZeigen(warten, antwort, ergebnis.modell);
       kiVerlauf.push({ rolle: "user", text: frage }, { rolle: "model", text: antwort });
     } catch (fehler) {
       warten.className = "ki-blase model fehler";
@@ -1595,19 +1791,34 @@
     feld.focus();
   }
 
+  /** Chat-Fenster öffnen (true) oder schließen (false) */
+  function kiFensterOffen(offen) {
+    const knopf = document.getElementById("ki-knopf");
+    document.getElementById("ki-fenster").hidden = !offen;
+    knopf.hidden = offen;
+    knopf.setAttribute("aria-expanded", String(offen));
+    if (offen) document.getElementById("ki-frage").focus();
+    else knopf.focus();
+  }
+
+  /** Knopf "Complete with AI" an einer Event-Karte: Chat öffnen und passende Bitte schicken */
+  function kiFuerEvent(e) {
+    kiFensterOffen(true);
+    const fehlt = fehlendeTeile(e);
+    kiFragen(fehlt.length
+      ? `Please complete the event “${e.titel}” (${e.id}): write the missing description sections (${fehlt.join(", ")}) ` +
+        "and check title, summary, tags and ticket info."
+      : `Please improve the event “${e.titel}” (${e.id}): suggest a better title, summary, tags, description and ticket info where useful.`);
+  }
+
   function richteKiEin() {
     if (!zustand.benutzer.kiMoeglich) return; // per Doppelklick oder ohne Schlüssel: kein Knopf
     const knopf = document.getElementById("ki-knopf");
     const fenster = document.getElementById("ki-fenster");
     const feld = document.getElementById("ki-frage");
-    const setze = (offen) => {
-      fenster.hidden = !offen;
-      knopf.hidden = offen;
-      knopf.setAttribute("aria-expanded", String(offen));
-      if (offen) feld.focus();
-      else knopf.focus();
-    };
+    const setze = kiFensterOffen;
     kiBegruessung();
+    if (zustand.model) zeichne(); // Event-Karten bekommen jetzt den Knopf "Complete with AI"
     knopf.hidden = false;
     knopf.addEventListener("click", () => setze(true));
     document.getElementById("ki-schliessen").addEventListener("click", () => setze(false));

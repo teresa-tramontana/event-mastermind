@@ -69,19 +69,19 @@
 
   <div id="meldung" class="meldung" role="status" aria-live="polite"></div>
 
-  <!-- "Ask AI": Knopf unten rechts + kleines Chat-Fenster (nur online, nur lesend) -->
+  <!-- "Ask AI": Knopf unten rechts + kleines Chat-Fenster (nur online; Vorschläge speichert erst ein Klick auf "Apply") -->
   <button class="ki-knopf" id="ki-knopf" type="button" hidden aria-controls="ki-fenster" aria-expanded="false">
     <svg class="funkel" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2.5l1.9 5.6 5.6 1.9-5.6 1.9L10 17.5l-1.9-5.6L2.5 10l5.6-1.9z"/><path d="M18.5 13.5l.95 2.55 2.55.95-2.55.95-.95 2.55-.95-2.55L15 17l2.55-.95z"/></svg> Ask AI
   </button>
   <section class="ki-fenster" id="ki-fenster" hidden aria-label="Ask AI">
     <header class="ki-kopf">
       <span class="ki-titel"><svg class="funkel" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2.5l1.9 5.6 5.6 1.9-5.6 1.9L10 17.5l-1.9-5.6L2.5 10l5.6-1.9z"/><path d="M18.5 13.5l.95 2.55 2.55.95-2.55.95-.95 2.55-.95-2.55L15 17l2.55-.95z"/></svg> Ask AI</span>
-      <span class="ki-unter">Read-only · answers can be wrong</span>
+      <span class="ki-unter">Suggests changes · you decide · answers can be wrong</span>
       <button class="knopf rund leise" id="ki-schliessen" type="button" aria-label="Close">×</button>
     </header>
     <div class="ki-verlauf" id="ki-verlauf" aria-live="polite"></div>
     <form class="ki-eingabe" id="ki-formular">
-      <textarea id="ki-frage" rows="2" placeholder="Ask about events, the plan, deviations …" aria-label="Your question"></textarea>
+      <textarea id="ki-frage" rows="2" placeholder="Ask a question or ask for texts, e.g. “Write the ticket info for …”" aria-label="Your question"></textarea>
       <button class="knopf haupt" id="ki-senden" type="submit">Send</button>
     </form>
   </section>
