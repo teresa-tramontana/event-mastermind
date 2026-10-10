@@ -105,8 +105,7 @@ button { font: inherit; color: inherit; }
   box-shadow: 0 8px 24px rgba(43, 35, 32, .14);
 }
 .benutzer-menue p { margin: 0 0 6px; }
-.benutzer-email { font-weight: 700; word-break: break-all; margin-bottom: 12px !important; }
-.benutzer-menue .knopf { text-decoration: none; display: inline-block; margin-bottom: 8px; }
+.benutzer-email { font-weight: 700; word-break: break-all; margin-bottom: 0 !important; }
 .klein-text { font-size: .78rem; }
 .test-hinweis {
   font-size: .85rem; background: var(--ok-hell); border-radius: var(--radius-klein);

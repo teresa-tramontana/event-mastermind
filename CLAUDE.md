@@ -59,7 +59,7 @@ VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtu
 
 ### DataLayer-Schnittstelle (nicht umbenennen)
 
-`ladeAlles() → {events, templates, model, tags}` · `speichereEvent(event) → event` · `loescheEvent(id)` · `setzeDemoZurueck()` · `hatEigeneAenderungen()` · `ladeEinstellungen()` / `speichereEinstellungen(obj)` · `ladeVerbindungen()` · `ladeBenutzer() → {angemeldet, email, abmeldenUrl, mailMoeglich}` · `sendeTestMail(betreff, text) → {an, rest}` · Eigenschaft `quelle` (Text für die Fußzeile). Alle Lade-/Speicherfunktionen geben ein Promise zurück.
+`ladeAlles() → {events, templates, model, tags}` · `speichereEvent(event) → event` · `loescheEvent(id)` · `setzeDemoZurueck()` · `hatEigeneAenderungen()` · `ladeEinstellungen()` / `speichereEinstellungen(obj)` · `ladeVerbindungen()` · `ladeBenutzer() → {angemeldet, email, mailMoeglich}` · `sendeTestMail(betreff, text) → {an, rest}` · Eigenschaft `quelle` (Text für die Fußzeile). Alle Lade-/Speicherfunktionen geben ein Promise zurück.
 
 `ladeBenutzer` und `sendeTestMail` funktionieren nur in der Apps-Script-Version (sie rufen Funktionen aus `apps-script/Code.gs` über `google.script.run` auf). Per Doppelklick gibt es kein Benutzer-Menü und keinen Test-Mail-Knopf.
 

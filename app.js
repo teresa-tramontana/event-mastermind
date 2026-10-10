@@ -27,7 +27,7 @@
     ansicht: "year",
     datum: null, // das Datum, um das sich die Ansicht dreht ("Cursor")
     suche: { text: "", kategorie: "", status: "", nurKommende: false, nurLuecken: false },
-    benutzer: { angemeldet: false, email: "", abmeldenUrl: "", mailMoeglich: false },
+    benutzer: { angemeldet: false, email: "", mailMoeglich: false },
   };
 
   const KATEGORIEN = ["Workshop", "Networking", "Talk", "Community Lunch", "Pitch Night"];
@@ -1453,8 +1453,6 @@
       <div class="benutzer-menue" id="benutzer-menue" hidden>
         <p class="leise klein-text">Signed in as</p>
         <p class="benutzer-email">${esc(b.email)}</p>
-        <a class="knopf klein" href="${esc(b.abmeldenUrl)}" target="_top">Sign out</a>
-        <p class="leise klein-text">Signs you out of Google in this browser (Gmail, Drive … too).</p>
       </div>`;
     box.hidden = false;
     const knopf = document.getElementById("benutzer-knopf");

@@ -150,18 +150,17 @@
     },
 
     /**
-     * Wer ist angemeldet? → { angemeldet, email, abmeldenUrl, mailMoeglich }
+     * Wer ist angemeldet? → { angemeldet, email, mailMoeglich }
      * Per Doppelklick (ohne Google) ist niemand angemeldet.
      */
     async ladeBenutzer() {
       if (!inAppsScript()) {
-        return { angemeldet: false, email: "", abmeldenUrl: "", mailMoeglich: false };
+        return { angemeldet: false, email: "", mailMoeglich: false };
       }
       const antwort = await rufeServer("holeBenutzer");
       return {
         angemeldet: !!antwort.email,
         email: antwort.email,
-        abmeldenUrl: "https://accounts.google.com/Logout",
         mailMoeglich: !!antwort.email,
       };
     },
