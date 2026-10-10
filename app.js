@@ -633,16 +633,40 @@
     },
   };
 
-  // Platzhalter für die Ansichten der nächsten Schritte
-  ["verbindungen"].forEach((name) => {
-    ANSICHTEN[name] = {
-      blaettern: false,
-      titel: () => name.charAt(0).toUpperCase() + name.slice(1),
-      zeichne() {
-        $inhalt.innerHTML = `<div class="karte"><p>Diese Ansicht wird im nächsten Bauschritt ergänzt. 🛠️</p></div>`;
-      },
-    };
-  });
+  // ---------------------------------------------------------------- Verbindungen
+  const VERBINDUNG_FARBE = { notion: "#2b2320", eventbrite: "#d2552e", gmail: "#d9677a", gcal: "#d99a1e" };
+  const VERBINDUNG_KUERZEL = { notion: "N", eventbrite: "Eb", gmail: "M", gcal: "31" };
+
+  ANSICHTEN.verbindungen = {
+    blaettern: false,
+    titel: () => "Verbindungen",
+    async zeichne() {
+      const liste = await window.DataLayer.ladeVerbindungen();
+      $inhalt.innerHTML = `
+        <p class="leise" style="margin-top:0">Hier werden später die echten Dienste angeschlossen. In der Demo ist noch nichts verbunden –
+          alle Zahlen und Namen sind erfunden.</p>
+        <div class="verbindungen">${liste.map((v) => `
+          <article class="karte verbindung">
+            <div class="verbindung-logo" style="background:${VERBINDUNG_FARBE[v.id] || "var(--akzent)"}" aria-hidden="true">${VERBINDUNG_KUERZEL[v.id] || "?"}</div>
+            <h2>${esc(v.name)}</h2>
+            <span class="verbindung-status">${v.verbunden ? "verbunden" : "nicht verbunden (Demo)"}</span>
+            <p style="margin:0">${esc(v.zweck)}</p>
+            <p class="leise" style="margin:0;font-size:.88rem"><strong>Später:</strong> ${esc(v.spaeter)}</p>
+            <button class="knopf klein" disabled title="Kommt in einer späteren Ausbaustufe">Verbinden (bald)</button>
+          </article>`).join("")}</div>
+        <section class="karte abschnitt">
+          <h2>So geht es weiter</h2>
+          <ol>
+            <li>Notion als Datenquelle (nur lesen)</li>
+            <li>Soll-Ist-Abgleich mit echten Modell-Daten</li>
+            <li>Eventbrite: Entwürfe aus Vorlagen anlegen</li>
+            <li>Google Calendar und Gmail (Login, minimale Rechte)</li>
+            <li>Social-Vorschläge und Mail-Intelligenz mit KI</li>
+          </ol>
+          <p class="leise" style="margin-bottom:0">Technisch wird dafür nur die Datei <code>data-layer.js</code> ausgetauscht – die Oberfläche bleibt gleich.</p>
+        </section>`;
+    },
+  };
 
   // ======================================================================
   // 5. DIALOGE
