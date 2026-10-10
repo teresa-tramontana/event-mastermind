@@ -394,6 +394,41 @@ details.beschreibung p { white-space: pre-line; margin: 6px 0 0; }
 .platzhalter { background: var(--akzent-hell); color: var(--akzent-dunkel); border-radius: 4px; padding: 0 4px; font-size: .9em; }
 .ideen { margin: 6px 0 0; padding-left: 18px; }
 
+/* ---------------------------------------------------------- Fehlende Infos & gegliederte Description */
+.info-fehlt {
+  margin-top: 10px; padding: 9px 12px; border-radius: var(--radius-klein); font-size: .9rem;
+  background: var(--warnung-hell); border: 1px solid #f4c79c; color: #7a3d0c;
+}
+.info-fehlt.kritisch { background: var(--kritisch-hell); border-color: #eeb0a8; color: var(--kritisch); }
+.abzeichen {
+  display: inline-block; font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+  background: var(--warnung-hell); color: #8a4a12; white-space: nowrap;
+}
+.abzeichen.kritisch { background: var(--kritisch); color: #fff; }
+.chip-warnung { color: var(--kritisch); font-weight: 700; margin-right: 3px; }
+.text-kritisch { color: var(--kritisch); }
+.fehlt-text { color: var(--kritisch); font-weight: 500; font-style: italic; }
+.zaehler.info { background: var(--warnung); }
+a.kennzahl { text-decoration: none; color: inherit; }
+.kennzahl.warnend { border-color: #eeb0a8; background: var(--kritisch-hell); }
+.kennzahl.warnend .wert { color: var(--kritisch); }
+.rahmen-warnung { border-color: #eeb0a8; border-left: 5px solid var(--kritisch); }
+.tabelle tr.vergangen td { opacity: .6; }
+.haken-gruppe { display: flex; flex-direction: column; gap: 2px; }
+.b-kopf { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--text-leise); margin: 10px 0 2px; }
+.b-gruppe { border-top: 1px dashed var(--linie); padding: 8px 0 2px; }
+.b-gruppe h4 { font-size: .92rem; margin: 0 0 4px; }
+.b-gruppe h5 { font-size: .8rem; margin: 8px 0 2px; color: var(--text-leise); font-weight: 500; }
+.b-gruppe p { margin: 0 0 4px; white-space: pre-line; }
+.b-gruppe p.agenda { font-variant-numeric: tabular-nums; background: var(--flaeche-warm); padding: 6px 10px; border-radius: 6px; }
+.beschreibung-felder { border: 1px solid var(--linie); border-radius: var(--radius); padding: 10px 12px 12px; display: grid; gap: 10px; margin: 0; }
+.beschreibung-felder legend { font-weight: 700; font-size: .9rem; padding: 0 6px; }
+.formular textarea.fehlt { border-color: #eeb0a8; background: #fff6f4; }
+.formular textarea.fehlt::placeholder { color: var(--kritisch); opacity: .8; }
+.beschreibung-vorlage h5 { margin: 8px 0 2px; font-size: .8rem; }
+.beschreibung-vorlage pre { margin-top: 2px; }
+details.vorschau { background: var(--flaeche); border-radius: 8px; padding: 6px 10px; margin-top: 6px; }
+
 /* ---------------------------------------------------------- Handy */
 @media (max-width: 900px) {
   .heatmap { grid-template-columns: repeat(3, 1fr); }

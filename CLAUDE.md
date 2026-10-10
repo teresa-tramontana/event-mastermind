@@ -40,8 +40,11 @@ tools/baue-demo-daten.py     kopiert JSON -> data/demo-daten.js
 
 ### Datenmodell
 
-- **Event:** `id, titel, datum (JJJJ-MM-TT), startzeit (HH:MM), kategorie, status (Idea | Planned | Published | Done), ort, kapazität, anmeldungen, verantwortlich, eventbriteId, kalenderId, tags[], zusammenfassung (Summary), beschreibung (Description)`, zusätzlich `aufgaben[] ({text, erledigt})` für die Wochenansicht.
-- **Vorlage:** `kategorie, titelVorlage, titelIdeen[], beschreibung, summaryVorlage, tags[], socialText, mailText`. In `titelIdeen`, `beschreibung` und `summaryVorlage` steht `{thema}` für das Thema und `{merkmale}` für die Tag-Stichworte. In `socialText`/`mailText`: `{titel} {datum} {uhrzeit} {ort} {kategorie} {summary}`.
+- **Event:** `id, titel, datum (JJJJ-MM-TT), startzeit (HH:MM), kategorie, status (Idea | Planned | Published | Done), ort, kapazität, anmeldungen, verantwortlich, eventbriteId, kalenderId, tags[], zusammenfassung (Summary), beschreibung (Description, gegliedert – siehe unten)`, zusätzlich `aufgaben[] ({text, erledigt})` für die Wochenansicht.
+- **Description (`beschreibung`)** ist ein Objekt mit festen Abschnitten (Reihenfolge = Anzeige):
+  `worum` (What is it about?) · `rahmen` (Setting/framework) · `haeufigkeit` (Frequency) · `warum` (Why are we doing this? / Outcome) · `zielgruppe` (For whom is it? / Target group) · `ergebnis` (Outcome for members & goals) · `agenda` (What's on the agenda?, eine Zeile pro Punkt) · `tickets` (Ticket info) · `betreuung` (Attended by / responsibility – welches Team leitet/betreut).
+  Leere Abschnitte = fehlende Info → werden **überall deutlich markiert** (Woche, Kalender, Suche, Jahres-Kennzahl, Abweichungs-Seite, Navigations-Zähler). Fehlende Infos nie still mit erfundenem Text füllen, sondern sichtbar lassen, bis ein Mensch sie ergänzt oder einen Vorschlag übernimmt.
+- **Vorlage:** `kategorie, titelVorlage, titelIdeen[], beschreibung, summaryVorlage, tags[], socialText, mailText`. `beschreibung` hat dieselben Abschnitte wie beim Event; `agenda` ist dort eine Liste `[Minuten ab Start, Programmpunkt]`. Platzhalter: `{thema}` (Thema), `{merkmale}` (Tag-Stichworte), `{ort}`, `{kapazitaet}`, `{verantwortlich}`. In `socialText`/`mailText`: `{titel} {datum} {uhrzeit} {ort} {kategorie} {summary} {tickets} {agenda}`.
 - **Tag:** `tag, kurz (Stichwort für die Summary), satz (Satz für die Description)`.
 - **Modell:** `jahr, demoHeute, kategorien[], monate[] ({monat, name, soll{Kategorie: Anzahl}, zielAuslastung})`, `quartale[]` (gleich aufgebaut).
 
@@ -55,6 +58,7 @@ tools/baue-demo-daten.py     kopiert JSON -> data/demo-daten.js
 - Auslastung = Anmeldungen / Kapazität, **nur** für Events mit Status „Done“.
 - Auffällig, wenn |Abweichung| > Schwelle (Standard 20 %, einstellbar, gespeichert im Browser).
 - Suche: jedes eingegebene Wort muss irgendwo im Event vorkommen (Titel, Summary, Description, Tags, Kategorie, Status, Ort, Verantwortlich, Aufgaben, Datum, IDs).
+- Fehlende Infos: ein Event gilt als unvollständig, sobald ein Description-Abschnitt leer ist; „keine Description“, wenn alle leer sind.
 - Vorschläge: werden ohne KI aus Vorlage + Tags gebaut (`baueVorschlaege` in app.js); später kann Gemini sie verfeinern.
 - „Heute“ ist in der Demo fest `model.demoHeute` (2026-10-10), damit die Daten stimmig bleiben.
 

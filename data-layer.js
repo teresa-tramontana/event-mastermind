@@ -17,7 +17,7 @@
   "use strict";
 
   // v2: seit der Umstellung auf Englisch (alte gespeicherte Daten passen nicht mehr)
-  const SPEICHER_EVENTS = "eventManager.events.v2";
+  const SPEICHER_EVENTS = "eventManager.events.v3"; // v3: gegliederte Description
   const SPEICHER_EINSTELLUNGEN = "eventManager.einstellungen.v1";
 
   const STANDARD_EINSTELLUNGEN = { schwelleProzent: 20 };

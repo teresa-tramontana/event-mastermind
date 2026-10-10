@@ -24,7 +24,17 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 **Tags** (feste Liste): Small groups, Formal, Informal, Peer feedback/exchange, Group work, Coaching/consulting, Workshop, Skillshare, Expert guidance, Practical exercises, Community/Gathering, 1:1 sessions, Guided networking, Matchmaking, Keynote/panel, Collaboration, Unwind. Im Formular klickst du sie einfach an.
 
-**Vorschläge für Titel, Description und Summary:** Im Event-Formular gibst du ein Thema ein (z. B. „crowdfunding“), wählst Tags und klickst auf **„✨ Suggest title, description & summary“**. Du bekommst mehrere Titel-Ideen, eine Kurzbeschreibung (Summary) und eine längere Beschreibung (Description). Mit „Use“ übernimmst du sie und kannst sie danach noch frei ändern. Die Vorschläge entstehen aus der Vorlage der Kategorie und aus den gewählten Tags. Es ist noch keine KI dabei, das kommt laut Fahrplan später.
+**Aufbau der Description** (Event-Beschreibung), immer in diesen Abschnitten:
+- *What is it about?*: Inhalt und Stimmung, dazu Setting/Framework (Format, Ort, Größe) und Frequency (wie oft)
+- *Why are we doing this?*: was das Event bewirken soll
+- *For whom is it?*: Zielgruppe
+- *Outcome for members & goals*: was Mitglieder mitnehmen, dazu *What's on the agenda?* (Ablauf mit Uhrzeiten)
+- *Ticket info*: Preis, Plätze, Anmeldung
+- *Attended by / responsibility (team)*: wer leitet, welche Teams vor Ort sind
+
+**Fehlende Infos werden sofort sichtbar:** Ist ein Abschnitt leer, erscheint ein ⚠-Hinweis: in der Wochenansicht, als ⚠ im Kalender, als Abzeichen in der Suche, als rote Kennzahl in der Jahresansicht und als orangener Zähler im Menü bei „Deviations“. Auf der Seite **Deviations** gibt es eine Liste „Missing event information“ mit allen betroffenen Events (kommende zuerst) und einem Knopf „Fill in“ (ausfüllen). In der Suche filtert „⚠ Missing description info“ genau diese Events.
+
+**Vorschläge für Titel, Description und Summary:** Im Event-Formular gibst du ein Thema ein (z. B. „crowdfunding“), wählst Tags und klickst auf **„✨ Suggest title, description & summary“**. Du bekommst mehrere Titel-Ideen, eine Kurzbeschreibung (Summary) und eine komplette Description mit allen Abschnitten. Mit „Fill missing sections only“ werden nur die leeren Abschnitte gefüllt, was du schon geschrieben hast, bleibt stehen. Mit „Replace all sections“ wird alles ersetzt. Danach kannst du alles frei ändern. Die Vorschläge entstehen aus der Vorlage der Kategorie und aus den gewählten Tags. Es ist noch keine KI dabei, das kommt laut Fahrplan später.
 
 Die 5 Kategorien sind: Workshop, Networking, Talk, Community Lunch, Pitch Night. Jede hat eine eigene Farbe.
 

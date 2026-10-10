@@ -26,7 +26,7 @@
     einstellungen: { schwelleProzent: 20 },
     ansicht: "year",
     datum: null, // das Datum, um das sich die Ansicht dreht ("Cursor")
-    suche: { text: "", kategorie: "", status: "", nurKommende: false },
+    suche: { text: "", kategorie: "", status: "", nurKommende: false, nurLuecken: false },
   };
 
   const KATEGORIEN = ["Workshop", "Networking", "Talk", "Community Lunch", "Pitch Night"];
@@ -36,6 +36,20 @@
   const MONATE_KURZ = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const WOCHENTAGE = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const WOCHENTAGE_KURZ = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  // Aufbau der Description (Event-Beschreibung). "schluessel" = Feldname in den Daten,
+  // "frage" = Überschrift in der Oberfläche, "gruppe" = Hauptabschnitt, zu dem er gehört.
+  const BESCHREIBUNG_TEILE = [
+    { schluessel: "worum", gruppe: "What is it about?", frage: "What is it about?", hilfe: "Topic, vibe, what happens" },
+    { schluessel: "rahmen", gruppe: "What is it about?", frage: "Setting / framework", hilfe: "Format, place, size, duration" },
+    { schluessel: "haeufigkeit", gruppe: "What is it about?", frage: "Frequency", hilfe: "One-off, monthly, quarterly …" },
+    { schluessel: "warum", gruppe: "Why are we doing this?", frage: "Why are we doing this?", hilfe: "The outcome of the event" },
+    { schluessel: "zielgruppe", gruppe: "For whom is it?", frage: "Target group", hilfe: "Who should come, who benefits" },
+    { schluessel: "ergebnis", gruppe: "Outcome for members & goals", frage: "Outcome for members & goals", hilfe: "What members take home" },
+    { schluessel: "agenda", gruppe: "Outcome for members & goals", frage: "What's on the agenda?", hilfe: "One line per item, e.g. 18:00 – Welcome" },
+    { schluessel: "tickets", gruppe: "Ticket info", frage: "Ticket info", hilfe: "Price, spots, how to register" },
+    { schluessel: "betreuung", gruppe: "Attended by / responsibility (team)", frage: "Attended by / responsibility (team)", hilfe: "Who leads, which teams are on site" },
+  ];
 
   const $inhalt = document.getElementById("inhalt");
   const $titel = document.getElementById("titel");
@@ -123,6 +137,68 @@
     el.classList.add("sichtbar");
     clearTimeout(zeigeMeldung.timer);
     zeigeMeldung.timer = setTimeout(() => el.classList.remove("sichtbar"), 2600);
+  }
+
+  // ---------- Description: Abschnitte prüfen und anzeigen
+
+  /** Description immer als Objekt mit allen Abschnitten (alte Daten waren ein einfacher Text) */
+  function normBeschreibung(b) {
+    const leer = {};
+    BESCHREIBUNG_TEILE.forEach((t) => { leer[t.schluessel] = ""; });
+    if (!b) return leer;
+    if (typeof b === "string") return Object.assign(leer, { worum: b });
+    BESCHREIBUNG_TEILE.forEach((t) => { leer[t.schluessel] = String(b[t.schluessel] || "").trim(); });
+    return leer;
+  }
+  /** Welche Abschnitte fehlen? -> Liste der Überschriften */
+  function fehlendeTeile(e) {
+    const b = normBeschreibung(e.beschreibung);
+    return BESCHREIBUNG_TEILE.filter((t) => !b[t.schluessel]).map((t) => t.frage);
+  }
+  /** "keine" = gar keine Description, "luecken" = teilweise, "ok" = vollständig */
+  function beschreibungsStand(e) {
+    const fehlt = fehlendeTeile(e).length;
+    return fehlt === BESCHREIBUNG_TEILE.length ? "keine" : fehlt ? "luecken" : "ok";
+  }
+  function eventsMitLuecken() {
+    return zustand.events.filter((e) => beschreibungsStand(e) !== "ok");
+  }
+  /** Gut sichtbarer Warnhinweis für fehlende Infos */
+  function lueckenHinweis(e) {
+    const stand = beschreibungsStand(e);
+    if (stand === "ok") return "";
+    if (stand === "keine") {
+      return `<div class="info-fehlt kritisch">⚠ <strong>No description yet.</strong> This event has no information for participants – please add one.</div>`;
+    }
+    const fehlt = fehlendeTeile(e);
+    return `<div class="info-fehlt">⚠ <strong>Description incomplete</strong> – missing: ${fehlt.map(esc).join(", ")}</div>`;
+  }
+  /** Kleines Abzeichen (für Listen und Kalender) */
+  function lueckenAbzeichen(e) {
+    const stand = beschreibungsStand(e);
+    if (stand === "ok") return "";
+    return stand === "keine"
+      ? '<span class="abzeichen kritisch" title="No description">⚠ No description</span>'
+      : `<span class="abzeichen" title="Missing: ${esc(fehlendeTeile(e).join(", "))}">⚠ ${fehlendeTeile(e).length} missing</span>`;
+  }
+  /** Die ganze Description, gegliedert; fehlende Abschnitte deutlich markiert */
+  function beschreibungHtml(b, kategorie) {
+    b = normBeschreibung(b);
+    const gruppen = [...new Set(BESCHREIBUNG_TEILE.map((t) => t.gruppe))];
+    const inhalt = gruppen.map((gruppe) => {
+      const teile = BESCHREIBUNG_TEILE.filter((t) => t.gruppe === gruppe);
+      return `<div class="b-gruppe"><h4>${esc(gruppe)}</h4>${teile.map((t) => `
+        ${t.frage !== gruppe ? `<h5>${esc(t.frage)}</h5>` : ""}
+        ${b[t.schluessel]
+          ? `<p class="${t.schluessel === "agenda" ? "agenda" : ""}">${esc(b[t.schluessel])}</p>`
+          : '<p class="fehlt-text">⚠ Missing – please add</p>'}`).join("")}</div>`;
+    }).join("");
+    return `<div class="b-kopf">Description · ${esc(kategorie)}</div>${inhalt}`;
+  }
+  /** Description als ein Text (für Suche) */
+  function beschreibungText(b) {
+    b = normBeschreibung(b);
+    return BESCHREIBUNG_TEILE.map((t) => b[t.schluessel]).filter(Boolean).join(" \n ");
   }
 
   // ======================================================================
@@ -269,10 +345,17 @@
     "Unwind": (T) => `${T} & Unwind`,
   };
 
+  /** "16:00" + 45 Minuten -> "16:45" */
+  function uhrzeitPlus(start, minuten) {
+    const [h, m] = String(start).split(":").map(Number);
+    const gesamt = (h || 0) * 60 + (m || 0) + minuten;
+    return String(Math.floor(gesamt / 60) % 24).padStart(2, "0") + ":" + String(gesamt % 60).padStart(2, "0");
+  }
+
   /**
    * Baut Vorschläge.
-   * eingabe: { kategorie, thema, tags[], datum, startzeit, ort, kapazität }
-   * Ergebnis: { titel: [...], beschreibung, zusammenfassung }
+   * eingabe: { kategorie, thema, tags[], datum, startzeit, ort, kapazität, verantwortlich }
+   * Ergebnis: { titel: [...], beschreibung: {worum, rahmen, …}, zusammenfassung }
    */
   function baueVorschlaege(eingabe) {
     const vorlage = zustand.templates.find((t) => t.kategorie === eingabe.kategorie) || {};
@@ -284,19 +367,24 @@
     const extraTag = tags.find((t) => TITEL_DURCH_TAG[t]);
     if (extraTag) titel.splice(1, 0, TITEL_DURCH_TAG[extraTag](T));
 
+    // Description: jeden Abschnitt aus der Vorlage füllen
+    const kap = Number(eingabe["kapazität"]) > 0 ? String(eingabe["kapazität"]) : "[number of]";
+    const ort = (eingabe.ort || "").trim() || "[location]";
+    const fuelle = (text) => String(text || "")
+      .replace(/\{thema\}/g, thema).replace(/\{ort\}/g, ort).replace(/\{kapazitaet\}/g, kap)
+      .replace(/\{verantwortlich\}/g, (eingabe.verantwortlich || "").trim() || "[team]");
+    const vb = vorlage.beschreibung && typeof vorlage.beschreibung === "object" ? vorlage.beschreibung : {};
+    const beschreibung = {};
+    BESCHREIBUNG_TEILE.forEach((t) => {
+      if (t.schluessel === "agenda") {
+        beschreibung.agenda = (vb.agenda || []).map(([minuten, punkt]) =>
+          (eingabe.startzeit ? uhrzeitPlus(eingabe.startzeit, minuten) + " – " : "") + fuelle(punkt)).join("\n");
+      } else {
+        beschreibung[t.schluessel] = fuelle(vb[t.schluessel]);
+      }
+    });
     const saetze = tags.map(tagInfo).filter(Boolean).map((t) => t.satz).join(" ");
-    const praktisch = [
-      eingabe.datum ? "📅 " + datumSchoen(eingabe.datum, true) : "",
-      eingabe.startzeit ? "🕒 " + eingabe.startzeit : "",
-      eingabe.ort ? "📍 " + eingabe.ort : "",
-    ].filter(Boolean).join(" · ");
-    const plaetze = Number(eingabe["kapazität"]) > 0
-      ? `${eingabe["kapazität"]} spots – register via Eventbrite.` : "Register via Eventbrite.";
-    const beschreibung = [
-      String(vorlage.beschreibung || "An event about {thema}.").replace(/\{thema\}/g, thema),
-      saetze,
-      (praktisch ? praktisch + "\n" : "") + plaetze,
-    ].filter(Boolean).join("\n\n");
+    if (saetze) beschreibung.rahmen = (beschreibung.rahmen + " " + saetze).trim();
 
     const zusammenfassung = String(vorlage.summaryVorlage || "{thema} – {merkmale}.")
       .replace(/\{thema\}/g, thema)
@@ -350,6 +438,7 @@
           <div class="kennzahl"><div class="wert">${jahresEvents.filter((e) => e.status === "Done").length}</div><div class="label">already done</div></div>
           <div class="kennzahl"><div class="wert">${jahresVergleich.auslastung !== null ? prozent(jahresVergleich.auslastung) : "–"}</div><div class="label">⌀ occupancy (target ${zustand.model.monate[0].zielAuslastung}%)</div></div>
           <div class="kennzahl"><div class="wert">${auffaelligeMonate.length}</div><div class="label">months deviating &gt; ${zustand.einstellungen.schwelleProzent}%</div></div>
+          <a class="kennzahl ${eventsMitLuecken().length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/fehlende-infos"><div class="wert">${eventsMitLuecken().length ? "⚠ " + eventsMitLuecken().length : "✓"}</div><div class="label">events with missing description info</div></a>
         </div>
         <div class="heatmap">${kacheln}</div>
         <div class="abschnitt gitter-2">
@@ -473,7 +562,7 @@
         const chips = events.map((e) => `
           <button class="ev-chip ${katKlasse(e.kategorie)} ${e.status === "Idea" ? "idee" : ""}" data-event="${esc(e.id)}" data-datum="${text}"
                   title="${esc(e.titel)} · ${esc(e.status)}">
-            <span class="zeit">${esc(e.startzeit)}</span> ${esc(e.titel)}
+            ${beschreibungsStand(e) !== "ok" ? `<span class="chip-warnung" title="Description ${beschreibungsStand(e) === "keine" ? "missing" : "incomplete"}">⚠</span>` : ""}<span class="zeit">${esc(e.startzeit)}</span> ${esc(e.titel)}
           </button>`).join("");
         zellen += `
           <div class="tag-zelle ${fremd ? "fremd" : ""} ${text === heuteText ? "heute" : ""} ${events.length ? "" : "ohne-events"}">
@@ -538,7 +627,7 @@
       <article class="event-karte ${katKlasse(e.kategorie)}" id="event-${esc(e.id)}" data-event="${esc(e.id)}">
         <div class="event-kopf">
           <div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">${katPille(e.kategorie)} ${statusPille(e.status)}</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)}</div>
             <h3>${esc(e.titel)}</h3>
             ${e.zusammenfassung ? `<p class="summary">${esc(e.zusammenfassung)}</p>` : ""}
           </div>
@@ -560,7 +649,8 @@
             <ul class="aufgaben">${aufgaben || '<li class="leise">No tasks</li>'}</ul>
           </div>
         </div>
-        ${e.beschreibung ? `<details class="beschreibung"><summary>Description</summary><p>${esc(e.beschreibung)}</p></details>` : ""}
+        ${lueckenHinweis(e)}
+        ${beschreibungsStand(e) !== "keine" ? `<details class="beschreibung"><summary>Description${beschreibungsStand(e) === "luecken" ? " (incomplete)" : ""}</summary>${beschreibungHtml(e.beschreibung, e.kategorie)}</details>` : ""}
         ${r ? `<div class="reminder ${r.stufe}">${esc(r.text)}</div>` : ""}
         <div class="event-aktionen">
           <button class="knopf klein" data-aktion="social">✨ Social post suggestion</button>
@@ -635,7 +725,8 @@
     return [
       ["Title", e.titel],
       ["Summary", e.zusammenfassung],
-      ["Description", e.beschreibung],
+      ["Description", beschreibungText(e.beschreibung)],
+      ["Missing", beschreibungsStand(e) === "ok" ? "" : "missing incomplete " + fehlendeTeile(e).join(", ")],
       ["Tags", (e.tags || []).join(", ")],
       ["Category", e.kategorie],
       ["Status", e.status],
@@ -677,6 +768,7 @@
       .filter((e) => !s.kategorie || e.kategorie === s.kategorie)
       .filter((e) => !s.status || e.status === s.status)
       .filter((e) => !s.nurKommende || e.datum >= heuteText)
+      .filter((e) => !s.nurLuecken || beschreibungsStand(e) !== "ok")
       .map((e) => {
         const felder = suchFelder(e);
         const alles = felder.map((f) => String(f[1] || "")).join(" \n ").toLowerCase();
@@ -705,7 +797,10 @@
           </label>
           <label>Category<select id="filter-kategorie">${auswahl(KATEGORIEN, s.kategorie, "All categories")}</select></label>
           <label>Status<select id="filter-status">${auswahl(STATUS, s.status, "All statuses")}</select></label>
-          <label class="haken"><input type="checkbox" id="filter-kommend" ${s.nurKommende ? "checked" : ""}> Upcoming only</label>
+          <div class="haken-gruppe">
+            <label class="haken"><input type="checkbox" id="filter-kommend" ${s.nurKommende ? "checked" : ""}> Upcoming only</label>
+            <label class="haken"><input type="checkbox" id="filter-luecken" ${s.nurLuecken ? "checked" : ""}> ⚠ Missing description info</label>
+          </div>
           <p class="leise breit" style="margin:0;font-size:.82rem">Searches titles, summaries, descriptions, tags, locations, owners, tasks, dates and IDs.
             Several words = all must match. Tip: click a tag on a result to search for it.</p>
         </section>
@@ -716,6 +811,7 @@
       document.getElementById("filter-kategorie").addEventListener("change", (ev) => setzeSuche({ kategorie: ev.target.value }));
       document.getElementById("filter-status").addEventListener("change", (ev) => setzeSuche({ status: ev.target.value }));
       document.getElementById("filter-kommend").addEventListener("change", (ev) => setzeSuche({ nurKommende: ev.target.checked }));
+      document.getElementById("filter-luecken").addEventListener("change", (ev) => setzeSuche({ nurLuecken: ev.target.checked }));
       zeichneSuchergebnisse();
       if (document.activeElement !== document.getElementById("suche")) gross.focus();
     },
@@ -735,11 +831,11 @@
       <article class="treffer ${katKlasse(e.kategorie)}">
         <div class="treffer-datum"><strong>${alsDatum(e.datum).getDate()}</strong><span>${MONATE_KURZ[alsDatum(e.datum).getMonth()]}</span></div>
         <div class="treffer-inhalt">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${katPille(e.kategorie)} ${statusPille(e.status)}
+          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)}
             <span class="leise" style="font-size:.82rem">${esc(datumSchoen(e.datum))} · ${esc(e.startzeit)} · ${markiere(e.ort, woerter)}</span></div>
           <h3>${markiere(e.titel, woerter)}</h3>
           ${e.zusammenfassung ? `<p class="summary">${markiere(e.zusammenfassung, woerter)}</p>` : ""}
-          ${fundstellen.filter(([name]) => !["Summary", "Location", "Category", "Status", "Tags"].includes(name)).slice(0, 2).map(([name, wert]) =>
+          ${fundstellen.filter(([name]) => !["Summary", "Location", "Category", "Status", "Tags", "Missing"].includes(name)).slice(0, 2).map(([name, wert]) =>
             `<p class="fundstelle"><span>${name}:</span> ${markiere(ausschnitt(wert, woerter, 140), woerter)}</p>`).join("")}
           <div class="tags">${(e.tags || []).map((t) => `<button class="tag tag-knopf" data-tag="${esc(t)}">${markiere(t, woerter)}</button>`).join("")}</div>
         </div>
@@ -777,8 +873,8 @@
   // ---------------------------------------------------------------- Deviations
   ANSICHTEN.deviations = {
     blaettern: false,
-    titel: () => "Deviations from the model",
-    zeichne() {
+    titel: () => "Deviations & missing info",
+    zeichne(d, fokus) {
       const schwelle = zustand.einstellungen.schwelleProzent;
       $inhalt.innerHTML = `
         <section class="karte">
@@ -791,7 +887,10 @@
             <button class="knopf klein leise" id="schwelle-standard">Default (20%)</button>
           </div>
         </section>
+        <div id="fehlende-infos-box"></div>
         <div id="warnliste"></div>`;
+      zeichneFehlendeInfos();
+      if (fokus === "fehlende-infos") document.getElementById("fehlende-infos-box").scrollIntoView({ block: "start" });
 
       const regler = document.getElementById("schwelle");
       const setze = async (wert) => {
@@ -807,6 +906,33 @@
       zeichneWarnliste();
     },
   };
+
+  /** Liste aller Events, bei denen Infos in der Description fehlen (kommende zuerst) */
+  function zeichneFehlendeInfos() {
+    const heuteText = alsText(heute());
+    const liste = eventsMitLuecken().sort((a, b) => {
+      const ak = a.datum >= heuteText, bk = b.datum >= heuteText;
+      if (ak !== bk) return ak ? -1 : 1;
+      return ak ? a.datum.localeCompare(b.datum) : b.datum.localeCompare(a.datum);
+    });
+    const box = document.getElementById("fehlende-infos-box");
+    box.innerHTML = `
+      <section class="karte abschnitt ${liste.length ? "rahmen-warnung" : ""}">
+        <h2>${liste.length ? "⚠ " : "✓ "}Missing event information <span class="leise">(${liste.length} ${liste.length === 1 ? "event" : "events"})</span></h2>
+        <p class="untertitel">Events whose description is empty or incomplete. Upcoming events first – fix these before publishing.</p>
+        ${liste.length ? `<div class="tabellen-rahmen"><table class="tabelle abschnitt">
+          <thead><tr><th>Date</th><th>Event</th><th>Status</th><th>What's missing</th><th></th></tr></thead>
+          <tbody>${liste.map((e) => `<tr class="${e.datum >= heuteText ? "" : "vergangen"}">
+            <td style="white-space:nowrap">${esc(datumSchoen(e.datum))}${e.datum >= heuteText && tageBis(e.datum) <= 30 ? ' <span class="abzeichen kritisch">soon</span>' : ""}</td>
+            <td>${katPille(e.kategorie)}<br><strong>${esc(e.titel)}</strong></td>
+            <td>${statusPille(e.status)}</td>
+            <td>${beschreibungsStand(e) === "keine" ? '<strong class="text-kritisch">No description at all</strong>' : esc(fehlendeTeile(e).join(", "))}</td>
+            <td><button class="knopf klein" data-ergaenzen="${esc(e.id)}">Fill in</button></td>
+          </tr>`).join("")}</tbody></table></div>` : '<p class="leise">All events have a complete description. 🎉</p>'}
+      </section>`;
+    box.querySelectorAll("[data-ergaenzen]").forEach((b) => b.addEventListener("click", () =>
+      oeffneEventFormular(zustand.events.find((x) => x.id === b.dataset.ergaenzen))));
+  }
 
   function zeichneWarnliste() {
     const jahr = zustand.model.jahr;
@@ -856,7 +982,8 @@
       $inhalt.innerHTML = `
         <p class="leise" style="margin-top:0">Each category has a template. It is used for new event drafts, for title, description and summary suggestions,
           and for social post and email suggestions. Placeholders like <code>{titel}</code>, <code>{datum}</code>, <code>{uhrzeit}</code>,
-          <code>{ort}</code> and <code>{summary}</code> are filled in automatically; <code>{thema}</code> is the event's topic.</p>
+          <code>{ort}</code> and <code>{summary}</code> are filled in automatically; <code>{thema}</code> is the event's topic,
+          <code>{kapazitaet}</code> the number of spots and <code>{verantwortlich}</code> the owner.</p>
         <div class="vorlagen">${zustand.templates.map((t, i) => {
           const anzahl = zustand.events.filter((e) => e.kategorie === t.kategorie && e.datum.startsWith(String(jahr))).length;
           const thema = (text) => esc(text).replace(/\{thema\}/g, '<span class="platzhalter">topic</span>');
@@ -865,8 +992,13 @@
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">${katPille(t.kategorie)}
               <span class="leise" style="font-size:.82rem">${anzahl} events in ${jahr}</span></div>
             <div class="titel-vorlage" title="Title template">${esc(t.titelVorlage)}</div>
-            <p style="margin:0">${thema(t.beschreibung)}</p>
+            <p style="margin:0">${thema((t.beschreibung && t.beschreibung.worum) || "")}</p>
             <div class="tags">${tagPillen(t.tags)}</div>
+            <details><summary>Description template</summary><div class="beschreibung-vorlage">${BESCHREIBUNG_TEILE.map((teil) => {
+              const wert = (t.beschreibung || {})[teil.schluessel];
+              const text = Array.isArray(wert) ? wert.map(([min, punkt]) => `+${min} min – ${punkt}`).join("\n") : wert || "";
+              return `<h5>${esc(teil.frage)}</h5><pre>${text ? thema(text) : '<span class="fehlt-text">⚠ Missing in template</span>'}</pre>`;
+            }).join("")}</div></details>
             <details><summary>Title ideas</summary><ul class="ideen">${(t.titelIdeen || []).map((x) => `<li>${thema(x)}</li>`).join("")}</ul></details>
             <details><summary>Summary template</summary><pre>${thema(t.summaryVorlage || "")}</pre></details>
             <details><summary>Social post text</summary><pre>${esc(t.socialText)}</pre></details>
@@ -950,6 +1082,8 @@
       ort: e.ort,
       kategorie: e.kategorie,
       summary: e.zusammenfassung || "",
+      tickets: normBeschreibung(e.beschreibung).tickets,
+      agenda: normBeschreibung(e.beschreibung).agenda,
     };
     return String(text || "").replace(/\{(\w+)\}/g, (alles, name) => (name in werte ? werte[name] : alles))
       .replace(/\n{3,}/g, "\n\n");
@@ -1016,7 +1150,7 @@
       kalenderId: "",
       tags: t.tags.slice(),
       zusammenfassung: "",
-      beschreibung: "",
+      beschreibung: normBeschreibung(null),
       aufgaben: STANDARD_AUFGABEN.map((text) => ({ text, erledigt: false })),
       ausVorlage: true, // nur für die Überschrift im Formular, wird nicht gespeichert
     };
@@ -1029,10 +1163,11 @@
       titel: "", datum: alsText(zustand.datum || heute()), startzeit: "18:00", kategorie: KATEGORIEN[0],
       status: "Idea", ort: "Loft – Event Space", "kapazität": 30, anmeldungen: 0,
       verantwortlich: "Community Lead", eventbriteId: "", kalenderId: "", tags: [],
-      zusammenfassung: "", beschreibung: "",
+      zusammenfassung: "", beschreibung: normBeschreibung(null),
       aufgaben: STANDARD_AUFGABEN.map((text) => ({ text, erledigt: false })),
     };
     const jahr = zustand.model.jahr;
+    const eb = normBeschreibung(e.beschreibung);
     const team = [...new Set(zustand.events.map((x) => x.verantwortlich))].sort();
     const orte = [...new Set(zustand.events.map((x) => x.ort))].sort();
     const auswahl = (werte, aktuell) => werte.map((w) =>
@@ -1061,7 +1196,11 @@
               <div id="vorschlaege"></div>
             </div>
             <label class="breit">Summary (one line)<input name="zusammenfassung" maxlength="200" value="${esc(e.zusammenfassung)}" placeholder="Short teaser, e.g. for Eventbrite"></label>
-            <label class="breit">Description<textarea name="beschreibung" rows="5" placeholder="What happens, who it's for, what people take home">${esc(e.beschreibung)}</textarea></label>
+            <fieldset class="breit beschreibung-felder">
+              <legend>Description <span class="leise" id="luecken-info"></span></legend>
+              ${BESCHREIBUNG_TEILE.map((t) => `
+                <label>${esc(t.frage)}<textarea name="b-${t.schluessel}" rows="${t.schluessel === "agenda" ? 5 : 3}" placeholder="⚠ Missing – ${esc(t.hilfe)}">${esc(eb[t.schluessel])}</textarea></label>`).join("")}
+            </fieldset>
             <label>Date *<input type="date" name="datum" required min="${jahr}-01-01" max="${jahr}-12-31" value="${esc(e.datum)}"></label>
             <label>Start time<input type="time" name="startzeit" value="${esc(e.startzeit)}"></label>
             <label class="breit">Location<input name="ort" list="orte" value="${esc(e.ort)}"></label>
@@ -1086,6 +1225,21 @@
     const formular = document.getElementById("event-formular");
     const feld = (name) => formular.elements[name];
 
+    // Leere Description-Felder rot markieren und mitzählen
+    const markiereLuecken = () => {
+      let fehlt = 0;
+      BESCHREIBUNG_TEILE.forEach((t) => {
+        const leer = !feld("b-" + t.schluessel).value.trim();
+        feld("b-" + t.schluessel).classList.toggle("fehlt", leer);
+        if (leer) fehlt++;
+      });
+      const info = document.getElementById("luecken-info");
+      info.textContent = fehlt ? `⚠ ${fehlt} of ${BESCHREIBUNG_TEILE.length} sections missing` : "✓ complete";
+      info.className = fehlt ? "text-kritisch" : "leise";
+    };
+    BESCHREIBUNG_TEILE.forEach((t) => feld("b-" + t.schluessel).addEventListener("input", markiereLuecken));
+    markiereLuecken();
+
     // Thema automatisch aus dem Titel übernehmen, solange man es nicht selbst geändert hat
     let themaSelbstGeaendert = false;
     feld("thema").addEventListener("input", () => { themaSelbstGeaendert = true; });
@@ -1102,6 +1256,7 @@
         startzeit: feld("startzeit").value,
         ort: feld("ort").value,
         "kapazität": feld("kapazität").value,
+        verantwortlich: feld("verantwortlich").value,
       });
       const box = document.getElementById("vorschlaege");
       box.innerHTML = `
@@ -1115,8 +1270,10 @@
           <p class="vorschlag-text">${esc(v.zusammenfassung)}</p>
         </div>
         <div class="vorschlag-teil">
-          <strong>Description</strong> <button type="button" class="knopf klein leise" data-nimm="beschreibung">Use</button>
-          <p class="vorschlag-text">${esc(v.beschreibung)}</p>
+          <strong>Description</strong>
+          <button type="button" class="knopf klein leise" data-nimm="luecken">Fill missing sections only</button>
+          <button type="button" class="knopf klein leise" data-nimm="beschreibung">Replace all sections</button>
+          <details class="beschreibung vorschau"><summary>Preview</summary>${beschreibungHtml(v.beschreibung, feld("kategorie").value)}</details>
         </div>
         <button type="button" class="knopf klein haupt" data-nimm="alles">Use all (first title + summary + description)</button>`;
       box.querySelectorAll("[data-titel]").forEach((b) => b.addEventListener("click", () => {
@@ -1126,7 +1283,11 @@
       box.querySelectorAll("[data-nimm]").forEach((b) => b.addEventListener("click", () => {
         const was = b.dataset.nimm;
         if (was === "zusammenfassung" || was === "alles") feld("zusammenfassung").value = v.zusammenfassung;
-        if (was === "beschreibung" || was === "alles") feld("beschreibung").value = v.beschreibung;
+        BESCHREIBUNG_TEILE.forEach((t) => {
+          const f = feld("b-" + t.schluessel);
+          if (was === "beschreibung" || was === "alles" || (was === "luecken" && !f.value.trim())) f.value = v.beschreibung[t.schluessel];
+        });
+        markiereLuecken();
         if (was === "alles") feld("titel").value = v.titel[0];
         zeigeMeldung("Suggestion applied ✓ – feel free to edit");
       }));
@@ -1149,7 +1310,7 @@
         kalenderId: String(f.get("kalenderId")).trim(),
         tags: f.getAll("tags").map(String),
         zusammenfassung: String(f.get("zusammenfassung")).trim(),
-        beschreibung: String(f.get("beschreibung")).trim(),
+        beschreibung: Object.fromEntries(BESCHREIBUNG_TEILE.map((t) => [t.schluessel, String(f.get("b-" + t.schluessel) || "").trim()])),
       });
       delete gespeichert.ausVorlage;
       const fehler = !gespeichert.titel ? "Please enter a title."
@@ -1164,7 +1325,8 @@
       const ergebnis = await window.DataLayer.speichereEvent(gespeichert);
       await ladeNeu();
       $dialog.close();
-      zeigeMeldung(neu ? "Event created ✓" : "Changes saved ✓");
+      const fehlt = fehlendeTeile(ergebnis).length;
+      zeigeMeldung((neu ? "Event created ✓" : "Changes saved ✓") + (fehlt ? ` – ⚠ ${fehlt} description sections still missing` : ""));
       geheZu("week", alsDatum(ergebnis.datum), ergebnis.id);
       zeichne(); // falls sich die Adresse nicht geändert hat
     });
@@ -1231,6 +1393,10 @@
     for (let m = 1; m <= 12; m++) if (vergleichMonat(jahr, m).abweichungen.length) anzahl++;
     for (let q = 1; q <= 4; q++) if (vergleichQuartal(jahr, q).abweichungen.length) anzahl++;
     document.getElementById("warn-zaehler").textContent = anzahl || "";
+    const luecken = eventsMitLuecken().length;
+    const infoZaehler = document.getElementById("info-zaehler");
+    infoZaehler.textContent = luecken ? "⚠ " + luecken : "";
+    infoZaehler.title = luecken + " events with missing description info";
   }
 
   async function ladeNeu() {
