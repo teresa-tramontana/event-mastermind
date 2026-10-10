@@ -3,6 +3,8 @@
 Ein **klickbarer Prototyp** für die Event-Planung im Community-Team von Impact Hub.
 Die Oberfläche ist **auf Englisch**, diese Anleitung auf Deutsch.
 
+**👉 Live (nur mit Impact-Hub-Google-Konto):** https://script.google.com/a/macros/impacthub.net/s/AKfycbxXyZ0SBbdb66GGk5xvwkSBpH5E4tyorEO39IZf_TcGuVETJ-517MTZ9OTGk1xKJABw/exec
+
 > ⚠️ **Alle Daten sind erfunden.** Keine echten Namen, keine echten E-Mail-Adressen, keine echten Teilnehmenden.
 
 ## Was ist das?
@@ -56,26 +58,10 @@ Das war's. Du brauchst keine Installation und kein Internet (nur die Schriftart 
 Nein. 🙂 Wenn du Events anlegst, änderst oder Aufgaben abhakst, wird das **nur in deinem Browser** gespeichert. Niemand sonst sieht es.
 Unten auf der Seite gibt es den Knopf **„Reset demo data“** (Demo-Daten zurücksetzen). Er stellt alles wieder auf den Anfang.
 
-## Als Google-Apps-Script-Web-App veröffentlichen
+## Wie kommen Änderungen auf die Live-Seite?
 
-Alternative zu GitHub Pages, nur mit Impact-Hub-Konto erreichbar: siehe **[ANLEITUNG-APPS-SCRIPT.md](ANLEITUNG-APPS-SCRIPT.md)**.
-
-## Wie veröffentliche ich es auf GitHub Pages? (Klick für Klick)
-
-Mit GitHub Pages bekommt die Seite eine Internet-Adresse, die du teilen kannst.
-
-1. Öffne das Projekt auf GitHub: `https://github.com/teresa-tramontana/event-mastermind`
-2. Klicke oben rechts im Projekt auf **⚙️ Settings** (Einstellungen).
-3. Klicke links in der Liste auf **Pages**.
-4. Unter **„Build and deployment“** → **„Source“** wählst du **„Deploy from a branch“**.
-5. Unter **„Branch“** wählst du **`main`** und daneben **`/ (root)`**.
-6. Klicke auf **Save** (Speichern).
-7. Warte 1–2 Minuten und lade die Seite neu. Oben erscheint dann: *„Your site is live at …“*
-8. Die Adresse ist: **https://teresa-tramontana.github.io/event-mastermind/**
-
-> 💡 Falls „Pages“ ausgegraut ist: Bei **privaten** Projekten braucht GitHub Pages einen bezahlten GitHub-Plan. Alternativ das Projekt unter Settings → General → ganz unten („Danger Zone“) auf **Public** stellen. Das ist hier unproblematisch, weil alle Daten erfunden sind.
-
-Jede neue Änderung, die auf `main` hochgeladen wird, erscheint nach 1–2 Minuten automatisch auf der Seite.
+Von allein. 🙂 Sobald eine Änderung auf GitHub im Branch `main` landet, lädt GitHub sie automatisch zu **Google Apps Script** hoch. Nach ca. 1 Minute ist sie live (Seite neu laden).
+Die Adresse bleibt immer gleich. Wie das genau funktioniert und was bei Problemen hilft: **[VEROEFFENTLICHUNG.md](VEROEFFENTLICHUNG.md)**.
 
 ## Welche Datei macht was?
 
@@ -88,12 +74,15 @@ data/events.json    Die erfundenen Events (61 Stück)
 data/templates.json Die Vorlagen pro Kategorie (inkl. Titel-Ideen und Summary-Vorlage)
 data/tags.json      Die feste Tag-Liste (mit Stichwort und Satz für die Vorschläge)
 data/model.json     Der Plan (Soll): wie viele Events pro Monat/Quartal, Ziel-Auslastung
-data/demo-daten.js  Automatische Kopie der vier JSON-Dateien (nötig für den Doppelklick)
-tools/              Zwei kleine Hilfsprogramme, um die Demo-Daten neu zu erzeugen
+data/demo-daten.js  Automatische Kopie der vier JSON-Dateien (das liest die App)
+apps-script/        Teile für Google Apps Script (Code.gs = liefert die Seite aus)
+.github/workflows/  Der Automatik-Ablauf, der die Seite zu Google hochlädt
+tools/              Kleine Hilfsprogramme (Demo-Daten erzeugen, App für Google zusammenbauen)
+VEROEFFENTLICHUNG.md  Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtung
 CLAUDE.md           Regeln und Fahrplan für die Arbeit mit Claude
 ```
 
-**Warum gibt es die Daten doppelt?** Öffnet man die Seite per Doppelklick, darf der Browser aus Sicherheitsgründen keine `.json`-Dateien lesen, eine `.js`-Datei aber schon. Deshalb gibt es `data/demo-daten.js` als Kopie.
+**Warum gibt es die Daten doppelt?** Die JSON-Dateien sind gut lesbar und zum Bearbeiten da. Der Browser darf sie beim Doppelklick aber aus Sicherheitsgründen nicht lesen, eine `.js`-Datei schon. Deshalb liest die App `data/demo-daten.js`, eine automatische Kopie.
 Wenn du eine JSON-Datei änderst, bitte Claude: *„Bitte demo-daten.js neu bauen“*. (Technisch: `python3 tools/baue-demo-daten.py`)
 
 ## Wie geht es weiter?

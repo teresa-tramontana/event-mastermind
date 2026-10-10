@@ -5,7 +5,9 @@
 **Event Mastermind** ist ein Event-Manager für die Community-Managerin bei Impact Hub.
 Er soll später Notion, Eventbrite, Gmail und Google Calendar verbinden und zeigen, ob die Events dem Jahresplan (Modell) entsprechen.
 
-**Aktueller Stand:** klickbarer Prototyp mit erfundenen Daten, gehostet auf GitHub Pages (Branch `main`, Ordner `/`).
+**Aktueller Stand:** klickbarer Prototyp mit erfundenen Daten, gehostet als **Google-Apps-Script-Web-App** (nur mit Impact-Hub-Konto erreichbar). Jeder Push auf `main` wird automatisch veröffentlicht (`.github/workflows/apps-script.yml`, Details in `VEROEFFENTLICHUNG.md`). GitHub Pages ist abgeschaltet.
+
+**Live-Adresse:** https://script.google.com/a/macros/impacthub.net/s/AKfycbxXyZ0SBbdb66GGk5xvwkSBpH5E4tyorEO39IZf_TcGuVETJ-517MTZ9OTGk1xKJABw/exec
 
 Die Person, die hier weiterarbeitet, hat **noch nie programmiert**.
 
@@ -15,11 +17,12 @@ Die Person, die hier weiterarbeitet, hat **noch nie programmiert**.
 2. **Daten nur über `data-layer.js`.** `app.js` darf niemals selbst `fetch`, `localStorage` oder eine API aufrufen. Alles läuft über `window.DataLayer`. Neue Datenquellen werden nur in `data-layer.js` eingebaut; die Funktionsnamen dort bleiben gleich.
 3. **Oberfläche auf Englisch, Erklärungen auf Deutsch.** Alles, was im Browser sichtbar ist (Menü, Knöpfe, Meldungen, Demo-Inhalte, Vorlagen), ist Englisch. Gespräche mit der Nutzerin, README und Code-Kommentare bleiben Deutsch. Die Feldnamen in den JSON-Dateien bleiben wie bisher (deutsch), damit die Datenschnittstelle stabil bleibt.
 4. **Erkläre Änderungen in einfachem Deutsch.** Kurz, ohne Fachjargon. Fachbegriffe, wenn nötig, in einem Halbsatz erklären. Nach jeder Änderung sagen, wie man sie im Browser ansieht.
-5. **Kein Build-Tool, kein Framework, kein Backend.** Nur HTML, CSS und JavaScript. Die Seite muss per Doppelklick auf `index.html` **und** auf GitHub Pages laufen.
-6. **Nach Änderungen an `data/*.json`** immer `python3 tools/baue-demo-daten.py` ausführen, sonst sieht man die Änderung beim Doppelklick nicht. **Nach jeder Änderung** an `index.html`, `style.css`, `app.js`, `data-layer.js` oder den Daten danach `python3 tools/baue-apps-script.py` ausführen (Apps-Script-Version, siehe `ANLEITUNG-APPS-SCRIPT.md`).
+5. **Kein Build-Tool, kein Framework, kein eigenes Backend.** Nur HTML, CSS und JavaScript. Die Seite muss per Doppelklick auf `index.html` **und** als Apps-Script-Web-App laufen. (`tools/baue-apps-script.py` fügt für Apps Script nur die Dateien zusammen; das macht die GitHub Action automatisch.) Keine Abhängigkeiten von weiteren lokalen Dateien einbauen, die das Bau-Skript nicht kennt.
+6. **Nach Änderungen an `data/*.json`** immer `python3 tools/baue-demo-daten.py` ausführen und `data/demo-daten.js` mit committen (die App liest nur diese Datei). `apps-script/Index.html` **nicht** committen, sie steht in `.gitignore` und wird von der Action gebaut. Zum Prüfen lokal `python3 tools/baue-apps-script.py` ausführen.
 7. **Design:** warme Impact-Hub-Töne (Terrakotta, Safran, Pflaume, Rosé, Zimt, Creme). **Kein Grün, kein Blau.** Farben nur über die Variablen oben in `style.css` ändern. Eine Farbe pro Kategorie.
 8. **Tags nur aus der festen Liste** in `data/tags.json`. Neue Tags dort ergänzen (mit `kurz` und `satz`), nicht frei erfinden.
 9. Commits mit verständlichen deutschen Nachrichten. Standard: direkt auf `main`.
+10. **Nach jedem Push auf `main`** der Nutzerin die Live-Adresse als Link mitgeben (siehe oben, „Live-Adresse“) und sagen, dass die Änderung nach ca. 1 Minute dort zu sehen ist. Wenn möglich prüfen, ob die Action „Apps Script veröffentlichen“ grün ist.
 
 ## Dateistruktur
 
@@ -32,16 +35,16 @@ data/events.json      Events (Quelle)
 data/templates.json   Vorlagen je Kategorie (Quelle)
 data/tags.json        feste Tag-Liste mit Summary-Stichwort und Description-Satz (Quelle)
 data/model.json       Soll-Modell je Monat/Quartal + Ziel-Auslastung + demoHeute (Quelle)
-data/demo-daten.js    AUTOMATISCH erzeugt aus den JSON-Dateien (für Doppelklick/file://)
+data/demo-daten.js    AUTOMATISCH erzeugt aus den JSON-Dateien (das liest data-layer.js)
 tools/erzeuge-demodaten.py   würfelt die Demo-Daten neu (fester Zufall, immer gleiches Ergebnis)
 tools/baue-demo-daten.py     kopiert JSON -> data/demo-daten.js
 tools/baue-apps-script.py    packt alles in apps-script/Index.html (eine Datei für Apps Script)
 apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet)
-apps-script/Index.html       AUTOMATISCH erzeugt: komplette App in einer Datei
-apps-script/appsscript.json  Apps-Script-Einstellungen (für spätere Automatik mit clasp)
-ANLEITUNG-APPS-SCRIPT.md     Klick-für-Klick-Anleitung Apps-Script-Web-App
-.github/workflows/apps-script.yml  veröffentlicht bei jedem Push auf main automatisch zu Apps Script
-.nojekyll             sagt GitHub Pages: Dateien unverändert ausliefern
+apps-script/Index.html       AUTOMATISCH erzeugt (nicht im Repo, .gitignore): komplette App in einer Datei
+apps-script/appsscript.json  Apps-Script-Einstellungen (Zeitzone, Zugriff "DOMAIN" = nur Impact-Hub-Konten)
+.github/workflows/apps-script.yml  veröffentlicht bei jedem Push auf main automatisch zu Apps Script (clasp)
+VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtung
+.gitignore                   hält erzeugte Dateien aus dem Repo
 ```
 
 ### Datenmodell
@@ -88,7 +91,7 @@ Regeln:
 
 ## Roadmap für die echten Anbindungen (noch NICHT bauen)
 
-1. **Notion als Datenquelle:** API-Token, zunächst nur lesen. Notion-Datenbank mit denselben Feldern wie `events.json`. Achtung: Ein Token darf nie im Code oder auf GitHub landen, eine kleine Server-Funktion (Proxy) ist dafür nötig, weil GitHub Pages nur statische Dateien ausliefert.
+1. **Notion als Datenquelle:** API-Token, zunächst nur lesen. Notion-Datenbank mit denselben Feldern wie `events.json`. Achtung: Ein Token darf nie im Code oder auf GitHub landen, die Abfrage läuft serverseitig in `apps-script/Code.gs` (`UrlFetchApp`), der Token liegt in den **Script Properties**; `data-layer.js` ruft das per `google.script.run` auf.
    - Zugang: Secret `NOTION_PAT` (siehe oben, noch nicht nutzen).
 2. **Soll-Ist-Abgleich mit echten Modell-Daten:** Modell (Soll je Monat/Kategorie, Ziel-Auslastung) ebenfalls aus Notion lesen.
 3. **Eventbrite:** Entwürfe aus Vorlagen anlegen, Anmeldezahlen zurücklesen (`eventbriteId`). Zugang: Secret `EVENTBRITE_PRIVATE_TOKEN` (noch nicht nutzen). Die Organisations-ID ist nicht geheim und wird per API abgefragt.
@@ -103,15 +106,15 @@ Regeln:
 
 **Idee:** Ein Event-Manager für das Community-Team. Er zeigt, ob die Events dem Jahresplan entsprechen (Anzahl je Kategorie, Auslastung), warnt bei Abweichungen und hilft bei Titeln, Beschreibungen, Social Posts und Reminder-Mails. Quelle der Wahrheit soll Notion sein; Eventbrite, Gmail und Google Calendar werden angebunden.
 
-**Stand heute:** Klickbarer Prototyp, reines HTML/CSS/JavaScript, **nur erfundene Daten**, gehostet auf GitHub Pages. Eigene Änderungen bleiben im Browser (localStorage). Kein Server, keine Logins, keine personenbezogenen Daten.
+**Stand heute:** Klickbarer Prototyp, reines HTML/CSS/JavaScript, **nur erfundene Daten**, gehostet als Google-Apps-Script-Web-App (Login mit Impact-Hub-Google-Konto). Eigene Änderungen bleiben im Browser (localStorage). Keine personenbezogenen Daten.
 
 **Geplanter Aufbau:**
 ```
 Browser (Oberfläche: index.html, app.js)
    │  fragt nur ── data-layer.js (einzige Datenschnittstelle)
    ▼
-kleines Backend in der EU (z. B. Google Cloud Run, Frankfurt)
-   │  hält die Zugangsschlüssel (Secret Manager), prüft Login
+Backend: Google Apps Script (Code.gs), später ggf. Google Cloud Run in der EU
+   │  hält die Zugangsschlüssel (Script Properties bzw. Secret Manager), Login über Google
    ├──► Notion API      (Events, Vorlagen, Soll-Modell)
    ├──► Eventbrite API  (Entwürfe anlegen, Anmeldezahlen)
    ├──► Google Calendar (Termine eintragen)
@@ -138,23 +141,28 @@ Ein Backend ist nötig, weil Zugangsschlüssel nie im Browser liegen dürfen.
 - Repo **privat** halten, Zugriff über ein Team regeln.
 - Prüfen, ob die **Secrets** (`NOTION_PAT`, `EVENTBRITE_PRIVATE_TOKEN`, `EVENTBRITE_API_KEY`) nach dem Umzug noch vorhanden sind; sonst neu anlegen, besser direkt als Organisations-Secrets oder gleich im Google Secret Manager.
 - Branch-Schutz für `main` (Änderungen nur per Pull Request mit Freigabe) besprechen.
-- Hinweis: Alte Links auf das Repo werden von GitHub weitergeleitet; die GitHub-Pages-Adresse ändert sich aber.
+- Hinweis: Alte Links auf das Repo werden von GitHub weitergeleitet. Die Apps-Script-Secrets (`CLASPRC_JSON`, `APPS_SCRIPT_ID`, `APPS_SCRIPT_DEPLOYMENT_ID`) müssen ggf. neu angelegt werden.
 
 **Offene Fragen:** Name der Organisation? Wer bekommt Schreibrechte? Sollen Code-Änderungen geprüft werden, bevor sie live gehen?
 
-### 3. Hosting in der EU statt GitHub Pages
+### 3. Hosting: Google Apps Script (aktuell) und ggf. später Cloud Run
 
-**Warum:** GitHub Pages liegt außerhalb der EU-Kontrolle, ist öffentlich erreichbar (kein Login) und kann keine Zugangsschlüssel geschützt verwenden. Für den Prototyp mit erfundenen Daten ist das ok, **für echte Daten nicht**.
+**Stand heute:** Die App läuft als **Google-Apps-Script-Web-App** unter dem Konto der Community-Managerin. Zugriff nur mit Impact-Hub-Google-Konto. Veröffentlicht wird automatisch aus GitHub (GitHub Action mit dem Google-Werkzeug `clasp`). GitHub Pages ist abgeschaltet.
 
-**Vorschlag (Google Cloud, da Google Workspace vermutlich schon im Einsatz ist):**
-- **Region:** `europe-west3` (Frankfurt) oder `europe-west1` (Belgien).
-- **Cloud Run** für Oberfläche + kleines Backend (ein Container, läuft nur bei Bedarf, geringe Kosten).
-- **Identity-Aware Proxy (IAP)** oder Google-Login: nur Konten der eigenen Workspace-Domain kommen rein.
-- **Secret Manager** für Notion- und Eventbrite-Schlüssel.
-- Deployment automatisch aus dem Git-Repo (z. B. Cloud Build bei jedem Push auf `main`).
-- Hinweis: Die Oberfläche bleibt gleich; nur `data-layer.js` spricht dann mit dem Backend statt mit den Demo-Dateien.
+**Vorteile:**
+- Login und Zugriffsschutz über Google Workspace, ohne eigene Programmierung.
+- Zugangsschlüssel können in den **Script Properties** liegen (nicht im Browser).
+- Gmail (Entwürfe) und Kalender direkt nutzbar (`GmailApp`, `CalendarApp`); Notion/Eventbrite über `UrlFetchApp`.
+- Keine eigene Infrastruktur, keine Kosten.
 
-**Offene Fragen:** Gibt es ein Google-Cloud-Projekt / Abrechnungskonto? Wer betreut es? Gibt es Vorgaben zu Regionen, Logging, Backups? Alternative Cloud gewünscht?
+**Grenzen / zu prüfen:**
+- **Region:** Bei Apps Script lässt sich nicht festlegen, dass es nur in der EU läuft; es fällt unter den Google-Workspace-Vertrag → Datenschutz prüfen.
+- Läuft unter einem **persönlichen Konto**; der clasp-Schlüssel (`CLASPRC_JSON`) hat weitreichende Rechte → besser ein **Team-/Funktionskonto**.
+- Grenzen: max. 6 Minuten pro Aufruf, Tageskontingente (für ein Team ausreichend).
+
+**Falls die IT strengere Vorgaben hat:** Umzug zu **Google Cloud Run** in `europe-west3` (Frankfurt), mit Identity-Aware Proxy (Login), Secret Manager und automatischem Deployment bei Push auf `main`. Die Oberfläche bleibt gleich, nur `data-layer.js` spricht dann mit dem anderen Backend.
+
+**Offene Fragen:** Ist Apps Script für echte Daten freigegeben? Unter welchem Konto soll es laufen? Gibt es Vorgaben zu Region, Logging, Backups?
 
 ### 4. Coding-Tool: Antigravity oder Claude Code?
 

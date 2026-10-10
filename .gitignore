@@ -1,0 +1,4 @@
+# Wird automatisch von GitHub gebaut (tools/baue-apps-script.py), nicht speichern
+apps-script/Index.html
+# Entsteht nur beim Hochladen mit clasp
+apps-script/.clasp.json

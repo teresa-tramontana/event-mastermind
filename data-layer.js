@@ -7,7 +7,7 @@
  * zurückgeben.
  *
  * Aktuell (Demo):
- *   - Grunddaten kommen aus data/*.json (online) bzw. data/demo-daten.js (Doppelklick)
+ *   - Grunddaten kommen aus data/demo-daten.js (automatisch erzeugt aus data/*.json)
  *   - Eigene Änderungen werden nur im Browser gespeichert (localStorage)
  *
  * Alle Funktionen geben ein "Promise" zurück (= "Antwort kommt gleich").
@@ -53,30 +53,10 @@
   }
 
   // ---------- Grunddaten laden
-  async function ladeJson(pfad) {
-    const antwort = await fetch(pfad, { cache: "no-cache" });
-    if (!antwort.ok) throw new Error(pfad + " nicht gefunden");
-    return antwort.json();
-  }
-
+  // Die Demo-Daten stecken in data/demo-daten.js (erzeugt aus data/*.json).
+  // Das funktioniert überall gleich: per Doppelklick und in Google Apps Script.
   async function ladeGrunddaten() {
     if (grunddaten) return grunddaten;
-    // In Apps Script gibt es keine data/*.json zum Abrufen, dort gleich die Demo-Daten nehmen
-    const online = window.location.protocol.startsWith("http") && !window.APPS_SCRIPT;
-    if (online) {
-      try {
-        const [events, templates, model, tags] = await Promise.all([
-          ladeJson("data/events.json"),
-          ladeJson("data/templates.json"),
-          ladeJson("data/model.json"),
-          ladeJson("data/tags.json"),
-        ]);
-        grunddaten = { events, templates, model, tags };
-        return grunddaten;
-      } catch (e) {
-        console.warn("JSON konnte nicht geladen werden, nutze demo-daten.js", e);
-      }
-    }
     if (!window.DEMO_DATEN) {
       throw new Error("Keine Demo-Daten gefunden (data/demo-daten.js fehlt?)");
     }

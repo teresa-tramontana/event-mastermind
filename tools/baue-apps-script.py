@@ -5,10 +5,11 @@ Warum? Apps Script kann keine einzelnen Dateien (style.css, app.js …) nachlade
 Darum packt dieses Skript ALLES in eine einzige Datei: apps-script/Index.html
 (Aussehen, Demo-Daten, Datenschicht und Oberfläche).
 
-WICHTIG: Nach jeder Änderung an index.html, style.css, app.js, data-layer.js
-oder data/*.json dieses Skript ausführen (nach baue-demo-daten.py):
+Normalerweise erledigt das GitHub automatisch bei jedem Push auf main
+(.github/workflows/apps-script.yml). Die Datei Index.html wird darum NICHT im
+Repo gespeichert. Zum lokalen Ausprobieren:
     python3 tools/baue-apps-script.py
-Anleitung zum Hochladen: ANLEITUNG-APPS-SCRIPT.md
+Mehr dazu: VEROEFFENTLICHUNG.md
 """
 from pathlib import Path
 
@@ -29,9 +30,7 @@ def als_skript(name):
 html = lies("index.html")
 ersetzungen = {
     '<link rel="stylesheet" href="style.css">': "<style>\n" + lies("style.css") + "\n</style>",
-    # Merker für data-layer.js: wir laufen in Apps Script (keine JSON-Dateien abrufbar)
-    '<script src="data/demo-daten.js"></script>': "<script>window.APPS_SCRIPT = true;</script>\n"
-    + als_skript("data/demo-daten.js"),
+    '<script src="data/demo-daten.js"></script>': als_skript("data/demo-daten.js"),
     '<script src="data-layer.js"></script>': als_skript("data-layer.js"),
     '<script src="app.js"></script>': als_skript("app.js"),
 }
