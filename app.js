@@ -27,6 +27,7 @@
     ansicht: "year",
     datum: null, // das Datum, um das sich die Ansicht dreht ("Cursor")
     suche: { text: "", kategorie: "", status: "", nurKommende: false, nurLuecken: false },
+    benutzer: { angemeldet: false, email: "", abmeldenUrl: "", mailMoeglich: false },
   };
 
   const KATEGORIEN = ["Workshop", "Networking", "Talk", "Community Lunch", "Pitch Night"];
@@ -1097,19 +1098,44 @@
       return;
     }
     const text = fuelleVorlage(art === "social" ? vorlage.socialText : vorlage.mailText, e);
+    const testMail = art === "mail" && zustand.benutzer.mailMoeglich;
     oeffneDialog(`
       <div class="dialog-kopf"><h2>${art === "social" ? "✨ Social post suggestion" : "✉️ Reminder email suggestion"}</h2>
         <button class="knopf rund leise" data-schliessen aria-label="Close">×</button></div>
       <div class="dialog-koerper">
         <p class="leise" style="margin-top:0">Based on the “${esc(vorlage.kategorie)}” template – you can still edit the text here.</p>
-        <div class="formular"><label class="breit">Text
+        <div class="formular">
+          ${art === "mail" ? `<label class="breit">Subject
+            <input id="vorschlag-betreff" type="text" value="${esc("Reminder: " + e.titel)}"></label>` : ""}
+          <label class="breit">Text
           <textarea id="vorschlag-text" rows="12">${esc(text)}</textarea></label></div>
+        ${testMail ? `<p class="test-hinweis">🧪 <strong>Test:</strong> “Send test to me” sends this email only to
+          <strong>${esc(zustand.benutzer.email)}</strong> – not to participants.</p>` : ""}
         <p class="leise" style="font-size:.82rem">Later (roadmap): suggestions will be refined with AI${art === "mail" ? " and saved as a Gmail draft" : ""}.</p>
       </div>
       <div class="dialog-fuss">
         <button class="knopf leise" data-schliessen>Close</button>
+        ${testMail ? `<button class="knopf" id="test-senden">✉️ Send test to me</button>` : ""}
         <button class="knopf haupt" id="kopieren">Copy text</button>
       </div>`);
+    if (testMail) {
+      const knopf = document.getElementById("test-senden");
+      knopf.addEventListener("click", async () => {
+        knopf.disabled = true;
+        knopf.textContent = "Sending …";
+        try {
+          const antwort = await window.DataLayer.sendeTestMail(
+            document.getElementById("vorschlag-betreff").value,
+            document.getElementById("vorschlag-text").value);
+          zeigeMeldung(`Test email sent to ${antwort.an} ✓`);
+          knopf.textContent = "✓ Sent – send again";
+        } catch (fehler) {
+          zeigeMeldung("Could not send: " + fehler.message);
+          knopf.textContent = "✉️ Send test to me";
+        }
+        knopf.disabled = false;
+      });
+    }
     document.getElementById("kopieren").addEventListener("click", async () => {
       const feld = document.getElementById("vorschlag-text");
       try {
@@ -1410,7 +1436,48 @@
       (window.DataLayer.hatEigeneAenderungen() ? " · incl. your changes (this browser only)" : "");
   }
 
+  /** Benutzer-Menü oben rechts (nur wenn jemand über Google angemeldet ist) */
+  async function zeigeBenutzerMenue() {
+    try {
+      zustand.benutzer = await window.DataLayer.ladeBenutzer();
+    } catch (fehler) {
+      console.warn("Benutzer konnte nicht geladen werden", fehler);
+      return;
+    }
+    const b = zustand.benutzer;
+    if (!b.angemeldet) return;
+    const box = document.getElementById("benutzer");
+    box.innerHTML = `
+      <button class="benutzer-knopf" id="benutzer-knopf" aria-haspopup="true" aria-expanded="false"
+        title="${esc(b.email)}">${esc(b.email.charAt(0).toUpperCase())}</button>
+      <div class="benutzer-menue" id="benutzer-menue" hidden>
+        <p class="leise klein-text">Signed in as</p>
+        <p class="benutzer-email">${esc(b.email)}</p>
+        <a class="knopf klein" href="${esc(b.abmeldenUrl)}" target="_top">Sign out</a>
+        <p class="leise klein-text">Signs you out of Google in this browser (Gmail, Drive … too).</p>
+      </div>`;
+    box.hidden = false;
+    const knopf = document.getElementById("benutzer-knopf");
+    const menue = document.getElementById("benutzer-menue");
+    const setze = (offen) => {
+      menue.hidden = !offen;
+      knopf.setAttribute("aria-expanded", String(offen));
+    };
+    knopf.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      setze(menue.hidden);
+    });
+    // Klick daneben oder Escape schließt das Menü
+    document.addEventListener("click", (ev) => {
+      if (!box.contains(ev.target)) setze(false);
+    });
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") setze(false);
+    });
+  }
+
   async function start() {
+    zeigeBenutzerMenue(); // läuft nebenher, die Seite wartet nicht darauf
     try {
       zustand.einstellungen = await window.DataLayer.ladeEinstellungen();
       await ladeNeu();

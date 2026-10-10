@@ -9,6 +9,8 @@
  * Aktuell (Demo):
  *   - Grunddaten kommen aus data/demo-daten.js (automatisch erzeugt aus data/*.json)
  *   - Eigene Änderungen werden nur im Browser gespeichert (localStorage)
+ *   - In der Apps-Script-Version (online): Benutzer-Menü und Test-Reminder-Mail
+ *     über apps-script/Code.gs (google.script.run). Per Doppelklick gibt es beides nicht.
  *
  * Alle Funktionen geben ein "Promise" zurück (= "Antwort kommt gleich").
  * So funktioniert es später genauso, wenn die Daten aus dem Internet kommen.
@@ -50,6 +52,19 @@
   }
   function kopie(wert) {
     return JSON.parse(JSON.stringify(wert));
+  }
+
+  // ---------- Verbindung zu Google Apps Script (nur online vorhanden)
+  function inAppsScript() {
+    return typeof google !== "undefined" && google.script && google.script.run;
+  }
+  /** Eine Funktion aus apps-script/Code.gs aufrufen, Antwort als Promise */
+  function rufeServer(name, ...argumente) {
+    return new Promise((ok, fehler) => {
+      google.script.run
+        .withSuccessHandler(ok)
+        .withFailureHandler((e) => fehler(new Error((e && e.message) || String(e))))[name](...argumente);
+    });
   }
 
   // ---------- Grunddaten laden
@@ -132,6 +147,29 @@
     },
     async speichereEinstellungen(einstellungen) {
       schreibeSpeicher(SPEICHER_EINSTELLUNGEN, einstellungen);
+    },
+
+    /**
+     * Wer ist angemeldet? → { angemeldet, email, abmeldenUrl, mailMoeglich }
+     * Per Doppelklick (ohne Google) ist niemand angemeldet.
+     */
+    async ladeBenutzer() {
+      if (!inAppsScript()) {
+        return { angemeldet: false, email: "", abmeldenUrl: "", mailMoeglich: false };
+      }
+      const antwort = await rufeServer("holeBenutzer");
+      return {
+        angemeldet: !!antwort.email,
+        email: antwort.email,
+        abmeldenUrl: "https://accounts.google.com/Logout",
+        mailMoeglich: !!antwort.email,
+      };
+    },
+
+    /** Test-Reminder an die EIGENE Adresse senden → { an, rest } (rest = Mails heute noch möglich) */
+    async sendeTestMail(betreff, text) {
+      if (!inAppsScript()) throw new Error("Only available in the online version.");
+      return rufeServer("sendeTestReminder", betreff, text);
     },
 
     /** Status der externen Dienste – in der Demo ist nichts verbunden */

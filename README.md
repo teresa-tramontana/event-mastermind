@@ -22,6 +22,10 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 | **Templates** (Vorlagen) | Eine Vorlage pro Kategorie, mit Titel-Ideen, Summary-Vorlage und der Tag-Liste. Mit „New event from template“ entsteht ein Entwurf. |
 | **Connections** (Verbindungen) | Platzhalter für Notion, Eventbrite, Gmail und Google Calendar (noch nicht verbunden). |
 
+**Benutzer-Menü (nur online):** Oben rechts der runde Knopf mit deinem Anfangsbuchstaben. Er zeigt, mit welcher E-Mail-Adresse du angemeldet bist, und hat einen Knopf **„Sign out“** (abmelden). Achtung: Das meldet dich in diesem Browser bei **ganz Google** ab (auch Gmail, Drive …), weil die App den Google-Login benutzt.
+
+**Test-Reminder-Mail (nur online):** In der Wochenansicht bei einem Event auf **„✉️ Reminder email suggestion“** klicken. Betreff und Text kannst du ändern. **„Send test to me“** schickt die Mail **nur an dich selbst** (Betreff beginnt mit „[TEST]“). An Teilnehmende geht nichts.
+
 **Status** eines Events: Idea (Idee) → Planned (geplant) → Published (veröffentlicht) → Done (durchgeführt).
 
 **Tags** (feste Liste): Small groups, Formal, Informal, Peer feedback/exchange, Group work, Coaching/consulting, Workshop, Skillshare, Expert guidance, Practical exercises, Community/Gathering, 1:1 sessions, Guided networking, Matchmaking, Keynote/panel, Collaboration, Unwind. Im Formular klickst du sie einfach an.

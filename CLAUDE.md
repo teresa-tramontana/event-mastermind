@@ -59,7 +59,9 @@ VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtu
 
 ### DataLayer-Schnittstelle (nicht umbenennen)
 
-`ladeAlles() → {events, templates, model, tags}` · `speichereEvent(event) → event` · `loescheEvent(id)` · `setzeDemoZurueck()` · `hatEigeneAenderungen()` · `ladeEinstellungen()` / `speichereEinstellungen(obj)` · `ladeVerbindungen()` · Eigenschaft `quelle` (Text für die Fußzeile). Alle Lade-/Speicherfunktionen geben ein Promise zurück.
+`ladeAlles() → {events, templates, model, tags}` · `speichereEvent(event) → event` · `loescheEvent(id)` · `setzeDemoZurueck()` · `hatEigeneAenderungen()` · `ladeEinstellungen()` / `speichereEinstellungen(obj)` · `ladeVerbindungen()` · `ladeBenutzer() → {angemeldet, email, abmeldenUrl, mailMoeglich}` · `sendeTestMail(betreff, text) → {an, rest}` · Eigenschaft `quelle` (Text für die Fußzeile). Alle Lade-/Speicherfunktionen geben ein Promise zurück.
+
+`ladeBenutzer` und `sendeTestMail` funktionieren nur in der Apps-Script-Version (sie rufen Funktionen aus `apps-script/Code.gs` über `google.script.run` auf). Per Doppelklick gibt es kein Benutzer-Menü und keinen Test-Mail-Knopf.
 
 ### Rechenregeln
 
@@ -196,6 +198,7 @@ Ein Backend ist nötig, weil Zugangsschlüssel nie im Browser liegen dürfen.
 - Login über Google (OAuth) mit **minimalen Rechten**:
   - Calendar: nur Termine anlegen/ändern (`calendar.events`), am besten in einem eigenen Team-Kalender.
   - Gmail: nur **Entwürfe erstellen** (`gmail.compose`), **kein Lesen**, kein automatisches Senden.
+  - **Schon eingebaut (Test):** Knopf „Send test to me“ im Reminder-Dialog. Schickt die Mail per `MailApp` **nur an die angemeldete Person selbst** (Betreff mit „[TEST]“), Absender ist das Konto, unter dem die Web-App läuft. Keine Empfänger-Adressen eingeben oder speichern; echte Reminder an Teilnehmende erst mit Roadmap-Punkt 4.
 - Die Workspace-Admins müssen die App ggf. freigeben (interne App in der Google Admin Console).
 - „Mail-Intelligenz“ (Roadmap 5, KI liest Mails) bräuchte **Leserechte auf Postfächer**. Das ist datenschutzrechtlich heikel → eigene Entscheidung mit Datenschutz, ggf. Folgenabschätzung, eher auf ein Funktionspostfach beschränken.
 - KI (Gemini): Prüfen, ob über Google Workspace/Vertex AI in der EU mit AVV nutzbar.

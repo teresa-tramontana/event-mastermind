@@ -91,6 +91,27 @@ button { font: inherit; color: inherit; }
   background: var(--warnung-hell); color: #8a4a12;
   padding: 4px 10px; border-radius: 999px; white-space: nowrap;
 }
+/* Benutzer-Menü oben rechts */
+.benutzer { position: relative; flex-shrink: 0; }
+.benutzer-knopf {
+  width: 36px; height: 36px; border-radius: 50%; border: none; cursor: pointer;
+  background: var(--akzent); color: #fff; font: inherit; font-weight: 700;
+}
+.benutzer-knopf:hover, .benutzer-knopf[aria-expanded="true"] { background: var(--akzent-dunkel); }
+.benutzer-menue {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 50;
+  width: 260px; padding: 14px 16px; border-radius: var(--radius-klein);
+  background: var(--flaeche); border: 1px solid var(--linie);
+  box-shadow: 0 8px 24px rgba(43, 35, 32, .14);
+}
+.benutzer-menue p { margin: 0 0 6px; }
+.benutzer-email { font-weight: 700; word-break: break-all; margin-bottom: 12px !important; }
+.benutzer-menue .knopf { text-decoration: none; display: inline-block; margin-bottom: 8px; }
+.klein-text { font-size: .78rem; }
+.test-hinweis {
+  font-size: .85rem; background: var(--ok-hell); border-radius: var(--radius-klein);
+  padding: 8px 12px; margin: 12px 0 0;
+}
 .hauptnav {
   max-width: 1200px; margin: 0 auto; padding: 0 12px;
   display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none;

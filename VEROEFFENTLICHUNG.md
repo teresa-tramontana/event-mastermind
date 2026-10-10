@@ -37,6 +37,21 @@ Auf **Actions** → **„Apps Script veröffentlichen“** → rechts **„Run w
 
 ---
 
+## Einmalig: Mail-Versand und Benutzer-Menü erlauben
+
+Seit dem Benutzer-Menü und der Test-Reminder-Mail braucht die App zwei Google-Rechte: **E-Mail-Adresse lesen** und **Mails in deinem Namen senden**. Google fragt danach nur einmal, und zwar dich (das Konto, unter dem die App läuft):
+
+1. [script.google.com](https://script.google.com) öffnen → Projekt **Event Mastermind** öffnen.
+2. Links die Datei **`Code.gs`** anklicken.
+3. Oben in der Leiste neben „Ausführen“ / „Debuggen“ im Auswahlfeld die Funktion **`zugriffErlauben`** wählen.
+4. Auf **▶ Ausführen** klicken → **„Berechtigungen prüfen“** → dein Konto → **„Zulassen“**.
+   (Erscheint „Google hat diese App nicht überprüft“: auf **„Erweitert“** → **„Zu Event Mastermind wechseln“**. Das ist deine eigene App.)
+5. Unten im Protokoll steht „Angemeldet als … – heute noch … Mails möglich“. Fertig.
+
+Wenn später neue Funktionen weitere Rechte brauchen, ist das wieder nötig. Claude sagt dann Bescheid.
+
+> 📨 **Absender** der Test-Mails ist immer dein Konto (die App läuft „als du“). Klickt eine Kollegin auf „Send test to me“, bekommt sie die Mail, aber von deiner Adresse. Google erlaubt mit einem Workspace-Konto ca. 1.500 Mails pro Tag.
+
 ## Gut zu wissen
 
 - **Nicht im Apps-Script-Editor ändern.** Beim nächsten Hochladen wird alles mit dem Stand von GitHub überschrieben. Änderungen immer über GitHub/Claude.
@@ -70,6 +85,7 @@ Im roten Lauf auf den roten Schritt klicken und die Meldung lesen:
 | `Requested entity was not found` | `APPS_SCRIPT_ID` oder `APPS_SCRIPT_DEPLOYMENT_ID` falsch → Secret aktualisieren. |
 | Grüner Haken, aber im Protokoll steht „übersprungen“ | Eines der drei Secrets fehlt oder ist falsch benannt. |
 | Seite zeigt „Script function not found: doGet“ | `apps-script/Code.gs` ist kaputt → Claude fragen. |
+| Seite oder Mail-Knopf meldet „Authorization is required“ / „Autorisierung erforderlich“, oder das Benutzer-Menü fehlt | Den Abschnitt „Einmalig: Mail-Versand und Benutzer-Menü erlauben“ oben durchgehen. |
 
 Sonst: Screenshot vom roten Schritt an Claude schicken (ohne Schlüssel darauf).
 
