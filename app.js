@@ -532,8 +532,109 @@
     },
   };
 
+  // ---------------------------------------------------------------- Abweichungen
+  ANSICHTEN.warnungen = {
+    blaettern: false,
+    titel: () => "Abweichungen vom Modell",
+    zeichne() {
+      const schwelle = zustand.einstellungen.schwelleProzent;
+      $inhalt.innerHTML = `
+        <section class="karte">
+          <h2>Ab wann soll gewarnt werden?</h2>
+          <p class="untertitel">Ein Zeitraum gilt als auffällig, wenn Ist und Soll um mehr als diesen Prozentsatz auseinanderliegen
+            (Anzahl Events je Kategorie oder Auslastung).</p>
+          <div class="schwelle abschnitt">
+            <input type="range" id="schwelle" min="5" max="100" step="5" value="${schwelle}" aria-label="Schwelle in Prozent">
+            <output id="schwelle-wert">${schwelle} %</output>
+            <button class="knopf klein leise" id="schwelle-standard">Standard (20 %)</button>
+          </div>
+        </section>
+        <div id="warnliste"></div>`;
+
+      const regler = document.getElementById("schwelle");
+      const setze = async (wert) => {
+        zustand.einstellungen.schwelleProzent = wert;
+        regler.value = wert;
+        document.getElementById("schwelle-wert").textContent = wert + " %";
+        zeichneWarnliste();
+        aktualisiereWarnZaehler();
+        await window.DataLayer.speichereEinstellungen(zustand.einstellungen);
+      };
+      regler.addEventListener("input", () => setze(Number(regler.value)));
+      document.getElementById("schwelle-standard").addEventListener("click", () => setze(20));
+      zeichneWarnliste();
+    },
+  };
+
+  function zeichneWarnliste() {
+    const jahr = zustand.model.jahr;
+    const zeilen = (art) => {
+      const anzahl = art === "monat" ? 12 : 4;
+      let html = "", zeitraeume = 0;
+      for (let i = 1; i <= anzahl; i++) {
+        const v = art === "monat" ? vergleichMonat(jahr, i) : vergleichQuartal(jahr, i);
+        if (!v.abweichungen.length) continue;
+        zeitraeume++;
+        const name = art === "monat" ? MONATE[i - 1] : "Q" + i;
+        const ziel = art === "monat" ? alsText(new Date(jahr, i - 1, 1)) : alsText(new Date(jahr, (i - 1) * 3, 1));
+        v.abweichungen.forEach((a, n) => {
+          const istAuslastung = a.art === "auslastung";
+          const klasse = a.abw < 0 ? "zu-wenig" : "zu-viel";
+          html += `<tr>
+            <td>${n === 0 ? `<a href="#/${art}/${ziel}"><strong>${name}</strong></a>` : ""}</td>
+            <td>${istAuslastung ? "📊 Auslastung" : katPille(a.kat)}</td>
+            <td class="zahl">${istAuslastung ? prozent(a.ist) : a.ist}</td>
+            <td class="zahl">${istAuslastung ? prozent(a.soll) : a.soll}</td>
+            <td class="zahl"><span class="abw ${klasse}">${vorzeichenProzent(a.abw)}</span></td>
+            <td>${esc(istAuslastung ? (a.abw > 0 ? "überbucht" : "zu leer") : a.abw === Infinity ? "nicht eingeplant" : a.abw < 0 ? "zu wenig Events" : "mehr als geplant")}</td>
+          </tr>`;
+        });
+      }
+      return { html, zeitraeume };
+    };
+    const m = zeilen("monat"), q = zeilen("quartal");
+    const tabelle = (titel, z, leerText) => `
+      <section class="karte abschnitt">
+        <h2>${titel} <span class="leise">(${z.zeitraeume} auffällig)</span></h2>
+        ${z.html ? `<div class="tabellen-rahmen"><table class="tabelle abschnitt">
+          <thead><tr><th>Zeitraum</th><th>Was</th><th class="zahl">Ist</th><th class="zahl">Soll</th><th class="zahl">Abweichung</th><th>Bedeutung</th></tr></thead>
+          <tbody>${z.html}</tbody></table></div>` : `<p class="leise">${leerText}</p>`}
+      </section>`;
+    document.getElementById("warnliste").innerHTML =
+      tabelle("Monate", m, "Kein Monat weicht stärker als die Schwelle ab. 🎉") +
+      tabelle("Quartale", q, "Kein Quartal weicht stärker als die Schwelle ab. 🎉");
+  }
+
+  // ---------------------------------------------------------------- Vorlagen
+  ANSICHTEN.vorlagen = {
+    blaettern: false,
+    titel: () => "Vorlagen",
+    zeichne() {
+      const jahr = zustand.model.jahr;
+      $inhalt.innerHTML = `
+        <p class="leise" style="margin-top:0">Jede Kategorie hat eine Vorlage. Daraus entstehen neue Event-Entwürfe sowie Social-Post- und Mail-Vorschläge.
+          Platzhalter wie <code>{titel}</code>, <code>{datum}</code>, <code>{uhrzeit}</code> und <code>{ort}</code> werden automatisch ersetzt.</p>
+        <div class="vorlagen">${zustand.templates.map((t, i) => {
+          const anzahl = zustand.events.filter((e) => e.kategorie === t.kategorie && e.datum.startsWith(String(jahr))).length;
+          return `
+          <article class="karte vorlage ${katKlasse(t.kategorie)}">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">${katPille(t.kategorie)}
+              <span class="leise" style="font-size:.82rem">${anzahl} Events in ${jahr}</span></div>
+            <div class="titel-vorlage" title="Titel-Vorlage">${esc(t.titelVorlage)}</div>
+            <p style="margin:0">${esc(t.beschreibung)}</p>
+            <div class="tags">${t.tags.map((tag) => `<span class="tag">#${esc(tag)}</span>`).join("")}</div>
+            <details><summary>Social-Post-Text</summary><pre>${esc(t.socialText)}</pre></details>
+            <details><summary>Mail-Text</summary><pre>${esc(t.mailText)}</pre></details>
+            <button class="knopf haupt klein" data-vorlage="${i}">+ Neues Event aus Vorlage</button>
+          </article>`;
+        }).join("")}</div>`;
+      $inhalt.querySelectorAll("[data-vorlage]").forEach((b) =>
+        b.addEventListener("click", () => oeffneEventFormular(entwurfAusVorlage(zustand.templates[Number(b.dataset.vorlage)]))));
+    },
+  };
+
   // Platzhalter für die Ansichten der nächsten Schritte
-  ["warnungen", "vorlagen", "verbindungen"].forEach((name) => {
+  ["verbindungen"].forEach((name) => {
     ANSICHTEN[name] = {
       blaettern: false,
       titel: () => name.charAt(0).toUpperCase() + name.slice(1),
@@ -606,8 +707,127 @@
     });
   }
 
-  function oeffneEventFormular() {
-    zeigeMeldung("Das Formular kommt in Schritt (c).");
+  const STANDARD_AUFGABEN = ["Speaker:in anfragen", "Raum reservieren", "Eventbrite-Seite anlegen",
+    "Social-Post planen", "Reminder-Mail senden"];
+
+  /** Häufigster Wert eines Feldes bei Events einer Kategorie (z. B. übliche Startzeit) */
+  function ueblich(kategorie, feld, ersatz) {
+    const zaehler = {};
+    zustand.events.filter((e) => e.kategorie === kategorie)
+      .forEach((e) => { zaehler[e[feld]] = (zaehler[e[feld]] || 0) + 1; });
+    const sortiert = Object.entries(zaehler).sort((a, b) => b[1] - a[1]);
+    return sortiert.length ? sortiert[0][0] : ersatz;
+  }
+
+  /** Ein neuer Entwurf (noch ohne id) aus einer Vorlage */
+  function entwurfAusVorlage(t) {
+    return {
+      titel: t.titelVorlage,
+      datum: alsText(plusTage(heute(), 21)),
+      startzeit: ueblich(t.kategorie, "startzeit", "18:00"),
+      kategorie: t.kategorie,
+      status: "Idee",
+      ort: ueblich(t.kategorie, "ort", "Loft – Eventfläche"),
+      "kapazität": Number(ueblich(t.kategorie, "kapazität", 30)),
+      anmeldungen: 0,
+      verantwortlich: "Community Lead",
+      eventbriteId: "",
+      kalenderId: "",
+      tags: t.tags.slice(),
+      aufgaben: STANDARD_AUFGABEN.map((text) => ({ text, erledigt: false })),
+    };
+  }
+
+  /** Formular zum Anlegen (ohne id) oder Bearbeiten (mit id) */
+  function oeffneEventFormular(vorlage) {
+    const neu = !vorlage || !vorlage.id;
+    const e = vorlage || {
+      titel: "", datum: alsText(zustand.datum || heute()), startzeit: "18:00", kategorie: KATEGORIEN[0],
+      status: "Idee", ort: "Loft – Eventfläche", "kapazität": 30, anmeldungen: 0,
+      verantwortlich: "Community Lead", eventbriteId: "", kalenderId: "", tags: [],
+      aufgaben: STANDARD_AUFGABEN.map((text) => ({ text, erledigt: false })),
+    };
+    const jahr = zustand.model.jahr;
+    const team = [...new Set(zustand.events.map((x) => x.verantwortlich))].sort();
+    const orte = [...new Set(zustand.events.map((x) => x.ort))].sort();
+    const auswahl = (werte, aktuell) => werte.map((w) =>
+      `<option ${w === aktuell ? "selected" : ""}>${esc(w)}</option>`).join("");
+
+    oeffneDialog(`
+      <form id="event-formular" novalidate>
+        <div class="dialog-kopf"><h2>${neu ? (vorlage ? "Neuer Entwurf aus Vorlage" : "Neues Event") : "Event bearbeiten"}</h2>
+          <button type="button" class="knopf rund leise" data-schliessen aria-label="Schließen">×</button></div>
+        <div class="dialog-koerper">
+          <div class="formular">
+            <label class="breit">Titel *<input name="titel" required value="${esc(e.titel)}" placeholder="z. B. Storytelling für Impact-Startups"></label>
+            <label>Datum *<input type="date" name="datum" required min="${jahr}-01-01" max="${jahr}-12-31" value="${esc(e.datum)}"></label>
+            <label>Startzeit<input type="time" name="startzeit" value="${esc(e.startzeit)}"></label>
+            <label>Kategorie<select name="kategorie">${auswahl(KATEGORIEN, e.kategorie)}</select></label>
+            <label>Status<select name="status">${auswahl(STATUS, e.status)}</select></label>
+            <label class="breit">Ort<input name="ort" list="orte" value="${esc(e.ort)}"></label>
+            <label>Kapazität (Plätze)<input type="number" name="kapazität" min="0" value="${esc(e["kapazität"])}"></label>
+            <label>Anmeldungen<input type="number" name="anmeldungen" min="0" value="${esc(e.anmeldungen)}"></label>
+            <label class="breit">Verantwortlich (Rolle, keine echten Namen)<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}"></label>
+            <label>Eventbrite-ID<input name="eventbriteId" value="${esc(e.eventbriteId)}" placeholder="später automatisch"></label>
+            <label>Kalender-ID<input name="kalenderId" value="${esc(e.kalenderId)}" placeholder="später automatisch"></label>
+            <label class="breit">Tags (mit Komma getrennt)<input name="tags" value="${esc((e.tags || []).join(", "))}"></label>
+          </div>
+          <datalist id="team">${team.map((t) => `<option value="${esc(t)}">`).join("")}</datalist>
+          <datalist id="orte">${orte.map((t) => `<option value="${esc(t)}">`).join("")}</datalist>
+          <p class="leise" style="font-size:.82rem">Wird nur in diesem Browser gespeichert. „Demo-Daten zurücksetzen“ (unten auf der Seite) macht alles rückgängig.</p>
+          <p id="formular-fehler" style="color:var(--kritisch)"></p>
+        </div>
+        <div class="dialog-fuss">
+          ${neu ? "" : '<button type="button" class="knopf gefahr leise links" id="loeschen">Löschen</button>'}
+          <button type="button" class="knopf leise" data-schliessen>Abbrechen</button>
+          <button type="submit" class="knopf haupt">Speichern</button>
+        </div>
+      </form>`);
+
+    const formular = document.getElementById("event-formular");
+    formular.addEventListener("submit", async (ev) => {
+      ev.preventDefault();
+      const f = new FormData(formular);
+      const gespeichert = Object.assign({}, e, {
+        titel: String(f.get("titel")).trim(),
+        datum: String(f.get("datum")),
+        startzeit: String(f.get("startzeit") || "00:00"),
+        kategorie: String(f.get("kategorie")),
+        status: String(f.get("status")),
+        ort: String(f.get("ort")).trim(),
+        "kapazität": Math.max(0, Number(f.get("kapazität")) || 0),
+        anmeldungen: Math.max(0, Number(f.get("anmeldungen")) || 0),
+        verantwortlich: String(f.get("verantwortlich")).trim(),
+        eventbriteId: String(f.get("eventbriteId")).trim(),
+        kalenderId: String(f.get("kalenderId")).trim(),
+        tags: String(f.get("tags")).split(",").map((t) => t.trim().replace(/^#/, "")).filter(Boolean),
+      });
+      const fehler = !gespeichert.titel ? "Bitte einen Titel eingeben."
+        : !/^\d{4}-\d{2}-\d{2}$/.test(gespeichert.datum) ? "Bitte ein Datum wählen."
+        : !gespeichert.datum.startsWith(String(jahr)) ? `Das Datum muss im Jahr ${jahr} liegen (dafür gibt es ein Modell).`
+        : "";
+      if (fehler) {
+        document.getElementById("formular-fehler").textContent = fehler;
+        return;
+      }
+      const ergebnis = await window.DataLayer.speichereEvent(gespeichert);
+      await ladeNeu();
+      $dialog.close();
+      zeigeMeldung(neu ? "Event angelegt ✓" : "Änderungen gespeichert ✓");
+      geheZu("woche", alsDatum(ergebnis.datum), ergebnis.id);
+      zeichne(); // falls sich die Adresse nicht geändert hat
+    });
+    const loeschen = document.getElementById("loeschen");
+    if (loeschen) {
+      loeschen.addEventListener("click", async () => {
+        if (!window.confirm(`„${e.titel}“ wirklich löschen?`)) return;
+        await window.DataLayer.loescheEvent(e.id);
+        await ladeNeu();
+        $dialog.close();
+        zeigeMeldung("Event gelöscht");
+        zeichne();
+      });
+    }
   }
 
   // ======================================================================
