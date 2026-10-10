@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Event Mastermind</title>
-  <meta name="description" content="Klickbarer Prototyp eines Event-Managers für das Community-Team – mit erfundenen Demo-Daten.">
+  <meta name="description" content="Clickable prototype of an event manager for the community team – with fictional demo data.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D2552E'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3EE%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,46 +14,50 @@
 <body>
   <header class="kopf">
     <div class="kopf-innen">
-      <a class="marke" href="#/jahr">
+      <a class="marke" href="#/year">
         <span class="marke-zeichen" aria-hidden="true">E</span>
         <span class="marke-text">
           <strong>Event Mastermind</strong>
-          <small>Impact Hub · Community-Events</small>
+          <small>Impact Hub · Community Events</small>
         </span>
       </a>
-      <span class="demo-hinweis" title="Alle Daten sind erfunden">Demo · erfundene Daten</span>
+      <form class="suche" id="suche-formular" role="search">
+        <input type="search" id="suche" placeholder="Search events, tags, places …" aria-label="Search events" autocomplete="off">
+      </form>
+      <span class="demo-hinweis" title="All data is fictional">Demo · fictional data</span>
     </div>
-    <nav class="hauptnav" aria-label="Ansichten">
-      <a href="#/jahr" data-ansicht="jahr">Jahr</a>
-      <a href="#/quartal" data-ansicht="quartal">Quartal</a>
-      <a href="#/monat" data-ansicht="monat">Monat</a>
-      <a href="#/woche" data-ansicht="woche">Woche</a>
+    <nav class="hauptnav" aria-label="Views">
+      <a href="#/year" data-ansicht="year">Year</a>
+      <a href="#/quarter" data-ansicht="quarter">Quarter</a>
+      <a href="#/month" data-ansicht="month">Month</a>
+      <a href="#/week" data-ansicht="week">Week</a>
       <span class="nav-trenner" aria-hidden="true"></span>
-      <a href="#/warnungen" data-ansicht="warnungen">Abweichungen <span class="zaehler" id="warn-zaehler"></span></a>
-      <a href="#/vorlagen" data-ansicht="vorlagen">Vorlagen</a>
-      <a href="#/verbindungen" data-ansicht="verbindungen">Verbindungen</a>
+      <a href="#/search" data-ansicht="search">Search</a>
+      <a href="#/deviations" data-ansicht="deviations">Deviations <span class="zaehler" id="warn-zaehler"></span></a>
+      <a href="#/templates" data-ansicht="templates">Templates</a>
+      <a href="#/connections" data-ansicht="connections">Connections</a>
     </nav>
   </header>
 
   <div class="werkzeugleiste" id="werkzeugleiste">
     <div class="blaettern">
-      <button class="knopf rund" id="zurueck" aria-label="Zurück">‹</button>
+      <button class="knopf rund" id="zurueck" aria-label="Previous">‹</button>
       <h1 id="titel">…</h1>
-      <button class="knopf rund" id="vor" aria-label="Weiter">›</button>
+      <button class="knopf rund" id="vor" aria-label="Next">›</button>
     </div>
     <div class="aktionen">
-      <button class="knopf leise" id="heute">Heute</button>
-      <button class="knopf haupt" id="neues-event">+ Neues Event</button>
+      <button class="knopf leise" id="heute">Today</button>
+      <button class="knopf haupt" id="neues-event">+ New event</button>
     </div>
   </div>
 
   <main id="inhalt" class="inhalt" tabindex="-1">
-    <p class="laedt">Daten werden geladen …</p>
+    <p class="laedt">Loading data …</p>
   </main>
 
   <footer class="fuss">
     <span id="datenquelle"></span>
-    <button class="knopf leise klein" id="zuruecksetzen">Demo-Daten zurücksetzen</button>
+    <button class="knopf leise klein" id="zuruecksetzen">Reset demo data</button>
   </footer>
 
   <!-- Dialog-Fenster (für Event-Formular, Social-Post usw.) -->

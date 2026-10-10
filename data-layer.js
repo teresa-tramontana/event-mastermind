@@ -16,12 +16,13 @@
 (function () {
   "use strict";
 
-  const SPEICHER_EVENTS = "eventManager.events.v1";
+  // v2: seit der Umstellung auf Englisch (alte gespeicherte Daten passen nicht mehr)
+  const SPEICHER_EVENTS = "eventManager.events.v2";
   const SPEICHER_EINSTELLUNGEN = "eventManager.einstellungen.v1";
 
   const STANDARD_EINSTELLUNGEN = { schwelleProzent: 20 };
 
-  let grunddaten = null; // { events, templates, model } – unverändert aus den Dateien
+  let grunddaten = null; // { events, templates, model, tags } – unverändert aus den Dateien
 
   // ---------- kleine Helfer für den Browser-Speicher (kann z. B. im privaten Fenster fehlen)
   function leseSpeicher(schluessel) {
@@ -63,12 +64,13 @@
     const online = window.location.protocol.startsWith("http");
     if (online) {
       try {
-        const [events, templates, model] = await Promise.all([
+        const [events, templates, model, tags] = await Promise.all([
           ladeJson("data/events.json"),
           ladeJson("data/templates.json"),
           ladeJson("data/model.json"),
+          ladeJson("data/tags.json"),
         ]);
-        grunddaten = { events, templates, model };
+        grunddaten = { events, templates, model, tags };
         return grunddaten;
       } catch (e) {
         console.warn("JSON konnte nicht geladen werden, nutze demo-daten.js", e);
@@ -97,15 +99,16 @@
   // ---------- Öffentliche Funktionen (diese Namen bitte nicht ändern)
   const DataLayer = {
     /** Woher kommen die Daten gerade? (wird in der Oberfläche angezeigt) */
-    quelle: "Demo-Daten (erfunden)",
+    quelle: "Demo data (fictional)",
 
-    /** Alles auf einmal laden: { events, templates, model } */
+    /** Alles auf einmal laden: { events, templates, model, tags } */
     async ladeAlles() {
       const basis = await ladeGrunddaten();
       return {
         events: await aktuelleEvents(),
         templates: kopie(basis.templates),
         model: kopie(basis.model),
+        tags: kopie(basis.tags || []),
       };
     },
 
@@ -156,29 +159,29 @@
         {
           id: "notion",
           name: "Notion",
-          zweck: "Hauptquelle für Events, Vorlagen und das Soll-Modell.",
-          spaeter: "Liest die Event-Datenbank (zuerst nur lesen).",
+          zweck: "Main source for events, templates and the target model.",
+          spaeter: "Reads the event database (read-only at first).",
           verbunden: false,
         },
         {
           id: "eventbrite",
           name: "Eventbrite",
-          zweck: "Anmeldungen und Ticketzahlen.",
-          spaeter: "Legt Entwürfe aus Vorlagen an und holt Anmeldezahlen.",
+          zweck: "Registrations and ticket numbers.",
+          spaeter: "Creates drafts from templates and fetches registration numbers.",
           verbunden: false,
         },
         {
           id: "gmail",
           name: "Gmail",
-          zweck: "Reminder- und Feedback-Mails.",
-          spaeter: "Erstellt Mail-Entwürfe – verschickt nichts ohne dich.",
+          zweck: "Reminder and feedback emails.",
+          spaeter: "Creates email drafts – never sends anything without you.",
           verbunden: false,
         },
         {
           id: "gcal",
           name: "Google Calendar",
-          zweck: "Termine im Team-Kalender.",
-          spaeter: "Trägt geplante Events in den Kalender ein.",
+          zweck: "Dates in the team calendar.",
+          spaeter: "Adds planned events to the calendar.",
           verbunden: false,
         },
       ];

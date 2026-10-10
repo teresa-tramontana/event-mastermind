@@ -1,13 +1,14 @@
 /*
- * app.js – die Oberfläche.
+ * app.js – die Oberfläche (alle sichtbaren Texte auf Englisch).
  *
  * Aufbau dieser Datei (von oben nach unten):
  *   1. Zustand        – was gerade angezeigt wird
  *   2. Helfer         – Datum, Texte, Farben
  *   3. Auswertung     – Ist gegen Soll (Modell) vergleichen
- *   4. Ansichten      – Jahr, Quartal, Monat, Woche, Abweichungen, Vorlagen, Verbindungen
- *   5. Dialoge        – Event-Formular, Social-Post-Vorschlag
- *   6. Start          – Daten laden, Knöpfe verbinden
+ *   4. Vorschläge     – Titel, Description und Summary aus Vorlage + Tags bauen
+ *   5. Ansichten      – Year, Quarter, Month, Week, Search, Deviations, Templates, Connections
+ *   6. Dialoge        – Event-Formular, Social-Post-/Mail-Vorschlag
+ *   7. Start          – Daten laden, Knöpfe verbinden
  *
  * WICHTIG: Diese Datei holt Daten NIE selbst, sondern immer über window.DataLayer.
  */
@@ -21,18 +22,20 @@
     events: [],
     templates: [],
     model: null,
+    tags: [], // feste Tag-Liste aus data/tags.json
     einstellungen: { schwelleProzent: 20 },
-    ansicht: "jahr",
+    ansicht: "year",
     datum: null, // das Datum, um das sich die Ansicht dreht ("Cursor")
+    suche: { text: "", kategorie: "", status: "", nurKommende: false },
   };
 
   const KATEGORIEN = ["Workshop", "Networking", "Talk", "Community Lunch", "Pitch Night"];
-  const STATUS = ["Idee", "Geplant", "Veröffentlicht", "Durchgeführt"];
-  const MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
-    "August", "September", "Oktober", "November", "Dezember"];
-  const MONATE_KURZ = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
-  const WOCHENTAGE = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"];
-  const WOCHENTAGE_KURZ = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
+  const STATUS = ["Idea", "Planned", "Published", "Done"];
+  const MONATE = ["January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"];
+  const MONATE_KURZ = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const WOCHENTAGE = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+  const WOCHENTAGE_KURZ = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   const $inhalt = document.getElementById("inhalt");
   const $titel = document.getElementById("titel");
@@ -79,10 +82,10 @@
   function quartalVon(d) {
     return Math.floor(d.getMonth() / 3) + 1;
   }
-  /** "Mi, 14. Oktober" */
+  /** "Wed, 14 October" (mit Jahr: "Wed, 14 October 2026") */
   function datumSchoen(text, mitJahr) {
     const d = alsDatum(text);
-    return WOCHENTAGE_KURZ[(d.getDay() + 6) % 7] + ", " + d.getDate() + ". " + MONATE[d.getMonth()] +
+    return WOCHENTAGE_KURZ[(d.getDay() + 6) % 7] + ", " + d.getDate() + " " + MONATE[d.getMonth()] +
       (mitJahr ? " " + d.getFullYear() : "");
   }
   function heute() {
@@ -103,13 +106,16 @@
   function statusPille(status) {
     return `<span class="status status-${esc(status)}">${esc(status)}</span>`;
   }
+  function tagPillen(tags) {
+    return (tags || []).map((t) => `<span class="tag">${esc(t)}</span>`).join("");
+  }
   function prozent(wert) {
-    return Math.round(wert * 100) + " %";
+    return Math.round(wert * 100) + "%";
   }
   function vorzeichenProzent(wert) {
-    if (wert === Infinity) return "ungeplant";
+    if (wert === Infinity) return "unplanned";
     const p = Math.round(wert * 100);
-    return (p > 0 ? "+" : p < 0 ? "−" : "±") + Math.abs(p) + " %";
+    return (p > 0 ? "+" : p < 0 ? "−" : "±") + Math.abs(p) + "%";
   }
   function zeigeMeldung(text) {
     const el = document.getElementById("meldung");
@@ -140,7 +146,7 @@
   /**
    * Vergleicht eine Liste von Events mit dem Soll.
    * Abweichung = (Ist − Soll) / Soll   → z. B. −0,5 heißt "50 % zu wenig"
-   * Auslastung wird nur aus bereits durchgeführten Events berechnet
+   * Auslastung wird nur aus bereits durchgeführten Events ("Done") berechnet
    * (bei zukünftigen Events stehen die Anmeldungen ja noch nicht fest).
    */
   function vergleiche(events, soll, zielAuslastung) {
@@ -154,7 +160,7 @@
       return { kat, ist, soll: s, abw, auffaellig: Math.abs(abw) > schwelle };
     });
 
-    const erledigt = events.filter((e) => e.status === "Durchgeführt" && Number(e["kapazität"]) > 0);
+    const erledigt = events.filter((e) => e.status === "Done" && Number(e["kapazität"]) > 0);
     const plaetze = erledigt.reduce((s, e) => s + Number(e["kapazität"]), 0);
     const anmeldungen = erledigt.reduce((s, e) => s + Number(e.anmeldungen || 0), 0);
     const auslastung = plaetze > 0 ? anmeldungen / plaetze : null;
@@ -169,17 +175,17 @@
       .map((k) => ({
         art: "anzahl", kat: k.kat, ist: k.ist, soll: k.soll, abw: k.abw,
         text: k.soll === 0
-          ? `${k.kat}: ${k.ist} Event(s), obwohl keines geplant war`
+          ? `${k.kat}: ${k.ist} event(s), although none were planned`
           : k.ist < k.soll
-            ? `${k.kat}: nur ${k.ist} statt ${k.soll}`
-            : `${k.kat}: ${k.ist} statt ${k.soll}`,
+            ? `${k.kat}: only ${k.ist} instead of ${k.soll}`
+            : `${k.kat}: ${k.ist} instead of ${k.soll}`,
       }));
     if (auslastungAbw !== null && Math.abs(auslastungAbw) > schwelle) {
       abweichungen.push({
-        art: "auslastung", kat: "Auslastung", ist: auslastung, soll: ziel, abw: auslastungAbw,
+        art: "auslastung", kat: "Occupancy", ist: auslastung, soll: ziel, abw: auslastungAbw,
         text: auslastung > ziel
-          ? `Überbucht: ${prozent(auslastung)} belegt (Ziel ${prozent(ziel)})`
-          : `Schwach besucht: ${prozent(auslastung)} belegt (Ziel ${prozent(ziel)})`,
+          ? `Overbooked: ${prozent(auslastung)} full (target ${prozent(ziel)})`
+          : `Low turnout: ${prozent(auslastung)} full (target ${prozent(ziel)})`,
       });
     }
 
@@ -215,14 +221,99 @@
   }
 
   // ======================================================================
-  // 4. ANSICHTEN
+  // 4. VORSCHLÄGE – Titel, Description und Summary
+  // ======================================================================
+  // Funktioniert ohne KI: Die Bausteine kommen aus der Vorlage der Kategorie
+  // (titelIdeen, beschreibung, summaryVorlage) und aus der Tag-Liste (kurz, satz).
+  // Später (Roadmap Punkt 5) kann hier eine KI die Texte verfeinern.
+
+  const KLEINE_WOERTER = ["a", "an", "and", "as", "at", "by", "for", "in", "of", "on", "or", "the", "to", "with"];
+
+  /** "access to finance" -> "Access to Finance" */
+  function titelSchreibweise(text) {
+    return String(text).split(" ").map((w, i) =>
+      i > 0 && KLEINE_WOERTER.includes(w.toLowerCase()) ? w.toLowerCase() : w.charAt(0).toUpperCase() + w.slice(1)
+    ).join(" ");
+  }
+
+  /** Thema aus einem Titel raten: "Impact Talk: AI for Good" -> "AI for Good" */
+  function themaAusTitel(titel) {
+    const t = String(titel || "").trim();
+    if (!t || t.includes("[")) return "";
+    const nachDoppelpunkt = t.includes(": ") ? t.split(": ").slice(1).join(": ") : t;
+    return nachDoppelpunkt.trim();
+  }
+
+  function tagInfo(name) {
+    return zustand.tags.find((t) => t.tag === name);
+  }
+
+  /** Stichworte aus den Tags: "small group, expert input & coaching" */
+  function merkmale(tags, kategorie) {
+    const w = (tags || []).filter((t) => t !== kategorie).map(tagInfo).filter(Boolean)
+      .map((t) => t.kurz).slice(0, 3);
+    if (w.length <= 1) return w[0] || "open to everyone";
+    return w.slice(0, -1).join(", ") + " & " + w[w.length - 1];
+  }
+
+  // Zusätzliche Titel-Idee, abhängig von einem besonderen Tag
+  const TITEL_DURCH_TAG = {
+    "Small groups": (T) => `${T}: Small-Group Session`,
+    "1:1 sessions": (T) => `${T} + 1:1 Clinic`,
+    "Peer feedback/exchange": (T) => `${T}: Peer Feedback Round`,
+    "Skillshare": (T) => `Skillshare: ${T}`,
+    "Keynote/panel": (T) => `${T}: Keynote & Panel`,
+    "Matchmaking": (T) => `${T} Matchmaking`,
+    "Coaching/consulting": (T) => `${T}: Coaching Lab`,
+    "Group work": (T) => `${T} Team Lab`,
+    "Unwind": (T) => `${T} & Unwind`,
+  };
+
+  /**
+   * Baut Vorschläge.
+   * eingabe: { kategorie, thema, tags[], datum, startzeit, ort, kapazität }
+   * Ergebnis: { titel: [...], beschreibung, zusammenfassung }
+   */
+  function baueVorschlaege(eingabe) {
+    const vorlage = zustand.templates.find((t) => t.kategorie === eingabe.kategorie) || {};
+    const thema = (eingabe.thema || "").trim() || "[your topic]";
+    const T = thema.startsWith("[") ? thema : titelSchreibweise(thema);
+    const tags = eingabe.tags || [];
+
+    const titel = (vorlage.titelIdeen || ["{thema}"]).map((muster) => muster.replace("{thema}", T));
+    const extraTag = tags.find((t) => TITEL_DURCH_TAG[t]);
+    if (extraTag) titel.splice(1, 0, TITEL_DURCH_TAG[extraTag](T));
+
+    const saetze = tags.map(tagInfo).filter(Boolean).map((t) => t.satz).join(" ");
+    const praktisch = [
+      eingabe.datum ? "📅 " + datumSchoen(eingabe.datum, true) : "",
+      eingabe.startzeit ? "🕒 " + eingabe.startzeit : "",
+      eingabe.ort ? "📍 " + eingabe.ort : "",
+    ].filter(Boolean).join(" · ");
+    const plaetze = Number(eingabe["kapazität"]) > 0
+      ? `${eingabe["kapazität"]} spots – register via Eventbrite.` : "Register via Eventbrite.";
+    const beschreibung = [
+      String(vorlage.beschreibung || "An event about {thema}.").replace(/\{thema\}/g, thema),
+      saetze,
+      (praktisch ? praktisch + "\n" : "") + plaetze,
+    ].filter(Boolean).join("\n\n");
+
+    const zusammenfassung = String(vorlage.summaryVorlage || "{thema} – {merkmale}.")
+      .replace(/\{thema\}/g, thema)
+      .replace(/\{merkmale\}/g, merkmale(tags, eingabe.kategorie));
+
+    return { titel: [...new Set(titel)].slice(0, 4), beschreibung, zusammenfassung };
+  }
+
+  // ======================================================================
+  // 5. ANSICHTEN
   // ======================================================================
   const ANSICHTEN = {};
 
-  // ---------------------------------------------------------------- Jahr
-  ANSICHTEN.jahr = {
+  // ---------------------------------------------------------------- Year
+  ANSICHTEN.year = {
     blaettern: true,
-    titel: (d) => "Jahr " + d.getFullYear(),
+    titel: (d) => "Year " + d.getFullYear(),
     schritt: (d, r) => new Date(d.getFullYear() + r, d.getMonth(), 1),
     zeichne(d) {
       const jahr = d.getFullYear();
@@ -244,40 +335,40 @@
         const istHeute = heute().getFullYear() === jahr && heute().getMonth() === i;
         return `
           <button class="kachel stufe-${stufe} ${istHeute ? "heute-monat" : ""}" data-monat="${i + 1}"
-                  aria-label="${name}: ${v.istGesamt} von ${v.sollGesamt} Events. Öffnen">
+                  aria-label="${name}: ${v.istGesamt} of ${v.sollGesamt} events. Open">
             <div class="kachel-kopf"><strong>${name}</strong>
-              <span class="leise">${v.auslastung !== null ? "⌀ " + prozent(v.auslastung) : "offen"}</span></div>
-            <div><span class="zahl">${v.istGesamt}</span> <span class="leise">/ ${v.sollGesamt} Events</span></div>
+              <span class="leise">${v.auslastung !== null ? "⌀ " + prozent(v.auslastung) : "open"}</span></div>
+            <div><span class="zahl">${v.istGesamt}</span> <span class="leise">/ ${v.sollGesamt} events</span></div>
             <div class="mini-punkte">${punkte}</div>
-            <div class="hinweis">${groesste ? "⚠ " + esc(groesste.text) : "✓ im Plan"}</div>
+            <div class="hinweis">${groesste ? "⚠ " + esc(groesste.text) : "✓ on plan"}</div>
           </button>`;
       }).join("");
 
       $inhalt.innerHTML = `
         <div class="kennzahlen">
-          <div class="kennzahl"><div class="wert">${jahresEvents.length}</div><div class="label">Events im Jahr (Soll ${sollJahr})</div></div>
-          <div class="kennzahl"><div class="wert">${jahresEvents.filter((e) => e.status === "Durchgeführt").length}</div><div class="label">schon durchgeführt</div></div>
-          <div class="kennzahl"><div class="wert">${jahresVergleich.auslastung !== null ? prozent(jahresVergleich.auslastung) : "–"}</div><div class="label">⌀ Auslastung (Ziel ${zustand.model.monate[0].zielAuslastung} %)</div></div>
-          <div class="kennzahl"><div class="wert">${auffaelligeMonate.length}</div><div class="label">Monate mit Abweichung &gt; ${zustand.einstellungen.schwelleProzent} %</div></div>
+          <div class="kennzahl"><div class="wert">${jahresEvents.length}</div><div class="label">events this year (target ${sollJahr})</div></div>
+          <div class="kennzahl"><div class="wert">${jahresEvents.filter((e) => e.status === "Done").length}</div><div class="label">already done</div></div>
+          <div class="kennzahl"><div class="wert">${jahresVergleich.auslastung !== null ? prozent(jahresVergleich.auslastung) : "–"}</div><div class="label">⌀ occupancy (target ${zustand.model.monate[0].zielAuslastung}%)</div></div>
+          <div class="kennzahl"><div class="wert">${auffaelligeMonate.length}</div><div class="label">months deviating &gt; ${zustand.einstellungen.schwelleProzent}%</div></div>
         </div>
         <div class="heatmap">${kacheln}</div>
         <div class="abschnitt gitter-2">
-          <div class="skala">Abweichung vom Modell:
-            <i style="background:var(--heat-0)"></i>keine
+          <div class="skala">Deviation from model:
+            <i style="background:var(--heat-0)"></i>none
             <i style="background:var(--heat-1)"></i><i style="background:var(--heat-2)"></i>
-            <i style="background:var(--heat-3)"></i><i style="background:var(--heat-4)"></i>stark
+            <i style="background:var(--heat-3)"></i><i style="background:var(--heat-4)"></i>strong
           </div>
           <div class="legende">${KATEGORIEN.map((k) =>
             `<span class="${katKlasse(k)}"><span class="kat-punkt"></span>${k}</span>`).join("")}</div>
         </div>
-        <p class="leise abschnitt">Tipp: Klick auf einen Monat öffnet den Kalender. „⌀“ = durchschnittliche Auslastung der bereits durchgeführten Events.</p>`;
+        <p class="leise abschnitt">Tip: click a month to open its calendar. “⌀” = average occupancy of events that already took place.</p>`;
 
       $inhalt.querySelectorAll(".kachel").forEach((k) =>
-        k.addEventListener("click", () => geheZu("monat", new Date(jahr, Number(k.dataset.monat) - 1, 1))));
+        k.addEventListener("click", () => geheZu("month", new Date(jahr, Number(k.dataset.monat) - 1, 1))));
     },
   };
 
-  // ---------------------------------------------------------------- Quartal
+  // ---------------------------------------------------------------- Quarter
   /** Ein Balken "Ist gegen Soll" */
   function balkenZeile(name, klasse, ist, soll, max, istText, sollText, abw) {
     const breite = max > 0 ? Math.min(100, (ist / max) * 100) : 0;
@@ -287,7 +378,7 @@
     return `
       <div class="balken-zeile ${klasse}">
         <div class="balken-name"><span class="kat-punkt"></span>${esc(name)}</div>
-        <div class="balken-spur" title="Ist ${istText} · Soll ${sollText}">
+        <div class="balken-spur" title="Actual ${istText} · Target ${sollText}">
           <div class="balken-ist" style="width:${breite}%"></div>
           <div class="balken-soll" style="left:calc(${sollPos}% - 1px)"></div>
         </div>
@@ -296,7 +387,7 @@
       </div>`;
   }
 
-  ANSICHTEN.quartal = {
+  ANSICHTEN.quarter = {
     blaettern: true,
     titel: (d) => `Q${quartalVon(d)} ${d.getFullYear()} · ${MONATE_KURZ[(quartalVon(d) - 1) * 3]} – ${MONATE_KURZ[(quartalVon(d) - 1) * 3 + 2]}`,
     schritt: (d, r) => new Date(d.getFullYear(), (quartalVon(d) - 1 + r) * 3, 1),
@@ -310,7 +401,7 @@
         balkenZeile(k.kat, katKlasse(k.kat), k.ist, k.soll, max, String(k.ist), String(k.soll),
           k.soll === 0 && k.ist === 0 ? null : k.abw)).join("");
 
-      const auslastungZeile = balkenZeile("Auslastung", "kat-auslastung", v.auslastung || 0, v.ziel, Math.max(1.3, (v.auslastung || 0) * 1.1),
+      const auslastungZeile = balkenZeile("Occupancy", "kat-auslastung", v.auslastung || 0, v.ziel, Math.max(1.3, (v.auslastung || 0) * 1.1),
         v.auslastung !== null ? prozent(v.auslastung) : "–", prozent(v.ziel), v.auslastungAbw);
 
       const monatsLinks = [0, 1, 2].map((i) => {
@@ -321,47 +412,46 @@
 
       $inhalt.innerHTML = `
         <div class="kennzahlen">
-          <div class="kennzahl"><div class="wert">${v.istGesamt} <span class="leise" style="font-size:1rem">/ ${v.sollGesamt}</span></div><div class="label">Events Ist / Soll</div></div>
-          <div class="kennzahl"><div class="wert">${v.auslastung !== null ? prozent(v.auslastung) : "–"}</div><div class="label">Auslastung (Ziel ${prozent(v.ziel)})</div></div>
-          <div class="kennzahl"><div class="wert">${v.abweichungen.length}</div><div class="label">Abweichungen &gt; ${zustand.einstellungen.schwelleProzent} %</div></div>
+          <div class="kennzahl"><div class="wert">${v.istGesamt} <span class="leise" style="font-size:1rem">/ ${v.sollGesamt}</span></div><div class="label">events actual / target</div></div>
+          <div class="kennzahl"><div class="wert">${v.auslastung !== null ? prozent(v.auslastung) : "–"}</div><div class="label">occupancy (target ${prozent(v.ziel)})</div></div>
+          <div class="kennzahl"><div class="wert">${v.abweichungen.length}</div><div class="label">deviations &gt; ${zustand.einstellungen.schwelleProzent}%</div></div>
         </div>
-        ${abweichungsBanner(v, "diesem Quartal")}
+        ${abweichungsBanner(v, "this quarter")}
         <div class="gitter-2">
           <section class="karte">
-            <h2>Kategorien-Mix</h2>
-            <p class="untertitel">Farbiger Balken = Ist · schwarzer Strich = Soll laut Modell</p>
+            <h2>Category mix</h2>
+            <p class="untertitel">Coloured bar = actual · black line = target from the model</p>
             <div class="abschnitt">${zeilen}</div>
           </section>
           <section class="karte">
-            <h2>Auslastung</h2>
-            <p class="untertitel">Anmeldungen geteilt durch Plätze – nur bereits durchgeführte Events</p>
+            <h2>Occupancy</h2>
+            <p class="untertitel">Registrations divided by spots – only events that already took place</p>
             <div class="abschnitt">${auslastungZeile}</div>
-            <h3 class="abschnitt">Monate in diesem Quartal</h3>
+            <h3 class="abschnitt">Months in this quarter</h3>
             <div class="monats-links">${monatsLinks}</div>
           </section>
         </div>`;
 
       $inhalt.querySelectorAll("[data-monat]").forEach((b) =>
-        b.addEventListener("click", () => geheZu("monat", new Date(jahr, Number(b.dataset.monat) - 1, 1))));
+        b.addEventListener("click", () => geheZu("month", new Date(jahr, Number(b.dataset.monat) - 1, 1))));
     },
   };
 
   /** Hinweis-Kasten mit allen Abweichungen eines Zeitraums */
-  function abweichungsBanner(v, wo, ohneIn) {
-    wo = ohneIn ? wo : "in " + wo;
+  function abweichungsBanner(v, wo) {
     if (!v.abweichungen.length) {
-      return `<div class="banner ok"><span class="banner-symbol">✓</span><div><strong>Alles im Plan.</strong>
-        Keine Abweichung über ${zustand.einstellungen.schwelleProzent} % ${wo}.</div></div>`;
+      return `<div class="banner ok"><span class="banner-symbol">✓</span><div><strong>All on plan.</strong>
+        No deviation above ${zustand.einstellungen.schwelleProzent}% in ${wo}.</div></div>`;
     }
     return `<div class="banner warnung"><span class="banner-symbol">⚠</span><div>
-      <strong>${v.abweichungen.length === 1 ? "1 Abweichung" : v.abweichungen.length + " Abweichungen"} vom Modell ${wo}</strong>
-      <span class="leise">(Schwelle ${zustand.einstellungen.schwelleProzent} %)</span>
+      <strong>${v.abweichungen.length === 1 ? "1 deviation" : v.abweichungen.length + " deviations"} from the model in ${wo}</strong>
+      <span class="leise">(threshold ${zustand.einstellungen.schwelleProzent}%)</span>
       <ul>${v.abweichungen.map((a) => `<li>${esc(a.text)} <span class="leise">(${vorzeichenProzent(a.abw)})</span></li>`).join("")}</ul>
     </div></div>`;
   }
 
-  // ---------------------------------------------------------------- Monat
-  ANSICHTEN.monat = {
+  // ---------------------------------------------------------------- Month
+  ANSICHTEN.month = {
     blaettern: true,
     titel: (d) => MONATE[d.getMonth()] + " " + d.getFullYear(),
     schritt: (d, r) => new Date(d.getFullYear(), d.getMonth() + r, 1),
@@ -381,13 +471,13 @@
         const events = fremd ? [] : zustand.events.filter((e) => e.datum === text)
           .sort((a, b) => a.startzeit.localeCompare(b.startzeit));
         const chips = events.map((e) => `
-          <button class="ev-chip ${katKlasse(e.kategorie)} ${e.status === "Idee" ? "idee" : ""}" data-event="${esc(e.id)}" data-datum="${text}"
+          <button class="ev-chip ${katKlasse(e.kategorie)} ${e.status === "Idea" ? "idee" : ""}" data-event="${esc(e.id)}" data-datum="${text}"
                   title="${esc(e.titel)} · ${esc(e.status)}">
             <span class="zeit">${esc(e.startzeit)}</span> ${esc(e.titel)}
           </button>`).join("");
         zellen += `
           <div class="tag-zelle ${fremd ? "fremd" : ""} ${text === heuteText ? "heute" : ""} ${events.length ? "" : "ohne-events"}">
-            <button class="tag-nr" data-datum="${text}" title="Woche öffnen">${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]} ${tag.getDate()}.</button>
+            <button class="tag-nr" data-datum="${text}" title="Open week">${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]} ${tag.getDate()}</button>
             ${chips}
           </div>`;
       }
@@ -396,42 +486,42 @@
         `<span class="${katKlasse(k.kat)}"><span class="kat-punkt"></span>${k.kat}: <strong>${k.ist}</strong>/${k.soll}</span>`).join("");
 
       $inhalt.innerHTML = `
-        ${abweichungsBanner(v, "im " + MONATE[monat - 1], true)}
-        <div class="legende" style="margin-bottom:12px">Ist/Soll: ${sollZeile}</div>
+        ${abweichungsBanner(v, MONATE[monat - 1])}
+        <div class="legende" style="margin-bottom:12px">Actual/target: ${sollZeile}</div>
         <div class="kalender">${zellen}</div>
-        <p class="leise abschnitt">Tipp: Klick auf ein Event oder einen Tag öffnet die Wochenansicht mit allen Details.</p>`;
+        <p class="leise abschnitt">Tip: click an event or a day to open the week view with all details.</p>`;
 
       $inhalt.querySelectorAll(".tag-nr").forEach((b) =>
-        b.addEventListener("click", () => geheZu("woche", alsDatum(b.dataset.datum))));
+        b.addEventListener("click", () => geheZu("week", alsDatum(b.dataset.datum))));
       $inhalt.querySelectorAll(".ev-chip").forEach((b) =>
-        b.addEventListener("click", () => geheZu("woche", alsDatum(b.dataset.datum), b.dataset.event)));
+        b.addEventListener("click", () => geheZu("week", alsDatum(b.dataset.datum), b.dataset.event)));
     },
   };
 
-  // ---------------------------------------------------------------- Woche
+  // ---------------------------------------------------------------- Week
   /** Was sollte als Nächstes passieren? (Reminder-Hinweis) */
   function reminderHinweis(e) {
     const d = tageBis(e.datum);
     const offen = (e.aufgaben || []).filter((a) => !a.erledigt).map((a) => a.text);
     const tagVorher = (n) => datumSchoen(alsText(plusTage(alsDatum(e.datum), -n)));
-    if (e.status === "Durchgeführt" || d < 0) {
-      if (offen.length) return { stufe: "ruhig", text: "📝 Nachbereitung offen: " + offen.join(", ") };
+    if (e.status === "Done" || d < 0) {
+      if (offen.length) return { stufe: "ruhig", text: "📝 Follow-up still open: " + offen.join(", ") };
       return null;
     }
-    if (e.status === "Idee") {
-      return { stufe: d <= 30 ? "dringend" : "ruhig", text: `💡 Noch eine Idee – Termin, Raum und Speaker:in bestätigen${d <= 30 ? ` (nur noch ${d} Tage!)` : ""}.` };
+    if (e.status === "Idea") {
+      return { stufe: d <= 30 ? "dringend" : "ruhig", text: `💡 Still an idea – confirm date, room and speaker${d <= 30 ? ` (only ${d} days left!)` : ""}.` };
     }
-    if (e.status === "Geplant") {
-      if (d <= 21) return { stufe: "dringend", text: `📣 Noch nicht veröffentlicht – nur noch ${d} Tage bis zum Event!` };
-      return { stufe: "ruhig", text: `📣 Auf Eventbrite veröffentlichen bis spätestens ${tagVorher(21)}.` };
+    if (e.status === "Planned") {
+      if (d <= 21) return { stufe: "dringend", text: `📣 Not published yet – only ${d} days until the event!` };
+      return { stufe: "ruhig", text: `📣 Publish on Eventbrite by ${tagVorher(21)} at the latest.` };
     }
-    // Veröffentlicht
-    if (offen.includes("Reminder-Mail senden")) {
-      if (d <= 1) return { stufe: "dringend", text: `⏰ Reminder-Mail ${d === 0 ? "heute früh" : "heute"} senden – das Event ist ${d === 0 ? "heute" : "morgen"}!` };
-      if (d <= 7) return { stufe: "", text: `⏰ Reminder-Mail am ${tagVorher(2)} senden (2 Tage vorher).` };
-      return { stufe: "ruhig", text: `⏰ Reminder-Mail ist für ${tagVorher(2)} vorgemerkt.` };
+    // Published
+    if (offen.includes("Send reminder email")) {
+      if (d <= 1) return { stufe: "dringend", text: `⏰ Send the reminder email ${d === 0 ? "first thing today" : "today"} – the event is ${d === 0 ? "today" : "tomorrow"}!` };
+      if (d <= 7) return { stufe: "", text: `⏰ Send the reminder email on ${tagVorher(2)} (2 days before).` };
+      return { stufe: "ruhig", text: `⏰ Reminder email scheduled for ${tagVorher(2)}.` };
     }
-    return { stufe: "ruhig", text: "✓ Reminder ist raus." };
+    return { stufe: "ruhig", text: "✓ Reminder has been sent." };
   }
 
   function eventKarte(e) {
@@ -450,40 +540,59 @@
           <div>
             <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">${katPille(e.kategorie)} ${statusPille(e.status)}</div>
             <h3>${esc(e.titel)}</h3>
+            ${e.zusammenfassung ? `<p class="summary">${esc(e.zusammenfassung)}</p>` : ""}
           </div>
-          <div class="tags">${(e.tags || []).map((t) => `<span class="tag">#${esc(t)}</span>`).join("")}</div>
+          <div class="tags">${tagPillen(e.tags)}</div>
         </div>
         <div class="event-meta">
-          <span>🕒 ${esc(e.startzeit)} Uhr</span><span>📍 ${esc(e.ort)}</span><span>👤 ${esc(e.verantwortlich)}</span>
-          ${e.eventbriteId ? `<span title="Eventbrite-ID (Demo)">🎟 ${esc(e.eventbriteId)}</span>` : ""}
-          ${e.kalenderId ? `<span title="Kalender-ID (Demo)">📅 ${esc(e.kalenderId)}</span>` : ""}
+          <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span><span>👤 ${esc(e.verantwortlich)}</span>
+          ${e.eventbriteId ? `<span title="Eventbrite ID (demo)">🎟 ${esc(e.eventbriteId)}</span>` : ""}
+          ${e.kalenderId ? `<span title="Calendar ID (demo)">📅 ${esc(e.kalenderId)}</span>` : ""}
         </div>
         <div class="event-raster">
           <div>
-            <strong>${esc(e.anmeldungen)}</strong> <span class="leise">von ${kap} Plätzen angemeldet</span>
+            <strong>${esc(e.anmeldungen)}</strong> <span class="leise">of ${kap} spots registered</span>
             <div class="fortschritt ${quote > 1 ? "ueber" : ""}"><span style="width:${Math.min(100, quote * 100)}%"></span></div>
-            <span class="leise" style="font-size:.82rem">${quote > 1 ? `⚠ überbucht (${prozent(quote)})` : prozent(quote) + " belegt"}</span>
+            <span class="leise" style="font-size:.82rem">${quote > 1 ? `⚠ overbooked (${prozent(quote)})` : prozent(quote) + " full"}</span>
           </div>
           <div>
-            <strong>Aufgaben</strong> <span class="leise">(${offen ? offen + " offen" : "alles erledigt"})</span>
-            <ul class="aufgaben">${aufgaben || '<li class="leise">Keine Aufgaben</li>'}</ul>
+            <strong>Tasks</strong> <span class="leise">(${offen ? offen + " open" : "all done"})</span>
+            <ul class="aufgaben">${aufgaben || '<li class="leise">No tasks</li>'}</ul>
           </div>
         </div>
+        ${e.beschreibung ? `<details class="beschreibung"><summary>Description</summary><p>${esc(e.beschreibung)}</p></details>` : ""}
         ${r ? `<div class="reminder ${r.stufe}">${esc(r.text)}</div>` : ""}
         <div class="event-aktionen">
-          <button class="knopf klein" data-aktion="social">✨ Social-Post-Vorschlag</button>
-          <button class="knopf klein" data-aktion="mail">✉️ Reminder-Mail-Vorschlag</button>
-          <button class="knopf klein leise" data-aktion="bearbeiten">Bearbeiten</button>
+          <button class="knopf klein" data-aktion="social">✨ Social post suggestion</button>
+          <button class="knopf klein" data-aktion="mail">✉️ Reminder email suggestion</button>
+          <button class="knopf klein leise" data-aktion="bearbeiten">Edit</button>
         </div>
       </article>`;
   }
 
-  ANSICHTEN.woche = {
+  /** Knöpfe und Häkchen in Event-Karten verbinden */
+  function verbindeEventKarten() {
+    $inhalt.querySelectorAll(".event-karte").forEach((karte) => {
+      const event = zustand.events.find((e) => e.id === karte.dataset.event);
+      karte.querySelectorAll("[data-aufgabe]").forEach((box) =>
+        box.addEventListener("change", async () => {
+          event.aufgaben[Number(box.dataset.aufgabe)].erledigt = box.checked;
+          await window.DataLayer.speichereEvent(event);
+          await ladeNeu();
+          zeichne();
+        }));
+      karte.querySelector('[data-aktion="social"]').addEventListener("click", () => zeigeVorschlag(event, "social"));
+      karte.querySelector('[data-aktion="mail"]').addEventListener("click", () => zeigeVorschlag(event, "mail"));
+      karte.querySelector('[data-aktion="bearbeiten"]').addEventListener("click", () => oeffneEventFormular(event));
+    });
+  }
+
+  ANSICHTEN.week = {
     blaettern: true,
     titel: (d) => {
       const s = wochenStart(d), e = plusTage(s, 6);
-      const von = s.getMonth() === e.getMonth() ? s.getDate() + "." : s.getDate() + ". " + MONATE_KURZ[s.getMonth()];
-      return `KW ${kalenderwoche(s)} · ${von} – ${e.getDate()}. ${MONATE_KURZ[e.getMonth()]}`;
+      const von = s.getMonth() === e.getMonth() ? String(s.getDate()) : s.getDate() + " " + MONATE_KURZ[s.getMonth()];
+      return `Week ${kalenderwoche(s)} · ${von} – ${e.getDate()} ${MONATE_KURZ[e.getMonth()]}`;
     },
     schritt: (d, r) => plusTage(d, 7 * r),
     imJahr: (d, jahr) => wochenStart(d).getFullYear() === jahr || plusTage(wochenStart(d), 6).getFullYear() === jahr,
@@ -500,27 +609,14 @@
         html += `
           <section class="wochen-tag ${events.length ? "" : "leer-tag"}">
             <div class="wochen-tag-kopf ${text === heuteText ? "heute" : ""}">
-              <h2>${WOCHENTAGE[i]}</h2><span class="leise">${tag.getDate()}. ${MONATE[tag.getMonth()]}${text === heuteText ? " · heute (Demo)" : ""}</span>
-              ${events.length ? "" : '<span class="leer">keine Events</span>'}
+              <h2>${WOCHENTAGE[i]}</h2><span class="leise">${tag.getDate()} ${MONATE[tag.getMonth()]}${text === heuteText ? " · today (demo)" : ""}</span>
+              ${events.length ? "" : '<span class="leer">no events</span>'}
             </div>
             ${events.map(eventKarte).join("")}
           </section>`;
       }
-      $inhalt.innerHTML = `<p class="leise" style="margin-top:0">${anzahl ? anzahl + " Event(s) in dieser Woche" : "In dieser Woche ist nichts geplant."}</p>` + html;
-
-      $inhalt.querySelectorAll(".event-karte").forEach((karte) => {
-        const event = zustand.events.find((e) => e.id === karte.dataset.event);
-        karte.querySelectorAll("[data-aufgabe]").forEach((box) =>
-          box.addEventListener("change", async () => {
-            event.aufgaben[Number(box.dataset.aufgabe)].erledigt = box.checked;
-            await window.DataLayer.speichereEvent(event);
-            await ladeNeu();
-            zeichne();
-          }));
-        karte.querySelector('[data-aktion="social"]').addEventListener("click", () => zeigeVorschlag(event, "social"));
-        karte.querySelector('[data-aktion="mail"]').addEventListener("click", () => zeigeVorschlag(event, "mail"));
-        karte.querySelector('[data-aktion="bearbeiten"]').addEventListener("click", () => oeffneEventFormular(event));
-      });
+      $inhalt.innerHTML = `<p class="leise" style="margin-top:0">${anzahl ? anzahl + (anzahl === 1 ? " event" : " events") + " this week" : "Nothing planned this week."}</p>` + html;
+      verbindeEventKarten();
 
       if (fokus) {
         const ziel = document.getElementById("event-" + fokus);
@@ -532,21 +628,167 @@
     },
   };
 
-  // ---------------------------------------------------------------- Abweichungen
-  ANSICHTEN.warnungen = {
+  // ---------------------------------------------------------------- Search
+  /** Alles, was an einem Event durchsucht wird – mit Namen für die Trefferanzeige */
+  function suchFelder(e) {
+    const d = alsDatum(e.datum);
+    return [
+      ["Title", e.titel],
+      ["Summary", e.zusammenfassung],
+      ["Description", e.beschreibung],
+      ["Tags", (e.tags || []).join(", ")],
+      ["Category", e.kategorie],
+      ["Status", e.status],
+      ["Location", e.ort],
+      ["Owner", e.verantwortlich],
+      ["Tasks", (e.aufgaben || []).map((a) => a.text).join(", ")],
+      ["Date", e.datum + " " + datumSchoen(e.datum, true) + " " + MONATE_KURZ[d.getMonth()] + " Q" + quartalVon(d)],
+      ["IDs", [e.id, e.eventbriteId, e.kalenderId].filter(Boolean).join(" ")],
+    ];
+  }
+
+  function suchWoerter(text) {
+    return String(text || "").toLowerCase().split(/\s+/).filter(Boolean);
+  }
+
+  /** Text mit hervorgehobenen Suchwörtern (sicher für HTML) */
+  function markiere(text, woerter) {
+    const t = String(text || "");
+    if (!woerter.length) return esc(t);
+    const muster = new RegExp("(" + woerter.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")", "gi");
+    return t.split(muster).map((teil, i) => (i % 2 ? `<mark>${esc(teil)}</mark>` : esc(teil))).join("");
+  }
+
+  /** Kurzer Textausschnitt rund um den ersten Treffer */
+  function ausschnitt(text, woerter, laenge) {
+    const t = String(text || "").replace(/\s+/g, " ");
+    const pos = Math.min(...woerter.map((w) => t.toLowerCase().indexOf(w)).filter((p) => p >= 0));
+    if (!isFinite(pos) || t.length <= laenge) return t;
+    const start = Math.max(0, pos - 40);
+    return (start > 0 ? "…" : "") + t.slice(start, start + laenge) + (start + laenge < t.length ? "…" : "");
+  }
+
+  /** Events, die zur Suche passen (jedes Wort muss irgendwo vorkommen) */
+  function sucheEvents() {
+    const s = zustand.suche;
+    const woerter = suchWoerter(s.text);
+    const heuteText = alsText(heute());
+    return zustand.events
+      .filter((e) => !s.kategorie || e.kategorie === s.kategorie)
+      .filter((e) => !s.status || e.status === s.status)
+      .filter((e) => !s.nurKommende || e.datum >= heuteText)
+      .map((e) => {
+        const felder = suchFelder(e);
+        const alles = felder.map((f) => String(f[1] || "")).join(" \n ").toLowerCase();
+        if (!woerter.every((w) => alles.includes(w))) return null;
+        // In welchen Feldern (außer Titel) wurde etwas gefunden?
+        const fundstellen = woerter.length
+          ? felder.filter(([name, wert]) => name !== "Title" && woerter.some((w) => String(wert || "").toLowerCase().includes(w)))
+          : [];
+        return { e, fundstellen };
+      })
+      .filter(Boolean)
+      .sort((a, b) => (a.e.datum + a.e.startzeit).localeCompare(b.e.datum + b.e.startzeit));
+  }
+
+  ANSICHTEN.search = {
     blaettern: false,
-    titel: () => "Abweichungen vom Modell",
+    titel: () => "Search",
+    zeichne() {
+      const s = zustand.suche;
+      const auswahl = (werte, aktuell, alle) => `<option value="">${alle}</option>` + werte.map((w) =>
+        `<option ${w === aktuell ? "selected" : ""}>${esc(w)}</option>`).join("");
+      $inhalt.innerHTML = `
+        <section class="karte suchfilter">
+          <label class="breit">Search for
+            <input type="search" id="suche-gross" value="${esc(s.text)}" placeholder="e.g. funding, small groups, rooftop, November …" autocomplete="off">
+          </label>
+          <label>Category<select id="filter-kategorie">${auswahl(KATEGORIEN, s.kategorie, "All categories")}</select></label>
+          <label>Status<select id="filter-status">${auswahl(STATUS, s.status, "All statuses")}</select></label>
+          <label class="haken"><input type="checkbox" id="filter-kommend" ${s.nurKommende ? "checked" : ""}> Upcoming only</label>
+          <p class="leise breit" style="margin:0;font-size:.82rem">Searches titles, summaries, descriptions, tags, locations, owners, tasks, dates and IDs.
+            Several words = all must match. Tip: click a tag on a result to search for it.</p>
+        </section>
+        <div id="suchergebnisse" class="abschnitt"></div>`;
+
+      const gross = document.getElementById("suche-gross");
+      gross.addEventListener("input", () => setzeSuche({ text: gross.value }));
+      document.getElementById("filter-kategorie").addEventListener("change", (ev) => setzeSuche({ kategorie: ev.target.value }));
+      document.getElementById("filter-status").addEventListener("change", (ev) => setzeSuche({ status: ev.target.value }));
+      document.getElementById("filter-kommend").addEventListener("change", (ev) => setzeSuche({ nurKommende: ev.target.checked }));
+      zeichneSuchergebnisse();
+      if (document.activeElement !== document.getElementById("suche")) gross.focus();
+    },
+  };
+
+  function zeichneSuchergebnisse() {
+    const ziel = document.getElementById("suchergebnisse");
+    if (!ziel) return;
+    const woerter = suchWoerter(zustand.suche.text);
+    const treffer = sucheEvents();
+    const kopf = `<p class="leise" style="margin-top:0">${treffer.length} ${treffer.length === 1 ? "event" : "events"} found${woerter.length ? ` for “${esc(zustand.suche.text.trim())}”` : ""}</p>`;
+    if (!treffer.length) {
+      ziel.innerHTML = kopf + `<div class="karte"><p style="margin:0">No events match. Try fewer words or reset the filters.</p></div>`;
+      return;
+    }
+    ziel.innerHTML = kopf + treffer.map(({ e, fundstellen }) => `
+      <article class="treffer ${katKlasse(e.kategorie)}">
+        <div class="treffer-datum"><strong>${alsDatum(e.datum).getDate()}</strong><span>${MONATE_KURZ[alsDatum(e.datum).getMonth()]}</span></div>
+        <div class="treffer-inhalt">
+          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${katPille(e.kategorie)} ${statusPille(e.status)}
+            <span class="leise" style="font-size:.82rem">${esc(datumSchoen(e.datum))} · ${esc(e.startzeit)} · ${markiere(e.ort, woerter)}</span></div>
+          <h3>${markiere(e.titel, woerter)}</h3>
+          ${e.zusammenfassung ? `<p class="summary">${markiere(e.zusammenfassung, woerter)}</p>` : ""}
+          ${fundstellen.filter(([name]) => !["Summary", "Location", "Category", "Status", "Tags"].includes(name)).slice(0, 2).map(([name, wert]) =>
+            `<p class="fundstelle"><span>${name}:</span> ${markiere(ausschnitt(wert, woerter, 140), woerter)}</p>`).join("")}
+          <div class="tags">${(e.tags || []).map((t) => `<button class="tag tag-knopf" data-tag="${esc(t)}">${markiere(t, woerter)}</button>`).join("")}</div>
+        </div>
+        <div class="treffer-aktionen">
+          <button class="knopf klein" data-oeffnen="${esc(e.id)}">Open in week</button>
+          <button class="knopf klein leise" data-bearbeiten="${esc(e.id)}">Edit</button>
+        </div>
+      </article>`).join("");
+
+    ziel.querySelectorAll("[data-oeffnen]").forEach((b) => b.addEventListener("click", () => {
+      const e = zustand.events.find((x) => x.id === b.dataset.oeffnen);
+      geheZu("week", alsDatum(e.datum), e.id);
+    }));
+    ziel.querySelectorAll("[data-bearbeiten]").forEach((b) => b.addEventListener("click", () =>
+      oeffneEventFormular(zustand.events.find((x) => x.id === b.dataset.bearbeiten))));
+    ziel.querySelectorAll("[data-tag]").forEach((b) => b.addEventListener("click", () => {
+      setzeSuche({ text: b.dataset.tag });
+      const gross = document.getElementById("suche-gross");
+      if (gross) gross.value = b.dataset.tag;
+    }));
+  }
+
+  /** Suche ändern: Ergebnisse neu zeichnen, ohne das Eingabefeld zu verlieren */
+  function setzeSuche(aenderung) {
+    Object.assign(zustand.suche, aenderung);
+    const oben = document.getElementById("suche");
+    if ("text" in aenderung && oben.value !== zustand.suche.text) oben.value = zustand.suche.text;
+    if (zustand.ansicht === "search") {
+      zeichneSuchergebnisse();
+    } else {
+      geheZu("search", zustand.datum);
+    }
+  }
+
+  // ---------------------------------------------------------------- Deviations
+  ANSICHTEN.deviations = {
+    blaettern: false,
+    titel: () => "Deviations from the model",
     zeichne() {
       const schwelle = zustand.einstellungen.schwelleProzent;
       $inhalt.innerHTML = `
         <section class="karte">
-          <h2>Ab wann soll gewarnt werden?</h2>
-          <p class="untertitel">Ein Zeitraum gilt als auffällig, wenn Ist und Soll um mehr als diesen Prozentsatz auseinanderliegen
-            (Anzahl Events je Kategorie oder Auslastung).</p>
+          <h2>When should we warn you?</h2>
+          <p class="untertitel">A period is flagged when actual and target differ by more than this percentage
+            (number of events per category, or occupancy).</p>
           <div class="schwelle abschnitt">
-            <input type="range" id="schwelle" min="5" max="100" step="5" value="${schwelle}" aria-label="Schwelle in Prozent">
-            <output id="schwelle-wert">${schwelle} %</output>
-            <button class="knopf klein leise" id="schwelle-standard">Standard (20 %)</button>
+            <input type="range" id="schwelle" min="5" max="100" step="5" value="${schwelle}" aria-label="Threshold in percent">
+            <output id="schwelle-wert">${schwelle}%</output>
+            <button class="knopf klein leise" id="schwelle-standard">Default (20%)</button>
           </div>
         </section>
         <div id="warnliste"></div>`;
@@ -555,7 +797,7 @@
       const setze = async (wert) => {
         zustand.einstellungen.schwelleProzent = wert;
         regler.value = wert;
-        document.getElementById("schwelle-wert").textContent = wert + " %";
+        document.getElementById("schwelle-wert").textContent = wert + "%";
         zeichneWarnliste();
         aktualisiereWarnZaehler();
         await window.DataLayer.speichereEinstellungen(zustand.einstellungen);
@@ -569,107 +811,120 @@
   function zeichneWarnliste() {
     const jahr = zustand.model.jahr;
     const zeilen = (art) => {
-      const anzahl = art === "monat" ? 12 : 4;
+      const anzahl = art === "month" ? 12 : 4;
       let html = "", zeitraeume = 0;
       for (let i = 1; i <= anzahl; i++) {
-        const v = art === "monat" ? vergleichMonat(jahr, i) : vergleichQuartal(jahr, i);
+        const v = art === "month" ? vergleichMonat(jahr, i) : vergleichQuartal(jahr, i);
         if (!v.abweichungen.length) continue;
         zeitraeume++;
-        const name = art === "monat" ? MONATE[i - 1] : "Q" + i;
-        const ziel = art === "monat" ? alsText(new Date(jahr, i - 1, 1)) : alsText(new Date(jahr, (i - 1) * 3, 1));
+        const name = art === "month" ? MONATE[i - 1] : "Q" + i;
+        const ziel = art === "month" ? alsText(new Date(jahr, i - 1, 1)) : alsText(new Date(jahr, (i - 1) * 3, 1));
         v.abweichungen.forEach((a, n) => {
           const istAuslastung = a.art === "auslastung";
           const klasse = a.abw < 0 ? "zu-wenig" : "zu-viel";
           html += `<tr>
             <td>${n === 0 ? `<a href="#/${art}/${ziel}"><strong>${name}</strong></a>` : ""}</td>
-            <td>${istAuslastung ? "📊 Auslastung" : katPille(a.kat)}</td>
+            <td>${istAuslastung ? "📊 Occupancy" : katPille(a.kat)}</td>
             <td class="zahl">${istAuslastung ? prozent(a.ist) : a.ist}</td>
             <td class="zahl">${istAuslastung ? prozent(a.soll) : a.soll}</td>
             <td class="zahl"><span class="abw ${klasse}">${vorzeichenProzent(a.abw)}</span></td>
-            <td>${esc(istAuslastung ? (a.abw > 0 ? "überbucht" : "zu leer") : a.abw === Infinity ? "nicht eingeplant" : a.abw < 0 ? "zu wenig Events" : "mehr als geplant")}</td>
+            <td>${esc(istAuslastung ? (a.abw > 0 ? "overbooked" : "too empty") : a.abw === Infinity ? "not planned" : a.abw < 0 ? "too few events" : "more than planned")}</td>
           </tr>`;
         });
       }
       return { html, zeitraeume };
     };
-    const m = zeilen("monat"), q = zeilen("quartal");
+    const m = zeilen("month"), q = zeilen("quarter");
     const tabelle = (titel, z, leerText) => `
       <section class="karte abschnitt">
-        <h2>${titel} <span class="leise">(${z.zeitraeume} auffällig)</span></h2>
+        <h2>${titel} <span class="leise">(${z.zeitraeume} flagged)</span></h2>
         ${z.html ? `<div class="tabellen-rahmen"><table class="tabelle abschnitt">
-          <thead><tr><th>Zeitraum</th><th>Was</th><th class="zahl">Ist</th><th class="zahl">Soll</th><th class="zahl">Abweichung</th><th>Bedeutung</th></tr></thead>
+          <thead><tr><th>Period</th><th>What</th><th class="zahl">Actual</th><th class="zahl">Target</th><th class="zahl">Deviation</th><th>Meaning</th></tr></thead>
           <tbody>${z.html}</tbody></table></div>` : `<p class="leise">${leerText}</p>`}
       </section>`;
     document.getElementById("warnliste").innerHTML =
-      tabelle("Monate", m, "Kein Monat weicht stärker als die Schwelle ab. 🎉") +
-      tabelle("Quartale", q, "Kein Quartal weicht stärker als die Schwelle ab. 🎉");
+      tabelle("Months", m, "No month deviates more than the threshold. 🎉") +
+      tabelle("Quarters", q, "No quarter deviates more than the threshold. 🎉");
   }
 
-  // ---------------------------------------------------------------- Vorlagen
-  ANSICHTEN.vorlagen = {
+  // ---------------------------------------------------------------- Templates
+  ANSICHTEN.templates = {
     blaettern: false,
-    titel: () => "Vorlagen",
+    titel: () => "Templates",
     zeichne() {
       const jahr = zustand.model.jahr;
       $inhalt.innerHTML = `
-        <p class="leise" style="margin-top:0">Jede Kategorie hat eine Vorlage. Daraus entstehen neue Event-Entwürfe sowie Social-Post- und Mail-Vorschläge.
-          Platzhalter wie <code>{titel}</code>, <code>{datum}</code>, <code>{uhrzeit}</code> und <code>{ort}</code> werden automatisch ersetzt.</p>
+        <p class="leise" style="margin-top:0">Each category has a template. It is used for new event drafts, for title, description and summary suggestions,
+          and for social post and email suggestions. Placeholders like <code>{titel}</code>, <code>{datum}</code>, <code>{uhrzeit}</code>,
+          <code>{ort}</code> and <code>{summary}</code> are filled in automatically; <code>{thema}</code> is the event's topic.</p>
         <div class="vorlagen">${zustand.templates.map((t, i) => {
           const anzahl = zustand.events.filter((e) => e.kategorie === t.kategorie && e.datum.startsWith(String(jahr))).length;
+          const thema = (text) => esc(text).replace(/\{thema\}/g, '<span class="platzhalter">topic</span>');
           return `
           <article class="karte vorlage ${katKlasse(t.kategorie)}">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">${katPille(t.kategorie)}
-              <span class="leise" style="font-size:.82rem">${anzahl} Events in ${jahr}</span></div>
-            <div class="titel-vorlage" title="Titel-Vorlage">${esc(t.titelVorlage)}</div>
-            <p style="margin:0">${esc(t.beschreibung)}</p>
-            <div class="tags">${t.tags.map((tag) => `<span class="tag">#${esc(tag)}</span>`).join("")}</div>
-            <details><summary>Social-Post-Text</summary><pre>${esc(t.socialText)}</pre></details>
-            <details><summary>Mail-Text</summary><pre>${esc(t.mailText)}</pre></details>
-            <button class="knopf haupt klein" data-vorlage="${i}">+ Neues Event aus Vorlage</button>
+              <span class="leise" style="font-size:.82rem">${anzahl} events in ${jahr}</span></div>
+            <div class="titel-vorlage" title="Title template">${esc(t.titelVorlage)}</div>
+            <p style="margin:0">${thema(t.beschreibung)}</p>
+            <div class="tags">${tagPillen(t.tags)}</div>
+            <details><summary>Title ideas</summary><ul class="ideen">${(t.titelIdeen || []).map((x) => `<li>${thema(x)}</li>`).join("")}</ul></details>
+            <details><summary>Summary template</summary><pre>${thema(t.summaryVorlage || "")}</pre></details>
+            <details><summary>Social post text</summary><pre>${esc(t.socialText)}</pre></details>
+            <details><summary>Email text</summary><pre>${esc(t.mailText)}</pre></details>
+            <button class="knopf haupt klein" data-vorlage="${i}">+ New event from template</button>
           </article>`;
-        }).join("")}</div>`;
+        }).join("")}</div>
+        <section class="karte abschnitt">
+          <h2>Tags</h2>
+          <p class="untertitel">The fixed tag list. Each tag adds a keyword to the summary and a sentence to the description suggestion.</p>
+          <div class="tabellen-rahmen"><table class="tabelle abschnitt">
+            <thead><tr><th>Tag</th><th>Summary keyword</th><th>Description sentence</th><th class="zahl">Events</th></tr></thead>
+            <tbody>${zustand.tags.map((t) => `<tr><td><span class="tag">${esc(t.tag)}</span></td><td>${esc(t.kurz)}</td>
+              <td class="leise">${esc(t.satz)}</td><td class="zahl">${zustand.events.filter((e) => (e.tags || []).includes(t.tag)).length}</td></tr>`).join("")}</tbody>
+          </table></div>
+        </section>`;
       $inhalt.querySelectorAll("[data-vorlage]").forEach((b) =>
         b.addEventListener("click", () => oeffneEventFormular(entwurfAusVorlage(zustand.templates[Number(b.dataset.vorlage)]))));
     },
   };
 
-  // ---------------------------------------------------------------- Verbindungen
+  // ---------------------------------------------------------------- Connections
   const VERBINDUNG_FARBE = { notion: "#2b2320", eventbrite: "#d2552e", gmail: "#d9677a", gcal: "#d99a1e" };
   const VERBINDUNG_KUERZEL = { notion: "N", eventbrite: "Eb", gmail: "M", gcal: "31" };
 
-  ANSICHTEN.verbindungen = {
+  ANSICHTEN.connections = {
     blaettern: false,
-    titel: () => "Verbindungen",
+    titel: () => "Connections",
     async zeichne() {
       const liste = await window.DataLayer.ladeVerbindungen();
       $inhalt.innerHTML = `
-        <p class="leise" style="margin-top:0">Hier werden später die echten Dienste angeschlossen. In der Demo ist noch nichts verbunden –
-          alle Zahlen und Namen sind erfunden.</p>
+        <p class="leise" style="margin-top:0">This is where the real services will be connected later. Nothing is connected in the demo –
+          all numbers and names are fictional.</p>
         <div class="verbindungen">${liste.map((v) => `
           <article class="karte verbindung">
             <div class="verbindung-logo" style="background:${VERBINDUNG_FARBE[v.id] || "var(--akzent)"}" aria-hidden="true">${VERBINDUNG_KUERZEL[v.id] || "?"}</div>
             <h2>${esc(v.name)}</h2>
-            <span class="verbindung-status">${v.verbunden ? "verbunden" : "nicht verbunden (Demo)"}</span>
+            <span class="verbindung-status">${v.verbunden ? "connected" : "not connected (demo)"}</span>
             <p style="margin:0">${esc(v.zweck)}</p>
-            <p class="leise" style="margin:0;font-size:.88rem"><strong>Später:</strong> ${esc(v.spaeter)}</p>
-            <button class="knopf klein" disabled title="Kommt in einer späteren Ausbaustufe">Verbinden (bald)</button>
+            <p class="leise" style="margin:0;font-size:.88rem"><strong>Later:</strong> ${esc(v.spaeter)}</p>
+            <button class="knopf klein" disabled title="Coming in a later stage">Connect (soon)</button>
           </article>`).join("")}</div>
         <section class="karte abschnitt">
-          <h2>So geht es weiter</h2>
+          <h2>What's next</h2>
           <ol>
-            <li>Notion als Datenquelle (nur lesen)</li>
-            <li>Soll-Ist-Abgleich mit echten Modell-Daten</li>
-            <li>Eventbrite: Entwürfe aus Vorlagen anlegen</li>
-            <li>Google Calendar und Gmail (Login, minimale Rechte)</li>
-            <li>Social-Vorschläge und Mail-Intelligenz mit KI</li>
+            <li>Notion as data source (read-only)</li>
+            <li>Target vs. actual with real model data</li>
+            <li>Eventbrite: create drafts from templates</li>
+            <li>Google Calendar and Gmail (login, minimal permissions)</li>
+            <li>Social suggestions and email intelligence with AI</li>
           </ol>
-          <p class="leise" style="margin-bottom:0">Technisch wird dafür nur die Datei <code>data-layer.js</code> ausgetauscht – die Oberfläche bleibt gleich.</p>
+          <p class="leise" style="margin-bottom:0">Technically, only the file <code>data-layer.js</code> is swapped – the interface stays the same.</p>
         </section>`;
     },
   };
 
   // ======================================================================
-  // 5. DIALOGE
+  // 6. DIALOGE
   // ======================================================================
   const $dialog = document.getElementById("dialog");
   const $dialogInhalt = document.getElementById("dialog-inhalt");
@@ -691,33 +946,35 @@
     const werte = {
       titel: e.titel,
       datum: datumSchoen(e.datum, true),
-      uhrzeit: e.startzeit + " Uhr",
+      uhrzeit: e.startzeit,
       ort: e.ort,
       kategorie: e.kategorie,
+      summary: e.zusammenfassung || "",
     };
-    return String(text || "").replace(/\{(\w+)\}/g, (alles, name) => (name in werte ? werte[name] : alles));
+    return String(text || "").replace(/\{(\w+)\}/g, (alles, name) => (name in werte ? werte[name] : alles))
+      .replace(/\n{3,}/g, "\n\n");
   }
 
   /** Social-Post- oder Mail-Vorschlag aus der passenden Vorlage */
   function zeigeVorschlag(e, art) {
     const vorlage = zustand.templates.find((t) => t.kategorie === e.kategorie);
     if (!vorlage) {
-      zeigeMeldung("Für diese Kategorie gibt es keine Vorlage.");
+      zeigeMeldung("There is no template for this category.");
       return;
     }
     const text = fuelleVorlage(art === "social" ? vorlage.socialText : vorlage.mailText, e);
     oeffneDialog(`
-      <div class="dialog-kopf"><h2>${art === "social" ? "✨ Social-Post-Vorschlag" : "✉️ Reminder-Mail-Vorschlag"}</h2>
-        <button class="knopf rund leise" data-schliessen aria-label="Schließen">×</button></div>
+      <div class="dialog-kopf"><h2>${art === "social" ? "✨ Social post suggestion" : "✉️ Reminder email suggestion"}</h2>
+        <button class="knopf rund leise" data-schliessen aria-label="Close">×</button></div>
       <div class="dialog-koerper">
-        <p class="leise" style="margin-top:0">Aus der Vorlage „${esc(vorlage.kategorie)}“ – du kannst den Text hier noch anpassen.</p>
+        <p class="leise" style="margin-top:0">Based on the “${esc(vorlage.kategorie)}” template – you can still edit the text here.</p>
         <div class="formular"><label class="breit">Text
-          <textarea id="vorschlag-text" rows="11">${esc(text)}</textarea></label></div>
-        <p class="leise" style="font-size:.82rem">Später (Roadmap): Vorschläge werden mit KI verfeinert${art === "mail" ? " und als Gmail-Entwurf angelegt" : ""}.</p>
+          <textarea id="vorschlag-text" rows="12">${esc(text)}</textarea></label></div>
+        <p class="leise" style="font-size:.82rem">Later (roadmap): suggestions will be refined with AI${art === "mail" ? " and saved as a Gmail draft" : ""}.</p>
       </div>
       <div class="dialog-fuss">
-        <button class="knopf leise" data-schliessen>Schließen</button>
-        <button class="knopf haupt" id="kopieren">Text kopieren</button>
+        <button class="knopf leise" data-schliessen>Close</button>
+        <button class="knopf haupt" id="kopieren">Copy text</button>
       </div>`);
     document.getElementById("kopieren").addEventListener("click", async () => {
       const feld = document.getElementById("vorschlag-text");
@@ -727,12 +984,12 @@
         feld.select();
         document.execCommand("copy");
       }
-      zeigeMeldung("Text kopiert ✓");
+      zeigeMeldung("Text copied ✓");
     });
   }
 
-  const STANDARD_AUFGABEN = ["Speaker:in anfragen", "Raum reservieren", "Eventbrite-Seite anlegen",
-    "Social-Post planen", "Reminder-Mail senden"];
+  const STANDARD_AUFGABEN = ["Ask speaker", "Book room", "Create Eventbrite page",
+    "Plan social post", "Send reminder email"];
 
   /** Häufigster Wert eines Feldes bei Events einer Kategorie (z. B. übliche Startzeit) */
   function ueblich(kategorie, feld, ersatz) {
@@ -750,15 +1007,18 @@
       datum: alsText(plusTage(heute(), 21)),
       startzeit: ueblich(t.kategorie, "startzeit", "18:00"),
       kategorie: t.kategorie,
-      status: "Idee",
-      ort: ueblich(t.kategorie, "ort", "Loft – Eventfläche"),
+      status: "Idea",
+      ort: ueblich(t.kategorie, "ort", "Loft – Event Space"),
       "kapazität": Number(ueblich(t.kategorie, "kapazität", 30)),
       anmeldungen: 0,
       verantwortlich: "Community Lead",
       eventbriteId: "",
       kalenderId: "",
       tags: t.tags.slice(),
+      zusammenfassung: "",
+      beschreibung: "",
       aufgaben: STANDARD_AUFGABEN.map((text) => ({ text, erledigt: false })),
+      ausVorlage: true, // nur für die Überschrift im Formular, wird nicht gespeichert
     };
   }
 
@@ -767,8 +1027,9 @@
     const neu = !vorlage || !vorlage.id;
     const e = vorlage || {
       titel: "", datum: alsText(zustand.datum || heute()), startzeit: "18:00", kategorie: KATEGORIEN[0],
-      status: "Idee", ort: "Loft – Eventfläche", "kapazität": 30, anmeldungen: 0,
+      status: "Idea", ort: "Loft – Event Space", "kapazität": 30, anmeldungen: 0,
       verantwortlich: "Community Lead", eventbriteId: "", kalenderId: "", tags: [],
+      zusammenfassung: "", beschreibung: "",
       aufgaben: STANDARD_AUFGABEN.map((text) => ({ text, erledigt: false })),
     };
     const jahr = zustand.model.jahr;
@@ -776,39 +1037,101 @@
     const orte = [...new Set(zustand.events.map((x) => x.ort))].sort();
     const auswahl = (werte, aktuell) => werte.map((w) =>
       `<option ${w === aktuell ? "selected" : ""}>${esc(w)}</option>`).join("");
+    // Tags, die es in der Liste nicht (mehr) gibt, trotzdem anzeigen, damit nichts verloren geht
+    const alleTags = [...new Set(zustand.tags.map((t) => t.tag).concat(e.tags || []))];
+    const tagAuswahl = alleTags.map((t) => `
+      <label class="tag-wahl"><input type="checkbox" name="tags" value="${esc(t)}" ${(e.tags || []).includes(t) ? "checked" : ""}><span>${esc(t)}</span></label>`).join("");
 
     oeffneDialog(`
       <form id="event-formular" novalidate>
-        <div class="dialog-kopf"><h2>${neu ? (vorlage ? "Neuer Entwurf aus Vorlage" : "Neues Event") : "Event bearbeiten"}</h2>
-          <button type="button" class="knopf rund leise" data-schliessen aria-label="Schließen">×</button></div>
+        <div class="dialog-kopf"><h2>${neu ? (e.ausVorlage ? "New draft from template" : "New event") : "Edit event"}</h2>
+          <button type="button" class="knopf rund leise" data-schliessen aria-label="Close">×</button></div>
         <div class="dialog-koerper">
           <div class="formular">
-            <label class="breit">Titel *<input name="titel" required value="${esc(e.titel)}" placeholder="z. B. Storytelling für Impact-Startups"></label>
-            <label>Datum *<input type="date" name="datum" required min="${jahr}-01-01" max="${jahr}-12-31" value="${esc(e.datum)}"></label>
-            <label>Startzeit<input type="time" name="startzeit" value="${esc(e.startzeit)}"></label>
-            <label>Kategorie<select name="kategorie">${auswahl(KATEGORIEN, e.kategorie)}</select></label>
+            <label>Category<select name="kategorie">${auswahl(KATEGORIEN, e.kategorie)}</select></label>
             <label>Status<select name="status">${auswahl(STATUS, e.status)}</select></label>
-            <label class="breit">Ort<input name="ort" list="orte" value="${esc(e.ort)}"></label>
-            <label>Kapazität (Plätze)<input type="number" name="kapazität" min="0" value="${esc(e["kapazität"])}"></label>
-            <label>Anmeldungen<input type="number" name="anmeldungen" min="0" value="${esc(e.anmeldungen)}"></label>
-            <label class="breit">Verantwortlich (Rolle, keine echten Namen)<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}"></label>
-            <label>Eventbrite-ID<input name="eventbriteId" value="${esc(e.eventbriteId)}" placeholder="später automatisch"></label>
-            <label>Kalender-ID<input name="kalenderId" value="${esc(e.kalenderId)}" placeholder="später automatisch"></label>
-            <label class="breit">Tags (mit Komma getrennt)<input name="tags" value="${esc((e.tags || []).join(", "))}"></label>
+            <label class="breit">Title *<input name="titel" required value="${esc(e.titel)}" placeholder="e.g. Storytelling for Impact Startups"></label>
+            <div class="breit feld-gruppe">
+              <span class="feld-titel">Tags</span>
+              <div class="tag-auswahl">${tagAuswahl}</div>
+            </div>
+            <div class="breit vorschlag-box">
+              <label>Topic (for suggestions)<input name="thema" id="thema" value="${esc(themaAusTitel(e.titel))}" placeholder="e.g. crowdfunding, circular fashion"></label>
+              <button type="button" class="knopf" id="vorschlaege-knopf">✨ Suggest title, description &amp; summary</button>
+              <div id="vorschlaege"></div>
+            </div>
+            <label class="breit">Summary (one line)<input name="zusammenfassung" maxlength="200" value="${esc(e.zusammenfassung)}" placeholder="Short teaser, e.g. for Eventbrite"></label>
+            <label class="breit">Description<textarea name="beschreibung" rows="5" placeholder="What happens, who it's for, what people take home">${esc(e.beschreibung)}</textarea></label>
+            <label>Date *<input type="date" name="datum" required min="${jahr}-01-01" max="${jahr}-12-31" value="${esc(e.datum)}"></label>
+            <label>Start time<input type="time" name="startzeit" value="${esc(e.startzeit)}"></label>
+            <label class="breit">Location<input name="ort" list="orte" value="${esc(e.ort)}"></label>
+            <label>Capacity (spots)<input type="number" name="kapazität" min="0" value="${esc(e["kapazität"])}"></label>
+            <label>Registrations<input type="number" name="anmeldungen" min="0" value="${esc(e.anmeldungen)}"></label>
+            <label class="breit">Owner (a role, no real names)<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}"></label>
+            <label>Eventbrite ID<input name="eventbriteId" value="${esc(e.eventbriteId)}" placeholder="automatic later"></label>
+            <label>Calendar ID<input name="kalenderId" value="${esc(e.kalenderId)}" placeholder="automatic later"></label>
           </div>
           <datalist id="team">${team.map((t) => `<option value="${esc(t)}">`).join("")}</datalist>
           <datalist id="orte">${orte.map((t) => `<option value="${esc(t)}">`).join("")}</datalist>
-          <p class="leise" style="font-size:.82rem">Wird nur in diesem Browser gespeichert. „Demo-Daten zurücksetzen“ (unten auf der Seite) macht alles rückgängig.</p>
+          <p class="leise" style="font-size:.82rem">Saved in this browser only. “Reset demo data” (bottom of the page) undoes everything.</p>
           <p id="formular-fehler" style="color:var(--kritisch)"></p>
         </div>
         <div class="dialog-fuss">
-          ${neu ? "" : '<button type="button" class="knopf gefahr leise links" id="loeschen">Löschen</button>'}
-          <button type="button" class="knopf leise" data-schliessen>Abbrechen</button>
-          <button type="submit" class="knopf haupt">Speichern</button>
+          ${neu ? "" : '<button type="button" class="knopf gefahr leise links" id="loeschen">Delete</button>'}
+          <button type="button" class="knopf leise" data-schliessen>Cancel</button>
+          <button type="submit" class="knopf haupt">Save</button>
         </div>
       </form>`);
 
     const formular = document.getElementById("event-formular");
+    const feld = (name) => formular.elements[name];
+
+    // Thema automatisch aus dem Titel übernehmen, solange man es nicht selbst geändert hat
+    let themaSelbstGeaendert = false;
+    feld("thema").addEventListener("input", () => { themaSelbstGeaendert = true; });
+    feld("titel").addEventListener("input", () => {
+      if (!themaSelbstGeaendert) feld("thema").value = themaAusTitel(feld("titel").value);
+    });
+
+    document.getElementById("vorschlaege-knopf").addEventListener("click", () => {
+      const v = baueVorschlaege({
+        kategorie: feld("kategorie").value,
+        thema: feld("thema").value,
+        tags: [...formular.querySelectorAll('input[name="tags"]:checked')].map((x) => x.value),
+        datum: feld("datum").value,
+        startzeit: feld("startzeit").value,
+        ort: feld("ort").value,
+        "kapazität": feld("kapazität").value,
+      });
+      const box = document.getElementById("vorschlaege");
+      box.innerHTML = `
+        ${feld("thema").value.trim() ? "" : '<p class="hinweis-klein">💡 Enter a topic above for better suggestions.</p>'}
+        <div class="vorschlag-teil">
+          <strong>Title ideas</strong> <span class="leise">(click to use)</span>
+          <div class="titel-ideen">${v.titel.map((t, i) => `<button type="button" class="knopf klein" data-titel="${i}">${esc(t)}</button>`).join("")}</div>
+        </div>
+        <div class="vorschlag-teil">
+          <strong>Summary</strong> <button type="button" class="knopf klein leise" data-nimm="zusammenfassung">Use</button>
+          <p class="vorschlag-text">${esc(v.zusammenfassung)}</p>
+        </div>
+        <div class="vorschlag-teil">
+          <strong>Description</strong> <button type="button" class="knopf klein leise" data-nimm="beschreibung">Use</button>
+          <p class="vorschlag-text">${esc(v.beschreibung)}</p>
+        </div>
+        <button type="button" class="knopf klein haupt" data-nimm="alles">Use all (first title + summary + description)</button>`;
+      box.querySelectorAll("[data-titel]").forEach((b) => b.addEventListener("click", () => {
+        feld("titel").value = v.titel[Number(b.dataset.titel)];
+        zeigeMeldung("Title applied ✓");
+      }));
+      box.querySelectorAll("[data-nimm]").forEach((b) => b.addEventListener("click", () => {
+        const was = b.dataset.nimm;
+        if (was === "zusammenfassung" || was === "alles") feld("zusammenfassung").value = v.zusammenfassung;
+        if (was === "beschreibung" || was === "alles") feld("beschreibung").value = v.beschreibung;
+        if (was === "alles") feld("titel").value = v.titel[0];
+        zeigeMeldung("Suggestion applied ✓ – feel free to edit");
+      }));
+    });
+
     formular.addEventListener("submit", async (ev) => {
       ev.preventDefault();
       const f = new FormData(formular);
@@ -824,11 +1147,15 @@
         verantwortlich: String(f.get("verantwortlich")).trim(),
         eventbriteId: String(f.get("eventbriteId")).trim(),
         kalenderId: String(f.get("kalenderId")).trim(),
-        tags: String(f.get("tags")).split(",").map((t) => t.trim().replace(/^#/, "")).filter(Boolean),
+        tags: f.getAll("tags").map(String),
+        zusammenfassung: String(f.get("zusammenfassung")).trim(),
+        beschreibung: String(f.get("beschreibung")).trim(),
       });
-      const fehler = !gespeichert.titel ? "Bitte einen Titel eingeben."
-        : !/^\d{4}-\d{2}-\d{2}$/.test(gespeichert.datum) ? "Bitte ein Datum wählen."
-        : !gespeichert.datum.startsWith(String(jahr)) ? `Das Datum muss im Jahr ${jahr} liegen (dafür gibt es ein Modell).`
+      delete gespeichert.ausVorlage;
+      const fehler = !gespeichert.titel ? "Please enter a title."
+        : gespeichert.titel.includes("[") ? "Please replace the [placeholder] in the title – or pick a title idea."
+        : !/^\d{4}-\d{2}-\d{2}$/.test(gespeichert.datum) ? "Please choose a date."
+        : !gespeichert.datum.startsWith(String(jahr)) ? `The date must be in ${jahr} (that's the year the model covers).`
         : "";
       if (fehler) {
         document.getElementById("formular-fehler").textContent = fehler;
@@ -837,31 +1164,31 @@
       const ergebnis = await window.DataLayer.speichereEvent(gespeichert);
       await ladeNeu();
       $dialog.close();
-      zeigeMeldung(neu ? "Event angelegt ✓" : "Änderungen gespeichert ✓");
-      geheZu("woche", alsDatum(ergebnis.datum), ergebnis.id);
+      zeigeMeldung(neu ? "Event created ✓" : "Changes saved ✓");
+      geheZu("week", alsDatum(ergebnis.datum), ergebnis.id);
       zeichne(); // falls sich die Adresse nicht geändert hat
     });
     const loeschen = document.getElementById("loeschen");
     if (loeschen) {
       loeschen.addEventListener("click", async () => {
-        if (!window.confirm(`„${e.titel}“ wirklich löschen?`)) return;
+        if (!window.confirm(`Really delete “${e.titel}”?`)) return;
         await window.DataLayer.loescheEvent(e.id);
         await ladeNeu();
         $dialog.close();
-        zeigeMeldung("Event gelöscht");
+        zeigeMeldung("Event deleted");
         zeichne();
       });
     }
   }
 
   // ======================================================================
-  // 6. NAVIGATION & START
+  // 7. NAVIGATION & START
   // ======================================================================
 
-  /** Adresse (Hash) wie "#/monat/2026-11-01" -> Ansicht + Datum */
+  /** Adresse (Hash) wie "#/month/2026-11-01" -> Ansicht + Datum */
   function leseAdresse() {
     const teile = window.location.hash.replace(/^#\/?/, "").split("/");
-    const ansicht = ANSICHTEN[teile[0]] ? teile[0] : "jahr";
+    const ansicht = ANSICHTEN[teile[0]] ? teile[0] : "year";
     const datum = teile[1] && /^\d{4}-\d{2}-\d{2}$/.test(teile[1]) ? alsDatum(teile[1]) : null;
     return { ansicht, datum, fokus: teile[2] || null };
   }
@@ -911,9 +1238,10 @@
     zustand.events = daten.events;
     zustand.templates = daten.templates;
     zustand.model = daten.model;
+    zustand.tags = daten.tags || [];
     document.getElementById("datenquelle").textContent =
-      "Datenquelle: " + window.DataLayer.quelle +
-      (window.DataLayer.hatEigeneAenderungen() ? " · mit deinen Änderungen (nur in diesem Browser)" : "");
+      "Data source: " + window.DataLayer.quelle +
+      (window.DataLayer.hatEigeneAenderungen() ? " · incl. your changes (this browser only)" : "");
   }
 
   async function start() {
@@ -921,7 +1249,7 @@
       zustand.einstellungen = await window.DataLayer.ladeEinstellungen();
       await ladeNeu();
     } catch (fehler) {
-      $inhalt.innerHTML = `<div class="karte"><h2>Daten konnten nicht geladen werden</h2><p class="leise">${esc(fehler.message)}</p></div>`;
+      $inhalt.innerHTML = `<div class="karte"><h2>Could not load data</h2><p class="leise">${esc(fehler.message)}</p></div>`;
       return;
     }
 
@@ -934,16 +1262,30 @@
       if (a.blaettern) geheZu(zustand.ansicht, a.schritt(zustand.datum, 1));
     });
     document.getElementById("heute").addEventListener("click", () => {
-      const ziel = ANSICHTEN[zustand.ansicht].blaettern ? zustand.ansicht : "woche";
+      const ziel = ANSICHTEN[zustand.ansicht].blaettern ? zustand.ansicht : "week";
       geheZu(ziel, heute());
     });
     document.getElementById("neues-event").addEventListener("click", () => oeffneEventFormular());
     document.getElementById("zuruecksetzen").addEventListener("click", async () => {
-      if (!window.confirm("Alle deine Änderungen löschen und die Demo-Daten wiederherstellen?")) return;
+      if (!window.confirm("Delete all your changes and restore the demo data?")) return;
       await window.DataLayer.setzeDemoZurueck();
       await ladeNeu();
       zeichne();
-      zeigeMeldung("Demo-Daten wiederhergestellt ✓");
+      zeigeMeldung("Demo data restored ✓");
+    });
+    // Suchfeld oben: tippen öffnet die Suche
+    const suchfeld = document.getElementById("suche");
+    suchfeld.addEventListener("input", () => setzeSuche({ text: suchfeld.value }));
+    document.getElementById("suche-formular").addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      setzeSuche({ text: suchfeld.value });
+    });
+    // Tastenkürzel "/" springt ins Suchfeld
+    document.addEventListener("keydown", (ev) => {
+      if (ev.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) && !$dialog.open) {
+        ev.preventDefault();
+        suchfeld.focus();
+      }
     });
     // Navigation oben: Datum beim Wechseln der Ansicht beibehalten
     document.querySelectorAll(".hauptnav a").forEach((link) =>
@@ -956,8 +1298,8 @@
     zeichne();
   }
 
-  // Für spätere Schritte von außen erreichbar (z. B. zum Testen in der Konsole)
-  window.EventApp = { zustand, vergleichMonat, vergleichQuartal };
+  // Für Tests von außen erreichbar (z. B. in der Browser-Konsole)
+  window.EventApp = { zustand, vergleichMonat, vergleichQuartal, baueVorschlaege, sucheEvents };
 
   start();
 })();

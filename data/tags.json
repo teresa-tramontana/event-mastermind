@@ -1,0 +1,87 @@
+[
+  {
+    "tag": "Small groups",
+    "kurz": "small group",
+    "satz": "We keep the group small, so everyone gets space to ask questions and contribute."
+  },
+  {
+    "tag": "Formal",
+    "kurz": "structured format",
+    "satz": "The session follows a clear agenda and a structured flow."
+  },
+  {
+    "tag": "Informal",
+    "kurz": "relaxed setting",
+    "satz": "The vibe is relaxed and informal – come as you are."
+  },
+  {
+    "tag": "Peer feedback/exchange",
+    "kurz": "peer feedback",
+    "satz": "You'll share your work and get honest, constructive feedback from peers."
+  },
+  {
+    "tag": "Group work",
+    "kurz": "group work",
+    "satz": "Expect to roll up your sleeves and work together in small teams."
+  },
+  {
+    "tag": "Coaching/consulting",
+    "kurz": "coaching",
+    "satz": "Experienced coaches help you work on your own, specific challenges."
+  },
+  {
+    "tag": "Workshop",
+    "kurz": "hands-on workshop",
+    "satz": "It's a hands-on format – you'll leave with concrete results, not just notes."
+  },
+  {
+    "tag": "Skillshare",
+    "kurz": "skillshare",
+    "satz": "Community members share skills they have learned in practice."
+  },
+  {
+    "tag": "Expert guidance",
+    "kurz": "expert input",
+    "satz": "An expert guides you through the topic and answers your questions."
+  },
+  {
+    "tag": "Practical exercises",
+    "kurz": "practical exercises",
+    "satz": "Practical exercises help you apply what you learn straight away."
+  },
+  {
+    "tag": "Community/Gathering",
+    "kurz": "community gathering",
+    "satz": "It's a chance to meet the community and feel at home in the Hub."
+  },
+  {
+    "tag": "1:1 sessions",
+    "kurz": "1:1 sessions",
+    "satz": "You can book short 1:1 slots for your individual questions."
+  },
+  {
+    "tag": "Guided networking",
+    "kurz": "guided networking",
+    "satz": "Our hosts guide the networking, so you meet the right people – no awkward small talk."
+  },
+  {
+    "tag": "Matchmaking",
+    "kurz": "matchmaking",
+    "satz": "We match people with complementary needs and offers."
+  },
+  {
+    "tag": "Keynote/panel",
+    "kurz": "keynote & panel",
+    "satz": "A keynote or panel brings fresh perspectives, followed by an open Q&A."
+  },
+  {
+    "tag": "Collaboration",
+    "kurz": "collaboration",
+    "satz": "The focus is on collaboration and finding partners for joint projects."
+  },
+  {
+    "tag": "Unwind",
+    "kurz": "time to unwind",
+    "satz": "Leave the laptop behind and unwind with good people."
+  }
+]

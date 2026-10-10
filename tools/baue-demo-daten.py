@@ -1,5 +1,5 @@
 """
-Kopiert data/events.json, data/templates.json und data/model.json
+Kopiert data/events.json, data/templates.json, data/model.json und data/tags.json
 in EINE Datei: data/demo-daten.js
 
 Warum? Öffnet man index.html per Doppelklick (ohne Webserver), darf der
@@ -23,6 +23,7 @@ paket = {
     "events": lade("events.json"),
     "templates": lade("templates.json"),
     "model": lade("model.json"),
+    "tags": lade("tags.json"),
 }
 inhalt = (
     "// AUTOMATISCH ERZEUGT aus data/*.json – bitte nicht von Hand ändern.\n"

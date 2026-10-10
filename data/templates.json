@@ -1,62 +1,94 @@
 [
   {
     "kategorie": "Workshop",
-    "titelVorlage": "Workshop: [Thema] – kompakt & praktisch",
-    "beschreibung": "Ein 2–3-stündiger Praxis-Workshop für Gründer:innen und Mitglieder. Kleine Gruppe, viel Ausprobieren, konkrete nächste Schritte zum Mitnehmen.",
-    "tags": [
-      "lernen",
-      "praxis",
-      "skills"
+    "titelVorlage": "Workshop: [Topic] – compact & practical",
+    "titelIdeen": [
+      "{thema}: A Hands-on Workshop",
+      "Learn by Doing: {thema}",
+      "{thema} in 3 Hours",
+      "The {thema} Toolkit"
     ],
-    "socialText": "🛠️ Neuer Workshop im Hub!\n\n„{titel}“\n📅 {datum} um {uhrzeit}\n📍 {ort}\n\nKleine Gruppe, viel Praxis – du gehst mit einem konkreten Plan nach Hause. Plätze sind begrenzt, also schnell sein! 👉 Link in Bio\n\n#ImpactHub #Workshop #Lernen",
-    "mailText": "Hallo zusammen,\n\nwir freuen uns auf den Workshop „{titel}“ am {datum} um {uhrzeit} ({ort}).\n\nBitte bringt Laptop oder Notizbuch mit. Falls ihr doch nicht kommen könnt, gebt euren Platz bitte über Eventbrite frei – die Warteliste freut sich!\n\nBis bald,\neuer Community-Team"
+    "beschreibung": "A 2–3 hour practical workshop on {thema} for founders, freelancers and members. Lots of trying things out, and concrete next steps to take home.",
+    "summaryVorlage": "Practical workshop on {thema} – {merkmale}.",
+    "tags": [
+      "Workshop",
+      "Practical exercises",
+      "Small groups"
+    ],
+    "socialText": "🛠️ New workshop at the Hub!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSpots are limited – grab yours! 👉 Link in bio\n\n#ImpactHub #Workshop #Learning",
+    "mailText": "Hi everyone,\n\nwe're looking forward to the workshop \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\nPlease bring a laptop or notebook. If you can't make it, please release your spot via Eventbrite – the waiting list will thank you!\n\nSee you soon,\nyour Community Team"
   },
   {
     "kategorie": "Networking",
-    "titelVorlage": "[Anlass] – Community Get-Together",
-    "beschreibung": "Lockerer Abend zum Kennenlernen: neue Mitglieder, Partner:innen und Freund:innen des Hubs. Kurze Begrüßung, dann Getränke und Gespräche.",
-    "tags": [
-      "community",
-      "kontakte",
-      "afterwork"
+    "titelVorlage": "[Occasion] – Community Get-Together",
+    "titelIdeen": [
+      "{thema}: Meet & Connect",
+      "Connect over {thema}",
+      "{thema} – Community Evening",
+      "Who's Who in {thema}"
     ],
-    "socialText": "🥂 Zeit für neue Kontakte!\n\n„{titel}“\n📅 {datum} ab {uhrzeit}\n📍 {ort}\n\nOb Gründer:in, Freelancer oder einfach neugierig – komm vorbei, stoß mit uns an und lern die Community kennen. 💛\n\n#ImpactHub #Networking #Community",
-    "mailText": "Hallo zusammen,\n\nnur noch kurz bis „{titel}“ am {datum} ab {uhrzeit} ({ort}).\n\nBringt gerne jemanden mit, der die Community kennenlernen sollte!\n\nBis bald,\neuer Community-Team"
+    "beschreibung": "A relaxed evening around {thema}: new members, partners and friends of the Hub get to know each other. A short welcome, then drinks and good conversations.",
+    "summaryVorlage": "Community evening around {thema} – {merkmale}.",
+    "tags": [
+      "Guided networking",
+      "Informal",
+      "Community/Gathering"
+    ],
+    "socialText": "🥂 Time for new connections!\n\n\"{titel}\"\n📅 {datum} from {uhrzeit}\n📍 {ort}\n\n{summary}\n\nFounder, freelancer or just curious – drop by and meet the community. 💛\n\n#ImpactHub #Networking #Community",
+    "mailText": "Hi everyone,\n\nit's almost time for \"{titel}\" on {datum} from {uhrzeit} ({ort}).\n\nFeel free to bring someone who should get to know the community!\n\nSee you soon,\nyour Community Team"
   },
   {
     "kategorie": "Talk",
-    "titelVorlage": "Impact Talk: [Thema]",
-    "beschreibung": "Ein inspirierender Input (ca. 30 Min.) mit anschließender offener Fragerunde. Gäste aus Wirtschaft, Wissenschaft oder Zivilgesellschaft teilen ihre Erfahrungen.",
-    "tags": [
-      "impact",
-      "inspiration",
-      "nachhaltigkeit"
+    "titelVorlage": "Impact Talk: [Topic]",
+    "titelIdeen": [
+      "Impact Talk: {thema}",
+      "{thema} – Insights & Q&A",
+      "Rethinking {thema}",
+      "Fireside Chat: {thema}"
     ],
-    "socialText": "🎤 Impact Talk im Hub\n\n„{titel}“\n📅 {datum} um {uhrzeit}\n📍 {ort}\n\n30 Minuten Inspiration, danach Raum für eure Fragen. Eintritt frei, Anmeldung über Eventbrite. 👉 Link in Bio\n\n#ImpactHub #Talk #Nachhaltigkeit",
-    "mailText": "Hallo zusammen,\n\nwir erinnern euch gerne an den Talk „{titel}“ am {datum} um {uhrzeit} ({ort}).\n\nSchreibt uns eure Fragen schon vorab – wir sammeln sie für die Diskussion.\n\nBis bald,\neuer Community-Team"
+    "beschreibung": "An inspiring input on {thema} (approx. 30 min.) followed by an open Q&A. Guests from business, science or civil society share their experience.",
+    "summaryVorlage": "Inspiring talk on {thema} – {merkmale}.",
+    "tags": [
+      "Keynote/panel",
+      "Expert guidance"
+    ],
+    "socialText": "🎤 Impact Talk at the Hub\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nFree entry, registration via Eventbrite. 👉 Link in bio\n\n#ImpactHub #Talk #Sustainability",
+    "mailText": "Hi everyone,\n\na friendly reminder about the talk \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\nSend us your questions in advance – we'll collect them for the discussion.\n\nSee you soon,\nyour Community Team"
   },
   {
     "kategorie": "Community Lunch",
-    "titelVorlage": "Wednesday Wrap: [Motto]",
-    "beschreibung": "Gemeinsames Mittagessen der Mitglieder. Jede:r bringt etwas mit oder wir kochen zusammen – Zeit zum Austauschen, Fragen stellen und Neues teilen.",
-    "tags": [
-      "mitglieder",
-      "essen",
-      "austausch"
+    "titelVorlage": "Wednesday Wrap: [Theme]",
+    "titelIdeen": [
+      "Wednesday Wrap: {thema}",
+      "Lunch & Learn: {thema}",
+      "Bring Your Bowl: {thema}"
     ],
-    "socialText": "🥗 Mittagspause mit der Community!\n\n„{titel}“\n📅 {datum} um {uhrzeit}\n📍 {ort}\n\nBring dein Essen (oder deinen Hunger) mit – wir teilen Tisch, Ideen und gute Laune. Nur für Mitglieder. 💛\n\n#ImpactHub #CommunityLunch",
-    "mailText": "Hallo ihr Lieben,\n\nam {datum} um {uhrzeit} ist wieder Wednesday Wrap – diesmal „{titel}“ ({ort}).\n\nTragt euch bitte kurz ein, damit wir genug Teller und Ideen haben.\n\nBis Mittwoch,\neuer Community-Team"
+    "beschreibung": "A shared lunch for members, this time around {thema}. Everyone brings something or we cook together – time to exchange, ask questions and share news.",
+    "summaryVorlage": "Members' lunch around {thema} – {merkmale}.",
+    "tags": [
+      "Community/Gathering",
+      "Informal",
+      "Unwind"
+    ],
+    "socialText": "🥗 Lunch break with the community!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nBring your food (or your appetite). Members only. 💛\n\n#ImpactHub #CommunityLunch",
+    "mailText": "Hi lovely people,\n\non {datum} at {uhrzeit} it's Wednesday Wrap again – this time \"{titel}\" ({ort}).\n\nPlease sign up quickly so we have enough plates and ideas.\n\nSee you Wednesday,\nyour Community Team"
   },
   {
     "kategorie": "Pitch Night",
     "titelVorlage": "Open Pitch Night: [Edition]",
-    "beschreibung": "Junge Impact-Startups pitchen in je 3 Minuten vor Community, Mentor:innen und Investor:innen. Danach Feedback, Publikumspreis und Networking.",
-    "tags": [
-      "startups",
-      "pitch",
-      "bühne"
+    "titelIdeen": [
+      "Open Pitch Night: {thema}",
+      "{thema}: Founders on Stage",
+      "Pitch & Feedback Night: {thema}"
     ],
-    "socialText": "🚀 Bühne frei für die nächsten Impact Founders!\n\n„{titel}“\n📅 {datum} um {uhrzeit}\n📍 {ort}\n\n3 Minuten, eine Idee, ganz viel Wirkung. Feuert die Startups an und stimmt für den Publikumspreis ab! 👉 Tickets über den Link in Bio\n\n#ImpactHub #PitchNight #Startups",
-    "mailText": "Hallo zusammen,\n\nbald ist es so weit: „{titel}“ am {datum} um {uhrzeit} ({ort}).\n\nEinlass ist 30 Minuten vorher. Das Voting läuft über euer Handy – bitte aufgeladen mitbringen. 😉\n\nBis bald,\neuer Community-Team"
+    "beschreibung": "Young impact startups pitch on {thema} in 3 minutes each – in front of the community, mentors and investors. Followed by feedback, an audience award and networking.",
+    "summaryVorlage": "Startup pitch night on {thema} – {merkmale}.",
+    "tags": [
+      "Peer feedback/exchange",
+      "Matchmaking",
+      "Formal"
+    ],
+    "socialText": "🚀 Stage's yours, next impact founders!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nCheer on the startups and vote for the audience award! 👉 Tickets via link in bio\n\n#ImpactHub #PitchNight #Startups",
+    "mailText": "Hi everyone,\n\nit's almost time: \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\nDoors open 30 minutes earlier. Voting happens on your phone – please bring it charged. 😉\n\nSee you soon,\nyour Community Team"
   }
 ]

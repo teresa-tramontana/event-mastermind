@@ -1,6 +1,7 @@
 # Event Mastermind 🗓️
 
 Ein **klickbarer Prototyp** für die Event-Planung im Community-Team von Impact Hub.
+Die Oberfläche ist **auf Englisch**, diese Anleitung auf Deutsch.
 
 > ⚠️ **Alle Daten sind erfunden.** Keine echten Namen, keine echten E-Mail-Adressen, keine echten Teilnehmenden.
 
@@ -10,13 +11,20 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 | Ansicht | Was du siehst |
 |---|---|
-| **Jahr** | 12 Monatskacheln. Je kräftiger die Farbe, desto stärker weicht der Monat vom Plan ab. Klick auf einen Monat öffnet ihn. |
-| **Quartal** | Balken pro Kategorie: Wie viele Events gab es (Ist) und wie viele waren geplant (Soll)? |
-| **Monat** | Kalender mit allen Events und einem Hinweis-Kasten, wenn etwas nicht passt. |
-| **Woche** | Jeder Tag mit Details: Status, Anmeldungen, Aufgaben zum Abhaken, Reminder-Hinweis, Social-Post- und Mail-Vorschlag. |
-| **Abweichungen** | Liste aller Monate und Quartale, die vom Plan abweichen. Die Schwelle (Standard 20 %) kannst du mit einem Regler ändern. |
-| **Vorlagen** | Eine Vorlage pro Kategorie. Mit „Neues Event aus Vorlage“ entsteht ein Entwurf. |
-| **Verbindungen** | Platzhalter für Notion, Eventbrite, Gmail und Google Calendar (noch nicht verbunden). |
+| **Year** (Jahr) | 12 Monatskacheln. Je kräftiger die Farbe, desto stärker weicht der Monat vom Plan ab. Klick auf einen Monat öffnet ihn. |
+| **Quarter** (Quartal) | Balken pro Kategorie: Wie viele Events gab es (Ist) und wie viele waren geplant (Soll)? |
+| **Month** (Monat) | Kalender mit allen Events und einem Hinweis-Kasten, wenn etwas nicht passt. |
+| **Week** (Woche) | Jeder Tag mit Details: Status, Summary, Description, Anmeldungen, Aufgaben zum Abhaken, Reminder-Hinweis, Social-Post- und Mail-Vorschlag. |
+| **Search** (Suche) | Sucht in Titeln, Summaries, Descriptions, Tags, Orten, Verantwortlichen, Aufgaben und Daten. Filter für Kategorie, Status und „nur kommende“. Das Suchfeld oben ist von jeder Seite aus erreichbar (Tastenkürzel: `/`). |
+| **Deviations** (Abweichungen) | Liste aller Monate und Quartale, die vom Plan abweichen. Die Schwelle (Standard 20 %) kannst du mit einem Regler ändern. |
+| **Templates** (Vorlagen) | Eine Vorlage pro Kategorie, mit Titel-Ideen, Summary-Vorlage und der Tag-Liste. Mit „New event from template“ entsteht ein Entwurf. |
+| **Connections** (Verbindungen) | Platzhalter für Notion, Eventbrite, Gmail und Google Calendar (noch nicht verbunden). |
+
+**Status** eines Events: Idea (Idee) → Planned (geplant) → Published (veröffentlicht) → Done (durchgeführt).
+
+**Tags** (feste Liste): Small groups, Formal, Informal, Peer feedback/exchange, Group work, Coaching/consulting, Workshop, Skillshare, Expert guidance, Practical exercises, Community/Gathering, 1:1 sessions, Guided networking, Matchmaking, Keynote/panel, Collaboration, Unwind. Im Formular klickst du sie einfach an.
+
+**Vorschläge für Titel, Description und Summary:** Im Event-Formular gibst du ein Thema ein (z. B. „crowdfunding“), wählst Tags und klickst auf **„✨ Suggest title, description & summary“**. Du bekommst mehrere Titel-Ideen, eine Kurzbeschreibung (Summary) und eine längere Beschreibung (Description). Mit „Use“ übernimmst du sie und kannst sie danach noch frei ändern. Die Vorschläge entstehen aus der Vorlage der Kategorie und aus den gewählten Tags. Es ist noch keine KI dabei, das kommt laut Fahrplan später.
 
 Die 5 Kategorien sind: Workshop, Networking, Talk, Community Lunch, Pitch Night. Jede hat eine eigene Farbe.
 
@@ -36,7 +44,7 @@ Das war's. Du brauchst keine Installation und kein Internet (nur die Schriftart 
 ## Kann ich etwas kaputt machen?
 
 Nein. 🙂 Wenn du Events anlegst, änderst oder Aufgaben abhakst, wird das **nur in deinem Browser** gespeichert. Niemand sonst sieht es.
-Unten auf der Seite gibt es den Knopf **„Demo-Daten zurücksetzen“**. Er stellt alles wieder auf den Anfang.
+Unten auf der Seite gibt es den Knopf **„Reset demo data“** (Demo-Daten zurücksetzen). Er stellt alles wieder auf den Anfang.
 
 ## Wie veröffentliche ich es auf GitHub Pages? (Klick für Klick)
 
@@ -63,9 +71,10 @@ style.css           Das Aussehen: Farben, Schriften, Abstände
 app.js              Die Logik: berechnet Abweichungen und zeichnet die Ansichten
 data-layer.js       Die EINZIGE Stelle, die Daten lädt und speichert
 data/events.json    Die erfundenen Events (61 Stück)
-data/templates.json Die Vorlagen pro Kategorie
+data/templates.json Die Vorlagen pro Kategorie (inkl. Titel-Ideen und Summary-Vorlage)
+data/tags.json      Die feste Tag-Liste (mit Stichwort und Satz für die Vorschläge)
 data/model.json     Der Plan (Soll): wie viele Events pro Monat/Quartal, Ziel-Auslastung
-data/demo-daten.js  Automatische Kopie der drei JSON-Dateien (nötig für den Doppelklick)
+data/demo-daten.js  Automatische Kopie der vier JSON-Dateien (nötig für den Doppelklick)
 tools/              Zwei kleine Hilfsprogramme, um die Demo-Daten neu zu erzeugen
 CLAUDE.md           Regeln und Fahrplan für die Arbeit mit Claude
 ```

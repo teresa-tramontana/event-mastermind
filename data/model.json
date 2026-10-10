@@ -11,7 +11,7 @@
   "monate": [
     {
       "monat": 1,
-      "name": "Januar",
+      "name": "January",
       "soll": {
         "Workshop": 2,
         "Networking": 1,
@@ -23,7 +23,7 @@
     },
     {
       "monat": 2,
-      "name": "Februar",
+      "name": "February",
       "soll": {
         "Workshop": 2,
         "Networking": 1,
@@ -35,7 +35,7 @@
     },
     {
       "monat": 3,
-      "name": "März",
+      "name": "March",
       "soll": {
         "Workshop": 2,
         "Networking": 1,
@@ -59,7 +59,7 @@
     },
     {
       "monat": 5,
-      "name": "Mai",
+      "name": "May",
       "soll": {
         "Workshop": 2,
         "Networking": 1,
@@ -71,7 +71,7 @@
     },
     {
       "monat": 6,
-      "name": "Juni",
+      "name": "June",
       "soll": {
         "Workshop": 2,
         "Networking": 1,
@@ -83,7 +83,7 @@
     },
     {
       "monat": 7,
-      "name": "Juli",
+      "name": "July",
       "soll": {
         "Workshop": 2,
         "Networking": 1,
@@ -119,7 +119,7 @@
     },
     {
       "monat": 10,
-      "name": "Oktober",
+      "name": "October",
       "soll": {
         "Workshop": 2,
         "Networking": 1,
@@ -143,7 +143,7 @@
     },
     {
       "monat": 12,
-      "name": "Dezember",
+      "name": "December",
       "soll": {
         "Workshop": 2,
         "Networking": 1,
