@@ -21,11 +21,15 @@
           <small>Impact Hub · Community Events</small>
         </span>
       </a>
+      <span class="demo-hinweis" title="All data is fictional">Demo · fictional data</span>
       <form class="suche" id="suche-formular" role="search">
         <input type="search" id="suche" placeholder="Search events, tags, places …" aria-label="Search events" autocomplete="off">
       </form>
-      <span class="demo-hinweis" title="All data is fictional">Demo · fictional data</span>
-      <!-- Benutzer-Menü: wird von app.js gefüllt (nur in der Online-Version mit Google-Login) -->
+      <!-- "Ask AI" öffnet die Chat-Schublade (nur online, wenn der Gemini-Schlüssel da ist) -->
+      <button class="ki-knopf" id="ki-knopf" type="button" hidden aria-controls="ki-fenster" aria-expanded="false">
+        <svg class="funkel" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2.5l1.9 5.6 5.6 1.9-5.6 1.9L10 17.5l-1.9-5.6L2.5 10l5.6-1.9z"/><path d="M18.5 13.5l.95 2.55 2.55.95-2.55.95-.95 2.55-.95-2.55L15 17l2.55-.95z"/></svg> Ask AI
+      </button>
+      <!-- Benutzer-Menü: wird von app.js gefüllt (E-Mail, Connections) -->
       <div class="benutzer" id="benutzer" hidden></div>
     </div>
     <nav class="hauptnav" aria-label="Views">
@@ -33,11 +37,10 @@
       <a href="#/quarter" data-ansicht="quarter">Quarter</a>
       <a href="#/month" data-ansicht="month">Month</a>
       <a href="#/week" data-ansicht="week">Week</a>
-      <span class="nav-trenner" aria-hidden="true"></span>
       <a href="#/search" data-ansicht="search">List</a>
+      <span class="nav-trenner" aria-hidden="true"></span>
       <a href="#/deviations" data-ansicht="deviations">Deviations <span class="zaehler" id="warn-zaehler"></span> <span class="zaehler info" id="info-zaehler"></span></a>
       <a href="#/templates" data-ansicht="templates">Templates</a>
-      <a href="#/connections" data-ansicht="connections">Connections</a>
     </nav>
   </header>
 
@@ -71,25 +74,21 @@
 
   <!-- Event-Details: Schublade, die von rechts hereinfährt (wird von app.js gefüllt) -->
   <div class="drawer-schatten" id="drawer-schatten" hidden></div>
-  <aside class="event-drawer" id="event-drawer" hidden aria-labelledby="drawer-titel">
+  <aside class="event-drawer" id="event-drawer" hidden tabindex="-1" aria-labelledby="drawer-titel">
     <header class="drawer-kopf">
       <div class="drawer-titel-block">
         <div class="drawer-pillen" id="drawer-pillen"></div>
         <h2 id="drawer-titel"></h2>
         <span class="drawer-datum" id="drawer-datum"></span>
       </div>
-      <div class="drawer-knoepfe">
-        <button class="knopf bearbeiten" id="drawer-bearbeiten" type="button">✎ Edit</button>
-        <button class="knopf rund leise" id="drawer-schliessen" type="button" aria-label="Close">×</button>
-      </div>
     </header>
     <div class="drawer-inhalt" id="drawer-inhalt"></div>
+    <!-- Alle Knöpfe der Schublade stehen unten (Ansehen: Aktionen, Close, Edit · Bearbeiten: Delete, Cancel, Save) -->
+    <footer class="drawer-fuss" id="drawer-fuss"></footer>
   </aside>
 
   <!-- "Ask AI": Knopf unten rechts + Chat-Schublade von rechts (nur online; Vorschläge speichert erst ein Klick auf "Apply") -->
-  <button class="ki-knopf" id="ki-knopf" type="button" hidden aria-controls="ki-fenster" aria-expanded="false">
-    <svg class="funkel" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2.5l1.9 5.6 5.6 1.9-5.6 1.9L10 17.5l-1.9-5.6L2.5 10l5.6-1.9z"/><path d="M18.5 13.5l.95 2.55 2.55.95-2.55.95-.95 2.55-.95-2.55L15 17l2.55-.95z"/></svg> Ask AI
-  </button>
+  <div class="drawer-schatten ki-schatten" id="ki-schatten" hidden></div>
   <section class="ki-fenster" id="ki-fenster" hidden aria-label="Ask AI">
     <header class="ki-kopf">
       <span class="ki-titel"><svg class="funkel" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2.5l1.9 5.6 5.6 1.9-5.6 1.9L10 17.5l-1.9-5.6L2.5 10l5.6-1.9z"/><path d="M18.5 13.5l.95 2.55 2.55.95-2.55.95-.95 2.55-.95-2.55L15 17l2.55-.95z"/></svg> Ask AI</span>

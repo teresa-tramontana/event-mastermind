@@ -637,15 +637,10 @@
         ${lueckenHinweis(e)}
         ${beschreibungsStand(e) !== "keine" ? `<details class="beschreibung"><summary>Description${beschreibungsStand(e) === "luecken" ? " (incomplete)" : ""}</summary>${beschreibungHtml(e.beschreibung, e.kategorie)}</details>` : ""}
         ${r ? `<div class="reminder ${r.stufe}">${esc(r.text)}</div>` : ""}
-        <div class="event-aktionen">
-          <button class="knopf klein" data-aktion="social">✨ Social post suggestion</button>
-          <button class="knopf klein" data-aktion="mail">✉️ Reminder email suggestion</button>
-          ${zustand.benutzer.kiMoeglich ? `<button class="knopf klein" data-aktion="ki">✨ ${beschreibungsStand(e) === "ok" ? "Improve" : "Complete"} with AI</button>` : ""}
-        </div>
       </article>`;
   }
 
-  /** Knöpfe und Häkchen in Event-Karten verbinden (in der Event-Schublade) */
+  /** Häkchen der Aufgaben verbinden (die Knöpfe stehen unten in der Schublade) */
   function verbindeEventKarten(bereich) {
     bereich.querySelectorAll(".event-karte").forEach((karte) => {
       const event = zustand.events.find((e) => e.id === karte.dataset.event);
@@ -656,10 +651,6 @@
           await ladeNeu();
           zeichne();
         }));
-      karte.querySelector('[data-aktion="social"]').addEventListener("click", () => zeigeVorschlag(event, "social"));
-      karte.querySelector('[data-aktion="mail"]').addEventListener("click", () => zeigeVorschlag(event, "mail"));
-      const ki = karte.querySelector('[data-aktion="ki"]');
-      if (ki) ki.addEventListener("click", () => kiFuerEvent(event));
     });
   }
 
@@ -755,22 +746,28 @@
     geheZu(zustand.ansicht, zustand.datum, id);
   }
   function schliesseEvent() {
+    if (!darfFormularVerlassen()) return;
     drawerStand.modus = "ansehen";
     if (leseAdresse().fokus) geheZu(zustand.ansicht, zustand.datum);
     else verbergeEventDrawer();
+  }
+  /** Beim Bearbeiten mit ungespeicherten Änderungen erst nachfragen */
+  function darfFormularVerlassen() {
+    if (drawerStand.modus !== "bearbeiten" || !drawerStand.geaendert || !drawerStand.geaendert()) return true;
+    return window.confirm("You have unsaved changes. Discard them?");
   }
 
   const $drawer = document.getElementById("event-drawer");
   const $drawerSchatten = document.getElementById("drawer-schatten");
   // Was zeigt die Schublade gerade? modus "ansehen" = Details, "bearbeiten" = Formular
-  const drawerStand = { id: null, modus: "ansehen", abbrechen: null };
+  const drawerStand = { id: null, modus: "ansehen", abbrechen: null, geaendert: null };
 
-  /** Kopf der Schublade setzen und sie (falls zu) hereinfahren lassen */
-  function fuelleDrawer({ pillen, titel, unter, bearbeitenSichtbar }) {
+  /** Kopf und Fußleiste der Schublade setzen und sie (falls zu) hereinfahren lassen */
+  function fuelleDrawer({ pillen, titel, unter, fuss }) {
     document.getElementById("drawer-pillen").innerHTML = pillen || "";
     document.getElementById("drawer-titel").textContent = titel;
     document.getElementById("drawer-datum").textContent = unter || "";
-    document.getElementById("drawer-bearbeiten").hidden = !bearbeitenSichtbar;
+    document.getElementById("drawer-fuss").innerHTML = fuss || "";
     const inhalt = document.getElementById("drawer-inhalt");
     inhalt.scrollTop = 0;
     if ($drawer.hidden) {
@@ -781,7 +778,7 @@
         $drawer.classList.add("offen");
         $drawerSchatten.classList.add("offen");
       }));
-      document.getElementById("drawer-schliessen").focus();
+      $drawer.focus();
     }
     return inhalt;
   }
@@ -791,16 +788,29 @@
     if (!erzwingen && drawerStand.modus === "bearbeiten" && drawerStand.id === id && !$drawer.hidden) return;
     const e = zustand.events.find((x) => x.id === id);
     if (!e) return verbergeEventDrawer();
-    Object.assign(drawerStand, { id, modus: "ansehen", abbrechen: null });
+    Object.assign(drawerStand, { id, modus: "ansehen", abbrechen: null, geaendert: null });
     const z = eventZeitraum(e);
     const inhalt = fuelleDrawer({
       pillen: `${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)}`,
       titel: e.titel,
       unter: datumSchoen(e.datum, true) + " · " + uhrzeit(z.von) + " – " + uhrzeit(z.bis),
-      bearbeitenSichtbar: true,
+      fuss: `
+        <button type="button" class="knopf klein" data-aktion="social">✨ Social post</button>
+        <button type="button" class="knopf klein" data-aktion="mail">✉️ Reminder email</button>
+        ${zustand.benutzer.kiMoeglich ? `<button type="button" class="knopf klein" data-aktion="ki">✨ ${beschreibungsStand(e) === "ok" ? "Improve" : "Complete"} with AI</button>` : ""}
+        <span class="fuss-luecke"></span>
+        <button type="button" class="knopf leise" data-aktion="schliessen">Close</button>
+        <button type="button" class="knopf bearbeiten" data-aktion="bearbeiten">✎ Edit</button>`,
     });
     inhalt.innerHTML = eventKarte(e);
     verbindeEventKarten(inhalt);
+    const fuss = document.getElementById("drawer-fuss");
+    fuss.querySelector('[data-aktion="social"]').addEventListener("click", () => zeigeVorschlag(e, "social"));
+    fuss.querySelector('[data-aktion="mail"]').addEventListener("click", () => zeigeVorschlag(e, "mail"));
+    const ki = fuss.querySelector('[data-aktion="ki"]');
+    if (ki) ki.addEventListener("click", () => kiFuerEvent(e));
+    fuss.querySelector('[data-aktion="schliessen"]').addEventListener("click", schliesseEvent);
+    fuss.querySelector('[data-aktion="bearbeiten"]').addEventListener("click", () => oeffneEventFormular(e));
   }
   function verbergeEventDrawer() {
     drawerStand.modus = "ansehen";
@@ -819,12 +829,8 @@
     if (drawerStand.modus === "bearbeiten" && drawerStand.abbrechen) drawerStand.abbrechen();
     else schliesseEvent();
   }
-  document.getElementById("drawer-schliessen").addEventListener("click", schliesseEvent);
+  // Klick neben die Schublade: wie Esc (beim Bearbeiten abbrechen, sonst schließen)
   $drawerSchatten.addEventListener("click", drawerZurueck);
-  document.getElementById("drawer-bearbeiten").addEventListener("click", () => {
-    const e = zustand.events.find((x) => x.id === drawerStand.id);
-    if (e) oeffneEventFormular(e);
-  });
   function $dialogOffen() {
     const d = document.getElementById("dialog");
     return d && d.open;
@@ -952,7 +958,8 @@
       return;
     }
     ziel.innerHTML = kopf + treffer.map(({ e, fundstellen }) => `
-      <article class="treffer ${katKlasse(e.kategorie)}">
+      <article class="treffer klickbar ${katKlasse(e.kategorie)}" data-event="${esc(e.id)}" tabindex="0"
+               aria-label="${esc(e.titel)} – show details">
         <div class="treffer-datum"><strong>${alsDatum(e.datum).getDate()}</strong><span>${MONATE_KURZ[alsDatum(e.datum).getMonth()]}</span></div>
         <div class="treffer-inhalt">
           <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)}
@@ -964,12 +971,22 @@
           <div class="tags">${(e.tags || []).map((t) => `<button class="tag tag-knopf" data-tag="${esc(t)}">${markiere(t, woerter)}</button>`).join("")}</div>
         </div>
         <div class="treffer-aktionen">
-          <button class="knopf klein" data-oeffnen="${esc(e.id)}">Details</button>
-          <button class="knopf klein leise" data-bearbeiten="${esc(e.id)}">Edit</button>
+          <button class="knopf klein bearbeiten" data-bearbeiten="${esc(e.id)}">✎ Edit</button>
         </div>
       </article>`).join("");
 
-    ziel.querySelectorAll("[data-oeffnen]").forEach((b) => b.addEventListener("click", () => oeffneEvent(b.dataset.oeffnen)));
+    // Klick auf die Zeile (aber nicht auf einen Knopf darin) öffnet die Details
+    ziel.querySelectorAll(".treffer[data-event]").forEach((zeile) => {
+      zeile.addEventListener("click", (ev) => {
+        if (!ev.target.closest("button, a")) oeffneEvent(zeile.dataset.event);
+      });
+      zeile.addEventListener("keydown", (ev) => {
+        if ((ev.key === "Enter" || ev.key === " ") && ev.target === zeile) {
+          ev.preventDefault();
+          oeffneEvent(zeile.dataset.event);
+        }
+      });
+    });
     ziel.querySelectorAll("[data-bearbeiten]").forEach((b) => b.addEventListener("click", () =>
       oeffneEventFormular(zustand.events.find((x) => x.id === b.dataset.bearbeiten))));
     ziel.querySelectorAll("[data-tag]").forEach((b) => b.addEventListener("click", () => {
@@ -1048,7 +1065,7 @@
             <td>${katPille(e.kategorie)}<br><strong>${esc(e.titel)}</strong></td>
             <td>${statusPille(e.status)}</td>
             <td>${beschreibungsStand(e) === "keine" ? '<strong class="text-kritisch">No description at all</strong>' : esc(fehlendeTeile(e).join(", "))}</td>
-            <td><button class="knopf klein" data-ergaenzen="${esc(e.id)}">Fill in</button></td>
+            <td><button class="knopf klein bearbeiten" data-ergaenzen="${esc(e.id)}">✎ Fill in</button></td>
           </tr>`).join("")}</tbody></table></div>` : '<p class="leise">All events have a complete description. 🎉</p>'}
       </section>`;
     box.querySelectorAll("[data-ergaenzen]").forEach((b) => b.addEventListener("click", () =>
@@ -1334,16 +1351,21 @@
     const kiFenster = document.getElementById("ki-fenster");
     if (kiFenster && !kiFenster.hidden) kiFensterOffen(false);
     const abbrechen = () => {
+      if (!darfFormularVerlassen()) return;
       const { fokus } = leseAdresse();
       drawerStand.modus = "ansehen";
       if (fokus && zustand.events.some((x) => x.id === fokus)) zeigeEventDrawer(fokus, true);
       else verbergeEventDrawer();
     };
-    Object.assign(drawerStand, { id: e.id || null, modus: "bearbeiten", abbrechen });
+    Object.assign(drawerStand, { id: e.id || null, modus: "bearbeiten", abbrechen, geaendert: null });
     const drawerInhalt = fuelleDrawer({
       titel: neu ? (e.ausVorlage ? "New draft from template" : "New event") : "Edit event",
       unter: neu ? "Fill in the details and click Save" : e.titel,
-      bearbeitenSichtbar: false,
+      fuss: `
+        ${neu ? "" : '<button type="button" class="knopf gefahr leise" id="loeschen">Delete</button>'}
+        <span class="fuss-luecke"></span>
+        <button type="button" class="knopf leise" data-schliessen>Cancel</button>
+        <button type="submit" class="knopf bearbeiten" form="event-formular">Save</button>`,
     });
     drawerInhalt.innerHTML = `
       <form id="event-formular" class="drawer-formular" novalidate>
@@ -1381,17 +1403,19 @@
           <p class="leise" style="font-size:.82rem">Saved in this browser only. “Reset demo data” (bottom of the page) undoes everything.</p>
           <p id="formular-fehler" style="color:var(--kritisch)"></p>
         </div>
-        <div class="drawer-fuss">
-          ${neu ? "" : '<button type="button" class="knopf gefahr leise links" id="loeschen">Delete</button>'}
-          <button type="button" class="knopf leise" data-schliessen>Cancel</button>
-          <button type="submit" class="knopf bearbeiten">Save</button>
-        </div>
       </form>`;
-    drawerInhalt.querySelectorAll("[data-schliessen]").forEach((b) => b.addEventListener("click", abbrechen));
+    document.querySelectorAll("#drawer-fuss [data-schliessen]").forEach((b) => b.addEventListener("click", abbrechen));
     drawerInhalt.querySelector('input[name="titel"]').focus();
 
     const formular = document.getElementById("event-formular");
     const feld = (name) => formular.elements[name];
+    // Ungespeicherte Änderungen erkennen: Formular-Inhalt mit dem Stand beim Öffnen vergleichen.
+    // Kommt der Inhalt schon geändert an (z. B. KI-Vorschlag übernommen), gilt er von Anfang an als geändert.
+    const formularStand = () => JSON.stringify([...new FormData(formular).entries()]);
+    const anfangsStand = formularStand();
+    const gespeichertesEvent = e.id && zustand.events.find((x) => x.id === e.id);
+    const schonGeaendert = !!gespeichertesEvent && JSON.stringify(gespeichertesEvent) !== JSON.stringify(e);
+    drawerStand.geaendert = () => schonGeaendert || formularStand() !== anfangsStand;
 
     // Leere Description-Felder rot markieren und mitzählen
     const markiereLuecken = () => {
@@ -1493,6 +1517,7 @@
       const ergebnis = await window.DataLayer.speichereEvent(gespeichert);
       await ladeNeu();
       drawerStand.modus = "ansehen";
+      drawerStand.geaendert = null;
       const fehlt = fehlendeTeile(ergebnis).length;
       zeigeMeldung((neu ? "Event created ✓" : "Changes saved ✓") + (fehlt ? ` – ⚠ ${fehlt} description sections still missing` : ""));
       // In der aktuellen Ansicht bleiben, beim Blättern zum Datum des Events springen, Details zeigen
@@ -1507,6 +1532,7 @@
         await window.DataLayer.loescheEvent(e.id);
         await ladeNeu();
         zeigeMeldung("Event deleted");
+        drawerStand.geaendert = null;
         schliesseEvent();
         zeichne();
       });
@@ -1592,14 +1618,16 @@
       return;
     }
     const b = zustand.benutzer;
-    if (!b.angemeldet) return;
     const box = document.getElementById("benutzer");
     box.innerHTML = `
       <button class="benutzer-knopf" id="benutzer-knopf" aria-haspopup="true" aria-expanded="false"
-        title="${esc(b.email)}">${esc(b.email.charAt(0).toUpperCase())}</button>
+        title="${b.angemeldet ? esc(b.email) : "Menu"}">${b.angemeldet ? esc(b.email.charAt(0).toUpperCase()) : "☰"}</button>
       <div class="benutzer-menue" id="benutzer-menue" hidden>
-        <p class="leise klein-text">Signed in as</p>
-        <p class="benutzer-email">${esc(b.email)}</p>
+        ${b.angemeldet
+          ? `<p class="leise klein-text">Signed in as</p><p class="benutzer-email">${esc(b.email)}</p>`
+          : `<p class="leise klein-text">Offline demo – not signed in</p>`}
+        <hr class="menue-linie">
+        <button type="button" class="menue-eintrag" data-menue="connections">🔌 Connections</button>
       </div>`;
     box.hidden = false;
     const knopf = document.getElementById("benutzer-knopf");
@@ -1611,6 +1639,10 @@
     knopf.addEventListener("click", (ev) => {
       ev.stopPropagation();
       setze(menue.hidden);
+    });
+    menue.querySelector('[data-menue="connections"]').addEventListener("click", () => {
+      setze(false);
+      geheZu("connections", zustand.datum);
     });
     // Klick daneben oder Escape schließt das Menü
     document.addEventListener("click", (ev) => {
@@ -2011,18 +2043,24 @@
     const knopf = document.getElementById("ki-knopf");
     const fenster = document.getElementById("ki-fenster");
     knopf.setAttribute("aria-expanded", String(offen));
+    const schatten = document.getElementById("ki-schatten");
     if (offen) {
-      knopf.hidden = true;
       fenster.hidden = false;
-      requestAnimationFrame(() => requestAnimationFrame(() => fenster.classList.add("offen")));
+      schatten.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        fenster.classList.add("offen");
+        schatten.classList.add("offen");
+      }));
       document.getElementById("ki-frage").focus();
     } else {
       fenster.classList.remove("offen");
+      schatten.classList.remove("offen");
       setTimeout(() => {
-        if (!fenster.classList.contains("offen")) fenster.hidden = true;
+        if (!fenster.classList.contains("offen")) {
+          fenster.hidden = true;
+          schatten.hidden = true;
+        }
       }, 250);
-      knopf.hidden = !zustand.benutzer.kiMoeglich;
-      if (!knopf.hidden) knopf.focus();
     }
   }
 
@@ -2058,6 +2096,8 @@
     knopf.addEventListener("click", () => setze(true));
     document.getElementById("ki-schliessen").addEventListener("click", () => setze(false));
     document.getElementById("ki-neu").addEventListener("click", kiNeuerChat);
+    // Klick neben die Schublade schließt sie (der Chat bleibt erhalten)
+    document.getElementById("ki-schatten").addEventListener("click", () => setze(false));
     // Esc schließt die Schublade (siehe Event-Schublade: gemeinsame Esc-Regel)
     document.getElementById("ki-formular").addEventListener("submit", (ev) => {
       ev.preventDefault();
