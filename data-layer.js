@@ -9,7 +9,8 @@
  * Aktuell (Demo):
  *   - Grunddaten kommen aus data/demo-daten.js (automatisch erzeugt aus data/*.json)
  *   - Eigene Änderungen werden nur im Browser gespeichert (localStorage)
- *   - In der Apps-Script-Version (online): Benutzer-Menü und Test-Reminder-Mail
+ *   - In der Apps-Script-Version (online): Benutzer-Menü, Test-Reminder-Mail und
+ *     "Ask AI" (Gemini, nur lesend)
  *     über apps-script/Code.gs (google.script.run). Per Doppelklick gibt es beides nicht.
  *
  * Alle Funktionen geben ein "Promise" zurück (= "Antwort kommt gleich").
@@ -150,18 +151,19 @@
     },
 
     /**
-     * Wer ist angemeldet? → { angemeldet, email, mailMoeglich }
+     * Wer ist angemeldet? → { angemeldet, email, mailMoeglich, kiMoeglich }
      * Per Doppelklick (ohne Google) ist niemand angemeldet.
      */
     async ladeBenutzer() {
       if (!inAppsScript()) {
-        return { angemeldet: false, email: "", mailMoeglich: false };
+        return { angemeldet: false, email: "", mailMoeglich: false, kiMoeglich: false };
       }
       const antwort = await rufeServer("holeBenutzer");
       return {
         angemeldet: !!antwort.email,
         email: antwort.email,
         mailMoeglich: !!antwort.email,
+        kiMoeglich: !!antwort.kiBereit,
       };
     },
 
@@ -169,6 +171,15 @@
     async sendeTestMail(betreff, text) {
       if (!inAppsScript()) throw new Error("Only available in the online version.");
       return rufeServer("sendeTestReminder", betreff, text);
+    },
+
+    /**
+     * Frage an die KI (Gemini) – NUR LESEND. → { antwort, modell }
+     * verlauf: [{ rolle: "user" | "model", text }] · kontext: alle Daten, die die KI sehen darf
+     */
+    async frageKI(frage, verlauf, kontext) {
+      if (!inAppsScript()) throw new Error("Only available in the online version.");
+      return rufeServer("frageKI", frage, verlauf, JSON.stringify(kontext));
     },
 
     /** Status der externen Dienste – in der Demo ist nichts verbunden */

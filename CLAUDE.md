@@ -39,7 +39,8 @@ data/demo-daten.js    AUTOMATISCH erzeugt aus den JSON-Dateien (das liest data-l
 tools/erzeuge-demodaten.py   würfelt die Demo-Daten neu (fester Zufall, immer gleiches Ergebnis)
 tools/baue-demo-daten.py     kopiert JSON -> data/demo-daten.js
 tools/baue-apps-script.py    packt alles in apps-script/Index.html (eine Datei für Apps Script)
-apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet)
+apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet), Benutzer, Test-Mail, Ask AI (Gemini)
+apps-script/Geheim.gs        AUTOMATISCH von der Action erzeugt (nicht im Repo, .gitignore): Gemini-Schlüssel
 apps-script/Index.html       AUTOMATISCH erzeugt (nicht im Repo, .gitignore): komplette App in einer Datei
 apps-script/appsscript.json  Apps-Script-Einstellungen (Zeitzone, Zugriff "DOMAIN" = nur Impact-Hub-Konten, "USER_ACCESSING" = läuft als die zugreifende Person)
 bilder/favicon.svg / .png   Icon im Browser-Tab (SVG für Doppelklick, PNG für Apps Script über raw.githubusercontent.com – klappt nur, solange das Repo öffentlich ist)
@@ -60,9 +61,9 @@ VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtu
 
 ### DataLayer-Schnittstelle (nicht umbenennen)
 
-`ladeAlles() → {events, templates, model, tags}` · `speichereEvent(event) → event` · `loescheEvent(id)` · `setzeDemoZurueck()` · `hatEigeneAenderungen()` · `ladeEinstellungen()` / `speichereEinstellungen(obj)` · `ladeVerbindungen()` · `ladeBenutzer() → {angemeldet, email, mailMoeglich}` · `sendeTestMail(betreff, text) → {an, rest}` · Eigenschaft `quelle` (Text für die Fußzeile). Alle Lade-/Speicherfunktionen geben ein Promise zurück.
+`ladeAlles() → {events, templates, model, tags}` · `speichereEvent(event) → event` · `loescheEvent(id)` · `setzeDemoZurueck()` · `hatEigeneAenderungen()` · `ladeEinstellungen()` / `speichereEinstellungen(obj)` · `ladeVerbindungen()` · `ladeBenutzer() → {angemeldet, email, mailMoeglich, kiMoeglich}` · `sendeTestMail(betreff, text) → {an, rest}` · `frageKI(frage, verlauf, kontext) → {antwort, modell}` · Eigenschaft `quelle` (Text für die Fußzeile). Alle Lade-/Speicherfunktionen geben ein Promise zurück.
 
-`ladeBenutzer` und `sendeTestMail` funktionieren nur in der Apps-Script-Version (sie rufen Funktionen aus `apps-script/Code.gs` über `google.script.run` auf). Per Doppelklick gibt es kein Benutzer-Menü und keinen Test-Mail-Knopf.
+`ladeBenutzer` liefert zusätzlich `kiMoeglich` (Schlüssel vorhanden). `ladeBenutzer`, `sendeTestMail` und `frageKI` funktionieren nur in der Apps-Script-Version (sie rufen Funktionen aus `apps-script/Code.gs` über `google.script.run` auf). Per Doppelklick gibt es kein Benutzer-Menü, keinen Test-Mail-Knopf und kein „Ask AI“.
 
 ### Rechenregeln
 
@@ -84,10 +85,11 @@ VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtu
 | `CLASPRC_JSON` | Google-Login für clasp (Hochladen zu Apps Script); Rechte auf **alle** Apps-Script-Projekte des Kontos | **in Benutzung** durch `.github/workflows/apps-script.yml` |
 | `APPS_SCRIPT_ID` | Script-ID des Apps-Script-Projekts (nicht geheim) | in Benutzung (Action) |
 | `APPS_SCRIPT_DEPLOYMENT_ID` | ID der Web-App-Bereitstellung (nicht geheim) | in Benutzung (Action) |
+| `GEMINI_API_KEY` | Gemini-API-Schlüssel (Google AI Studio) für „Ask AI“ | **in Benutzung**: Action schreibt ihn in `apps-script/Geheim.gs` (nur bei Google, nie im Repo/Browser) |
 
 Regeln:
 - Secrets erst verwenden, wenn die Nutzerin den jeweiligen Roadmap-Punkt **ausdrücklich** startet.
-- Ausnahme: Die drei Apps-Script-Secrets nutzt die Action `.github/workflows/apps-script.yml` (von der Nutzerin ausdrücklich gewünscht). Sie werden nur dort verwendet.
+- Ausnahme: `GEMINI_API_KEY` (für „Ask AI“, von der Nutzerin ausdrücklich gestartet) und die drei Apps-Script-Secrets nutzt die Action `.github/workflows/apps-script.yml` (von der Nutzerin ausdrücklich gewünscht). Sie werden nur dort verwendet.
 - Ein Repo-Secret ist nur in **GitHub Actions** lesbar, nie im Browser. Werte niemals in ausgelieferte Dateien (`data-layer.js`, `app.js`, `data/*`), Logs, Commits oder den Chat schreiben.
 - Der Eventbrite Private Token hat **alle Rechte** des Kontos (nicht einschränkbar). Darum später nur **Entwürfe** anlegen; Veröffentlichen macht immer ein Mensch.
 - Nach einem Umzug zu Google Cloud wandern die Secrets in den **Google Secret Manager** (siehe IT-Abschnitt unten).
@@ -100,6 +102,8 @@ Regeln:
 3. **Eventbrite:** Entwürfe aus Vorlagen anlegen, Anmeldezahlen zurücklesen (`eventbriteId`). Zugang: Secret `EVENTBRITE_PRIVATE_TOKEN` (noch nicht nutzen). Die Organisations-ID ist nicht geheim und wird per API abgefragt.
 4. **Google Calendar und Gmail:** Login mit Google (OAuth), minimale Rechte; Kalendereinträge anlegen (`kalenderId`), Mails nur als **Entwurf**, nie automatisch senden.
 5. **Social-Vorschläge und Mail-Intelligenz via Gemini:** Vorlagentexte als Grundlage, KI verfeinert sie; Mensch gibt immer frei.
+   - **Schon eingebaut: „Ask AI“** (Knopf unten rechts, Chat-Fenster). **Nur lesend:** `app.js` (`kiKontext`) schickt alle Daten der App plus die eigenen Auswertungen (Soll/Ist je Monat/Quartal, fehlende Infos) über `DataLayer.frageKI` an `frageKI` in `Code.gs`, das Gemini per `UrlFetchApp` fragt (Modelle `KI_MODELLE`: erst `gemini-flash-latest`, bei 403/404/429/5xx automatisch `gemini-flash-lite-latest`; Free Tier von Google AI Studio). Gemini bekommt keine Werkzeuge zum Ändern. Schreibende KI-Funktionen nur, wenn die Nutzerin sie ausdrücklich will, und immer mit Freigabe durch einen Menschen.
+   - **Datenschutz:** Der Schlüssel stammt aus Google AI Studio. Ohne hinterlegte Bezahlung darf Google Eingaben zur Produktverbesserung nutzen → **nur Demo-Daten**. Vor echten Daten: Vertex AI in einem EU-Cloud-Projekt (IT-Leitfaden, Punkt 6).
 
 ## Gesprächsleitfaden für die IT
 
@@ -202,6 +206,6 @@ Ein Backend ist nötig, weil Zugangsschlüssel nie im Browser liegen dürfen.
   - **Schon eingebaut (Test):** Knopf „Send test to me“ im Reminder-Dialog. Schickt die Mail per `MailApp` **nur an die angemeldete Person selbst** (Betreff mit „[TEST]“), Absender ist die angemeldete Person selbst (Web-App läuft als zugreifende Person). Keine Empfänger-Adressen eingeben oder speichern; echte Reminder an Teilnehmende erst mit Roadmap-Punkt 4.
 - Die Workspace-Admins müssen die App ggf. freigeben (interne App in der Google Admin Console).
 - „Mail-Intelligenz“ (Roadmap 5, KI liest Mails) bräuchte **Leserechte auf Postfächer**. Das ist datenschutzrechtlich heikel → eigene Entscheidung mit Datenschutz, ggf. Folgenabschätzung, eher auf ein Funktionspostfach beschränken.
-- KI (Gemini): Prüfen, ob über Google Workspace/Vertex AI in der EU mit AVV nutzbar.
+- KI (Gemini): Prüfen, ob über Google Workspace/Vertex AI in der EU mit AVV nutzbar. **Stand heute:** „Ask AI“ nutzt einen Google-AI-Studio-Schlüssel, nur mit Demo-Daten. Für echte Daten: Vertex AI in einem Cloud-Projekt der Firma (Region EU, keine Nutzung zum Training, Login über das Google-Konto statt Schlüssel). In der App ändert sich dafür nur `frageKI` in `Code.gs`.
 
 **Offene Fragen:** Persönliche Postfächer oder ein Team-Postfach? Welcher Kalender? Darf KI Inhalte von Mails sehen?

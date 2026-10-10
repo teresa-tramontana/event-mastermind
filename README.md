@@ -24,6 +24,8 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 **Benutzer-Menü (nur online):** Oben rechts der runde Knopf mit deinem Anfangsbuchstaben. Ein Klick zeigt, mit welcher E-Mail-Adresse du angemeldet bist.
 
+**✨ Ask AI (nur online):** Unten rechts der Knopf **„Ask AI“**. Er öffnet ein kleines Chat-Fenster, in dem du Fragen zu allen Daten der App stellen kannst, z. B. *„Welche Monate weichen am stärksten vom Plan ab?“* oder *„Was steht in den nächsten zwei Wochen an?“*. Die Antworten kommen von **Gemini**. Die KI kann **nur lesen**, nichts ändern. Sie kann sich irren, wichtige Zahlen also in der App nachprüfen.
+
 **Test-Reminder-Mail (nur online):** In der Wochenansicht bei einem Event auf **„✉️ Reminder email suggestion“** klicken. Betreff und Text kannst du ändern. **„Send test to me“** schickt die Mail **nur an dich selbst** (Betreff beginnt mit „[TEST]“). An Teilnehmende geht nichts.
 
 **Status** eines Events: Idea (Idee) → Planned (geplant) → Published (veröffentlicht) → Done (durchgeführt).

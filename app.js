@@ -27,7 +27,7 @@
     ansicht: "year",
     datum: null, // das Datum, um das sich die Ansicht dreht ("Cursor")
     suche: { text: "", kategorie: "", status: "", nurKommende: false, nurLuecken: false },
-    benutzer: { angemeldet: false, email: "", mailMoeglich: false },
+    benutzer: { angemeldet: false, email: "", mailMoeglich: false, kiMoeglich: false },
   };
 
   const KATEGORIEN = ["Workshop", "Networking", "Talk", "Community Lunch", "Pitch Night"];
@@ -1474,8 +1474,144 @@
     });
   }
 
+  // ---------- Ask AI (Gemini) – nur lesend: die KI bekommt die Daten und beantwortet Fragen
+
+  const KI_BEISPIELE = [
+    "Which months deviate most from the plan?",
+    "Which upcoming events are missing description info?",
+    "What's on in the next two weeks?",
+    "How full were our workshops on average?",
+  ];
+  const kiVerlauf = []; // { rolle: "user" | "model", text } – nur solange die Seite offen ist
+
+  /** Alles, was die KI sehen darf: Daten der App + die Auswertungen, die die App selbst rechnet */
+  function kiKontext() {
+    const jahr = zustand.model.jahr;
+    const kurz = (v, name) => ({
+      zeitraum: name,
+      ist: v.istGesamt,
+      soll: v.sollGesamt,
+      auslastungProzent: v.auslastung === null ? null : Math.round(v.auslastung * 100),
+      zielAuslastungProzent: Math.round(v.ziel * 100),
+      abweichungen: v.abweichungen.map((a) => a.text),
+    });
+    return {
+      heute: zustand.model.demoHeute,
+      warnSchwelleProzent: zustand.einstellungen.schwelleProzent,
+      auswertungMonate: MONATE.map((name, i) => kurz(vergleichMonat(jahr, i + 1), name + " " + jahr)),
+      auswertungQuartale: [1, 2, 3, 4].map((q) => kurz(vergleichQuartal(jahr, q), "Q" + q + " " + jahr)),
+      eventsMitFehlendenInfos: eventsMitLuecken().map((e) =>
+        ({ id: e.id, titel: e.titel, datum: e.datum, fehlt: fehlendeTeile(e) })),
+      modell: zustand.model,
+      events: zustand.events,
+      vorlagen: zustand.templates,
+      tags: zustand.tags,
+    };
+  }
+
+  /** Antwort der KI lesbar machen (einfaches Markdown: **fett**, Listen, `Code`) – vorher alles escapen */
+  function kiHtml(text) {
+    const zeilen = esc(text).split("\n");
+    let html = "";
+    let inListe = false;
+    zeilen.forEach((zeile) => {
+      const inline = (s) => s.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/`([^`]+)`/g, "<code>$1</code>");
+      const punkt = zeile.match(/^\s*(?:[-*•]|\d+\.)\s+(.*)$/);
+      if (punkt) {
+        if (!inListe) { html += "<ul>"; inListe = true; }
+        html += "<li>" + inline(punkt[1]) + "</li>";
+        return;
+      }
+      if (inListe) { html += "</ul>"; inListe = false; }
+      const titel = zeile.match(/^#{1,4}\s+(.*)$/);
+      if (titel) html += "<p><strong>" + inline(titel[1]) + "</strong></p>";
+      else if (zeile.trim()) html += "<p>" + inline(zeile) + "</p>";
+    });
+    if (inListe) html += "</ul>";
+    return html;
+  }
+
+  function kiNachricht(rolle, html) {
+    const verlauf = document.getElementById("ki-verlauf");
+    const blase = document.createElement("div");
+    blase.className = "ki-blase " + rolle;
+    blase.innerHTML = html;
+    verlauf.appendChild(blase);
+    verlauf.scrollTop = verlauf.scrollHeight;
+    return blase;
+  }
+
+  function kiBegruessung() {
+    const verlauf = document.getElementById("ki-verlauf");
+    verlauf.innerHTML = "";
+    kiNachricht("model", `<p>Hi! Ask me anything about the events, the plan and the deviations in this app.
+      I can only <strong>read</strong> – I can't change anything.</p>
+      <div class="ki-beispiele">${KI_BEISPIELE.map((b) =>
+        `<button type="button" class="knopf klein" data-ki-beispiel>${esc(b)}</button>`).join("")}</div>`);
+    verlauf.querySelectorAll("[data-ki-beispiel]").forEach((b) =>
+      b.addEventListener("click", () => kiFragen(b.textContent)));
+  }
+
+  async function kiFragen(frage) {
+    frage = String(frage || "").trim();
+    const feld = document.getElementById("ki-frage");
+    const senden = document.getElementById("ki-senden");
+    if (!frage || senden.disabled) return;
+    feld.value = "";
+    kiNachricht("user", "<p>" + esc(frage) + "</p>");
+    const warten = kiNachricht("model warten", '<p><span class="punkte"><i></i><i></i><i></i></span> Thinking …</p>');
+    senden.disabled = true;
+    try {
+      const ergebnis = await window.DataLayer.frageKI(frage, kiVerlauf.slice(), kiKontext());
+      const antwort = ergebnis.antwort;
+      warten.className = "ki-blase model";
+      warten.innerHTML = kiHtml(antwort) +
+        (ergebnis.modell ? `<p class="ki-modell">${esc(ergebnis.modell)}</p>` : "");
+      kiVerlauf.push({ rolle: "user", text: frage }, { rolle: "model", text: antwort });
+    } catch (fehler) {
+      warten.className = "ki-blase model fehler";
+      warten.innerHTML = "<p>⚠ " + esc(fehler.message) + "</p>";
+    }
+    senden.disabled = false;
+    document.getElementById("ki-verlauf").scrollTop = 1e9;
+    feld.focus();
+  }
+
+  function richteKiEin() {
+    if (!zustand.benutzer.kiMoeglich) return; // per Doppelklick oder ohne Schlüssel: kein Knopf
+    const knopf = document.getElementById("ki-knopf");
+    const fenster = document.getElementById("ki-fenster");
+    const feld = document.getElementById("ki-frage");
+    const setze = (offen) => {
+      fenster.hidden = !offen;
+      knopf.hidden = offen;
+      knopf.setAttribute("aria-expanded", String(offen));
+      if (offen) feld.focus();
+      else knopf.focus();
+    };
+    kiBegruessung();
+    knopf.hidden = false;
+    knopf.addEventListener("click", () => setze(true));
+    document.getElementById("ki-schliessen").addEventListener("click", () => setze(false));
+    fenster.addEventListener("keydown", (ev) => {
+      if (ev.key === "Escape") setze(false);
+    });
+    document.getElementById("ki-formular").addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      kiFragen(feld.value);
+    });
+    // Enter schickt ab, Umschalt+Enter macht eine neue Zeile
+    feld.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter" && !ev.shiftKey) {
+        ev.preventDefault();
+        kiFragen(feld.value);
+      }
+    });
+  }
+
   async function start() {
-    zeigeBenutzerMenue(); // läuft nebenher, die Seite wartet nicht darauf
+    // läuft nebenher, die Seite wartet nicht darauf; danach ggf. "Ask AI" einschalten
+    zeigeBenutzerMenue().then(richteKiEin);
     try {
       zustand.einstellungen = await window.DataLayer.ladeEinstellungen();
       await ladeNeu();

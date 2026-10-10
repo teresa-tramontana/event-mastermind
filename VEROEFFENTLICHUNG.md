@@ -40,8 +40,9 @@ Auf **Actions** → **„Apps Script veröffentlichen“** → rechts **„Run w
 ## Beim ersten Öffnen: Zugriff erlauben (jede Person einmal)
 
 Die App läuft **als die Person, die sie gerade benutzt**. Darum fragt Google **jede Person beim ersten Öffnen** einmal, ob die App
-- ihre **E-Mail-Adresse sehen** darf (für das Benutzer-Menü oben rechts) und
-- **Mails in ihrem Namen senden** darf (für „Send test to me“).
+- ihre **E-Mail-Adresse sehen** darf (für das Benutzer-Menü oben rechts),
+- **Mails in ihrem Namen senden** darf (für „Send test to me“) und
+- **mit externen Diensten verbinden** darf (für „Ask AI“, um Gemini zu fragen).
 
 So geht's: Live-Adresse öffnen → **„Zugriff überprüfen“ / „Review permissions“** → eigenes Konto wählen → **„Zulassen“**.
 (Erscheint „Google hat diese App nicht überprüft“: **„Erweitert“** → **„Zu Event Mastermind wechseln“**. Die App gehört Impact Hub.)
@@ -67,6 +68,7 @@ Unter **Settings → Secrets and variables → Actions**:
 | `CLASPRC_JSON` | 🔒 Google-Zugangsschlüssel für clasp. Darf **alle** Apps-Script-Projekte deines Kontos ändern und hat weitere Google-Rechte. Nie in Chat, Dateien oder Mails kopieren. |
 | `APPS_SCRIPT_ID` | Nummer des Apps-Script-Projekts (nicht geheim) |
 | `APPS_SCRIPT_DEPLOYMENT_ID` | Nummer der Veröffentlichung, steckt auch in der Live-Adresse (nicht geheim) |
+| `GEMINI_API_KEY` | 🔒 Schlüssel für Gemini („Ask AI“). Die Action legt ihn beim Hochladen in die Datei `Geheim.gs` bei Google. Dort sieht ihn nur, wer das Apps-Script-Projekt bearbeiten darf; im Browser und auf GitHub ist er nie sichtbar. Fehlt das Secret, ist der „Ask AI“-Knopf einfach ausgeblendet. |
 
 **Schlüssel sperren**, falls nötig: [myaccount.google.com/permissions](https://myaccount.google.com/permissions) → **„clasp“** → Zugriff entfernen. Danach muss Schritt 4–5 der Neu-Einrichtung (unten) wiederholt werden.
 
@@ -83,6 +85,10 @@ Im roten Lauf auf den roten Schritt klicken und die Meldung lesen:
 | `Requested entity was not found` | `APPS_SCRIPT_ID` oder `APPS_SCRIPT_DEPLOYMENT_ID` falsch → Secret aktualisieren. |
 | Grüner Haken, aber im Protokoll steht „übersprungen“ | Eines der drei Secrets fehlt oder ist falsch benannt. |
 | Seite zeigt „Script function not found: doGet“ | `apps-script/Code.gs` ist kaputt → Claude fragen. |
+| „Ask AI“-Knopf fehlt | Secret `GEMINI_API_KEY` fehlt oder die App wurde seitdem nicht neu hochgeladen → Actions → „Run workflow“. Per Doppelklick gibt es den Knopf nie. |
+| „Ask AI“ meldet `API key not valid` | Schlüssel in Google AI Studio prüfen und Secret `GEMINI_API_KEY` aktualisieren, dann „Run workflow“. |
+| „Ask AI“ meldet „Too many questions“ | Kostenloses Kontingent kurz erschöpft → eine Minute warten. |
+| „Ask AI“ meldet `models/… is not found` | Google hat den Modell-Namen geändert → Claude bitten, `KI_MODELLE` in `apps-script/Code.gs` anzupassen. |
 | Seite oder Mail-Knopf meldet „Authorization is required“ / „Autorisierung erforderlich“, oder das Benutzer-Menü fehlt | Seite neu laden und den Zugriff erlauben (Abschnitt „Beim ersten Öffnen“ oben). |
 
 Sonst: Screenshot vom roten Schritt an Claude schicken (ohne Schlüssel darauf).

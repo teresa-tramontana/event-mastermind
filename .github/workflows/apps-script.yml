@@ -55,6 +55,17 @@ jobs:
           printf '%s' "$CLASPRC_JSON" > "$HOME/.clasprc.json"
           printf '{"scriptId":"%s"}' "$SCRIPT_ID" > apps-script/.clasp.json
 
+      - name: Gemini-Schlüssel nur für den Server ablegen (Geheim.gs, nie im Repo, nie im Browser)
+        if: steps.pruefen.outputs.bereit == 'ja'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::notice::GEMINI_API_KEY fehlt – Ask AI bleibt ausgeblendet."
+          else
+            node -e 'require("fs").writeFileSync("apps-script/Geheim.gs", "// AUTOMATISCH von der GitHub Action erzeugt – nicht ins Repo!\nconst GEMINI_API_KEY_GEHEIM = " + JSON.stringify(process.env.GEMINI_API_KEY) + ";\n")'
+          fi
+
       - name: Dateien zu Apps Script hochladen
         if: steps.pruefen.outputs.bereit == 'ja'
         working-directory: apps-script

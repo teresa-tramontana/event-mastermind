@@ -2,3 +2,5 @@
 apps-script/Index.html
 # Entsteht nur beim Hochladen mit clasp
 apps-script/.clasp.json
+# Enthält den Gemini-Schlüssel, entsteht nur in der GitHub Action
+apps-script/Geheim.gs
