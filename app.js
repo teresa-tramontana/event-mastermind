@@ -1511,6 +1511,14 @@
       warnSchwelleProzent: zustand.einstellungen.schwelleProzent,
       auswertungMonate: MONATE.map((name, i) => kurz(vergleichMonat(jahr, i + 1), name + " " + jahr)),
       auswertungQuartale: [1, 2, 3, 4].map((q) => kurz(vergleichQuartal(jahr, q), "Q" + q + " " + jahr)),
+      // Auslastung je Kategorie (ganzes Jahr, nur "Done"), gleiche Rechnung wie in der App
+      auslastungJeKategorie: KATEGORIEN.map((kat) => {
+        const erledigt = zustand.events.filter((e) => e.kategorie === kat && e.status === "Done" && Number(e["kapazität"]) > 0);
+        const plaetze = erledigt.reduce((s, e) => s + Number(e["kapazität"]), 0);
+        const anmeldungen = erledigt.reduce((s, e) => s + Number(e.anmeldungen || 0), 0);
+        return { kategorie: kat, eventsDone: erledigt.length, anmeldungen, plaetze,
+          auslastungProzent: plaetze ? Math.round(anmeldungen / plaetze * 100) : null };
+      }),
       eventsMitFehlendenInfos: eventsMitLuecken().map((e) =>
         ({ id: e.id, titel: e.titel, datum: e.datum, fehlt: fehlendeTeile(e) })),
       modell: zustand.model,

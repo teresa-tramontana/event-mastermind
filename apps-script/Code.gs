@@ -61,8 +61,10 @@ function sendeTestReminder(betreff, text) {
 // "…-latest" zeigt immer auf das aktuelle Flash- bzw. Flash-Lite-Modell. Ist das erste gesperrt,
 // ausgelastet oder unbekannt, wird automatisch das nächste gefragt.
 const KI_MODELLE = ["gemini-flash-latest", "gemini-flash-lite-latest"];
-// Wie viele Tokens Gemini höchstens zum "Nachdenken" nutzen darf (weniger = schneller, 0 = gar nicht)
-const KI_DENK_BUDGET = 1024;
+// "Nachdenken" vor der Antwort ausschalten – das kostet sonst die meiste Zeit.
+// Gemini 3.x versteht thinkingLevel, ältere Modelle (2.5) thinkingBudget. Lehnt ein Modell
+// eine Einstellung ab (HTTP 400), wird die nächste probiert, zuletzt ganz ohne.
+const KI_DENK_EINSTELLUNGEN = [{ thinkingLevel: "minimal" }, { thinkingBudget: 0 }, null];
 
 /**
  * Der Schlüssel kommt aus dem GitHub-Secret GEMINI_API_KEY. Die GitHub Action schreibt ihn
@@ -105,8 +107,9 @@ const KI_ANWEISUNG = [
   "",
   "For questions: answer ONLY from the JSON data below. If something is not in the data, say so – never invent",
   "events, numbers or people.",
-  "Use the precomputed values in 'auswertungMonate', 'auswertungQuartale' and 'eventsMitFehlendenInfos' for plan deviations",
-  "and missing information, so your numbers match the app.",
+  "Use the precomputed values in 'auswertungMonate', 'auswertungQuartale', 'auslastungJeKategorie' and",
+  "'eventsMitFehlendenInfos' for plan deviations, occupancy and missing information, so your numbers match the app.",
+  "Never calculate these numbers yourself. Keep answers short: no long lists unless the user asks for details.",
   "Answer in the language of the question (texts inside change blocks are always English). Be short and concrete.",
   "Mention dates as e.g. 'Tue, 14 Oct' and refer to events by their title.",
   "All data is fictional demo data.",
@@ -136,12 +139,10 @@ function frageKI(frage, verlauf, kontextJson) {
     .map(function (n) { return { role: n.rolle, parts: [{ text: String(n.text).slice(0, 8000) }] }; });
   inhalte.push({ role: "user", parts: [{ text: frage }] });
 
-  // mitDenkGrenze = false: ohne Begrenzung des "Nachdenkens" (falls ein Modell die Einstellung nicht kennt)
-  const baueAnfrage = function (mitDenkGrenze) {
+  // denken = Eintrag aus KI_DENK_EINSTELLUNGEN (null = Gemini entscheidet selbst)
+  const baueAnfrage = function (denken) {
     const einstellungen = { maxOutputTokens: 16384 };
-    // Gemini "denkt" vor der Antwort nach – das kostet die meiste Zeit. Eine kleine Grenze
-    // macht die Antwort deutlich schneller; für unsere Fragen reicht das.
-    if (mitDenkGrenze) einstellungen.thinkingConfig = { thinkingBudget: KI_DENK_BUDGET };
+    if (denken) einstellungen.thinkingConfig = denken;
     return JSON.stringify({
       systemInstruction: { parts: [{ text: KI_ANWEISUNG + "\n\nDATA (JSON):\n" + kontextJson }] },
       contents: inhalte,
@@ -157,9 +158,12 @@ function frageKI(frage, verlauf, kontextJson) {
   let modell = "";
   for (let i = 0; i < KI_MODELLE.length; i++) {
     modell = KI_MODELLE[i];
-    let ergebnis = sendeAnGemini_(modell, baueAnfrage(true), schluessel, start);
-    // 400 = Anfrage abgelehnt (z. B. Modell kennt die Denk-Grenze nicht) → einmal ohne Grenze probieren
-    if (ergebnis.code === 400) ergebnis = sendeAnGemini_(modell, baueAnfrage(false), schluessel, start);
+    let ergebnis;
+    for (let d = 0; d < KI_DENK_EINSTELLUNGEN.length; d++) {
+      ergebnis = sendeAnGemini_(modell, baueAnfrage(KI_DENK_EINSTELLUNGEN[d]), schluessel, start);
+      // 400 = Anfrage abgelehnt (Modell kennt diese Denk-Einstellung nicht) → nächste probieren
+      if (ergebnis.code !== 400) break;
+    }
     code = ergebnis.code;
     daten = ergebnis.daten;
     // 403 = kein Zugriff, 404 = Modell unbekannt, 429 = Kontingent erschöpft, 503 = überlastet → nächstes Modell
