@@ -17,7 +17,7 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 | **Quarter** (Quartal) | Balken pro Kategorie: Wie viele Events gab es (Ist) und wie viele waren geplant (Soll)? |
 | **Month** (Monat) | Kalender mit allen Events und einem Hinweis-Kasten, wenn etwas nicht passt. |
 | **Week** (Woche) | Wie in Google Kalender: eine Spalte pro Tag, die Events stehen nach Uhrzeit. Die Dauer ergibt sich aus der Agenda (sonst 2 Stunden). |
-| **Event-Details** | Klick auf ein Event (in Woche, Monat oder Liste) öffnet rechts eine **Schublade** mit allen Details: Status, Summary, Description, Anmeldungen, Aufgaben zum Abhaken, Reminder-Hinweis, Social-Post- und Mail-Vorschlag, Bearbeiten. Schließen mit ×, Esc oder Klick daneben. |
+| **Event-Details** | Klick auf ein Event (in Woche, Monat oder Liste) öffnet rechts eine **Schublade** für dieses eine Event: oben Titel, Datum und Uhrzeit, darunter Summary, Description, Anmeldungen, Aufgaben zum Abhaken, Reminder-Hinweis, Social-Post- und Mail-Vorschlag. Mit dem dunkelorangen **„✎ Edit“** bearbeitest du das Event direkt in der Schublade (auch „+ New event“ öffnet sich dort). Esc bricht das Bearbeiten ab bzw. schließt die Schublade. |
 | **List** (Liste) | Alle Events als Liste. Sucht in Titeln, Summaries, Descriptions, Tags, Orten, Verantwortlichen, Aufgaben und Daten. Filter für Kategorie, Status und „nur kommende“. Das Suchfeld oben ist von jeder Seite aus erreichbar (Tastenkürzel: `/`). |
 | **Deviations** (Abweichungen) | Liste aller Monate und Quartale, die vom Plan abweichen. Die Schwelle (Standard 20 %) kannst du mit einem Regler ändern. |
 | **Templates** (Vorlagen) | Eine Vorlage pro Kategorie, mit Titel-Ideen, Summary-Vorlage und der Tag-Liste. Mit „New event from template“ entsteht ein Entwurf. |
@@ -25,7 +25,7 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 **Benutzer-Menü (nur online):** Oben rechts der runde Knopf mit deinem Anfangsbuchstaben. Ein Klick zeigt, mit welcher E-Mail-Adresse du angemeldet bist.
 
-**✨ Ask AI (nur online):** Unten rechts der Knopf **„Ask AI“**. Er öffnet ein kleines Chat-Fenster, in dem du Fragen zu allen Daten der App stellen kannst, z. B. *„Welche Monate weichen am stärksten vom Plan ab?“* oder *„Was steht in den nächsten zwei Wochen an?“*. Die Antworten kommen von **Gemini**. Die KI kann **nur lesen**, nichts ändern. Sie kann sich irren, wichtige Zahlen also in der App nachprüfen.
+**✨ Ask AI (nur online):** Unten rechts der Knopf **„Ask AI“**. Er öffnet eine Chat-Schublade über die volle Höhe (Esc schließt sie, der Chat bleibt erhalten; **„↺ New chat“** fängt neu an), in dem du Fragen zu allen Daten der App stellen kannst, z. B. *„Welche Monate weichen am stärksten vom Plan ab?“* oder *„Was steht in den nächsten zwei Wochen an?“*. Die Antworten kommen von **Gemini**. Die KI kann **nur lesen**, nichts ändern. Sie kann sich irren, wichtige Zahlen also in der App nachprüfen.
 
 **Test-Reminder-Mail (nur online):** Ein Event anklicken und in der Schublade auf **„✉️ Reminder email suggestion“** klicken. Betreff und Text kannst du ändern. **„Send test to me“** schickt die Mail **nur an dich selbst** (Betreff beginnt mit „[TEST]“). An Teilnehmende geht nichts.
 

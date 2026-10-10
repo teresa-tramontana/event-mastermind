@@ -614,8 +614,6 @@
       <article class="event-karte ${katKlasse(e.kategorie)}" id="event-${esc(e.id)}" data-event="${esc(e.id)}">
         <div class="event-kopf">
           <div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)}</div>
-            <h3>${esc(e.titel)}</h3>
             ${e.zusammenfassung ? `<p class="summary">${esc(e.zusammenfassung)}</p>` : ""}
           </div>
           <div class="tags">${tagPillen(e.tags)}</div>
@@ -643,7 +641,6 @@
           <button class="knopf klein" data-aktion="social">✨ Social post suggestion</button>
           <button class="knopf klein" data-aktion="mail">✉️ Reminder email suggestion</button>
           ${zustand.benutzer.kiMoeglich ? `<button class="knopf klein" data-aktion="ki">✨ ${beschreibungsStand(e) === "ok" ? "Improve" : "Complete"} with AI</button>` : ""}
-          <button class="knopf klein leise" data-aktion="bearbeiten">Edit</button>
         </div>
       </article>`;
   }
@@ -661,7 +658,6 @@
         }));
       karte.querySelector('[data-aktion="social"]').addEventListener("click", () => zeigeVorschlag(event, "social"));
       karte.querySelector('[data-aktion="mail"]').addEventListener("click", () => zeigeVorschlag(event, "mail"));
-      karte.querySelector('[data-aktion="bearbeiten"]').addEventListener("click", () => oeffneEventFormular(event));
       const ki = karte.querySelector('[data-aktion="ki"]');
       if (ki) ki.addEventListener("click", () => kiFuerEvent(event));
     });
@@ -753,26 +749,30 @@
     },
   };
 
-  // ---------------------------------------------------------------- Event-Schublade (Details)
+  // ---------------------------------------------------------------- Event-Schublade (Details + Bearbeiten)
   /** Event-Details öffnen: steht in der Adresse, damit "Zurück" und Neu-Laden funktionieren */
   function oeffneEvent(id) {
     geheZu(zustand.ansicht, zustand.datum, id);
   }
   function schliesseEvent() {
-    geheZu(zustand.ansicht, zustand.datum);
+    drawerStand.modus = "ansehen";
+    if (leseAdresse().fokus) geheZu(zustand.ansicht, zustand.datum);
+    else verbergeEventDrawer();
   }
 
   const $drawer = document.getElementById("event-drawer");
   const $drawerSchatten = document.getElementById("drawer-schatten");
+  // Was zeigt die Schublade gerade? modus "ansehen" = Details, "bearbeiten" = Formular
+  const drawerStand = { id: null, modus: "ansehen", abbrechen: null };
 
-  function zeigeEventDrawer(id) {
-    const e = zustand.events.find((x) => x.id === id);
-    if (!e) return verbergeEventDrawer();
-    document.getElementById("drawer-datum").textContent =
-      datumSchoen(e.datum, true) + " · " + uhrzeit(eventZeitraum(e).von) + " – " + uhrzeit(eventZeitraum(e).bis);
+  /** Kopf der Schublade setzen und sie (falls zu) hereinfahren lassen */
+  function fuelleDrawer({ pillen, titel, unter, bearbeitenSichtbar }) {
+    document.getElementById("drawer-pillen").innerHTML = pillen || "";
+    document.getElementById("drawer-titel").textContent = titel;
+    document.getElementById("drawer-datum").textContent = unter || "";
+    document.getElementById("drawer-bearbeiten").hidden = !bearbeitenSichtbar;
     const inhalt = document.getElementById("drawer-inhalt");
-    inhalt.innerHTML = eventKarte(e);
-    verbindeEventKarten(inhalt);
+    inhalt.scrollTop = 0;
     if ($drawer.hidden) {
       $drawer.hidden = false;
       $drawerSchatten.hidden = false;
@@ -781,11 +781,29 @@
         $drawer.classList.add("offen");
         $drawerSchatten.classList.add("offen");
       }));
-      inhalt.scrollTop = 0;
       document.getElementById("drawer-schliessen").focus();
     }
+    return inhalt;
+  }
+
+  function zeigeEventDrawer(id, erzwingen) {
+    // Wird gerade dieses Event bearbeitet? Dann das Formular nicht durch ein Neuzeichnen verlieren
+    if (!erzwingen && drawerStand.modus === "bearbeiten" && drawerStand.id === id && !$drawer.hidden) return;
+    const e = zustand.events.find((x) => x.id === id);
+    if (!e) return verbergeEventDrawer();
+    Object.assign(drawerStand, { id, modus: "ansehen", abbrechen: null });
+    const z = eventZeitraum(e);
+    const inhalt = fuelleDrawer({
+      pillen: `${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)}`,
+      titel: e.titel,
+      unter: datumSchoen(e.datum, true) + " · " + uhrzeit(z.von) + " – " + uhrzeit(z.bis),
+      bearbeitenSichtbar: true,
+    });
+    inhalt.innerHTML = eventKarte(e);
+    verbindeEventKarten(inhalt);
   }
   function verbergeEventDrawer() {
+    drawerStand.modus = "ansehen";
     if ($drawer.hidden) return;
     $drawer.classList.remove("offen");
     $drawerSchatten.classList.remove("offen");
@@ -796,15 +814,33 @@
       }
     }, 250);
   }
+  /** Esc / × / Klick daneben: beim Bearbeiten erst abbrechen, sonst schließen */
+  function drawerZurueck() {
+    if (drawerStand.modus === "bearbeiten" && drawerStand.abbrechen) drawerStand.abbrechen();
+    else schliesseEvent();
+  }
   document.getElementById("drawer-schliessen").addEventListener("click", schliesseEvent);
-  $drawerSchatten.addEventListener("click", schliesseEvent);
-  document.addEventListener("keydown", (ev) => {
-    if (ev.key === "Escape" && !$drawer.hidden && !$dialogOffen()) schliesseEvent();
+  $drawerSchatten.addEventListener("click", drawerZurueck);
+  document.getElementById("drawer-bearbeiten").addEventListener("click", () => {
+    const e = zustand.events.find((x) => x.id === drawerStand.id);
+    if (e) oeffneEventFormular(e);
   });
   function $dialogOffen() {
     const d = document.getElementById("dialog");
     return d && d.open;
   }
+  // Esc schließt immer das Oberste: erst Ask AI, dann die Event-Schublade (Dialoge regeln Esc selbst)
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key !== "Escape" || $dialogOffen()) return;
+    const ki = document.getElementById("ki-fenster");
+    if (ki && !ki.hidden) {
+      ev.preventDefault();
+      kiFensterOffen(false);
+    } else if (!$drawer.hidden) {
+      ev.preventDefault();
+      drawerZurueck();
+    }
+  });
 
   // ---------------------------------------------------------------- Search
   /** Alles, was an einem Event durchsucht wird – mit Namen für die Trefferanzeige */
@@ -1294,11 +1330,24 @@
     const tagAuswahl = alleTags.map((t) => `
       <label class="tag-wahl"><input type="checkbox" name="tags" value="${esc(t)}" ${(e.tags || []).includes(t) ? "checked" : ""}><span>${esc(t)}</span></label>`).join("");
 
-    oeffneDialog(`
-      <form id="event-formular" novalidate>
-        <div class="dialog-kopf"><h2>${neu ? (e.ausVorlage ? "New draft from template" : "New event") : "Edit event"}</h2>
-          <button type="button" class="knopf rund leise" data-schliessen aria-label="Close">×</button></div>
-        <div class="dialog-koerper">
+    // Das Formular erscheint in der Schublade rechts (Ask AI wird dafür geschlossen, der Chat bleibt erhalten)
+    const kiFenster = document.getElementById("ki-fenster");
+    if (kiFenster && !kiFenster.hidden) kiFensterOffen(false);
+    const abbrechen = () => {
+      const { fokus } = leseAdresse();
+      drawerStand.modus = "ansehen";
+      if (fokus && zustand.events.some((x) => x.id === fokus)) zeigeEventDrawer(fokus, true);
+      else verbergeEventDrawer();
+    };
+    Object.assign(drawerStand, { id: e.id || null, modus: "bearbeiten", abbrechen });
+    const drawerInhalt = fuelleDrawer({
+      titel: neu ? (e.ausVorlage ? "New draft from template" : "New event") : "Edit event",
+      unter: neu ? "Fill in the details and click Save" : e.titel,
+      bearbeitenSichtbar: false,
+    });
+    drawerInhalt.innerHTML = `
+      <form id="event-formular" class="drawer-formular" novalidate>
+        <div>
           <div class="formular">
             <label>Category<select name="kategorie">${auswahl(KATEGORIEN, e.kategorie)}</select></label>
             <label>Status<select name="status">${auswahl(STATUS, e.status)}</select></label>
@@ -1332,12 +1381,14 @@
           <p class="leise" style="font-size:.82rem">Saved in this browser only. “Reset demo data” (bottom of the page) undoes everything.</p>
           <p id="formular-fehler" style="color:var(--kritisch)"></p>
         </div>
-        <div class="dialog-fuss">
+        <div class="drawer-fuss">
           ${neu ? "" : '<button type="button" class="knopf gefahr leise links" id="loeschen">Delete</button>'}
           <button type="button" class="knopf leise" data-schliessen>Cancel</button>
-          <button type="submit" class="knopf haupt">Save</button>
+          <button type="submit" class="knopf bearbeiten">Save</button>
         </div>
-      </form>`);
+      </form>`;
+    drawerInhalt.querySelectorAll("[data-schliessen]").forEach((b) => b.addEventListener("click", abbrechen));
+    drawerInhalt.querySelector('input[name="titel"]').focus();
 
     const formular = document.getElementById("event-formular");
     const feld = (name) => formular.elements[name];
@@ -1441,10 +1492,12 @@
       }
       const ergebnis = await window.DataLayer.speichereEvent(gespeichert);
       await ladeNeu();
-      $dialog.close();
+      drawerStand.modus = "ansehen";
       const fehlt = fehlendeTeile(ergebnis).length;
       zeigeMeldung((neu ? "Event created ✓" : "Changes saved ✓") + (fehlt ? ` – ⚠ ${fehlt} description sections still missing` : ""));
-      geheZu("week", alsDatum(ergebnis.datum), ergebnis.id);
+      // In der aktuellen Ansicht bleiben, beim Blättern zum Datum des Events springen, Details zeigen
+      const datum = ANSICHTEN[zustand.ansicht].blaettern ? alsDatum(ergebnis.datum) : zustand.datum;
+      geheZu(zustand.ansicht, datum, ergebnis.id);
       zeichne(); // falls sich die Adresse nicht geändert hat
     });
     const loeschen = document.getElementById("loeschen");
@@ -1453,8 +1506,8 @@
         if (!window.confirm(`Really delete “${e.titel}”?`)) return;
         await window.DataLayer.loescheEvent(e.id);
         await ladeNeu();
-        $dialog.close();
         zeigeMeldung("Event deleted");
+        schliesseEvent();
         zeichne();
       });
     }
@@ -1857,11 +1910,13 @@
       wecker = setTimeout(() => nein(new Error("No answer after 2 minutes. Please try again.")), 120000);
     });
     senden.disabled = true;
+    const runde = kiRunde;
     try {
       const ergebnis = await Promise.race([
         window.DataLayer.frageKI(frage, kiVerlauf.slice(), kiKontext()),
         zuLange,
       ]);
+      if (runde !== kiRunde) return; // inzwischen "New chat" gedrückt: alte Antwort verwerfen
       const antwort = ergebnis.antwort;
       warten.className = "ki-blase model";
       kiAntwortZeigen(warten, antwort, [ergebnis.modell, ergebnis.sekunden != null ? ergebnis.sekunden + " s" : ""].filter(Boolean).join(" · "));
@@ -1869,7 +1924,11 @@
     } catch (fehler) {
       warten.className = "ki-blase model fehler";
       warten.innerHTML = "<p>⚠ " + esc(fehler.message) + "</p>";
+    } finally {
+      clearInterval(uhr);
+      clearTimeout(wecker);
     }
+    if (runde !== kiRunde) return;
     clearInterval(uhr);
     clearTimeout(wecker);
     senden.disabled = false;
@@ -1877,14 +1936,35 @@
     feld.focus();
   }
 
-  /** Chat-Fenster öffnen (true) oder schließen (false) */
+  /** Ask-AI-Schublade öffnen (true) oder schließen (false) – der Chat bleibt dabei erhalten */
   function kiFensterOffen(offen) {
     const knopf = document.getElementById("ki-knopf");
-    document.getElementById("ki-fenster").hidden = !offen;
-    knopf.hidden = offen;
+    const fenster = document.getElementById("ki-fenster");
     knopf.setAttribute("aria-expanded", String(offen));
-    if (offen) document.getElementById("ki-frage").focus();
-    else knopf.focus();
+    if (offen) {
+      knopf.hidden = true;
+      fenster.hidden = false;
+      requestAnimationFrame(() => requestAnimationFrame(() => fenster.classList.add("offen")));
+      document.getElementById("ki-frage").focus();
+    } else {
+      fenster.classList.remove("offen");
+      setTimeout(() => {
+        if (!fenster.classList.contains("offen")) fenster.hidden = true;
+      }, 250);
+      knopf.hidden = !zustand.benutzer.kiMoeglich;
+      if (!knopf.hidden) knopf.focus();
+    }
+  }
+
+  /** "New chat": Verlauf leeren und von vorn beginnen (eine laufende Antwort wird verworfen) */
+  let kiRunde = 0;
+  function kiNeuerChat() {
+    kiRunde++;
+    kiVerlauf.length = 0;
+    kiBegruessung();
+    document.getElementById("ki-senden").disabled = false;
+    document.getElementById("ki-frage").value = "";
+    document.getElementById("ki-frage").focus();
   }
 
   /** Knopf "Complete with AI" an einer Event-Karte: Chat öffnen und passende Bitte schicken */
@@ -1900,7 +1980,6 @@
   function richteKiEin() {
     if (!zustand.benutzer.kiMoeglich) return; // per Doppelklick oder ohne Schlüssel: kein Knopf
     const knopf = document.getElementById("ki-knopf");
-    const fenster = document.getElementById("ki-fenster");
     const feld = document.getElementById("ki-frage");
     const setze = kiFensterOffen;
     kiBegruessung();
@@ -1908,9 +1987,8 @@
     knopf.hidden = false;
     knopf.addEventListener("click", () => setze(true));
     document.getElementById("ki-schliessen").addEventListener("click", () => setze(false));
-    fenster.addEventListener("keydown", (ev) => {
-      if (ev.key === "Escape") setze(false);
-    });
+    document.getElementById("ki-neu").addEventListener("click", kiNeuerChat);
+    // Esc schließt die Schublade (siehe Event-Schublade: gemeinsame Esc-Regel)
     document.getElementById("ki-formular").addEventListener("submit", (ev) => {
       ev.preventDefault();
       kiFragen(feld.value);

@@ -74,7 +74,9 @@ VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtu
 - Fehlende Infos: ein Event gilt als unvollständig, sobald ein Description-Abschnitt leer ist; „keine Description“, wenn alle leer sind.
 - Vorschläge: werden ohne KI aus Vorlage + Tags gebaut (`baueVorschlaege` in app.js); später kann Gemini sie verfeinern.
 - Woche: Raster wie Google Kalender (eine Spalte pro Tag). Dauer eines Events = letzte Uhrzeit in der Agenda, sonst 2 Stunden (`eventZeitraum`).
-- Event-Details: immer in der Schublade rechts (`zeigeEventDrawer`). Das offene Event steht in der Adresse als dritter Teil (`#/week/2026-10-10/evt-048`), damit Zurück/Neu-Laden funktionieren.
+- Event-Details: immer in der Schublade rechts (`zeigeEventDrawer`), Titel/Pillen/Datum im Kopf, kräftiger Knopf „✎ Edit“ (`.knopf.bearbeiten`, dunkles Orange). Das offene Event steht in der Adresse als dritter Teil (`#/week/2026-10-10/evt-048`), damit Zurück/Neu-Laden funktionieren.
+- Bearbeiten und Neu-Anlegen passiert ebenfalls in der Schublade (`oeffneEventFormular`, `drawerStand.modus = "bearbeiten"`), nicht im Dialog. Der Dialog (`oeffneDialog`) ist nur noch für Social-Post- und Mail-Vorschläge.
+- Ask AI ist eine eigene Schublade (volle Höhe, liegt über der Event-Schublade). Esc schließt immer das Oberste; der Chat bleibt erhalten, „New chat“ (`kiNeuerChat`) leert ihn.
 - Jahr: Monatskacheln werden **nicht** nach Abweichung eingefärbt, nur ein roter ⚠-Hinweistext.
 - „Heute“ ist in der Demo fest `model.demoHeute` (2026-10-10), damit die Daten stimmig bleiben.
 
