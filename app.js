@@ -1822,8 +1822,10 @@
       <div class="ki-vorschlag-knoepfe">
         ${v.id && unterschiede ? '<button type="button" class="knopf klein haupt" data-ki="apply">Apply</button>' : ""}
         ${unterschiede ? `<button type="button" class="knopf klein" data-ki="edit">${v.id ? "Edit first" : "Open as draft"}</button>` : ""}
+        <button type="button" class="knopf klein leise" data-ki="copy" title="Copy the suggested texts">⧉ Copy</button>
         <button type="button" class="knopf klein leise" data-ki="dismiss">Dismiss</button>
       </div>`;
+    verbindeKopieren(karte.querySelector('[data-ki="copy"]'), () => kiVorschlagAlsText(v.felder));
     const knoepfe = karte.querySelector(".ki-vorschlag-knoepfe");
     const status = (html) => { knoepfe.innerHTML = html; };
 
@@ -1860,6 +1862,63 @@
   }
 
   /** KI-Antwort in eine Blase schreiben: Text als einfaches Markdown, Vorschläge als Karten */
+  /** Text in die Zwischenablage legen. Klappt auch in Apps Script, wo der neue Weg oft gesperrt ist. */
+  async function kopiereText(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (e) {
+      // Ersatzweg: unsichtbares Textfeld markieren und "Kopieren" auslösen
+      const feld = document.createElement("textarea");
+      feld.value = text;
+      feld.setAttribute("readonly", "");
+      feld.style.position = "fixed";
+      feld.style.opacity = "0";
+      document.body.appendChild(feld);
+      feld.select();
+      let ok = false;
+      try { ok = document.execCommand("copy"); } catch (e2) { ok = false; }
+      feld.remove();
+      return ok;
+    }
+  }
+
+  /** Vorgeschlagene Felder als lesbarer Text (zum Einfügen z. B. in Eventbrite oder Notion) */
+  function kiVorschlagAlsText(felder) {
+    const zeilen = [];
+    Object.keys(KI_FELD_NAMEN).forEach((f) => {
+      if (felder[f] == null) return;
+      zeilen.push(KI_FELD_NAMEN[f] + ": " + (Array.isArray(felder[f]) ? felder[f].join(", ") : felder[f]));
+    });
+    if (felder.beschreibung) {
+      BESCHREIBUNG_TEILE.forEach((t) => {
+        if (felder.beschreibung[t.schluessel]) zeilen.push("", t.frage, felder.beschreibung[t.schluessel]);
+      });
+    }
+    return zeilen.join("\n").trim();
+  }
+
+  /** Ganze KI-Antwort als einfacher Text: ohne **Fett**-Zeichen, Vorschläge lesbar statt als JSON */
+  function kiAlsText(antwort) {
+    return kiZerlege(antwort).map((teil) => {
+      if (teil.art === "text") return teil.text.replace(/\*\*(.+?)\*\*/g, "$1").replace(/`([^`]+)`/g, "$1").trim();
+      const v = kiPruefeVorschlag(teil.text);
+      if (v.fehler) return "";
+      const ev = v.id ? zustand.events.find((e) => e.id === v.id) : null;
+      return (ev ? "— " + ev.titel + " —\n" : "— New event —\n") + kiVorschlagAlsText(v.felder);
+    }).filter(Boolean).join("\n\n");
+  }
+
+  /** Knopf "Copy" verbinden: zeigt kurz "Copied ✓" */
+  function verbindeKopieren(knopf, textGeber) {
+    knopf.addEventListener("click", async () => {
+      const ok = await kopiereText(textGeber());
+      const vorher = knopf.textContent;
+      knopf.textContent = ok ? "Copied ✓" : "Copy failed";
+      setTimeout(() => { knopf.textContent = vorher; }, 1600);
+    });
+  }
+
   function kiAntwortZeigen(blase, antwort, modell) {
     blase.innerHTML = "";
     kiZerlege(antwort).forEach((teil) => {
@@ -1871,7 +1930,10 @@
         blase.appendChild(div);
       }
     });
-    if (modell) blase.insertAdjacentHTML("beforeend", `<p class="ki-modell">${esc(modell)}</p>`);
+    blase.insertAdjacentHTML("beforeend", `<div class="ki-fuss">
+      <span class="ki-modell">${esc(modell || "")}</span>
+      <button type="button" class="knopf klein leise ki-kopieren" title="Copy the whole answer">⧉ Copy</button></div>`);
+    verbindeKopieren(blase.querySelector(".ki-fuss .ki-kopieren"), () => kiAlsText(antwort));
   }
 
   function kiNachricht(rolle, html) {
