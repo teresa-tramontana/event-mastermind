@@ -11,6 +11,7 @@ Repo gespeichert. Zum lokalen Ausprobieren:
     python3 tools/baue-apps-script.py
 Mehr dazu: VEROEFFENTLICHUNG.md
 """
+import base64
 from pathlib import Path
 
 WURZEL = Path(__file__).resolve().parent.parent
@@ -27,8 +28,14 @@ def als_skript(name):
     return "<script>\n/* ---- " + name + " ---- */\n" + code + "\n</script>"
 
 
+def als_daten_url(name):
+    # kleines Bild direkt in die Seite einbetten (Apps Script kann keine Bilddateien nachladen)
+    return "data:image/svg+xml;base64," + base64.b64encode((WURZEL / name).read_bytes()).decode()
+
+
 html = lies("index.html")
 ersetzungen = {
+    'href="bilder/favicon.svg"': 'href="' + als_daten_url("bilder/favicon.svg") + '"',
     '<link rel="stylesheet" href="style.css">': "<style>\n" + lies("style.css") + "\n</style>",
     '<script src="data/demo-daten.js"></script>': als_skript("data/demo-daten.js"),
     '<script src="data-layer.js"></script>': als_skript("data-layer.js"),

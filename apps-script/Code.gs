@@ -8,10 +8,20 @@
  * Zugangsschlüssel (später Notion, Eventbrite) liegen in den "Script Properties",
  * NIE in dieser Datei.
  */
+// Icon im Browser-Tab. Apps Script braucht dafür eine Internet-Adresse (PNG aus dem öffentlichen Repo).
+const FAVICON_URL =
+  "https://raw.githubusercontent.com/teresa-tramontana/event-mastermind/main/bilder/favicon.png";
+
 function doGet() {
-  return HtmlService.createHtmlOutputFromFile("Index")
+  const seite = HtmlService.createHtmlOutputFromFile("Index")
     .setTitle("Event Mastermind")
     .addMetaTag("viewport", "width=device-width, initial-scale=1");
+  try {
+    seite.setFaviconUrl(FAVICON_URL);
+  } catch (fehler) {
+    // Ohne Icon weitermachen – die Seite soll deswegen nie ausfallen
+  }
+  return seite;
 }
 
 /** Wer ist gerade angemeldet? (nur die E-Mail-Adresse, für das Benutzer-Menü) */

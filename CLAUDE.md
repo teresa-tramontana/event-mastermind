@@ -42,6 +42,7 @@ tools/baue-apps-script.py    packt alles in apps-script/Index.html (eine Datei f
 apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet)
 apps-script/Index.html       AUTOMATISCH erzeugt (nicht im Repo, .gitignore): komplette App in einer Datei
 apps-script/appsscript.json  Apps-Script-Einstellungen (Zeitzone, Zugriff "DOMAIN" = nur Impact-Hub-Konten, "USER_ACCESSING" = läuft als die zugreifende Person)
+bilder/favicon.svg / .png   Icon im Browser-Tab (SVG für Doppelklick, PNG für Apps Script über raw.githubusercontent.com – klappt nur, solange das Repo öffentlich ist)
 .github/workflows/apps-script.yml  veröffentlicht bei jedem Push auf main automatisch zu Apps Script (clasp)
 VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtung
 .gitignore                   hält erzeugte Dateien aus dem Repo

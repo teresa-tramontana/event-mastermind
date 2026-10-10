@@ -79,6 +79,7 @@ data/templates.json Die Vorlagen pro Kategorie (inkl. Titel-Ideen und Summary-Vo
 data/tags.json      Die feste Tag-Liste (mit Stichwort und Satz für die Vorschläge)
 data/model.json     Der Plan (Soll): wie viele Events pro Monat/Quartal, Ziel-Auslastung
 data/demo-daten.js  Automatische Kopie der vier JSON-Dateien (das liest die App)
+bilder/             Das kleine Icon im Browser-Tab (favicon)
 apps-script/        Teile für Google Apps Script (Code.gs = liefert die Seite aus)
 .github/workflows/  Der Automatik-Ablauf, der die Seite zu Google hochlädt
 tools/              Kleine Hilfsprogramme (Demo-Daten erzeugen, App für Google zusammenbauen)
