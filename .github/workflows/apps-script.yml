@@ -1,0 +1,66 @@
+# Veröffentlicht die App automatisch als Google-Apps-Script-Web-App.
+# Läuft bei jedem Push auf main und auf Knopfdruck (Actions → "Apps Script veröffentlichen" → Run workflow).
+# Einrichtung: ANLEITUNG-APPS-SCRIPT.md, Teil C.
+# Solange die drei Secrets fehlen, wird der Ablauf einfach übersprungen (kein Fehler).
+name: Apps Script veröffentlichen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Nie zwei Veröffentlichungen gleichzeitig
+concurrency:
+  group: apps-script
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  veroeffentlichen:
+    runs-on: ubuntu-latest
+    env:
+      CLASPRC_JSON: ${{ secrets.CLASPRC_JSON }}
+      SCRIPT_ID: ${{ secrets.APPS_SCRIPT_ID }}
+      DEPLOYMENT_ID: ${{ secrets.APPS_SCRIPT_DEPLOYMENT_ID }}
+    steps:
+      - name: Sind die Secrets eingerichtet?
+        id: pruefen
+        run: |
+          if [ -z "$CLASPRC_JSON" ] || [ -z "$SCRIPT_ID" ] || [ -z "$DEPLOYMENT_ID" ]; then
+            echo "::notice::Apps Script noch nicht eingerichtet (Secrets fehlen) – übersprungen. Siehe ANLEITUNG-APPS-SCRIPT.md, Teil C."
+            echo "bereit=nein" >> "$GITHUB_OUTPUT"
+          else
+            echo "bereit=ja" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.pruefen.outputs.bereit == 'ja'
+
+      - uses: actions/setup-node@v4
+        if: steps.pruefen.outputs.bereit == 'ja'
+        with:
+          node-version: 22
+
+      - name: Index.html frisch bauen
+        if: steps.pruefen.outputs.bereit == 'ja'
+        run: |
+          python3 tools/baue-demo-daten.py
+          python3 tools/baue-apps-script.py
+
+      - name: Zugang und Projekt-ID ablegen (nur auf dem GitHub-Rechner, wird danach gelöscht)
+        if: steps.pruefen.outputs.bereit == 'ja'
+        run: |
+          printf '%s' "$CLASPRC_JSON" > "$HOME/.clasprc.json"
+          printf '{"scriptId":"%s"}' "$SCRIPT_ID" > apps-script/.clasp.json
+
+      - name: Dateien zu Apps Script hochladen
+        if: steps.pruefen.outputs.bereit == 'ja'
+        working-directory: apps-script
+        run: npx -y @google/clasp@3.4.1 push --force
+
+      - name: Neue Version veröffentlichen (Adresse bleibt gleich)
+        if: steps.pruefen.outputs.bereit == 'ja'
+        working-directory: apps-script
+        run: npx -y @google/clasp@3.4.1 update-deployment "$DEPLOYMENT_ID" --description "GitHub ${GITHUB_SHA::7}"

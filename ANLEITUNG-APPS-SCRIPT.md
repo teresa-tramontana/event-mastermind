@@ -79,7 +79,7 @@ Im Ordner [`apps-script/`](apps-script/) dieses Repos liegen drei Dateien:
 
 ---
 
-## Teil B: Updates einspielen (wenn sich die App geändert hat)
+## Teil B: Updates von Hand einspielen (nur ohne Teil C nötig)
 
 Wenn Claude (oder jemand anderes) die App geändert hat, steht der neue Stand auf GitHub in `apps-script/Index.html`.
 
@@ -94,21 +94,96 @@ Wenn Claude (oder jemand anderes) die App geändert hat, steht der neue Stand au
 
 ---
 
-## Teil C (optional, später): Automatisch aus GitHub veröffentlichen
+## Teil C: Automatisch aus GitHub veröffentlichen
 
-Statt Teil B von Hand zu machen, kann GitHub das bei jeder Änderung selbst erledigen. Dafür gibt es das Google-Werkzeug **clasp** („Command Line Apps Script Projects“, ein Programm zum Hochladen von Apps-Script-Code).
+Danach musst du nichts mehr kopieren: Bei **jeder Änderung auf `main`** lädt GitHub die App selbst zu Apps Script hoch und veröffentlicht eine neue Version. Die Adresse (`/exec`) bleibt gleich.
 
-**So würde es ablaufen:**
-1. Einmalig auf einem Computer clasp installieren und sich mit dem Google-Konto anmelden. Dabei entsteht eine Datei mit einem Zugangsschlüssel (`.clasprc.json`).
-2. Den Inhalt dieser Datei als **Repo-Secret** auf GitHub ablegen (z. B. `CLASPRC_JSON`), dazu die **Script-ID** des Projekts (steht in Apps Script unter ⚙ „Projekteinstellungen“; sie ist nicht geheim).
-3. Eine **GitHub Action** (ein kleiner Automatik-Ablauf) lädt bei jedem Push auf `main` den Ordner `apps-script/` hoch und erzeugt eine neue Version.
+Dafür gibt es im Repo schon einen fertigen **Automatik-Ablauf** (GitHub Action): `.github/workflows/apps-script.yml`. Er benutzt das Google-Werkzeug **clasp** (ein Programm zum Hochladen von Apps-Script-Code). Solange die Einrichtung unten fehlt, überspringt er sich einfach.
 
-**Warum noch nicht?**
-- Der Schlüssel in `.clasprc.json` darf **alles** mit den Apps-Script-Projekten deines Kontos machen. Das gehört vorher ins Gespräch mit der IT (siehe `CLAUDE.md`, Gesprächsleitfaden).
-- Besser wäre ein **Team- oder Funktionskonto** statt deines persönlichen Kontos.
-- Am Anfang sind die Updates selten, Teil B reicht völlig.
+**Voraussetzung:** Teil A ist erledigt (Projekt und Bereitstellung mit `/exec`-Adresse gibt es).
 
-Sag Claude Bescheid, wenn du Teil C angehen willst. Dann wird das Schritt für Schritt eingerichtet.
+**Zeitbedarf:** ca. 20 Minuten, einmalig.
+
+### C1: Apps-Script-Schnittstelle einschalten
+
+1. Öffne [script.google.com/home/usersettings](https://script.google.com/home/usersettings).
+2. Bei **„Google Apps Script API“** den Schalter auf **„An“** stellen.
+
+### C2: Zwei Nummern aus Apps Script notieren
+
+Diese Nummern sind **nicht geheim**, kommen aber trotzdem zu den Secrets (das ist einfacher).
+
+1. **Script-ID:** In deinem Apps-Script-Projekt links auf das **Zahnrad ⚙ („Projekteinstellungen“)** → unter **„IDs“** die **Script-ID** kopieren und in einer Notiz ablegen.
+2. **Bereitstellungs-ID:** **„Bereitstellen“ → „Bereitstellungen verwalten“** → deine Web-App anklicken → die **Bereitstellungs-ID** (lange Zeichenkette, beginnt meist mit `AKfycb`) kopieren und ebenfalls notieren.
+
+### C3: Einmal auf deinem Computer bei Google anmelden
+
+Das geht nur auf deinem eigenen Computer, weil sich dabei dein Browser öffnet.
+
+1. **Node.js installieren** (ein Programm, das clasp zum Laufen braucht): [nodejs.org](https://nodejs.org) → großen Knopf **„LTS“** herunterladen → installieren wie jedes Programm.
+2. **Terminal öffnen** (ein Fenster, in das man Befehle tippt):
+   - **Mac:** ⌘+Leertaste → `Terminal` tippen → Enter.
+   - **Windows:** Start-Knopf → `PowerShell` tippen → Enter.
+3. Diesen Befehl hineinkopieren und Enter drücken:
+   ```
+   npx -y @google/clasp@3.4.1 login
+   ```
+4. Der Browser öffnet sich → dein **Impact-Hub-Konto** wählen → alles **erlauben**.
+5. Im Terminal steht danach etwas wie **„You are logged in as …“**. 🎉
+   Dabei ist auf deinem Computer eine versteckte Datei `.clasprc.json` entstanden. Sie enthält den **Zugangsschlüssel**.
+
+### C4: Den Zugangsschlüssel in die Zwischenablage kopieren
+
+Im selben Terminal-Fenster eintippen und Enter:
+
+- **Mac:**
+  ```
+  cat ~/.clasprc.json | pbcopy
+  ```
+- **Windows (PowerShell):**
+  ```
+  Get-Content $HOME\.clasprc.json | Set-Clipboard
+  ```
+
+Es passiert scheinbar nichts. Der Inhalt ist aber jetzt in der Zwischenablage.
+
+> 🔒 Diesen Inhalt **nirgendwo anders einfügen** als im nächsten Schritt bei GitHub: nicht in den Chat, nicht in eine Datei, nicht in eine Mail.
+
+### C5: Drei Secrets bei GitHub hinterlegen
+
+1. Auf GitHub im Repo oben auf **„Settings“** → links **„Secrets and variables“** → **„Actions“**.
+2. **„New repository secret“** klicken und nacheinander diese drei anlegen (Name **genau so** schreiben):
+
+| Name | Inhalt |
+|---|---|
+| `CLASPRC_JSON` | einfügen (Strg+V / ⌘+V), was du in C4 kopiert hast |
+| `APPS_SCRIPT_ID` | die Script-ID aus C2 |
+| `APPS_SCRIPT_DEPLOYMENT_ID` | die Bereitstellungs-ID aus C2 |
+
+### C6: Ausprobieren
+
+1. Auf GitHub oben auf **„Actions“** → links **„Apps Script veröffentlichen“** → rechts **„Run workflow“** → grünen Knopf **„Run workflow“**.
+2. Nach ca. einer Minute erscheint ein **grüner Haken** ✅. Bei einem **roten Kreuz** ❌: draufklicken, den roten Schritt öffnen und Claude einen Screenshot zeigen.
+3. Deine `/exec`-Adresse neu laden. Fertig!
+
+Ab jetzt läuft das bei jeder Änderung auf `main` von allein. **Teil B brauchst du nicht mehr.**
+
+### Gut zu wissen
+
+- **Änderungen direkt im Apps-Script-Editor werden überschrieben**, sobald GitHub das nächste Mal hochlädt. Änderungen also immer über GitHub/Claude machen.
+- **Wer Zugriff hat, steht jetzt in `apps-script/appsscript.json`** (`"access": "DOMAIN"` = „Jeder in Impact Hub“). Für „Nur ich“ müsste dort `"MYSELF"` stehen. Sag Claude Bescheid, wenn du das ändern willst.
+- **Wie mächtig ist der Schlüssel?** `CLASPRC_JSON` erlaubt, **alle** Apps-Script-Projekte deines Kontos zu ändern, und hat weitere Google-Rechte (u. a. für Google Cloud). GitHub zeigt Secrets nie wieder an, auch nicht in Protokollen. Trotzdem: später besser auf ein **Team-/Funktionskonto** umstellen (Thema fürs IT-Gespräch).
+- **Schlüssel sperren**, falls nötig: [myaccount.google.com/permissions](https://myaccount.google.com/permissions) → **„clasp“** → Zugriff entfernen. Danach funktioniert die Automatik nicht mehr, bis du C3–C5 wiederholst.
+
+### Wenn es nicht klappt
+
+| Meldung (im roten Schritt) | Was tun |
+|---|---|
+| `User has not enabled the Apps Script API` | Schritt C1 machen, dann C6 wiederholen. |
+| `invalid_grant` oder `Unauthorized` | Der Schlüssel ist abgelaufen oder gesperrt → C3 bis C5 wiederholen (Secret `CLASPRC_JSON` mit dem neuen Inhalt **aktualisieren**). Passiert das oft, hat die IT evtl. eine Ablaufzeit eingestellt → IT fragen. |
+| Beim Anmelden in C3: „Zugriff blockiert“ / „This app is blocked“ | Die IT hat clasp für euer Google-Konto gesperrt → IT fragen. |
+| `Requested entity was not found` | Script-ID oder Bereitstellungs-ID falsch kopiert → in C5 das Secret aktualisieren. |
+| Haken ist grün, aber im Protokoll steht „übersprungen“ | Eines der drei Secrets fehlt oder ist falsch benannt → C5 prüfen. |
 
 ---
 
@@ -138,5 +213,7 @@ Nach dem Einfügen speichern **und** eine neue Version bereitstellen (Teil B, Sc
 
 - `apps-script/Index.html` wird mit `python3 tools/baue-apps-script.py` erzeugt. Es packt `index.html`, `style.css`, `data/demo-daten.js`, `data-layer.js` und `app.js` in eine Datei.
 - Reihenfolge nach Änderungen an Daten: erst `python3 tools/baue-demo-daten.py`, dann `python3 tools/baue-apps-script.py`.
+- Die GitHub Action `.github/workflows/apps-script.yml` baut beides selbst neu, lädt mit clasp 3.4.1 hoch (`push --force`) und aktualisiert die bestehende Bereitstellung (`update-deployment`, erzeugt automatisch eine neue Version). Secrets: `CLASPRC_JSON`, `APPS_SCRIPT_ID`, `APPS_SCRIPT_DEPLOYMENT_ID`. Fehlen sie, wird übersprungen.
+- Lokale clasp-Version beim Login muss zur Version in der Action passen (3.4.1), weil sich das Format von `.clasprc.json` zwischen Hauptversionen unterscheidet.
 - Das Skript setzt `window.APPS_SCRIPT = true`. `data-layer.js` versucht dann keine JSON-Dateien zu laden, sondern nimmt direkt die Demo-Daten.
 - Später (Roadmap): Echte Daten holt `Code.gs` serverseitig (`UrlFetchApp` für Notion/Eventbrite, `GmailApp`/`CalendarApp` für Google). `data-layer.js` ruft das über `google.script.run` auf. Schlüssel liegen in den **Script Properties**, nie im Code.

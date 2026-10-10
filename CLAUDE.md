@@ -40,6 +40,7 @@ apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet)
 apps-script/Index.html       AUTOMATISCH erzeugt: komplette App in einer Datei
 apps-script/appsscript.json  Apps-Script-Einstellungen (für spätere Automatik mit clasp)
 ANLEITUNG-APPS-SCRIPT.md     Klick-für-Klick-Anleitung Apps-Script-Web-App
+.github/workflows/apps-script.yml  veröffentlicht bei jedem Push auf main automatisch zu Apps Script
 .nojekyll             sagt GitHub Pages: Dateien unverändert ausliefern
 ```
 
@@ -74,9 +75,13 @@ ANLEITUNG-APPS-SCRIPT.md     Klick-für-Klick-Anleitung Apps-Script-Web-App
 | `NOTION_PAT` | Notion-Zugangsschlüssel (Internal Integration Token) | angelegt, **nicht nutzen** |
 | `EVENTBRITE_PRIVATE_TOKEN` | Eventbrite Private Token: der eigentliche Schlüssel für Lesen **und** Schreiben | angelegt, **nicht nutzen** |
 | `EVENTBRITE_API_KEY` | Eventbrite API Key, nur für einen Mehrbenutzer-Login (OAuth) nötig, für uns überflüssig | angelegt, wird nicht gebraucht |
+| `CLASPRC_JSON` | Google-Login für clasp (Hochladen zu Apps Script); Rechte auf **alle** Apps-Script-Projekte des Kontos | **in Benutzung** durch `.github/workflows/apps-script.yml` |
+| `APPS_SCRIPT_ID` | Script-ID des Apps-Script-Projekts (nicht geheim) | in Benutzung (Action) |
+| `APPS_SCRIPT_DEPLOYMENT_ID` | ID der Web-App-Bereitstellung (nicht geheim) | in Benutzung (Action) |
 
 Regeln:
 - Secrets erst verwenden, wenn die Nutzerin den jeweiligen Roadmap-Punkt **ausdrücklich** startet.
+- Ausnahme: Die drei Apps-Script-Secrets nutzt die Action `.github/workflows/apps-script.yml` (von der Nutzerin ausdrücklich gewünscht). Sie werden nur dort verwendet.
 - Ein Repo-Secret ist nur in **GitHub Actions** lesbar, nie im Browser. Werte niemals in ausgelieferte Dateien (`data-layer.js`, `app.js`, `data/*`), Logs, Commits oder den Chat schreiben.
 - Der Eventbrite Private Token hat **alle Rechte** des Kontos (nicht einschränkbar). Darum später nur **Entwürfe** anlegen; Veröffentlichen macht immer ein Mensch.
 - Nach einem Umzug zu Google Cloud wandern die Secrets in den **Google Secret Manager** (siehe IT-Abschnitt unten).
