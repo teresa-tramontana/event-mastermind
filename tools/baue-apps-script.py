@@ -36,6 +36,7 @@ def als_daten_url(name):
 html = lies("index.html")
 ersetzungen = {
     'href="bilder/favicon.svg"': 'href="' + als_daten_url("bilder/favicon.svg") + '"',
+    'src="bilder/favicon.svg"': 'src="' + als_daten_url("bilder/favicon.svg") + '"',
     '<link rel="stylesheet" href="style.css">': "<style>\n" + lies("style.css") + "\n</style>",
     '<script src="data/demo-daten.js"></script>': als_skript("data/demo-daten.js"),
     '<script src="data-layer.js"></script>': als_skript("data-layer.js"),

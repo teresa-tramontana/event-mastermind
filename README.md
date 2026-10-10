@@ -13,20 +13,21 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 | Ansicht | Was du siehst |
 |---|---|
-| **Year** (Jahr) | 12 Monatskacheln. Je kräftiger die Farbe, desto stärker weicht der Monat vom Plan ab. Klick auf einen Monat öffnet ihn. |
+| **Year** (Jahr) | 12 Monatskacheln mit Ist/Soll, Auslastung und einem roten ⚠-Hinweis, wenn ein Monat vom Plan abweicht. Klick auf einen Monat öffnet ihn. |
 | **Quarter** (Quartal) | Balken pro Kategorie: Wie viele Events gab es (Ist) und wie viele waren geplant (Soll)? |
 | **Month** (Monat) | Kalender mit allen Events und einem Hinweis-Kasten, wenn etwas nicht passt. |
-| **Week** (Woche) | Jeder Tag mit Details: Status, Summary, Description, Anmeldungen, Aufgaben zum Abhaken, Reminder-Hinweis, Social-Post- und Mail-Vorschlag. |
-| **Search** (Suche) | Sucht in Titeln, Summaries, Descriptions, Tags, Orten, Verantwortlichen, Aufgaben und Daten. Filter für Kategorie, Status und „nur kommende“. Das Suchfeld oben ist von jeder Seite aus erreichbar (Tastenkürzel: `/`). |
+| **Week** (Woche) | Wie in Google Kalender: eine Spalte pro Tag, die Events stehen nach Uhrzeit. Die Dauer ergibt sich aus der Agenda (sonst 2 Stunden). |
+| **Event-Details** | Klick auf ein Event (in Woche, Monat oder Liste) öffnet rechts eine **Schublade** für dieses eine Event: oben Titel, Datum und Uhrzeit, darunter Summary, Description, Anmeldungen, Aufgaben zum Abhaken, Reminder-Hinweis, Social-Post- und Mail-Vorschlag. Mit dem dunkelorangen **„✎ Edit“** bearbeitest du das Event direkt in der Schublade (auch „+ New event“ öffnet sich dort). Esc bricht das Bearbeiten ab bzw. schließt die Schublade. |
+| **List** (Liste) | Alle Events als Liste. Sucht in Titeln, Summaries, Descriptions, Tags, Orten, Verantwortlichen, Aufgaben und Daten. Filter für Kategorie, Status und „nur kommende“. Das Suchfeld oben ist von jeder Seite aus erreichbar (Tastenkürzel: `/`). |
 | **Deviations** (Abweichungen) | Liste aller Monate und Quartale, die vom Plan abweichen. Die Schwelle (Standard 20 %) kannst du mit einem Regler ändern. |
 | **Templates** (Vorlagen) | Eine Vorlage pro Kategorie, mit Titel-Ideen, Summary-Vorlage und der Tag-Liste. Mit „New event from template“ entsteht ein Entwurf. |
 | **Connections** (Verbindungen) | Platzhalter für Notion, Eventbrite, Gmail und Google Calendar (noch nicht verbunden). |
 
 **Benutzer-Menü (nur online):** Oben rechts der runde Knopf mit deinem Anfangsbuchstaben. Ein Klick zeigt, mit welcher E-Mail-Adresse du angemeldet bist.
 
-**✨ Ask AI (nur online):** Unten rechts der Knopf **„Ask AI“**. Er öffnet ein kleines Chat-Fenster, in dem du Fragen zu allen Daten der App stellen kannst, z. B. *„Welche Monate weichen am stärksten vom Plan ab?“* oder *„Was steht in den nächsten zwei Wochen an?“*. Die Antworten kommen von **Gemini**. Die KI kann **nur lesen**, nichts ändern. Sie kann sich irren, wichtige Zahlen also in der App nachprüfen.
+**✨ Ask AI (nur online):** Unten rechts der Knopf **„Ask AI“**. Er öffnet eine Chat-Schublade über die volle Höhe (Esc schließt sie, der Chat bleibt erhalten; **„↺ New chat“** fängt neu an), in dem du Fragen zu allen Daten der App stellen kannst, z. B. *„Welche Monate weichen am stärksten vom Plan ab?“* oder *„Was steht in den nächsten zwei Wochen an?“*. Die Antworten kommen von **Gemini**. Die KI kann **nur lesen**, nichts ändern. Sie kann sich irren, wichtige Zahlen also in der App nachprüfen.
 
-**Test-Reminder-Mail (nur online):** In der Wochenansicht bei einem Event auf **„✉️ Reminder email suggestion“** klicken. Betreff und Text kannst du ändern. **„Send test to me“** schickt die Mail **nur an dich selbst** (Betreff beginnt mit „[TEST]“). An Teilnehmende geht nichts.
+**Test-Reminder-Mail (nur online):** Ein Event anklicken und in der Schublade auf **„✉️ Reminder email suggestion“** klicken. Betreff und Text kannst du ändern. **„Send test to me“** schickt die Mail **nur an dich selbst** (Betreff beginnt mit „[TEST]“). An Teilnehmende geht nichts.
 
 **Status** eines Events: Idea (Idee) → Planned (geplant) → Published (veröffentlicht) → Done (durchgeführt).
 
@@ -40,7 +41,7 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 - *Ticket info*: Preis, Plätze, Anmeldung
 - *Attended by / responsibility (team)*: wer leitet, welche Teams vor Ort sind
 
-**Fehlende Infos werden sofort sichtbar:** Ist ein Abschnitt leer, erscheint ein ⚠-Hinweis: in der Wochenansicht, als ⚠ im Kalender, als Abzeichen in der Suche, als rote Kennzahl in der Jahresansicht und als orangener Zähler im Menü bei „Deviations“. Auf der Seite **Deviations** gibt es eine Liste „Missing event information“ mit allen betroffenen Events (kommende zuerst) und einem Knopf „Fill in“ (ausfüllen). In der Suche filtert „⚠ Missing description info“ genau diese Events.
+**Fehlende Infos werden sofort sichtbar:** Ist ein Abschnitt leer, erscheint ein ⚠-Hinweis: in Woche und Monat, in der Event-Schublade, als Abzeichen in der Liste, als rote Kennzahl in der Jahresansicht und als orangener Zähler im Menü bei „Deviations“. Auf der Seite **Deviations** gibt es eine Liste „Missing event information“ mit allen betroffenen Events (kommende zuerst) und einem Knopf „Fill in“ (ausfüllen). In der Liste filtert „⚠ Missing description info“ genau diese Events.
 
 **Vorschläge für Titel, Description und Summary:** Im Event-Formular gibst du ein Thema ein (z. B. „crowdfunding“), wählst Tags und klickst auf **„✨ Suggest title, description & summary“**. Du bekommst mehrere Titel-Ideen, eine Kurzbeschreibung (Summary) und eine komplette Description mit allen Abschnitten. Mit „Fill missing sections only“ werden nur die leeren Abschnitte gefüllt, was du schon geschrieben hast, bleibt stehen. Mit „Replace all sections“ wird alles ersetzt. Danach kannst du alles frei ändern. Die Vorschläge entstehen aus der Vorlage der Kategorie und aus den gewählten Tags. Es ist noch keine KI dabei, das kommt laut Fahrplan später.
 

@@ -183,8 +183,12 @@
       return rufeServer("frageKI", frage, verlauf, JSON.stringify(kontext));
     },
 
-    /** Status der externen Dienste – in der Demo ist nichts verbunden */
+    /**
+     * Status der externen Dienste. Gmail ist online (Apps Script) über den Google-Login verbunden:
+     * Test-Reminder gehen von der eigenen Adresse an die eigene Adresse. Der Rest ist noch Demo.
+     */
     async ladeVerbindungen() {
+      const online = !!inAppsScript();
       return [
         {
           id: "notion",
@@ -204,8 +208,9 @@
           id: "gmail",
           name: "Gmail",
           zweck: "Reminder and feedback emails.",
-          spaeter: "Creates email drafts – never sends anything without you.",
-          verbunden: false,
+          jetzt: online ? "Connected via your Google login: “Send test to me” sends reminder emails from and to your own address." : "",
+          spaeter: "Creates email drafts for participants – never sends anything without you.",
+          verbunden: online,
         },
         {
           id: "gcal",
