@@ -87,6 +87,7 @@ Im roten Lauf auf den roten Schritt klicken und die Meldung lesen:
 | Seite zeigt „Script function not found: doGet“ | `apps-script/Code.gs` ist kaputt → Claude fragen. |
 | „Ask AI“-Knopf fehlt | Secret `GEMINI_API_KEY` fehlt oder die App wurde seitdem nicht neu hochgeladen → Actions → „Run workflow“. Per Doppelklick gibt es den Knopf nie. |
 | „Ask AI“ meldet `API key not valid` | Schlüssel in Google AI Studio prüfen und Secret `GEMINI_API_KEY` aktualisieren, dann „Run workflow“. |
+| „Ask AI“ denkt sehr lange oder meldet „took too long“ / „No answer after 2 minutes“ | Im Apps-Script-Editor links **„Ausführungen“** (Uhr-Symbol) öffnen → Eintrag **`frageKI`** anklicken. Dort steht, welches Modell wie lange gebraucht hat oder welcher Fehler kam (ohne Schlüssel und ohne Inhalte). Screenshot an Claude schicken. |
 | „Ask AI“ meldet „Too many questions“ | Kostenloses Kontingent kurz erschöpft → eine Minute warten. |
 | „Ask AI“ meldet `models/… is not found` | Google hat den Modell-Namen geändert → Claude bitten, `KI_MODELLE` in `apps-script/Code.gs` anzupassen. |
 | Seite oder Mail-Knopf meldet „Authorization is required“ / „Autorisierung erforderlich“, oder das Benutzer-Menü fehlt | Seite neu laden und den Zugriff erlauben (Abschnitt „Beim ersten Öffnen“ oben). |

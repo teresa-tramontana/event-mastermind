@@ -1559,10 +1559,26 @@
     if (!frage || senden.disabled) return;
     feld.value = "";
     kiNachricht("user", "<p>" + esc(frage) + "</p>");
-    const warten = kiNachricht("model warten", '<p><span class="punkte"><i></i><i></i><i></i></span> Thinking …</p>');
+    const warten = kiNachricht("model warten",
+      '<p><span class="punkte"><i></i><i></i><i></i></span> Thinking … <span class="ki-sekunden"></span></p>');
+    // Sekunden mitzählen, damit man sieht, dass noch etwas passiert
+    const beginn = Date.now();
+    const uhr = setInterval(() => {
+      const s = Math.round((Date.now() - beginn) / 1000);
+      const el = warten.querySelector(".ki-sekunden");
+      if (el && s >= 3) el.textContent = s + " s";
+    }, 1000);
+    // Sicherheitsnetz: nach 2 Minuten nicht mehr warten
+    let wecker;
+    const zuLange = new Promise((_, nein) => {
+      wecker = setTimeout(() => nein(new Error("No answer after 2 minutes. Please try again.")), 120000);
+    });
     senden.disabled = true;
     try {
-      const ergebnis = await window.DataLayer.frageKI(frage, kiVerlauf.slice(), kiKontext());
+      const ergebnis = await Promise.race([
+        window.DataLayer.frageKI(frage, kiVerlauf.slice(), kiKontext()),
+        zuLange,
+      ]);
       const antwort = ergebnis.antwort;
       warten.className = "ki-blase model";
       warten.innerHTML = kiHtml(antwort) +
@@ -1572,6 +1588,8 @@
       warten.className = "ki-blase model fehler";
       warten.innerHTML = "<p>⚠ " + esc(fehler.message) + "</p>";
     }
+    clearInterval(uhr);
+    clearTimeout(wecker);
     senden.disabled = false;
     document.getElementById("ki-verlauf").scrollTop = 1e9;
     feld.focus();

@@ -110,28 +110,40 @@ function frageKI(frage, verlauf, kontextJson) {
   const anfrage = JSON.stringify({
     systemInstruction: { parts: [{ text: KI_ANWEISUNG + "\n\nDATA (JSON):\n" + kontextJson }] },
     contents: inhalte,
-    generationConfig: { temperature: 0.2 },
+    // KEINE eigene Temperatur setzen: Google warnt, dass Gemini 3.x bei Werten unter 1.0
+    // in Endlosschleifen geraten kann. maxOutputTokens begrenzt eine zu lange Antwort.
+    generationConfig: { maxOutputTokens: 8192 },
   });
+  const start = Date.now();
 
   let code = 0;
   let daten = {};
   let modell = "";
   for (let i = 0; i < KI_MODELLE.length; i++) {
     modell = KI_MODELLE[i];
-    const antwort = UrlFetchApp.fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/" + modell + ":generateContent",
-      {
-        method: "post",
-        contentType: "application/json",
-        headers: { "x-goog-api-key": schluessel },
-        muteHttpExceptions: true,
-        payload: anfrage,
-      });
+    let antwort;
+    try {
+      antwort = UrlFetchApp.fetch(
+        "https://generativelanguage.googleapis.com/v1beta/models/" + modell + ":generateContent",
+        {
+          method: "post",
+          contentType: "application/json",
+          headers: { "x-goog-api-key": schluessel },
+          muteHttpExceptions: true,
+          payload: anfrage,
+        });
+    } catch (fehler) {
+      // z. B. Zeitüberschreitung: Google wartet höchstens ca. 60 Sekunden auf Gemini
+      console.warn("Ask AI: " + modell + " ohne Antwort nach " + (Date.now() - start) + " ms: " + fehler);
+      throw new Error("Gemini took too long to answer. Please try again or ask a shorter question.");
+    }
     code = antwort.getResponseCode();
+    // Protokoll (sichtbar im Apps-Script-Editor unter "Ausführungen"), ohne Schlüssel und ohne Inhalte
+    console.log("Ask AI: " + modell + " → HTTP " + code + " nach " + (Date.now() - start) + " ms");
     daten = {};
     try { daten = JSON.parse(antwort.getContentText()); } catch (e) { /* bleibt leer */ }
-    // 403 = kein Zugriff, 404 = Modell unbekannt, 429 = Kontingent erschöpft, 5xx = überlastet → nächstes Modell
-    if (code === 200 || !(code === 403 || code === 404 || code === 429 || code >= 500)) break;
+    // 403 = kein Zugriff, 404 = Modell unbekannt, 429 = Kontingent erschöpft, 503 = überlastet → nächstes Modell
+    if (code === 200 || !(code === 403 || code === 404 || code === 429 || code === 503)) break;
   }
   if (code !== 200) {
     const grund = (daten.error && daten.error.message) || ("HTTP " + code);
@@ -141,6 +153,10 @@ function frageKI(frage, verlauf, kontextJson) {
   const kandidat = (daten.candidates || [])[0];
   const text = kandidat && kandidat.content && (kandidat.content.parts || [])
     .map(function (teil) { return teil.text || ""; }).join("").trim();
-  if (!text) throw new Error("Gemini did not return an answer. Please rephrase your question.");
+  if (!text) {
+    const grund = (kandidat && kandidat.finishReason) || "unknown";
+    console.warn("Ask AI: leere Antwort, finishReason " + grund);
+    throw new Error("Gemini did not return an answer (" + grund + "). Please rephrase your question.");
+  }
   return { antwort: text, modell: daten.modelVersion || modell };
 }
