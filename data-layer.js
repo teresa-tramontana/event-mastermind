@@ -61,7 +61,8 @@
 
   async function ladeGrunddaten() {
     if (grunddaten) return grunddaten;
-    const online = window.location.protocol.startsWith("http");
+    // In Apps Script gibt es keine data/*.json zum Abrufen, dort gleich die Demo-Daten nehmen
+    const online = window.location.protocol.startsWith("http") && !window.APPS_SCRIPT;
     if (online) {
       try {
         const [events, templates, model, tags] = await Promise.all([

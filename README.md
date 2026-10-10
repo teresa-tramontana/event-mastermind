@@ -56,6 +56,10 @@ Das war's. Du brauchst keine Installation und kein Internet (nur die Schriftart 
 Nein. 🙂 Wenn du Events anlegst, änderst oder Aufgaben abhakst, wird das **nur in deinem Browser** gespeichert. Niemand sonst sieht es.
 Unten auf der Seite gibt es den Knopf **„Reset demo data“** (Demo-Daten zurücksetzen). Er stellt alles wieder auf den Anfang.
 
+## Als Google-Apps-Script-Web-App veröffentlichen
+
+Alternative zu GitHub Pages, nur mit Impact-Hub-Konto erreichbar: siehe **[ANLEITUNG-APPS-SCRIPT.md](ANLEITUNG-APPS-SCRIPT.md)**.
+
 ## Wie veröffentliche ich es auf GitHub Pages? (Klick für Klick)
 
 Mit GitHub Pages bekommt die Seite eine Internet-Adresse, die du teilen kannst.

@@ -16,7 +16,7 @@ Die Person, die hier weiterarbeitet, hat **noch nie programmiert**.
 3. **Oberfläche auf Englisch, Erklärungen auf Deutsch.** Alles, was im Browser sichtbar ist (Menü, Knöpfe, Meldungen, Demo-Inhalte, Vorlagen), ist Englisch. Gespräche mit der Nutzerin, README und Code-Kommentare bleiben Deutsch. Die Feldnamen in den JSON-Dateien bleiben wie bisher (deutsch), damit die Datenschnittstelle stabil bleibt.
 4. **Erkläre Änderungen in einfachem Deutsch.** Kurz, ohne Fachjargon. Fachbegriffe, wenn nötig, in einem Halbsatz erklären. Nach jeder Änderung sagen, wie man sie im Browser ansieht.
 5. **Kein Build-Tool, kein Framework, kein Backend.** Nur HTML, CSS und JavaScript. Die Seite muss per Doppelklick auf `index.html` **und** auf GitHub Pages laufen.
-6. **Nach Änderungen an `data/*.json`** immer `python3 tools/baue-demo-daten.py` ausführen, sonst sieht man die Änderung beim Doppelklick nicht.
+6. **Nach Änderungen an `data/*.json`** immer `python3 tools/baue-demo-daten.py` ausführen, sonst sieht man die Änderung beim Doppelklick nicht. **Nach jeder Änderung** an `index.html`, `style.css`, `app.js`, `data-layer.js` oder den Daten danach `python3 tools/baue-apps-script.py` ausführen (Apps-Script-Version, siehe `ANLEITUNG-APPS-SCRIPT.md`).
 7. **Design:** warme Impact-Hub-Töne (Terrakotta, Safran, Pflaume, Rosé, Zimt, Creme). **Kein Grün, kein Blau.** Farben nur über die Variablen oben in `style.css` ändern. Eine Farbe pro Kategorie.
 8. **Tags nur aus der festen Liste** in `data/tags.json`. Neue Tags dort ergänzen (mit `kurz` und `satz`), nicht frei erfinden.
 9. Commits mit verständlichen deutschen Nachrichten. Standard: direkt auf `main`.
@@ -35,6 +35,11 @@ data/model.json       Soll-Modell je Monat/Quartal + Ziel-Auslastung + demoHeute
 data/demo-daten.js    AUTOMATISCH erzeugt aus den JSON-Dateien (für Doppelklick/file://)
 tools/erzeuge-demodaten.py   würfelt die Demo-Daten neu (fester Zufall, immer gleiches Ergebnis)
 tools/baue-demo-daten.py     kopiert JSON -> data/demo-daten.js
+tools/baue-apps-script.py    packt alles in apps-script/Index.html (eine Datei für Apps Script)
+apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet)
+apps-script/Index.html       AUTOMATISCH erzeugt: komplette App in einer Datei
+apps-script/appsscript.json  Apps-Script-Einstellungen (für spätere Automatik mit clasp)
+ANLEITUNG-APPS-SCRIPT.md     Klick-für-Klick-Anleitung Apps-Script-Web-App
 .nojekyll             sagt GitHub Pages: Dateien unverändert ausliefern
 ```
 
