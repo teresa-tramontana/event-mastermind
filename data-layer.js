@@ -174,7 +174,7 @@
     },
 
     /**
-     * Frage an die KI (Gemini) → { antwort, modell }. Die KI speichert nichts selbst;
+     * Frage an die KI (Gemini) → { antwort, modell, sekunden }. Die KI speichert nichts selbst;
      * ihre Vorschläge stehen als "change"-Blöcke im Antworttext (app.js zeigt sie an).
      * verlauf: [{ rolle: "user" | "model", text }] · kontext: alle Daten, die die KI sehen darf
      */

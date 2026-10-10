@@ -61,6 +61,8 @@ function sendeTestReminder(betreff, text) {
 // "…-latest" zeigt immer auf das aktuelle Flash- bzw. Flash-Lite-Modell. Ist das erste gesperrt,
 // ausgelastet oder unbekannt, wird automatisch das nächste gefragt.
 const KI_MODELLE = ["gemini-flash-latest", "gemini-flash-lite-latest"];
+// Wie viele Tokens Gemini höchstens zum "Nachdenken" nutzen darf (weniger = schneller, 0 = gar nicht)
+const KI_DENK_BUDGET = 1024;
 
 /**
  * Der Schlüssel kommt aus dem GitHub-Secret GEMINI_API_KEY. Die GitHub Action schreibt ihn
@@ -134,13 +136,20 @@ function frageKI(frage, verlauf, kontextJson) {
     .map(function (n) { return { role: n.rolle, parts: [{ text: String(n.text).slice(0, 8000) }] }; });
   inhalte.push({ role: "user", parts: [{ text: frage }] });
 
-  const anfrage = JSON.stringify({
-    systemInstruction: { parts: [{ text: KI_ANWEISUNG + "\n\nDATA (JSON):\n" + kontextJson }] },
-    contents: inhalte,
-    // KEINE eigene Temperatur setzen: Google warnt, dass Gemini 3.x bei Werten unter 1.0
-    // in Endlosschleifen geraten kann. maxOutputTokens begrenzt eine zu lange Antwort.
-    generationConfig: { maxOutputTokens: 16384 },
-  });
+  // mitDenkGrenze = false: ohne Begrenzung des "Nachdenkens" (falls ein Modell die Einstellung nicht kennt)
+  const baueAnfrage = function (mitDenkGrenze) {
+    const einstellungen = { maxOutputTokens: 16384 };
+    // Gemini "denkt" vor der Antwort nach – das kostet die meiste Zeit. Eine kleine Grenze
+    // macht die Antwort deutlich schneller; für unsere Fragen reicht das.
+    if (mitDenkGrenze) einstellungen.thinkingConfig = { thinkingBudget: KI_DENK_BUDGET };
+    return JSON.stringify({
+      systemInstruction: { parts: [{ text: KI_ANWEISUNG + "\n\nDATA (JSON):\n" + kontextJson }] },
+      contents: inhalte,
+      // KEINE eigene Temperatur setzen: Google warnt, dass Gemini 3.x bei Werten unter 1.0
+      // in Endlosschleifen geraten kann. maxOutputTokens begrenzt eine zu lange Antwort.
+      generationConfig: einstellungen,
+    });
+  };
   const start = Date.now();
 
   let code = 0;
@@ -148,27 +157,11 @@ function frageKI(frage, verlauf, kontextJson) {
   let modell = "";
   for (let i = 0; i < KI_MODELLE.length; i++) {
     modell = KI_MODELLE[i];
-    let antwort;
-    try {
-      antwort = UrlFetchApp.fetch(
-        "https://generativelanguage.googleapis.com/v1beta/models/" + modell + ":generateContent",
-        {
-          method: "post",
-          contentType: "application/json",
-          headers: { "x-goog-api-key": schluessel },
-          muteHttpExceptions: true,
-          payload: anfrage,
-        });
-    } catch (fehler) {
-      // z. B. Zeitüberschreitung: Google wartet höchstens ca. 60 Sekunden auf Gemini
-      console.warn("Ask AI: " + modell + " ohne Antwort nach " + (Date.now() - start) + " ms: " + fehler);
-      throw new Error("Gemini took too long to answer. Please try again or ask a shorter question.");
-    }
-    code = antwort.getResponseCode();
-    // Protokoll (sichtbar im Apps-Script-Editor unter "Ausführungen"), ohne Schlüssel und ohne Inhalte
-    console.log("Ask AI: " + modell + " → HTTP " + code + " nach " + (Date.now() - start) + " ms");
-    daten = {};
-    try { daten = JSON.parse(antwort.getContentText()); } catch (e) { /* bleibt leer */ }
+    let ergebnis = sendeAnGemini_(modell, baueAnfrage(true), schluessel, start);
+    // 400 = Anfrage abgelehnt (z. B. Modell kennt die Denk-Grenze nicht) → einmal ohne Grenze probieren
+    if (ergebnis.code === 400) ergebnis = sendeAnGemini_(modell, baueAnfrage(false), schluessel, start);
+    code = ergebnis.code;
+    daten = ergebnis.daten;
     // 403 = kein Zugriff, 404 = Modell unbekannt, 429 = Kontingent erschöpft, 503 = überlastet → nächstes Modell
     if (code === 200 || !(code === 403 || code === 404 || code === 429 || code === 503)) break;
   }
@@ -185,5 +178,35 @@ function frageKI(frage, verlauf, kontextJson) {
     console.warn("Ask AI: leere Antwort, finishReason " + grund);
     throw new Error("Gemini did not return an answer (" + grund + "). Please rephrase your question.");
   }
-  return { antwort: text, modell: daten.modelVersion || modell };
+  return { antwort: text, modell: daten.modelVersion || modell, sekunden: Math.round((Date.now() - start) / 1000) };
+}
+
+/** Eine Anfrage an ein Gemini-Modell schicken → { code, daten }. Protokolliert Dauer und Token-Zahlen. */
+function sendeAnGemini_(modell, anfrage, schluessel, start) {
+  let antwort;
+  try {
+    antwort = UrlFetchApp.fetch(
+      "https://generativelanguage.googleapis.com/v1beta/models/" + modell + ":generateContent",
+      {
+        method: "post",
+        contentType: "application/json",
+        headers: { "x-goog-api-key": schluessel },
+        muteHttpExceptions: true,
+        payload: anfrage,
+      });
+  } catch (fehler) {
+    // z. B. Zeitüberschreitung: Google wartet höchstens ca. 60 Sekunden auf Gemini
+    console.warn("Ask AI: " + modell + " ohne Antwort nach " + (Date.now() - start) + " ms: " + fehler);
+    throw new Error("Gemini took too long to answer. Please try again or ask a shorter question.");
+  }
+  const code = antwort.getResponseCode();
+  let daten = {};
+  try { daten = JSON.parse(antwort.getContentText()); } catch (e) { /* bleibt leer */ }
+  // Protokoll (sichtbar im Apps-Script-Editor unter "Ausführungen"), ohne Schlüssel und ohne Inhalte.
+  // Daran sieht man, wo die Zeit hingeht: viel "Nachdenken" oder eine lange Antwort.
+  const n = daten.usageMetadata || {};
+  console.log("Ask AI: " + modell + " → HTTP " + code + " nach " + (Date.now() - start) + " ms" +
+    " · Tokens: Eingabe " + (n.promptTokenCount || 0) + " (Cache " + (n.cachedContentTokenCount || 0) + ")" +
+    ", Nachdenken " + (n.thoughtsTokenCount || 0) + ", Antwort " + (n.candidatesTokenCount || 0));
+  return { code: code, daten: daten };
 }

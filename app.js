@@ -1778,7 +1778,7 @@
       ]);
       const antwort = ergebnis.antwort;
       warten.className = "ki-blase model";
-      kiAntwortZeigen(warten, antwort, ergebnis.modell);
+      kiAntwortZeigen(warten, antwort, [ergebnis.modell, ergebnis.sekunden != null ? ergebnis.sekunden + " s" : ""].filter(Boolean).join(" · "));
       kiVerlauf.push({ rolle: "user", text: frage }, { rolle: "model", text: antwort });
     } catch (fehler) {
       warten.className = "ki-blase model fehler";
