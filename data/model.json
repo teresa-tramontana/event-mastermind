@@ -1,0 +1,207 @@
+{
+  "jahr": 2026,
+  "demoHeute": "2026-10-10",
+  "kategorien": [
+    "Workshop",
+    "Networking",
+    "Talk",
+    "Community Lunch",
+    "Pitch Night"
+  ],
+  "monate": [
+    {
+      "monat": 1,
+      "name": "Januar",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 0
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 2,
+      "name": "Februar",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 0
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 3,
+      "name": "März",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 1
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 4,
+      "name": "April",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 0
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 5,
+      "name": "Mai",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 0
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 6,
+      "name": "Juni",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 1
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 7,
+      "name": "Juli",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 0
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 8,
+      "name": "August",
+      "soll": {
+        "Workshop": 1,
+        "Networking": 1,
+        "Talk": 0,
+        "Community Lunch": 1,
+        "Pitch Night": 0
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 9,
+      "name": "September",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 1
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 10,
+      "name": "Oktober",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 0
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 11,
+      "name": "November",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 0
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "monat": 12,
+      "name": "Dezember",
+      "soll": {
+        "Workshop": 2,
+        "Networking": 1,
+        "Talk": 1,
+        "Community Lunch": 1,
+        "Pitch Night": 1
+      },
+      "zielAuslastung": 75
+    }
+  ],
+  "quartale": [
+    {
+      "quartal": 1,
+      "name": "Q1",
+      "soll": {
+        "Workshop": 6,
+        "Networking": 3,
+        "Talk": 3,
+        "Community Lunch": 3,
+        "Pitch Night": 1
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "quartal": 2,
+      "name": "Q2",
+      "soll": {
+        "Workshop": 6,
+        "Networking": 3,
+        "Talk": 3,
+        "Community Lunch": 3,
+        "Pitch Night": 1
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "quartal": 3,
+      "name": "Q3",
+      "soll": {
+        "Workshop": 5,
+        "Networking": 3,
+        "Talk": 2,
+        "Community Lunch": 3,
+        "Pitch Night": 1
+      },
+      "zielAuslastung": 75
+    },
+    {
+      "quartal": 4,
+      "name": "Q4",
+      "soll": {
+        "Workshop": 6,
+        "Networking": 3,
+        "Talk": 3,
+        "Community Lunch": 3,
+        "Pitch Night": 1
+      },
+      "zielAuslastung": 75
+    }
+  ]
+}

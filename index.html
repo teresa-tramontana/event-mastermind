@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Mastermind</title>
+  <meta name="description" content="Klickbarer Prototyp eines Event-Managers für das Community-Team – mit erfundenen Demo-Daten.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23D2552E'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'%3EE%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="kopf">
+    <div class="kopf-innen">
+      <a class="marke" href="#/jahr">
+        <span class="marke-zeichen" aria-hidden="true">E</span>
+        <span class="marke-text">
+          <strong>Event Mastermind</strong>
+          <small>Impact Hub · Community-Events</small>
+        </span>
+      </a>
+      <span class="demo-hinweis" title="Alle Daten sind erfunden">Demo · erfundene Daten</span>
+    </div>
+    <nav class="hauptnav" aria-label="Ansichten">
+      <a href="#/jahr" data-ansicht="jahr">Jahr</a>
+      <a href="#/quartal" data-ansicht="quartal">Quartal</a>
+      <a href="#/monat" data-ansicht="monat">Monat</a>
+      <a href="#/woche" data-ansicht="woche">Woche</a>
+      <span class="nav-trenner" aria-hidden="true"></span>
+      <a href="#/warnungen" data-ansicht="warnungen">Abweichungen <span class="zaehler" id="warn-zaehler"></span></a>
+      <a href="#/vorlagen" data-ansicht="vorlagen">Vorlagen</a>
+      <a href="#/verbindungen" data-ansicht="verbindungen">Verbindungen</a>
+    </nav>
+  </header>
+
+  <div class="werkzeugleiste" id="werkzeugleiste">
+    <div class="blaettern">
+      <button class="knopf rund" id="zurueck" aria-label="Zurück">‹</button>
+      <h1 id="titel">…</h1>
+      <button class="knopf rund" id="vor" aria-label="Weiter">›</button>
+    </div>
+    <div class="aktionen">
+      <button class="knopf leise" id="heute">Heute</button>
+      <button class="knopf haupt" id="neues-event">+ Neues Event</button>
+    </div>
+  </div>
+
+  <main id="inhalt" class="inhalt" tabindex="-1">
+    <p class="laedt">Daten werden geladen …</p>
+  </main>
+
+  <footer class="fuss">
+    <span id="datenquelle"></span>
+    <button class="knopf leise klein" id="zuruecksetzen">Demo-Daten zurücksetzen</button>
+  </footer>
+
+  <!-- Dialog-Fenster (für Event-Formular, Social-Post usw.) -->
+  <dialog id="dialog" class="dialog">
+    <div id="dialog-inhalt"></div>
+  </dialog>
+
+  <div id="meldung" class="meldung" role="status" aria-live="polite"></div>
+
+  <!-- Reihenfolge wichtig: erst die Daten, dann die Datenschicht, dann die Oberfläche -->
+  <script src="data/demo-daten.js"></script>
+  <script src="data-layer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

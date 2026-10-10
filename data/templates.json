@@ -1,0 +1,62 @@
+[
+  {
+    "kategorie": "Workshop",
+    "titelVorlage": "Workshop: [Thema] – kompakt & praktisch",
+    "beschreibung": "Ein 2–3-stündiger Praxis-Workshop für Gründer:innen und Mitglieder. Kleine Gruppe, viel Ausprobieren, konkrete nächste Schritte zum Mitnehmen.",
+    "tags": [
+      "lernen",
+      "praxis",
+      "skills"
+    ],
+    "socialText": "🛠️ Neuer Workshop im Hub!\n\n„{titel}“\n📅 {datum} um {uhrzeit}\n📍 {ort}\n\nKleine Gruppe, viel Praxis – du gehst mit einem konkreten Plan nach Hause. Plätze sind begrenzt, also schnell sein! 👉 Link in Bio\n\n#ImpactHub #Workshop #Lernen",
+    "mailText": "Hallo zusammen,\n\nwir freuen uns auf den Workshop „{titel}“ am {datum} um {uhrzeit} ({ort}).\n\nBitte bringt Laptop oder Notizbuch mit. Falls ihr doch nicht kommen könnt, gebt euren Platz bitte über Eventbrite frei – die Warteliste freut sich!\n\nBis bald,\neuer Community-Team"
+  },
+  {
+    "kategorie": "Networking",
+    "titelVorlage": "[Anlass] – Community Get-Together",
+    "beschreibung": "Lockerer Abend zum Kennenlernen: neue Mitglieder, Partner:innen und Freund:innen des Hubs. Kurze Begrüßung, dann Getränke und Gespräche.",
+    "tags": [
+      "community",
+      "kontakte",
+      "afterwork"
+    ],
+    "socialText": "🥂 Zeit für neue Kontakte!\n\n„{titel}“\n📅 {datum} ab {uhrzeit}\n📍 {ort}\n\nOb Gründer:in, Freelancer oder einfach neugierig – komm vorbei, stoß mit uns an und lern die Community kennen. 💛\n\n#ImpactHub #Networking #Community",
+    "mailText": "Hallo zusammen,\n\nnur noch kurz bis „{titel}“ am {datum} ab {uhrzeit} ({ort}).\n\nBringt gerne jemanden mit, der die Community kennenlernen sollte!\n\nBis bald,\neuer Community-Team"
+  },
+  {
+    "kategorie": "Talk",
+    "titelVorlage": "Impact Talk: [Thema]",
+    "beschreibung": "Ein inspirierender Input (ca. 30 Min.) mit anschließender offener Fragerunde. Gäste aus Wirtschaft, Wissenschaft oder Zivilgesellschaft teilen ihre Erfahrungen.",
+    "tags": [
+      "impact",
+      "inspiration",
+      "nachhaltigkeit"
+    ],
+    "socialText": "🎤 Impact Talk im Hub\n\n„{titel}“\n📅 {datum} um {uhrzeit}\n📍 {ort}\n\n30 Minuten Inspiration, danach Raum für eure Fragen. Eintritt frei, Anmeldung über Eventbrite. 👉 Link in Bio\n\n#ImpactHub #Talk #Nachhaltigkeit",
+    "mailText": "Hallo zusammen,\n\nwir erinnern euch gerne an den Talk „{titel}“ am {datum} um {uhrzeit} ({ort}).\n\nSchreibt uns eure Fragen schon vorab – wir sammeln sie für die Diskussion.\n\nBis bald,\neuer Community-Team"
+  },
+  {
+    "kategorie": "Community Lunch",
+    "titelVorlage": "Wednesday Wrap: [Motto]",
+    "beschreibung": "Gemeinsames Mittagessen der Mitglieder. Jede:r bringt etwas mit oder wir kochen zusammen – Zeit zum Austauschen, Fragen stellen und Neues teilen.",
+    "tags": [
+      "mitglieder",
+      "essen",
+      "austausch"
+    ],
+    "socialText": "🥗 Mittagspause mit der Community!\n\n„{titel}“\n📅 {datum} um {uhrzeit}\n📍 {ort}\n\nBring dein Essen (oder deinen Hunger) mit – wir teilen Tisch, Ideen und gute Laune. Nur für Mitglieder. 💛\n\n#ImpactHub #CommunityLunch",
+    "mailText": "Hallo ihr Lieben,\n\nam {datum} um {uhrzeit} ist wieder Wednesday Wrap – diesmal „{titel}“ ({ort}).\n\nTragt euch bitte kurz ein, damit wir genug Teller und Ideen haben.\n\nBis Mittwoch,\neuer Community-Team"
+  },
+  {
+    "kategorie": "Pitch Night",
+    "titelVorlage": "Open Pitch Night: [Edition]",
+    "beschreibung": "Junge Impact-Startups pitchen in je 3 Minuten vor Community, Mentor:innen und Investor:innen. Danach Feedback, Publikumspreis und Networking.",
+    "tags": [
+      "startups",
+      "pitch",
+      "bühne"
+    ],
+    "socialText": "🚀 Bühne frei für die nächsten Impact Founders!\n\n„{titel}“\n📅 {datum} um {uhrzeit}\n📍 {ort}\n\n3 Minuten, eine Idee, ganz viel Wirkung. Feuert die Startups an und stimmt für den Publikumspreis ab! 👉 Tickets über den Link in Bio\n\n#ImpactHub #PitchNight #Startups",
+    "mailText": "Hallo zusammen,\n\nbald ist es so weit: „{titel}“ am {datum} um {uhrzeit} ({ort}).\n\nEinlass ist 30 Minuten vorher. Das Voting läuft über euer Handy – bitte aufgeladen mitbringen. 😉\n\nBis bald,\neuer Community-Team"
+  }
+]
