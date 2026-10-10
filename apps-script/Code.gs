@@ -21,7 +21,8 @@ function holeBenutzer() {
 
 /**
  * Test-Reminder: schickt die Mail NUR an die Person, die gerade angemeldet ist.
- * Absender ist das Konto, unter dem die Web-App läuft ("Ausführen als: Ich").
+ * Die Web-App läuft "als die Person, die sie benutzt" (appsscript.json: USER_ACCESSING),
+ * darum ist Absender immer die angemeldete Person selbst.
  * Echte Reminder an Teilnehmende gibt es (noch) nicht – laut Roadmap später nur als Entwurf.
  */
 function sendeTestReminder(betreff, text) {
@@ -37,13 +38,4 @@ function sendeTestReminder(betreff, text) {
     name: "Event Mastermind (test)",
   });
   return { an: an, rest: MailApp.getRemainingDailyQuota() };
-}
-
-/**
- * Nur EINMAL von Hand im Apps-Script-Editor ausführen (Knopf "Ausführen"),
- * damit Google fragt, ob die App Mails senden und die E-Mail-Adresse lesen darf.
- */
-function zugriffErlauben() {
-  Logger.log("Angemeldet als " + Session.getActiveUser().getEmail() +
-    " – heute noch " + MailApp.getRemainingDailyQuota() + " Mails möglich.");
 }

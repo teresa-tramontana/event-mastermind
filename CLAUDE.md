@@ -41,7 +41,7 @@ tools/baue-demo-daten.py     kopiert JSON -> data/demo-daten.js
 tools/baue-apps-script.py    packt alles in apps-script/Index.html (eine Datei für Apps Script)
 apps-script/Code.gs          Apps-Script-"Server": liefert die Seite aus (doGet)
 apps-script/Index.html       AUTOMATISCH erzeugt (nicht im Repo, .gitignore): komplette App in einer Datei
-apps-script/appsscript.json  Apps-Script-Einstellungen (Zeitzone, Zugriff "DOMAIN" = nur Impact-Hub-Konten)
+apps-script/appsscript.json  Apps-Script-Einstellungen (Zeitzone, Zugriff "DOMAIN" = nur Impact-Hub-Konten, "USER_ACCESSING" = läuft als die zugreifende Person)
 .github/workflows/apps-script.yml  veröffentlicht bei jedem Push auf main automatisch zu Apps Script (clasp)
 VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtung
 .gitignore                   hält erzeugte Dateien aus dem Repo
@@ -149,7 +149,7 @@ Ein Backend ist nötig, weil Zugangsschlüssel nie im Browser liegen dürfen.
 
 ### 3. Hosting: Google Apps Script (aktuell) und ggf. später Cloud Run
 
-**Stand heute:** Die App läuft als **Google-Apps-Script-Web-App** unter dem Konto der Community-Managerin. Zugriff nur mit Impact-Hub-Google-Konto. Veröffentlicht wird automatisch aus GitHub (GitHub Action mit dem Google-Werkzeug `clasp`). GitHub Pages ist abgeschaltet.
+**Stand heute:** Die App läuft als **Google-Apps-Script-Web-App** im Projekt der Community-Managerin, aber **als die zugreifende Person** (`executeAs: USER_ACCESSING`, jede Person erlaubt beim ersten Öffnen einmal den Zugriff). Zugriff nur mit Impact-Hub-Google-Konto. Veröffentlicht wird automatisch aus GitHub (GitHub Action mit dem Google-Werkzeug `clasp`). GitHub Pages ist abgeschaltet.
 
 **Vorteile:**
 - Login und Zugriffsschutz über Google Workspace, ohne eigene Programmierung.
@@ -159,7 +159,7 @@ Ein Backend ist nötig, weil Zugangsschlüssel nie im Browser liegen dürfen.
 
 **Grenzen / zu prüfen:**
 - **Region:** Bei Apps Script lässt sich nicht festlegen, dass es nur in der EU läuft; es fällt unter den Google-Workspace-Vertrag → Datenschutz prüfen.
-- Läuft unter einem **persönlichen Konto**; der clasp-Schlüssel (`CLASPRC_JSON`) hat weitreichende Rechte → besser ein **Team-/Funktionskonto**.
+- Das Projekt gehört einem **persönlichen Konto**; der clasp-Schlüssel (`CLASPRC_JSON`) hat weitreichende Rechte → besser ein **Team-/Funktionskonto**.
 - Grenzen: max. 6 Minuten pro Aufruf, Tageskontingente (für ein Team ausreichend).
 
 **Falls die IT strengere Vorgaben hat:** Umzug zu **Google Cloud Run** in `europe-west3` (Frankfurt), mit Identity-Aware Proxy (Login), Secret Manager und automatischem Deployment bei Push auf `main`. Die Oberfläche bleibt gleich, nur `data-layer.js` spricht dann mit dem anderen Backend.
@@ -198,7 +198,7 @@ Ein Backend ist nötig, weil Zugangsschlüssel nie im Browser liegen dürfen.
 - Login über Google (OAuth) mit **minimalen Rechten**:
   - Calendar: nur Termine anlegen/ändern (`calendar.events`), am besten in einem eigenen Team-Kalender.
   - Gmail: nur **Entwürfe erstellen** (`gmail.compose`), **kein Lesen**, kein automatisches Senden.
-  - **Schon eingebaut (Test):** Knopf „Send test to me“ im Reminder-Dialog. Schickt die Mail per `MailApp` **nur an die angemeldete Person selbst** (Betreff mit „[TEST]“), Absender ist das Konto, unter dem die Web-App läuft. Keine Empfänger-Adressen eingeben oder speichern; echte Reminder an Teilnehmende erst mit Roadmap-Punkt 4.
+  - **Schon eingebaut (Test):** Knopf „Send test to me“ im Reminder-Dialog. Schickt die Mail per `MailApp` **nur an die angemeldete Person selbst** (Betreff mit „[TEST]“), Absender ist die angemeldete Person selbst (Web-App läuft als zugreifende Person). Keine Empfänger-Adressen eingeben oder speichern; echte Reminder an Teilnehmende erst mit Roadmap-Punkt 4.
 - Die Workspace-Admins müssen die App ggf. freigeben (interne App in der Google Admin Console).
 - „Mail-Intelligenz“ (Roadmap 5, KI liest Mails) bräuchte **Leserechte auf Postfächer**. Das ist datenschutzrechtlich heikel → eigene Entscheidung mit Datenschutz, ggf. Folgenabschätzung, eher auf ein Funktionspostfach beschränken.
 - KI (Gemini): Prüfen, ob über Google Workspace/Vertex AI in der EU mit AVV nutzbar.

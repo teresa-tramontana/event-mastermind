@@ -37,20 +37,18 @@ Auf **Actions** → **„Apps Script veröffentlichen“** → rechts **„Run w
 
 ---
 
-## Einmalig: Mail-Versand und Benutzer-Menü erlauben
+## Beim ersten Öffnen: Zugriff erlauben (jede Person einmal)
 
-Seit dem Benutzer-Menü und der Test-Reminder-Mail braucht die App zwei Google-Rechte: **E-Mail-Adresse lesen** und **Mails in deinem Namen senden**. Google fragt danach nur einmal, und zwar dich (das Konto, unter dem die App läuft):
+Die App läuft **als die Person, die sie gerade benutzt**. Darum fragt Google **jede Person beim ersten Öffnen** einmal, ob die App
+- ihre **E-Mail-Adresse sehen** darf (für das Benutzer-Menü oben rechts) und
+- **Mails in ihrem Namen senden** darf (für „Send test to me“).
 
-1. [script.google.com](https://script.google.com) öffnen → Projekt **Event Mastermind** öffnen.
-2. Links die Datei **`Code.gs`** anklicken.
-3. Oben in der Leiste neben „Ausführen“ / „Debuggen“ im Auswahlfeld die Funktion **`zugriffErlauben`** wählen.
-4. Auf **▶ Ausführen** klicken → **„Berechtigungen prüfen“** → dein Konto → **„Zulassen“**.
-   (Erscheint „Google hat diese App nicht überprüft“: auf **„Erweitert“** → **„Zu Event Mastermind wechseln“**. Das ist deine eigene App.)
-5. Unten im Protokoll steht „Angemeldet als … – heute noch … Mails möglich“. Fertig.
+So geht's: Live-Adresse öffnen → **„Zugriff überprüfen“ / „Review permissions“** → eigenes Konto wählen → **„Zulassen“**.
+(Erscheint „Google hat diese App nicht überprüft“: **„Erweitert“** → **„Zu Event Mastermind wechseln“**. Die App gehört Impact Hub.)
 
-Wenn später neue Funktionen weitere Rechte brauchen, ist das wieder nötig. Claude sagt dann Bescheid.
+Danach fragt Google nicht mehr, außer eine neue Funktion braucht weitere Rechte. Claude sagt dann Bescheid.
 
-> 📨 **Absender** der Test-Mails ist immer dein Konto (die App läuft „als du“). Klickt eine Kollegin auf „Send test to me“, bekommt sie die Mail, aber von deiner Adresse. Google erlaubt mit einem Workspace-Konto ca. 1.500 Mails pro Tag.
+> 📨 **Absender** einer Test-Mail ist immer die Person selbst. Die Mail geht von der eigenen Adresse an die eigene Adresse und liegt danach auch in „Gesendet“. Google erlaubt mit einem Workspace-Konto ca. 1.500 Mails pro Tag und Person.
 
 ## Gut zu wissen
 
@@ -85,7 +83,7 @@ Im roten Lauf auf den roten Schritt klicken und die Meldung lesen:
 | `Requested entity was not found` | `APPS_SCRIPT_ID` oder `APPS_SCRIPT_DEPLOYMENT_ID` falsch → Secret aktualisieren. |
 | Grüner Haken, aber im Protokoll steht „übersprungen“ | Eines der drei Secrets fehlt oder ist falsch benannt. |
 | Seite zeigt „Script function not found: doGet“ | `apps-script/Code.gs` ist kaputt → Claude fragen. |
-| Seite oder Mail-Knopf meldet „Authorization is required“ / „Autorisierung erforderlich“, oder das Benutzer-Menü fehlt | Den Abschnitt „Einmalig: Mail-Versand und Benutzer-Menü erlauben“ oben durchgehen. |
+| Seite oder Mail-Knopf meldet „Authorization is required“ / „Autorisierung erforderlich“, oder das Benutzer-Menü fehlt | Seite neu laden und den Zugriff erlauben (Abschnitt „Beim ersten Öffnen“ oben). |
 
 Sonst: Screenshot vom roten Schritt an Claude schicken (ohne Schlüssel darauf).
 
@@ -99,7 +97,7 @@ Nur nötig, wenn das Apps-Script-Projekt neu angelegt werden muss. **Zeitbedarf:
    Den Inhalt von `Code.gs` durch den Inhalt von [`apps-script/Code.gs`](apps-script/Code.gs) ersetzen und speichern.
    Links **＋ → HTML**, Name **`Index`**, Inhalt leer lassen, speichern (die echte Seite lädt später GitHub hoch).
 2. **Erste Veröffentlichung:** **„Bereitstellen“ → „Neue Bereitstellung“** → Zahnrad ⚙ → **„Web-App“**.
-   *Ausführen als:* **Ich**. *Wer hat Zugriff:* **Jeder in Impact Hub**. → **„Bereitstellen“**, Zugriff erlauben.
+   *Ausführen als:* **Nutzer, der auf die Web-App zugreift**. *Wer hat Zugriff:* **Jeder in Impact Hub**. → **„Bereitstellen“**, Zugriff erlauben.
    Die neue **`/exec`-Adresse** notieren und hier oben in dieser Datei sowie in `README.md` und `CLAUDE.md` eintragen lassen.
 3. **Zwei Nummern notieren:**
    - **Script-ID:** im Projekt links Zahnrad ⚙ „Projekteinstellungen“ → „IDs“.
