@@ -158,6 +158,7 @@ button { font: inherit; color: inherit; }
 .kat-Talk { --kat: var(--kat-talk); }
 .kat-Community-Lunch { --kat: var(--kat-lunch); }
 .kat-Pitch-Night { --kat: var(--kat-pitch); }
+.kat-auslastung { --kat: var(--akzent); }
 .kat-punkt { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--kat); flex: none; }
 .kat-pille {
   display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 500;
@@ -266,7 +267,10 @@ button { font: inherit; color: inherit; }
 .event-aktionen { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 .tags { display: flex; gap: 6px; flex-wrap: wrap; }
 .tag { font-size: .75rem; color: var(--text-leise); background: var(--flaeche-warm); padding: 1px 8px; border-radius: 999px; }
-.leer { color: var(--text-leise); font-style: italic; padding: 4px 2px 8px; }
+.leer { color: var(--text-leise); font-style: italic; font-size: .85rem; }
+.leer-tag { margin-bottom: 6px; opacity: .75; }
+.leer-tag .wochen-tag-kopf { border-bottom-width: 1px; margin-bottom: 0; }
+.leer-tag h2 { font-size: .95rem; font-weight: 500; }
 
 /* ---------------------------------------------------------- Abweichungen */
 .schwelle { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }

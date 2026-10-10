@@ -277,8 +277,263 @@
     },
   };
 
+  // ---------------------------------------------------------------- Quartal
+  /** Ein Balken "Ist gegen Soll" */
+  function balkenZeile(name, klasse, ist, soll, max, istText, sollText, abw) {
+    const breite = max > 0 ? Math.min(100, (ist / max) * 100) : 0;
+    const sollPos = max > 0 ? Math.min(100, (soll / max) * 100) : 0;
+    const schwelle = zustand.einstellungen.schwelleProzent / 100;
+    const abwKlasse = abw === null ? "" : Math.abs(abw) <= schwelle ? "passt" : abw < 0 ? "zu-wenig" : "zu-viel";
+    return `
+      <div class="balken-zeile ${klasse}">
+        <div class="balken-name"><span class="kat-punkt"></span>${esc(name)}</div>
+        <div class="balken-spur" title="Ist ${istText} · Soll ${sollText}">
+          <div class="balken-ist" style="width:${breite}%"></div>
+          <div class="balken-soll" style="left:calc(${sollPos}% - 1px)"></div>
+        </div>
+        <div class="balken-wert"><strong>${istText}</strong> <span class="leise">/ ${sollText}</span><br>
+          ${abw === null ? '<span class="abw leise">–</span>' : `<span class="abw ${abwKlasse}">${vorzeichenProzent(abw)}</span>`}</div>
+      </div>`;
+  }
+
+  ANSICHTEN.quartal = {
+    blaettern: true,
+    titel: (d) => `Q${quartalVon(d)} ${d.getFullYear()} · ${MONATE_KURZ[(quartalVon(d) - 1) * 3]} – ${MONATE_KURZ[(quartalVon(d) - 1) * 3 + 2]}`,
+    schritt: (d, r) => new Date(d.getFullYear(), (quartalVon(d) - 1 + r) * 3, 1),
+    zeichne(d) {
+      const jahr = d.getFullYear();
+      const q = quartalVon(d);
+      const v = vergleichQuartal(jahr, q);
+      const max = Math.max(1, ...v.kategorien.map((k) => Math.max(k.ist, k.soll))) * 1.15;
+
+      const zeilen = v.kategorien.map((k) =>
+        balkenZeile(k.kat, katKlasse(k.kat), k.ist, k.soll, max, String(k.ist), String(k.soll),
+          k.soll === 0 && k.ist === 0 ? null : k.abw)).join("");
+
+      const auslastungZeile = balkenZeile("Auslastung", "kat-auslastung", v.auslastung || 0, v.ziel, Math.max(1.3, (v.auslastung || 0) * 1.1),
+        v.auslastung !== null ? prozent(v.auslastung) : "–", prozent(v.ziel), v.auslastungAbw);
+
+      const monatsLinks = [0, 1, 2].map((i) => {
+        const monat = (q - 1) * 3 + i + 1;
+        const vm = vergleichMonat(jahr, monat);
+        return `<button class="knopf klein" data-monat="${monat}">${vm.abweichungen.length ? "⚠ " : ""}${MONATE[monat - 1]} · ${vm.istGesamt}/${vm.sollGesamt}</button>`;
+      }).join("");
+
+      $inhalt.innerHTML = `
+        <div class="kennzahlen">
+          <div class="kennzahl"><div class="wert">${v.istGesamt} <span class="leise" style="font-size:1rem">/ ${v.sollGesamt}</span></div><div class="label">Events Ist / Soll</div></div>
+          <div class="kennzahl"><div class="wert">${v.auslastung !== null ? prozent(v.auslastung) : "–"}</div><div class="label">Auslastung (Ziel ${prozent(v.ziel)})</div></div>
+          <div class="kennzahl"><div class="wert">${v.abweichungen.length}</div><div class="label">Abweichungen &gt; ${zustand.einstellungen.schwelleProzent} %</div></div>
+        </div>
+        ${abweichungsBanner(v, "diesem Quartal")}
+        <div class="gitter-2">
+          <section class="karte">
+            <h2>Kategorien-Mix</h2>
+            <p class="untertitel">Farbiger Balken = Ist · schwarzer Strich = Soll laut Modell</p>
+            <div class="abschnitt">${zeilen}</div>
+          </section>
+          <section class="karte">
+            <h2>Auslastung</h2>
+            <p class="untertitel">Anmeldungen geteilt durch Plätze – nur bereits durchgeführte Events</p>
+            <div class="abschnitt">${auslastungZeile}</div>
+            <h3 class="abschnitt">Monate in diesem Quartal</h3>
+            <div class="monats-links">${monatsLinks}</div>
+          </section>
+        </div>`;
+
+      $inhalt.querySelectorAll("[data-monat]").forEach((b) =>
+        b.addEventListener("click", () => geheZu("monat", new Date(jahr, Number(b.dataset.monat) - 1, 1))));
+    },
+  };
+
+  /** Hinweis-Kasten mit allen Abweichungen eines Zeitraums */
+  function abweichungsBanner(v, wo, ohneIn) {
+    wo = ohneIn ? wo : "in " + wo;
+    if (!v.abweichungen.length) {
+      return `<div class="banner ok"><span class="banner-symbol">✓</span><div><strong>Alles im Plan.</strong>
+        Keine Abweichung über ${zustand.einstellungen.schwelleProzent} % ${wo}.</div></div>`;
+    }
+    return `<div class="banner warnung"><span class="banner-symbol">⚠</span><div>
+      <strong>${v.abweichungen.length === 1 ? "1 Abweichung" : v.abweichungen.length + " Abweichungen"} vom Modell ${wo}</strong>
+      <span class="leise">(Schwelle ${zustand.einstellungen.schwelleProzent} %)</span>
+      <ul>${v.abweichungen.map((a) => `<li>${esc(a.text)} <span class="leise">(${vorzeichenProzent(a.abw)})</span></li>`).join("")}</ul>
+    </div></div>`;
+  }
+
+  // ---------------------------------------------------------------- Monat
+  ANSICHTEN.monat = {
+    blaettern: true,
+    titel: (d) => MONATE[d.getMonth()] + " " + d.getFullYear(),
+    schritt: (d, r) => new Date(d.getFullYear(), d.getMonth() + r, 1),
+    zeichne(d) {
+      const jahr = d.getFullYear(), monat = d.getMonth() + 1;
+      const v = vergleichMonat(jahr, monat);
+      const erster = new Date(jahr, monat - 1, 1);
+      const letzter = new Date(jahr, monat, 0);
+      const start = wochenStart(erster);
+      const ende = plusTage(wochenStart(letzter), 6);
+      const heuteText = alsText(heute());
+
+      let zellen = WOCHENTAGE_KURZ.map((t) => `<div class="wochentag">${t}</div>`).join("");
+      for (let tag = new Date(start); tag <= ende; tag = plusTage(tag, 1)) {
+        const text = alsText(tag);
+        const fremd = tag.getMonth() !== monat - 1;
+        const events = fremd ? [] : zustand.events.filter((e) => e.datum === text)
+          .sort((a, b) => a.startzeit.localeCompare(b.startzeit));
+        const chips = events.map((e) => `
+          <button class="ev-chip ${katKlasse(e.kategorie)} ${e.status === "Idee" ? "idee" : ""}" data-event="${esc(e.id)}" data-datum="${text}"
+                  title="${esc(e.titel)} · ${esc(e.status)}">
+            <span class="zeit">${esc(e.startzeit)}</span> ${esc(e.titel)}
+          </button>`).join("");
+        zellen += `
+          <div class="tag-zelle ${fremd ? "fremd" : ""} ${text === heuteText ? "heute" : ""} ${events.length ? "" : "ohne-events"}">
+            <button class="tag-nr" data-datum="${text}" title="Woche öffnen">${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]} ${tag.getDate()}.</button>
+            ${chips}
+          </div>`;
+      }
+
+      const sollZeile = v.kategorien.filter((k) => k.ist || k.soll).map((k) =>
+        `<span class="${katKlasse(k.kat)}"><span class="kat-punkt"></span>${k.kat}: <strong>${k.ist}</strong>/${k.soll}</span>`).join("");
+
+      $inhalt.innerHTML = `
+        ${abweichungsBanner(v, "im " + MONATE[monat - 1], true)}
+        <div class="legende" style="margin-bottom:12px">Ist/Soll: ${sollZeile}</div>
+        <div class="kalender">${zellen}</div>
+        <p class="leise abschnitt">Tipp: Klick auf ein Event oder einen Tag öffnet die Wochenansicht mit allen Details.</p>`;
+
+      $inhalt.querySelectorAll(".tag-nr").forEach((b) =>
+        b.addEventListener("click", () => geheZu("woche", alsDatum(b.dataset.datum))));
+      $inhalt.querySelectorAll(".ev-chip").forEach((b) =>
+        b.addEventListener("click", () => geheZu("woche", alsDatum(b.dataset.datum), b.dataset.event)));
+    },
+  };
+
+  // ---------------------------------------------------------------- Woche
+  /** Was sollte als Nächstes passieren? (Reminder-Hinweis) */
+  function reminderHinweis(e) {
+    const d = tageBis(e.datum);
+    const offen = (e.aufgaben || []).filter((a) => !a.erledigt).map((a) => a.text);
+    const tagVorher = (n) => datumSchoen(alsText(plusTage(alsDatum(e.datum), -n)));
+    if (e.status === "Durchgeführt" || d < 0) {
+      if (offen.length) return { stufe: "ruhig", text: "📝 Nachbereitung offen: " + offen.join(", ") };
+      return null;
+    }
+    if (e.status === "Idee") {
+      return { stufe: d <= 30 ? "dringend" : "ruhig", text: `💡 Noch eine Idee – Termin, Raum und Speaker:in bestätigen${d <= 30 ? ` (nur noch ${d} Tage!)` : ""}.` };
+    }
+    if (e.status === "Geplant") {
+      if (d <= 21) return { stufe: "dringend", text: `📣 Noch nicht veröffentlicht – nur noch ${d} Tage bis zum Event!` };
+      return { stufe: "ruhig", text: `📣 Auf Eventbrite veröffentlichen bis spätestens ${tagVorher(21)}.` };
+    }
+    // Veröffentlicht
+    if (offen.includes("Reminder-Mail senden")) {
+      if (d <= 1) return { stufe: "dringend", text: `⏰ Reminder-Mail ${d === 0 ? "heute früh" : "heute"} senden – das Event ist ${d === 0 ? "heute" : "morgen"}!` };
+      if (d <= 7) return { stufe: "", text: `⏰ Reminder-Mail am ${tagVorher(2)} senden (2 Tage vorher).` };
+      return { stufe: "ruhig", text: `⏰ Reminder-Mail ist für ${tagVorher(2)} vorgemerkt.` };
+    }
+    return { stufe: "ruhig", text: "✓ Reminder ist raus." };
+  }
+
+  function eventKarte(e) {
+    const kap = Number(e["kapazität"]) || 0;
+    const quote = kap ? e.anmeldungen / kap : 0;
+    const r = reminderHinweis(e);
+    const aufgaben = (e.aufgaben || []).map((a, i) => `
+      <li class="${a.erledigt ? "erledigt" : ""}">
+        <input type="checkbox" data-aufgabe="${i}" ${a.erledigt ? "checked" : ""} id="a-${esc(e.id)}-${i}">
+        <label for="a-${esc(e.id)}-${i}"><span>${esc(a.text)}</span></label>
+      </li>`).join("");
+    const offen = (e.aufgaben || []).filter((a) => !a.erledigt).length;
+    return `
+      <article class="event-karte ${katKlasse(e.kategorie)}" id="event-${esc(e.id)}" data-event="${esc(e.id)}">
+        <div class="event-kopf">
+          <div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">${katPille(e.kategorie)} ${statusPille(e.status)}</div>
+            <h3>${esc(e.titel)}</h3>
+          </div>
+          <div class="tags">${(e.tags || []).map((t) => `<span class="tag">#${esc(t)}</span>`).join("")}</div>
+        </div>
+        <div class="event-meta">
+          <span>🕒 ${esc(e.startzeit)} Uhr</span><span>📍 ${esc(e.ort)}</span><span>👤 ${esc(e.verantwortlich)}</span>
+          ${e.eventbriteId ? `<span title="Eventbrite-ID (Demo)">🎟 ${esc(e.eventbriteId)}</span>` : ""}
+          ${e.kalenderId ? `<span title="Kalender-ID (Demo)">📅 ${esc(e.kalenderId)}</span>` : ""}
+        </div>
+        <div class="event-raster">
+          <div>
+            <strong>${esc(e.anmeldungen)}</strong> <span class="leise">von ${kap} Plätzen angemeldet</span>
+            <div class="fortschritt ${quote > 1 ? "ueber" : ""}"><span style="width:${Math.min(100, quote * 100)}%"></span></div>
+            <span class="leise" style="font-size:.82rem">${quote > 1 ? `⚠ überbucht (${prozent(quote)})` : prozent(quote) + " belegt"}</span>
+          </div>
+          <div>
+            <strong>Aufgaben</strong> <span class="leise">(${offen ? offen + " offen" : "alles erledigt"})</span>
+            <ul class="aufgaben">${aufgaben || '<li class="leise">Keine Aufgaben</li>'}</ul>
+          </div>
+        </div>
+        ${r ? `<div class="reminder ${r.stufe}">${esc(r.text)}</div>` : ""}
+        <div class="event-aktionen">
+          <button class="knopf klein" data-aktion="social">✨ Social-Post-Vorschlag</button>
+          <button class="knopf klein" data-aktion="mail">✉️ Reminder-Mail-Vorschlag</button>
+          <button class="knopf klein leise" data-aktion="bearbeiten">Bearbeiten</button>
+        </div>
+      </article>`;
+  }
+
+  ANSICHTEN.woche = {
+    blaettern: true,
+    titel: (d) => {
+      const s = wochenStart(d), e = plusTage(s, 6);
+      const von = s.getMonth() === e.getMonth() ? s.getDate() + "." : s.getDate() + ". " + MONATE_KURZ[s.getMonth()];
+      return `KW ${kalenderwoche(s)} · ${von} – ${e.getDate()}. ${MONATE_KURZ[e.getMonth()]}`;
+    },
+    schritt: (d, r) => plusTage(d, 7 * r),
+    imJahr: (d, jahr) => wochenStart(d).getFullYear() === jahr || plusTage(wochenStart(d), 6).getFullYear() === jahr,
+    zeichne(d, fokus) {
+      const start = wochenStart(d);
+      const heuteText = alsText(heute());
+      let html = "";
+      let anzahl = 0;
+      for (let i = 0; i < 7; i++) {
+        const tag = plusTage(start, i);
+        const text = alsText(tag);
+        const events = eventsZwischen(tag, tag);
+        anzahl += events.length;
+        html += `
+          <section class="wochen-tag ${events.length ? "" : "leer-tag"}">
+            <div class="wochen-tag-kopf ${text === heuteText ? "heute" : ""}">
+              <h2>${WOCHENTAGE[i]}</h2><span class="leise">${tag.getDate()}. ${MONATE[tag.getMonth()]}${text === heuteText ? " · heute (Demo)" : ""}</span>
+              ${events.length ? "" : '<span class="leer">keine Events</span>'}
+            </div>
+            ${events.map(eventKarte).join("")}
+          </section>`;
+      }
+      $inhalt.innerHTML = `<p class="leise" style="margin-top:0">${anzahl ? anzahl + " Event(s) in dieser Woche" : "In dieser Woche ist nichts geplant."}</p>` + html;
+
+      $inhalt.querySelectorAll(".event-karte").forEach((karte) => {
+        const event = zustand.events.find((e) => e.id === karte.dataset.event);
+        karte.querySelectorAll("[data-aufgabe]").forEach((box) =>
+          box.addEventListener("change", async () => {
+            event.aufgaben[Number(box.dataset.aufgabe)].erledigt = box.checked;
+            await window.DataLayer.speichereEvent(event);
+            await ladeNeu();
+            zeichne();
+          }));
+        karte.querySelector('[data-aktion="social"]').addEventListener("click", () => zeigeVorschlag(event, "social"));
+        karte.querySelector('[data-aktion="mail"]').addEventListener("click", () => zeigeVorschlag(event, "mail"));
+        karte.querySelector('[data-aktion="bearbeiten"]').addEventListener("click", () => oeffneEventFormular(event));
+      });
+
+      if (fokus) {
+        const ziel = document.getElementById("event-" + fokus);
+        if (ziel) {
+          ziel.scrollIntoView({ block: "center" });
+          ziel.animate([{ boxShadow: "0 0 0 4px var(--warnung)" }, { boxShadow: "0 0 0 0 transparent" }], { duration: 1600 });
+        }
+      }
+    },
+  };
+
   // Platzhalter für die Ansichten der nächsten Schritte
-  ["quartal", "monat", "woche", "warnungen", "vorlagen", "verbindungen"].forEach((name) => {
+  ["warnungen", "vorlagen", "verbindungen"].forEach((name) => {
     ANSICHTEN[name] = {
       blaettern: false,
       titel: () => name.charAt(0).toUpperCase() + name.slice(1),
@@ -289,8 +544,68 @@
   });
 
   // ======================================================================
-  // 5. DIALOGE (werden in Schritt b/c ergänzt)
+  // 5. DIALOGE
   // ======================================================================
+  const $dialog = document.getElementById("dialog");
+  const $dialogInhalt = document.getElementById("dialog-inhalt");
+
+  function oeffneDialog(html) {
+    $dialogInhalt.innerHTML = html;
+    $dialogInhalt.querySelectorAll("[data-schliessen]").forEach((b) =>
+      b.addEventListener("click", () => $dialog.close()));
+    if (typeof $dialog.showModal === "function") $dialog.showModal();
+    else $dialog.setAttribute("open", "");
+  }
+  // Klick neben das Fenster schließt es
+  $dialog.addEventListener("click", (ev) => {
+    if (ev.target === $dialog) $dialog.close();
+  });
+
+  /** Platzhalter wie {titel} in einem Vorlagen-Text ersetzen */
+  function fuelleVorlage(text, e) {
+    const werte = {
+      titel: e.titel,
+      datum: datumSchoen(e.datum, true),
+      uhrzeit: e.startzeit + " Uhr",
+      ort: e.ort,
+      kategorie: e.kategorie,
+    };
+    return String(text || "").replace(/\{(\w+)\}/g, (alles, name) => (name in werte ? werte[name] : alles));
+  }
+
+  /** Social-Post- oder Mail-Vorschlag aus der passenden Vorlage */
+  function zeigeVorschlag(e, art) {
+    const vorlage = zustand.templates.find((t) => t.kategorie === e.kategorie);
+    if (!vorlage) {
+      zeigeMeldung("Für diese Kategorie gibt es keine Vorlage.");
+      return;
+    }
+    const text = fuelleVorlage(art === "social" ? vorlage.socialText : vorlage.mailText, e);
+    oeffneDialog(`
+      <div class="dialog-kopf"><h2>${art === "social" ? "✨ Social-Post-Vorschlag" : "✉️ Reminder-Mail-Vorschlag"}</h2>
+        <button class="knopf rund leise" data-schliessen aria-label="Schließen">×</button></div>
+      <div class="dialog-koerper">
+        <p class="leise" style="margin-top:0">Aus der Vorlage „${esc(vorlage.kategorie)}“ – du kannst den Text hier noch anpassen.</p>
+        <div class="formular"><label class="breit">Text
+          <textarea id="vorschlag-text" rows="11">${esc(text)}</textarea></label></div>
+        <p class="leise" style="font-size:.82rem">Später (Roadmap): Vorschläge werden mit KI verfeinert${art === "mail" ? " und als Gmail-Entwurf angelegt" : ""}.</p>
+      </div>
+      <div class="dialog-fuss">
+        <button class="knopf leise" data-schliessen>Schließen</button>
+        <button class="knopf haupt" id="kopieren">Text kopieren</button>
+      </div>`);
+    document.getElementById("kopieren").addEventListener("click", async () => {
+      const feld = document.getElementById("vorschlag-text");
+      try {
+        await navigator.clipboard.writeText(feld.value);
+      } catch (err) {
+        feld.select();
+        document.execCommand("copy");
+      }
+      zeigeMeldung("Text kopiert ✓");
+    });
+  }
+
   function oeffneEventFormular() {
     zeigeMeldung("Das Formular kommt in Schritt (c).");
   }
@@ -303,16 +618,17 @@
   function leseAdresse() {
     const teile = window.location.hash.replace(/^#\/?/, "").split("/");
     const ansicht = ANSICHTEN[teile[0]] ? teile[0] : "jahr";
-    let datum = teile[1] && /^\d{4}-\d{2}-\d{2}$/.test(teile[1]) ? alsDatum(teile[1]) : null;
-    return { ansicht, datum };
+    const datum = teile[1] && /^\d{4}-\d{2}-\d{2}$/.test(teile[1]) ? alsDatum(teile[1]) : null;
+    return { ansicht, datum, fokus: teile[2] || null };
   }
 
-  function geheZu(ansicht, datum) {
-    window.location.hash = "#/" + ansicht + "/" + alsText(datum || zustand.datum);
+  /** Zu einer Ansicht springen. "fokus" = Event-ID, die hervorgehoben werden soll */
+  function geheZu(ansicht, datum, fokus) {
+    window.location.hash = "#/" + ansicht + "/" + alsText(datum || zustand.datum) + (fokus ? "/" + fokus : "");
   }
 
   function zeichne() {
-    const { ansicht, datum } = leseAdresse();
+    const { ansicht, datum, fokus } = leseAdresse();
     zustand.ansicht = ansicht;
     zustand.datum = datum || zustand.datum || heute();
     // Das Modell gilt für ein Jahr – wir bleiben innerhalb dieses Jahres
@@ -334,7 +650,7 @@
       document.getElementById("vor").disabled = !imJahr(a.schritt(zustand.datum, 1), jahr);
     }
 
-    a.zeichne(zustand.datum);
+    a.zeichne(zustand.datum, fokus);
     aktualisiereWarnZaehler();
   }
 
