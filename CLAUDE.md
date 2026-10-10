@@ -58,12 +58,124 @@ tools/baue-demo-daten.py     kopiert JSON -> data/demo-daten.js
 - Vorschläge: werden ohne KI aus Vorlage + Tags gebaut (`baueVorschlaege` in app.js); später kann Gemini sie verfeinern.
 - „Heute“ ist in der Demo fest `model.demoHeute` (2026-10-10), damit die Daten stimmig bleiben.
 
+## Vorbereitete Zugangsdaten (GitHub Repo Secrets) – NOCH NICHT VERWENDEN
+
+| Secret | Wofür | Status |
+|---|---|---|
+| `NOTION_PAT` | Notion-Zugangsschlüssel (Internal Integration Token) | angelegt, **nicht nutzen** |
+| `EVENTBRITE_PRIVATE_TOKEN` | Eventbrite Private Token: der eigentliche Schlüssel für Lesen **und** Schreiben | angelegt, **nicht nutzen** |
+| `EVENTBRITE_API_KEY` | Eventbrite API Key, nur für einen Mehrbenutzer-Login (OAuth) nötig, für uns überflüssig | angelegt, wird nicht gebraucht |
+
+Regeln:
+- Secrets erst verwenden, wenn die Nutzerin den jeweiligen Roadmap-Punkt **ausdrücklich** startet.
+- Ein Repo-Secret ist nur in **GitHub Actions** lesbar, nie im Browser. Werte niemals in ausgelieferte Dateien (`data-layer.js`, `app.js`, `data/*`), Logs, Commits oder den Chat schreiben.
+- Der Eventbrite Private Token hat **alle Rechte** des Kontos (nicht einschränkbar). Darum später nur **Entwürfe** anlegen; Veröffentlichen macht immer ein Mensch.
+- Nach einem Umzug zu Google Cloud wandern die Secrets in den **Google Secret Manager** (siehe IT-Abschnitt unten).
+
 ## Roadmap für die echten Anbindungen (noch NICHT bauen)
 
 1. **Notion als Datenquelle:** API-Token, zunächst nur lesen. Notion-Datenbank mit denselben Feldern wie `events.json`. Achtung: Ein Token darf nie im Code oder auf GitHub landen, eine kleine Server-Funktion (Proxy) ist dafür nötig, weil GitHub Pages nur statische Dateien ausliefert.
-   - Vorbereitet: Im GitHub-Repo gibt es bereits das Secret **`NOTION_PAT`** (Notion-Zugangsschlüssel). **Noch nicht verwenden**, erst wenn die Nutzerin Roadmap-Punkt 1 ausdrücklich startet.
-   - Wichtig für später: Ein Repo-Secret ist nur in **GitHub Actions** lesbar, nie im Browser. Den Wert niemals in `data-layer.js`, `app.js` oder eine andere ausgelieferte Datei schreiben. Möglicher Weg: eine GitHub Action liest Notion mit `NOTION_PAT` und schreibt nur die (erfundenen bzw. freigegebenen) Daten als JSON ins Repo.
+   - Zugang: Secret `NOTION_PAT` (siehe oben, noch nicht nutzen).
 2. **Soll-Ist-Abgleich mit echten Modell-Daten:** Modell (Soll je Monat/Kategorie, Ziel-Auslastung) ebenfalls aus Notion lesen.
-3. **Eventbrite:** Entwürfe aus Vorlagen anlegen, Anmeldezahlen zurücklesen (`eventbriteId`).
+3. **Eventbrite:** Entwürfe aus Vorlagen anlegen, Anmeldezahlen zurücklesen (`eventbriteId`). Zugang: Secret `EVENTBRITE_PRIVATE_TOKEN` (noch nicht nutzen). Die Organisations-ID ist nicht geheim und wird per API abgefragt.
 4. **Google Calendar und Gmail:** Login mit Google (OAuth), minimale Rechte; Kalendereinträge anlegen (`kalenderId`), Mails nur als **Entwurf**, nie automatisch senden.
 5. **Social-Vorschläge und Mail-Intelligenz via Gemini:** Vorlagentexte als Grundlage, KI verfeinert sie; Mensch gibt immer frei.
+
+## Gesprächsleitfaden für die IT
+
+*Zweck: Grundlage für ein Gespräch mit der IT, bevor echte Daten angeschlossen werden. Pro Thema: Stand heute, Vorschlag, offene Fragen.*
+
+### 1. App-Idee, technischer Aufbau und Datenschutz
+
+**Idee:** Ein Event-Manager für das Community-Team. Er zeigt, ob die Events dem Jahresplan entsprechen (Anzahl je Kategorie, Auslastung), warnt bei Abweichungen und hilft bei Titeln, Beschreibungen, Social Posts und Reminder-Mails. Quelle der Wahrheit soll Notion sein; Eventbrite, Gmail und Google Calendar werden angebunden.
+
+**Stand heute:** Klickbarer Prototyp, reines HTML/CSS/JavaScript, **nur erfundene Daten**, gehostet auf GitHub Pages. Eigene Änderungen bleiben im Browser (localStorage). Kein Server, keine Logins, keine personenbezogenen Daten.
+
+**Geplanter Aufbau:**
+```
+Browser (Oberfläche: index.html, app.js)
+   │  fragt nur ── data-layer.js (einzige Datenschnittstelle)
+   ▼
+kleines Backend in der EU (z. B. Google Cloud Run, Frankfurt)
+   │  hält die Zugangsschlüssel (Secret Manager), prüft Login
+   ├──► Notion API      (Events, Vorlagen, Soll-Modell)
+   ├──► Eventbrite API  (Entwürfe anlegen, Anmeldezahlen)
+   ├──► Google Calendar (Termine eintragen)
+   ├──► Gmail           (nur Entwürfe)
+   └──► Gemini          (Textvorschläge, später)
+```
+Ein Backend ist nötig, weil Zugangsschlüssel nie im Browser liegen dürfen.
+
+**Datenschutz (DSGVO), Vorschlag:**
+- **Datensparsamkeit:** Von Eventbrite nur **Anmeldezahlen** holen, keine Namen/Mails der Teilnehmenden speichern.
+- **Rechtsgrundlage & Zweck** für jede Datenart festhalten (Verzeichnis von Verarbeitungstätigkeiten).
+- **Auftragsverarbeitung (AVV/DPA)** mit allen Anbietern prüfen: Notion, Eventbrite, Google (Workspace/Cloud), ggf. KI-Anbieter, GitHub.
+- **Drittlandtransfer:** Notion und Eventbrite sind US-Anbieter → Datenschutzrahmen (EU-US Data Privacy Framework / Standardvertragsklauseln) prüfen.
+- **Zugriff** nur für das Community-Team (Login mit Firmen-Google-Konto).
+- Ggf. **Datenschutz-Folgenabschätzung**, falls Gmail-Inhalte von einer KI gelesen werden sollen (siehe Punkt 6).
+
+**Offene Fragen an die IT:** Wer ist Ansprechperson Datenschutz? Gibt es bereits AVVs mit Notion/Eventbrite/Google? Welche Daten dürfen in welche Systeme?
+
+### 2. Git-Repository ins Organisations-Konto übertragen
+
+**Stand heute:** Privates Konto `teresa-tramontana/event-mastermind`.
+
+**Vorschlag:** Auf GitHub → **Settings → General → Danger Zone → Transfer ownership** in die Organisation verschieben (dafür braucht die Person Rechte zum Anlegen von Repos in der Organisation). Danach:
+- Repo **privat** halten, Zugriff über ein Team regeln.
+- Prüfen, ob die **Secrets** (`NOTION_PAT`, `EVENTBRITE_PRIVATE_TOKEN`, `EVENTBRITE_API_KEY`) nach dem Umzug noch vorhanden sind; sonst neu anlegen, besser direkt als Organisations-Secrets oder gleich im Google Secret Manager.
+- Branch-Schutz für `main` (Änderungen nur per Pull Request mit Freigabe) besprechen.
+- Hinweis: Alte Links auf das Repo werden von GitHub weitergeleitet; die GitHub-Pages-Adresse ändert sich aber.
+
+**Offene Fragen:** Name der Organisation? Wer bekommt Schreibrechte? Sollen Code-Änderungen geprüft werden, bevor sie live gehen?
+
+### 3. Hosting in der EU statt GitHub Pages
+
+**Warum:** GitHub Pages liegt außerhalb der EU-Kontrolle, ist öffentlich erreichbar (kein Login) und kann keine Zugangsschlüssel geschützt verwenden. Für den Prototyp mit erfundenen Daten ist das ok, **für echte Daten nicht**.
+
+**Vorschlag (Google Cloud, da Google Workspace vermutlich schon im Einsatz ist):**
+- **Region:** `europe-west3` (Frankfurt) oder `europe-west1` (Belgien).
+- **Cloud Run** für Oberfläche + kleines Backend (ein Container, läuft nur bei Bedarf, geringe Kosten).
+- **Identity-Aware Proxy (IAP)** oder Google-Login: nur Konten der eigenen Workspace-Domain kommen rein.
+- **Secret Manager** für Notion- und Eventbrite-Schlüssel.
+- Deployment automatisch aus dem Git-Repo (z. B. Cloud Build bei jedem Push auf `main`).
+- Hinweis: Die Oberfläche bleibt gleich; nur `data-layer.js` spricht dann mit dem Backend statt mit den Demo-Dateien.
+
+**Offene Fragen:** Gibt es ein Google-Cloud-Projekt / Abrechnungskonto? Wer betreut es? Gibt es Vorgaben zu Regionen, Logging, Backups? Alternative Cloud gewünscht?
+
+### 4. Coding-Tool: Antigravity oder Claude Code?
+
+**Stand heute:** Der Prototyp wurde mit **Claude Code** gebaut. Die Regeln für die KI stehen in dieser `CLAUDE.md`.
+
+**Einschätzung:** Technisch ist beides möglich, der Code ist einfaches HTML/CSS/JavaScript ohne besondere Werkzeuge. Bei einem Wechsel zu **Antigravity** (Google) die Regeln aus dieser Datei in dessen Regel-/Anweisungsdatei übernehmen.
+
+**Entscheidungskriterien für die IT:**
+- Welche Verträge / Datenschutzbedingungen gelten (Firmenkonto, Datenverarbeitung in der EU, keine Nutzung der Inhalte zum Training)?
+- Welches Tool ist in der Organisation bereits freigegeben bzw. lizenziert?
+- Zugriff des Tools auf das Repo und die Secrets: so wenig wie möglich (die KI braucht die echten Schlüssel nie).
+- Grundregel unabhängig vom Tool: **keine echten personenbezogenen Daten im Repo**.
+
+### 5. Integration Notion und Eventbrite
+
+**Notion (Roadmap 1 + 2):**
+- Eine *Internal Integration* in Notion anlegen, **nur die Event-Datenbank** damit teilen, zunächst **nur Leserechte**.
+- Datenbank-Felder wie in `data/events.json`; Soll-Modell (`model.json`) ebenfalls als Notion-Datenbank.
+- Zugang: `NOTION_PAT` (liegt schon als Secret bereit).
+
+**Eventbrite (Roadmap 3):**
+- Zugang: `EVENTBRITE_PRIVATE_TOKEN` hat **volle Kontorechte** (nicht einschränkbar) → Backend legt nur **Entwürfe** an, Veröffentlichen macht ein Mensch.
+- Gelesen werden nur **Anmeldezahlen**, keine Teilnehmerdaten.
+- Prüfen: Wem gehört das Eventbrite-Konto (persönlich oder Organisation)? Token besser an ein Funktions-/Teamkonto binden statt an eine Person.
+
+**Offene Fragen:** Lesen *und* Schreiben in Notion gewünscht (z. B. Status zurückschreiben)? Wie oft synchronisieren (stündlich, auf Knopfdruck)?
+
+### 6. Integration Gmail und Google Calendar
+
+**Vorschlag:**
+- Login über Google (OAuth) mit **minimalen Rechten**:
+  - Calendar: nur Termine anlegen/ändern (`calendar.events`), am besten in einem eigenen Team-Kalender.
+  - Gmail: nur **Entwürfe erstellen** (`gmail.compose`), **kein Lesen**, kein automatisches Senden.
+- Die Workspace-Admins müssen die App ggf. freigeben (interne App in der Google Admin Console).
+- „Mail-Intelligenz“ (Roadmap 5, KI liest Mails) bräuchte **Leserechte auf Postfächer**. Das ist datenschutzrechtlich heikel → eigene Entscheidung mit Datenschutz, ggf. Folgenabschätzung, eher auf ein Funktionspostfach beschränken.
+- KI (Gemini): Prüfen, ob über Google Workspace/Vertex AI in der EU mit AVV nutzbar.
+
+**Offene Fragen:** Persönliche Postfächer oder ein Team-Postfach? Welcher Kalender? Darf KI Inhalte von Mails sehen?
