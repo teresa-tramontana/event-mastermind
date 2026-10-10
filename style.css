@@ -31,12 +31,6 @@
   --kat-lunch: #d9677a;           /* Rosé */
   --kat-pitch: #7a4426;           /* Zimt */
 
-  /* Heatmap-Stufen (von ruhig bis starke Abweichung) */
-  --heat-0: #fffaf3;
-  --heat-1: #fbe7cf;
-  --heat-2: #f6c79f;
-  --heat-3: #ec9a6e;
-  --heat-4: #d2552e;
 
   --radius: 14px;
   --radius-klein: 9px;
@@ -79,11 +73,7 @@ button { font: inherit; color: inherit; }
   gap: 12px;
 }
 .marke { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-.marke-zeichen {
-  width: 36px; height: 36px; border-radius: 10px;
-  background: var(--akzent); color: #fff;
-  display: grid; place-items: center; font-weight: 700; font-size: 1.1rem;
-}
+.marke-zeichen { width: 36px; height: 36px; display: block; flex: none; }
 .marke-text { display: flex; flex-direction: column; }
 .marke-text small { color: var(--text-leise); font-size: .78rem; }
 .demo-hinweis {
@@ -269,25 +259,18 @@ button { font: inherit; color: inherit; }
 .kachel {
   text-align: left; cursor: pointer; border: 1px solid var(--linie);
   border-radius: var(--radius); padding: 14px; min-height: 140px;
-  background: var(--heat-0); display: flex; flex-direction: column; gap: 6px;
+  background: var(--flaeche); display: flex; flex-direction: column; gap: 6px;
   transition: transform .12s, box-shadow .12s;
 }
 .kachel:hover { transform: translateY(-2px); box-shadow: var(--schatten); }
-.kachel.stufe-1 { background: var(--heat-1); }
-.kachel.stufe-2 { background: var(--heat-2); }
-.kachel.stufe-3 { background: var(--heat-3); }
-.kachel.stufe-4 { background: var(--heat-4); color: #fff; }
-.kachel.stufe-4 .leise { color: #fde9df; }
 .kachel.heute-monat { outline: 2px solid var(--text); outline-offset: 2px; }
 .kachel-kopf { display: flex; justify-content: space-between; align-items: baseline; }
 .kachel-kopf strong { font-size: 1.05rem; }
 .kachel .zahl { font-size: 1.5rem; font-weight: 700; }
-.kachel .hinweis { font-size: .8rem; font-weight: 500; margin-top: auto; }
+.kachel .hinweis { font-size: .8rem; font-weight: 500; margin-top: auto; color: var(--text-leise); }
+.kachel.mit-abweichung .hinweis { color: var(--kritisch); }
 .mini-punkte { display: flex; flex-wrap: wrap; gap: 3px; }
 .mini-punkte .kat-punkt { width: 8px; height: 8px; box-shadow: 0 0 0 1.5px rgba(255,255,255,.8); }
-.kachel.stufe-3 .mini-punkte, .kachel.stufe-4 .mini-punkte { background: rgba(255,255,255,.92); padding: 3px 6px; border-radius: 999px; align-self: flex-start; }
-.skala { display: flex; align-items: center; gap: 6px; font-size: .8rem; color: var(--text-leise); }
-.skala i { width: 22px; height: 12px; border-radius: 3px; display: inline-block; border: 1px solid var(--linie); }
 
 /* ---------------------------------------------------------- Quartal: Balken */
 .balken-zeile { display: grid; grid-template-columns: 150px 1fr 90px; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px dashed var(--linie); }
@@ -330,11 +313,66 @@ button { font: inherit; color: inherit; }
 .ev-chip .zeit { font-weight: 700; }
 .ev-chip.idee { border-left-style: dotted; opacity: .8; }
 
-/* ---------------------------------------------------------- Woche: Liste */
-.wochen-tag { margin-bottom: 16px; }
-.wochen-tag-kopf { display: flex; align-items: baseline; gap: 10px; padding: 6px 2px; border-bottom: 2px solid var(--linie); margin-bottom: 10px; }
-.wochen-tag-kopf.heute { border-bottom-color: var(--akzent); }
-.wochen-tag-kopf .leise { font-size: .85rem; }
+/* ---------------------------------------------------------- Woche: Raster wie Google Kalender */
+.wochen-raster-huelle { overflow-x: auto; border: 1px solid var(--linie); border-radius: var(--radius); background: var(--flaeche); }
+.wochen-raster { display: grid; grid-template-columns: 52px repeat(7, minmax(96px, 1fr)); min-width: 740px; }
+.wk-ecke { border-bottom: 1px solid var(--linie); }
+.wk-tag-kopf {
+  display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 4px 10px;
+  background: none; border: none; border-bottom: 1px solid var(--linie); border-left: 1px solid var(--linie);
+  font: inherit; color: var(--text-leise); cursor: pointer;
+}
+.wk-tag-kopf span { font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; }
+.wk-tag-kopf strong {
+  font-size: 1.35rem; color: var(--text); width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+}
+.wk-tag-kopf:hover strong { background: var(--flaeche-warm); }
+.wk-tag-kopf.heute span { color: var(--akzent); font-weight: 700; }
+.wk-tag-kopf.heute strong { background: var(--akzent); color: #fff; }
+.wk-zeiten { position: relative; }
+.wk-zeiten span { position: absolute; right: 8px; transform: translateY(-50%); font-size: .7rem; color: var(--text-leise); }
+.wk-spalten {
+  grid-column: 2 / -1; display: grid; grid-template-columns: repeat(7, minmax(96px, 1fr)); position: relative;
+  background: repeating-linear-gradient(to bottom, transparent 0 calc(var(--stunde) - 1px), var(--linie) calc(var(--stunde) - 1px) var(--stunde));
+}
+.wk-spalte { position: relative; border-left: 1px solid var(--linie); }
+.wk-spalte.heute { background: color-mix(in srgb, var(--akzent) 5%, transparent); }
+.wk-event {
+  position: absolute; overflow: hidden; text-align: left; cursor: pointer;
+  display: flex; flex-direction: column; gap: 1px; padding: 4px 6px;
+  font: inherit; font-size: .75rem; line-height: 1.25;
+  background: color-mix(in srgb, var(--kat) 16%, white); color: color-mix(in srgb, var(--kat) 70%, black);
+  border: none; border-left: 4px solid var(--kat); border-radius: 6px;
+}
+.wk-event strong { font-size: .8rem; color: var(--text); }
+.wk-event span { opacity: .85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wk-event:hover, .wk-event:focus-visible { box-shadow: var(--schatten); z-index: 2; filter: brightness(.98); }
+.wk-event.idee { border-left-style: dotted; opacity: .85; }
+
+/* ---------------------------------------------------------- Event-Schublade (Details) */
+.drawer-schatten {
+  position: fixed; inset: 0; z-index: 30; background: rgba(43, 35, 32, .28);
+  opacity: 0; transition: opacity .25s;
+}
+.drawer-schatten.offen { opacity: 1; }
+.event-drawer {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 35;
+  width: min(520px, 100vw); display: flex; flex-direction: column;
+  background: var(--hintergrund); box-shadow: -12px 0 40px rgba(43, 35, 32, .18);
+  transform: translateX(100%); transition: transform .25s ease;
+}
+.event-drawer.offen { transform: translateX(0); }
+.event-drawer[hidden], .drawer-schatten[hidden] { display: none; }
+.drawer-kopf {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 12px 12px 20px; border-bottom: 1px solid var(--linie); background: var(--flaeche);
+}
+.drawer-datum { font-weight: 700; color: var(--text-leise); font-size: .9rem; }
+.drawer-inhalt { flex: 1; overflow-y: auto; padding: 16px 16px 96px; }
+.drawer-inhalt .event-karte { margin: 0; box-shadow: none; }
+.drawer-inhalt .event-raster { grid-template-columns: 1fr; }
+.drawer-inhalt .beschreibung[open], .drawer-inhalt details.beschreibung { margin-top: 10px; }
 .event-karte {
   background: var(--flaeche); border: 1px solid var(--linie); border-left: 5px solid var(--kat);
   border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; box-shadow: var(--schatten);
@@ -357,9 +395,6 @@ button { font: inherit; color: inherit; }
 .tags { display: flex; gap: 6px; flex-wrap: wrap; }
 .tag { font-size: .75rem; color: var(--text-leise); background: var(--flaeche-warm); padding: 1px 8px; border-radius: 999px; }
 .leer { color: var(--text-leise); font-style: italic; font-size: .85rem; }
-.leer-tag { margin-bottom: 6px; opacity: .75; }
-.leer-tag .wochen-tag-kopf { border-bottom-width: 1px; margin-bottom: 0; }
-.leer-tag h2 { font-size: .95rem; font-weight: 500; }
 
 /* ---------------------------------------------------------- Abweichungen */
 .schwelle { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
@@ -390,6 +425,8 @@ button { font: inherit; color: inherit; }
 .verbindung-logo { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-weight: 700; font-size: 1.2rem; color: #fff; }
 .verbindung-status { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; font-weight: 500; color: var(--text-leise); }
 .verbindung-status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #c9b8a8; }
+.verbindung-status.verbunden { color: var(--akzent-dunkel); font-weight: 700; }
+.verbindung-status.verbunden::before { display: none; }
 .verbindung .knopf { align-self: flex-start; margin-top: auto; }
 
 /* ---------------------------------------------------------- Dialog & Formular */

@@ -288,14 +288,6 @@
     return vergleiche(eventsImQuartal(jahr, q), m.soll, m.zielAuslastung);
   }
 
-  /** Abweichungsstärke -> Heatmap-Stufe 0 bis 4 */
-  function heatStufe(staerke) {
-    if (staerke <= 0) return 0;
-    if (staerke < 0.35) return 1;
-    if (staerke < 0.6) return 2;
-    if (staerke < 0.95) return 3;
-    return 4;
-  }
 
   // ======================================================================
   // 4. VORSCHLÄGE – Titel, Description und Summary
@@ -414,7 +406,6 @@
 
       const kacheln = MONATE.map((name, i) => {
         const v = vergleichMonat(jahr, i + 1);
-        const stufe = heatStufe(v.staerke);
         if (v.abweichungen.length) auffaelligeMonate.push(name);
         const punkte = eventsImMonat(jahr, i + 1)
           .map((e) => `<span class="kat-punkt ${katKlasse(e.kategorie)}" title="${esc(e.titel)}"></span>`)
@@ -423,7 +414,7 @@
           (b.abw === Infinity ? 9 : Math.abs(b.abw)) - (a.abw === Infinity ? 9 : Math.abs(a.abw)))[0];
         const istHeute = heute().getFullYear() === jahr && heute().getMonth() === i;
         return `
-          <button class="kachel stufe-${stufe} ${istHeute ? "heute-monat" : ""}" data-monat="${i + 1}"
+          <button class="kachel ${v.abweichungen.length ? "mit-abweichung" : ""} ${istHeute ? "heute-monat" : ""}" data-monat="${i + 1}"
                   aria-label="${name}: ${v.istGesamt} of ${v.sollGesamt} events. Open">
             <div class="kachel-kopf"><strong>${name}</strong>
               <span class="leise">${v.auslastung !== null ? "⌀ " + prozent(v.auslastung) : "open"}</span></div>
@@ -442,12 +433,7 @@
           <a class="kennzahl ${eventsMitLuecken().length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/fehlende-infos"><div class="wert">${eventsMitLuecken().length ? "⚠ " + eventsMitLuecken().length : "✓"}</div><div class="label">events with missing description info</div></a>
         </div>
         <div class="heatmap">${kacheln}</div>
-        <div class="abschnitt gitter-2">
-          <div class="skala">Deviation from model:
-            <i style="background:var(--heat-0)"></i>none
-            <i style="background:var(--heat-1)"></i><i style="background:var(--heat-2)"></i>
-            <i style="background:var(--heat-3)"></i><i style="background:var(--heat-4)"></i>strong
-          </div>
+        <div class="abschnitt">
           <div class="legende">${KATEGORIEN.map((k) =>
             `<span class="${katKlasse(k)}"><span class="kat-punkt"></span>${k}</span>`).join("")}</div>
         </div>
@@ -579,12 +565,12 @@
         ${abweichungsBanner(v, MONATE[monat - 1])}
         <div class="legende" style="margin-bottom:12px">Actual/target: ${sollZeile}</div>
         <div class="kalender">${zellen}</div>
-        <p class="leise abschnitt">Tip: click an event or a day to open the week view with all details.</p>`;
+        <p class="leise abschnitt">Tip: click an event to see all details, or a day to open its week.</p>`;
 
       $inhalt.querySelectorAll(".tag-nr").forEach((b) =>
         b.addEventListener("click", () => geheZu("week", alsDatum(b.dataset.datum))));
       $inhalt.querySelectorAll(".ev-chip").forEach((b) =>
-        b.addEventListener("click", () => geheZu("week", alsDatum(b.dataset.datum), b.dataset.event)));
+        b.addEventListener("click", () => oeffneEvent(b.dataset.event)));
     },
   };
 
@@ -662,9 +648,9 @@
       </article>`;
   }
 
-  /** Knöpfe und Häkchen in Event-Karten verbinden */
-  function verbindeEventKarten() {
-    $inhalt.querySelectorAll(".event-karte").forEach((karte) => {
+  /** Knöpfe und Häkchen in Event-Karten verbinden (in der Event-Schublade) */
+  function verbindeEventKarten(bereich) {
+    bereich.querySelectorAll(".event-karte").forEach((karte) => {
       const event = zustand.events.find((e) => e.id === karte.dataset.event);
       karte.querySelectorAll("[data-aufgabe]").forEach((box) =>
         box.addEventListener("change", async () => {
@@ -681,6 +667,23 @@
     });
   }
 
+  // Wie lange dauert ein Event? Ende = letzte Uhrzeit in der Agenda ("21:00 – End"), sonst 2 Stunden
+  function minutenVon(zeit) {
+    const m = String(zeit || "").match(/(\d{1,2}):(\d{2})/);
+    return m ? Number(m[1]) * 60 + Number(m[2]) : null;
+  }
+  function eventZeitraum(e) {
+    const von = minutenVon(e.startzeit) ?? 9 * 60;
+    const zeiten = String(normBeschreibung(e.beschreibung).agenda || "").split("\n")
+      .map(minutenVon).filter((m) => m !== null && m > von);
+    const bis = zeiten.length ? Math.max(...zeiten) : von + 120;
+    return { von, bis: Math.max(bis, von + 30) };
+  }
+  function uhrzeit(minuten) {
+    return String(Math.floor(minuten / 60)).padStart(2, "0") + ":" + String(minuten % 60).padStart(2, "0");
+  }
+
+  // Woche wie in Google Kalender: eine Spalte pro Tag, Events nach Uhrzeit
   ANSICHTEN.week = {
     blaettern: true,
     titel: (d) => {
@@ -690,37 +693,118 @@
     },
     schritt: (d, r) => plusTage(d, 7 * r),
     imJahr: (d, jahr) => wochenStart(d).getFullYear() === jahr || plusTage(wochenStart(d), 6).getFullYear() === jahr,
-    zeichne(d, fokus) {
+    zeichne(d) {
       const start = wochenStart(d);
       const heuteText = alsText(heute());
-      let html = "";
-      let anzahl = 0;
-      for (let i = 0; i < 7; i++) {
+      const STUNDE = 52; // Höhe einer Stunde in Pixeln
+      const tage = [0, 1, 2, 3, 4, 5, 6].map((i) => {
         const tag = plusTage(start, i);
-        const text = alsText(tag);
-        const events = eventsZwischen(tag, tag);
-        anzahl += events.length;
-        html += `
-          <section class="wochen-tag ${events.length ? "" : "leer-tag"}">
-            <div class="wochen-tag-kopf ${text === heuteText ? "heute" : ""}">
-              <h2>${WOCHENTAGE[i]}</h2><span class="leise">${tag.getDate()} ${MONATE[tag.getMonth()]}${text === heuteText ? " · today (demo)" : ""}</span>
-              ${events.length ? "" : '<span class="leer">no events</span>'}
-            </div>
-            ${events.map(eventKarte).join("")}
-          </section>`;
-      }
-      $inhalt.innerHTML = `<p class="leise" style="margin-top:0">${anzahl ? anzahl + (anzahl === 1 ? " event" : " events") + " this week" : "Nothing planned this week."}</p>` + html;
-      verbindeEventKarten();
+        const events = eventsZwischen(tag, tag).map((e) => Object.assign({ e }, eventZeitraum(e)))
+          .sort((a, b) => a.von - b.von);
+        // Überschneidungen nebeneinander zeigen: jedes Event bekommt eine "Spur"
+        const spurEnde = [];
+        events.forEach((x) => {
+          let s = spurEnde.findIndex((ende) => ende <= x.von);
+          if (s < 0) { s = spurEnde.length; spurEnde.push(0); }
+          spurEnde[s] = x.bis;
+          x.spur = s;
+        });
+        events.forEach((x) => { x.spuren = spurEnde.length; });
+        return { tag, text: alsText(tag), events };
+      });
+      const alle = tage.flatMap((t) => t.events);
+      const vonStd = Math.min(8, ...alle.map((x) => Math.floor(x.von / 60)));
+      const bisStd = Math.min(24, Math.max(22, ...alle.map((x) => Math.ceil(x.bis / 60))));
+      const hoehe = (bisStd - vonStd) * STUNDE;
+      const y = (min) => ((min - vonStd * 60) / 60) * STUNDE;
 
-      if (fokus) {
-        const ziel = document.getElementById("event-" + fokus);
-        if (ziel) {
-          ziel.scrollIntoView({ block: "center" });
-          ziel.animate([{ boxShadow: "0 0 0 4px var(--warnung)" }, { boxShadow: "0 0 0 0 transparent" }], { duration: 1600 });
-        }
-      }
+      const kopf = tage.map((t, i) => `
+        <button class="wk-tag-kopf ${t.text === heuteText ? "heute" : ""}" data-datum="${t.text}" title="Open month">
+          <span>${WOCHENTAGE_KURZ[i]}</span><strong>${t.tag.getDate()}</strong>
+        </button>`).join("");
+      const zeiten = [];
+      for (let h = vonStd + 1; h < bisStd; h++) zeiten.push(`<span style="top:${(h - vonStd) * STUNDE}px">${uhrzeit(h * 60)}</span>`);
+      const spalten = tage.map((t) => `
+        <div class="wk-spalte ${t.text === heuteText ? "heute" : ""}">
+          ${t.events.map((x) => `
+            <button class="wk-event ${katKlasse(x.e.kategorie)} ${x.e.status === "Idea" ? "idee" : ""}" data-event="${esc(x.e.id)}"
+                    style="top:${y(x.von) + 1}px;height:${Math.max(22, y(x.bis) - y(x.von) - 3)}px;
+                           left:calc(${(x.spur / x.spuren) * 100}% + 2px);width:calc(${100 / x.spuren}% - 4px)"
+                    title="${esc(x.e.titel)} · ${esc(x.e.status)}">
+              <strong>${beschreibungsStand(x.e) !== "ok" ? '<span class="chip-warnung">⚠</span> ' : ""}${esc(x.e.titel)}</strong>
+              <span>${uhrzeit(x.von)} – ${uhrzeit(x.bis)}</span>
+              <span>${esc(x.e.ort)}</span>
+            </button>`).join("")}
+        </div>`).join("");
+
+      $inhalt.innerHTML = `
+        <p class="leise" style="margin-top:0">${alle.length ? alle.length + (alle.length === 1 ? " event" : " events") + " this week · click an event for details" : "Nothing planned this week."}</p>
+        <div class="wochen-raster-huelle">
+          <div class="wochen-raster" style="--stunde:${STUNDE}px">
+            <div class="wk-ecke"></div>${kopf}
+            <div class="wk-zeiten" style="height:${hoehe}px">${zeiten.join("")}</div>
+            <div class="wk-spalten" style="height:${hoehe}px">${spalten}</div>
+          </div>
+        </div>`;
+      $inhalt.querySelectorAll(".wk-event").forEach((b) =>
+        b.addEventListener("click", () => oeffneEvent(b.dataset.event)));
+      $inhalt.querySelectorAll(".wk-tag-kopf").forEach((b) =>
+        b.addEventListener("click", () => geheZu("month", alsDatum(b.dataset.datum))));
     },
   };
+
+  // ---------------------------------------------------------------- Event-Schublade (Details)
+  /** Event-Details öffnen: steht in der Adresse, damit "Zurück" und Neu-Laden funktionieren */
+  function oeffneEvent(id) {
+    geheZu(zustand.ansicht, zustand.datum, id);
+  }
+  function schliesseEvent() {
+    geheZu(zustand.ansicht, zustand.datum);
+  }
+
+  const $drawer = document.getElementById("event-drawer");
+  const $drawerSchatten = document.getElementById("drawer-schatten");
+
+  function zeigeEventDrawer(id) {
+    const e = zustand.events.find((x) => x.id === id);
+    if (!e) return verbergeEventDrawer();
+    document.getElementById("drawer-datum").textContent =
+      datumSchoen(e.datum, true) + " · " + uhrzeit(eventZeitraum(e).von) + " – " + uhrzeit(eventZeitraum(e).bis);
+    const inhalt = document.getElementById("drawer-inhalt");
+    inhalt.innerHTML = eventKarte(e);
+    verbindeEventKarten(inhalt);
+    if ($drawer.hidden) {
+      $drawer.hidden = false;
+      $drawerSchatten.hidden = false;
+      // erst sichtbar machen, dann im nächsten Bild hereinfahren lassen
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        $drawer.classList.add("offen");
+        $drawerSchatten.classList.add("offen");
+      }));
+      inhalt.scrollTop = 0;
+      document.getElementById("drawer-schliessen").focus();
+    }
+  }
+  function verbergeEventDrawer() {
+    if ($drawer.hidden) return;
+    $drawer.classList.remove("offen");
+    $drawerSchatten.classList.remove("offen");
+    setTimeout(() => {
+      if (!$drawer.classList.contains("offen")) {
+        $drawer.hidden = true;
+        $drawerSchatten.hidden = true;
+      }
+    }, 250);
+  }
+  document.getElementById("drawer-schliessen").addEventListener("click", schliesseEvent);
+  $drawerSchatten.addEventListener("click", schliesseEvent);
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape" && !$drawer.hidden && !$dialogOffen()) schliesseEvent();
+  });
+  function $dialogOffen() {
+    const d = document.getElementById("dialog");
+    return d && d.open;
+  }
 
   // ---------------------------------------------------------------- Search
   /** Alles, was an einem Event durchsucht wird – mit Namen für die Trefferanzeige */
@@ -789,7 +873,7 @@
 
   ANSICHTEN.search = {
     blaettern: false,
-    titel: () => "Search",
+    titel: () => "List",
     zeichne() {
       const s = zustand.suche;
       const auswahl = (werte, aktuell, alle) => `<option value="">${alle}</option>` + werte.map((w) =>
@@ -844,15 +928,12 @@
           <div class="tags">${(e.tags || []).map((t) => `<button class="tag tag-knopf" data-tag="${esc(t)}">${markiere(t, woerter)}</button>`).join("")}</div>
         </div>
         <div class="treffer-aktionen">
-          <button class="knopf klein" data-oeffnen="${esc(e.id)}">Open in week</button>
+          <button class="knopf klein" data-oeffnen="${esc(e.id)}">Details</button>
           <button class="knopf klein leise" data-bearbeiten="${esc(e.id)}">Edit</button>
         </div>
       </article>`).join("");
 
-    ziel.querySelectorAll("[data-oeffnen]").forEach((b) => b.addEventListener("click", () => {
-      const e = zustand.events.find((x) => x.id === b.dataset.oeffnen);
-      geheZu("week", alsDatum(e.datum), e.id);
-    }));
+    ziel.querySelectorAll("[data-oeffnen]").forEach((b) => b.addEventListener("click", () => oeffneEvent(b.dataset.oeffnen)));
     ziel.querySelectorAll("[data-bearbeiten]").forEach((b) => b.addEventListener("click", () =>
       oeffneEventFormular(zustand.events.find((x) => x.id === b.dataset.bearbeiten))));
     ziel.querySelectorAll("[data-tag]").forEach((b) => b.addEventListener("click", () => {
@@ -1034,16 +1115,18 @@
     async zeichne() {
       const liste = await window.DataLayer.ladeVerbindungen();
       $inhalt.innerHTML = `
-        <p class="leise" style="margin-top:0">This is where the real services will be connected later. Nothing is connected in the demo –
-          all numbers and names are fictional.</p>
+        <p class="leise" style="margin-top:0">${liste.some((v) => v.verbunden)
+          ? "Gmail is connected through your Google login. The other services will follow – their numbers and names are still fictional demo data."
+          : "This is where the real services will be connected later. Nothing is connected in the demo – all numbers and names are fictional."}</p>
         <div class="verbindungen">${liste.map((v) => `
           <article class="karte verbindung">
             <div class="verbindung-logo" style="background:${VERBINDUNG_FARBE[v.id] || "var(--akzent)"}" aria-hidden="true">${VERBINDUNG_KUERZEL[v.id] || "?"}</div>
             <h2>${esc(v.name)}</h2>
-            <span class="verbindung-status">${v.verbunden ? "connected" : "not connected (demo)"}</span>
+            <span class="verbindung-status ${v.verbunden ? "verbunden" : ""}">${v.verbunden ? "✓ connected" : "not connected (demo)"}</span>
             <p style="margin:0">${esc(v.zweck)}</p>
+            ${v.jetzt ? `<p style="margin:0;font-size:.88rem"><strong>Now:</strong> ${esc(v.jetzt)}</p>` : ""}
             <p class="leise" style="margin:0;font-size:.88rem"><strong>Later:</strong> ${esc(v.spaeter)}</p>
-            <button class="knopf klein" disabled title="Coming in a later stage">Connect (soon)</button>
+            ${v.verbunden ? "" : '<button class="knopf klein" disabled title="Coming in a later stage">Connect (soon)</button>'}
           </article>`).join("")}</div>
         <section class="karte abschnitt">
           <h2>What's next</h2>
@@ -1419,6 +1502,9 @@
 
     a.zeichne(zustand.datum, fokus);
     aktualisiereWarnZaehler();
+    // Ist in der Adresse ein Event angegeben? Dann Details in der Schublade zeigen
+    if (fokus && zustand.events.some((e) => e.id === fokus)) zeigeEventDrawer(fokus);
+    else verbergeEventDrawer();
   }
 
   function aktualisiereWarnZaehler() {

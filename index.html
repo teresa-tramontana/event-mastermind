@@ -15,7 +15,7 @@
   <header class="kopf">
     <div class="kopf-innen">
       <a class="marke" href="#/year">
-        <span class="marke-zeichen" aria-hidden="true">E</span>
+        <img class="marke-zeichen" src="bilder/favicon.svg" alt="" width="36" height="36">
         <span class="marke-text">
           <strong>Event Mastermind</strong>
           <small>Impact Hub · Community Events</small>
@@ -34,7 +34,7 @@
       <a href="#/month" data-ansicht="month">Month</a>
       <a href="#/week" data-ansicht="week">Week</a>
       <span class="nav-trenner" aria-hidden="true"></span>
-      <a href="#/search" data-ansicht="search">Search</a>
+      <a href="#/search" data-ansicht="search">List</a>
       <a href="#/deviations" data-ansicht="deviations">Deviations <span class="zaehler" id="warn-zaehler"></span> <span class="zaehler info" id="info-zaehler"></span></a>
       <a href="#/templates" data-ansicht="templates">Templates</a>
       <a href="#/connections" data-ansicht="connections">Connections</a>
@@ -68,6 +68,16 @@
   </dialog>
 
   <div id="meldung" class="meldung" role="status" aria-live="polite"></div>
+
+  <!-- Event-Details: Schublade, die von rechts hereinfährt (wird von app.js gefüllt) -->
+  <div class="drawer-schatten" id="drawer-schatten" hidden></div>
+  <aside class="event-drawer" id="event-drawer" hidden aria-label="Event details">
+    <div class="drawer-kopf">
+      <span class="drawer-datum" id="drawer-datum"></span>
+      <button class="knopf rund leise" id="drawer-schliessen" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="drawer-inhalt" id="drawer-inhalt"></div>
+  </aside>
 
   <!-- "Ask AI": Knopf unten rechts + kleines Chat-Fenster (nur online; Vorschläge speichert erst ein Klick auf "Apply") -->
   <button class="ki-knopf" id="ki-knopf" type="button" hidden aria-controls="ki-fenster" aria-expanded="false">

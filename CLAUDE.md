@@ -29,7 +29,7 @@ Die Person, die hier weiterarbeitet, hat **noch nie programmiert**.
 ```
 index.html            Gerüst: Kopf (mit Suchfeld), Navigation, Werkzeugleiste, Dialog
 style.css             Aussehen (Farb-Variablen ganz oben)
-app.js                Oberfläche + Auswertung (Ist gegen Soll) + Vorschläge + Suche; Abschnitte 1–7 siehe Kopfkommentar
+app.js                Oberfläche + Auswertung (Ist gegen Soll) + Vorschläge + Liste/Suche + Event-Schublade + Ask AI; Abschnitte 1–7 siehe Kopfkommentar
 data-layer.js         Einzige Datenschnittstelle (window.DataLayer)
 data/events.json      Events (Quelle)
 data/templates.json   Vorlagen je Kategorie (Quelle)
@@ -54,7 +54,7 @@ VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtu
 - **Event:** `id, titel, datum (JJJJ-MM-TT), startzeit (HH:MM), kategorie, status (Idea | Planned | Published | Done), ort, kapazität, anmeldungen, verantwortlich, eventbriteId, kalenderId, tags[], zusammenfassung (Summary), beschreibung (Description, gegliedert – siehe unten)`, zusätzlich `aufgaben[] ({text, erledigt})` für die Wochenansicht.
 - **Description (`beschreibung`)** ist ein Objekt mit festen Abschnitten (Reihenfolge = Anzeige):
   `worum` (What is it about?) · `rahmen` (Setting/framework) · `haeufigkeit` (Frequency) · `warum` (Why are we doing this? / Outcome) · `zielgruppe` (For whom is it? / Target group) · `ergebnis` (Outcome for members & goals) · `agenda` (What's on the agenda?, eine Zeile pro Punkt) · `tickets` (Ticket info) · `betreuung` (Attended by / responsibility – welches Team leitet/betreut).
-  Leere Abschnitte = fehlende Info → werden **überall deutlich markiert** (Woche, Kalender, Suche, Jahres-Kennzahl, Abweichungs-Seite, Navigations-Zähler). Fehlende Infos nie still mit erfundenem Text füllen, sondern sichtbar lassen, bis ein Mensch sie ergänzt oder einen Vorschlag übernimmt.
+  Leere Abschnitte = fehlende Info → werden **überall deutlich markiert** (Woche, Monat, Event-Schublade, Liste, Jahres-Kennzahl, Abweichungs-Seite, Navigations-Zähler). Fehlende Infos nie still mit erfundenem Text füllen, sondern sichtbar lassen, bis ein Mensch sie ergänzt oder einen Vorschlag übernimmt.
 - **Vorlage:** `kategorie, titelVorlage, titelIdeen[], beschreibung, summaryVorlage, tags[], socialText, mailText`. `beschreibung` hat dieselben Abschnitte wie beim Event; `agenda` ist dort eine Liste `[Minuten ab Start, Programmpunkt]`. Platzhalter: `{thema}` (Thema), `{merkmale}` (Tag-Stichworte), `{ort}`, `{kapazitaet}`, `{verantwortlich}`. In `socialText`/`mailText`: `{titel} {datum} {uhrzeit} {ort} {kategorie} {summary} {tickets} {agenda}`.
 - **Tag:** `tag, kurz (Stichwort für die Summary), satz (Satz für die Description)`.
 - **Modell:** `jahr, demoHeute, kategorien[], monate[] ({monat, name, soll{Kategorie: Anzahl}, zielAuslastung})`, `quartale[]` (gleich aufgebaut).
@@ -70,9 +70,12 @@ VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtu
 - Abweichung Anzahl = (Ist − Soll) / Soll je Kategorie; Soll 0 und Ist > 0 gilt als „nicht eingeplant“.
 - Auslastung = Anmeldungen / Kapazität, **nur** für Events mit Status „Done“.
 - Auffällig, wenn |Abweichung| > Schwelle (Standard 20 %, einstellbar, gespeichert im Browser).
-- Suche: jedes eingegebene Wort muss irgendwo im Event vorkommen (Titel, Summary, Description, Tags, Kategorie, Status, Ort, Verantwortlich, Aufgaben, Datum, IDs).
+- Liste/Suche (Menüpunkt „List“, intern Ansicht `search`): jedes eingegebene Wort muss irgendwo im Event vorkommen (Titel, Summary, Description, Tags, Kategorie, Status, Ort, Verantwortlich, Aufgaben, Datum, IDs).
 - Fehlende Infos: ein Event gilt als unvollständig, sobald ein Description-Abschnitt leer ist; „keine Description“, wenn alle leer sind.
 - Vorschläge: werden ohne KI aus Vorlage + Tags gebaut (`baueVorschlaege` in app.js); später kann Gemini sie verfeinern.
+- Woche: Raster wie Google Kalender (eine Spalte pro Tag). Dauer eines Events = letzte Uhrzeit in der Agenda, sonst 2 Stunden (`eventZeitraum`).
+- Event-Details: immer in der Schublade rechts (`zeigeEventDrawer`). Das offene Event steht in der Adresse als dritter Teil (`#/week/2026-10-10/evt-048`), damit Zurück/Neu-Laden funktionieren.
+- Jahr: Monatskacheln werden **nicht** nach Abweichung eingefärbt, nur ein roter ⚠-Hinweistext.
 - „Heute“ ist in der Demo fest `model.demoHeute` (2026-10-10), damit die Daten stimmig bleiben.
 
 ## Vorbereitete Zugangsdaten (GitHub Repo Secrets) – NOCH NICHT VERWENDEN
