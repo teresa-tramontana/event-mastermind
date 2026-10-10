@@ -1,6 +1,6 @@
 # Veröffentlicht die App automatisch als Google-Apps-Script-Web-App.
 # Läuft bei jedem Push auf main und auf Knopfdruck (Actions → "Apps Script veröffentlichen" → Run workflow).
-# Einrichtung: VEROEFFENTLICHUNG.md, „Neu einrichten“.
+# Einrichtung: CLAUDE.md, Abschnitt „Veröffentlichung“ → „Neu einrichten“.
 # Solange die drei Secrets fehlen, wird der Ablauf einfach übersprungen (kein Fehler).
 name: Apps Script veröffentlichen
 
@@ -29,7 +29,7 @@ jobs:
         id: pruefen
         run: |
           if [ -z "$CLASPRC_JSON" ] || [ -z "$SCRIPT_ID" ] || [ -z "$DEPLOYMENT_ID" ]; then
-            echo "::notice::Apps Script noch nicht eingerichtet (Secrets fehlen) – übersprungen. Siehe VEROEFFENTLICHUNG.md, „Neu einrichten“."
+            echo "::notice::Apps Script noch nicht eingerichtet (Secrets fehlen) – übersprungen. Siehe CLAUDE.md, Abschnitt „Veröffentlichung“."
             echo "bereit=nein" >> "$GITHUB_OUTPUT"
           else
             echo "bereit=ja" >> "$GITHUB_OUTPUT"

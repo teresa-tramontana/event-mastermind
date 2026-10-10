@@ -9,7 +9,7 @@ Normalerweise erledigt das GitHub automatisch bei jedem Push auf main
 (.github/workflows/apps-script.yml). Die Datei Index.html wird darum NICHT im
 Repo gespeichert. Zum lokalen Ausprobieren:
     python3 tools/baue-apps-script.py
-Mehr dazu: VEROEFFENTLICHUNG.md
+Mehr dazu: CLAUDE.md, Abschnitt „Veröffentlichung“
 """
 import base64
 from pathlib import Path

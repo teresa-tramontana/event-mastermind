@@ -25,7 +25,7 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 **Benutzer-Menü:** Oben rechts der runde Knopf (online mit deinem Anfangsbuchstaben). Ein Klick zeigt, mit welcher E-Mail-Adresse du angemeldet bist, und führt zu **Connections**.
 
-**✨ Ask AI (nur online):** Oben rechts neben dem Benutzer-Menü der Knopf **„Ask AI“**. Er öffnet eine Chat-Schublade über die volle Höhe (Esc oder ein Klick daneben schließt sie, der Chat bleibt erhalten; **„↺ New chat“** fängt neu an), in dem du Fragen zu allen Daten der App stellen kannst, z. B. *„Welche Monate weichen am stärksten vom Plan ab?“* oder *„Was steht in den nächsten zwei Wochen an?“*. Die Antworten kommen von **Gemini**. Die KI kann **nur lesen**, nichts ändern. Sie kann sich irren, wichtige Zahlen also in der App nachprüfen.
+**✨ Ask AI (nur online):** Oben rechts neben dem Benutzer-Menü der Knopf **„Ask AI“**. Er öffnet eine Chat-Schublade über die volle Höhe (Esc oder ein Klick daneben schließt sie, der Chat bleibt erhalten; **„↺ New chat“** fängt neu an), in dem du Fragen zu allen Daten der App stellen kannst, z. B. *„Welche Monate weichen am stärksten vom Plan ab?“* oder *„Was steht in den nächsten zwei Wochen an?“*. Die Antworten kommen von **Gemini**. Bittest du sie um Texte (Titel, Summary, Tags, Description, Ticket info), macht sie **Vorschläge** als Karte „alt → neu“: **Apply** übernimmt (danach **Undo** möglich), **Edit first** öffnet erst das Formular, **Dismiss** verwirft. Ohne deinen Klick wird nichts gespeichert. **⧉ Copy** kopiert eine Antwort oder einen Vorschlag als Text. Die KI kann sich irren, wichtige Zahlen also in der App nachprüfen.
 
 **Test-Reminder-Mail (nur online):** Ein Event anklicken und in der Schublade auf **„✉️ Reminder email suggestion“** klicken. Betreff und Text kannst du ändern. **„Send test to me“** schickt die Mail **nur an dich selbst** (Betreff beginnt mit „[TEST]“). An Teilnehmende geht nichts.
 
@@ -67,8 +67,13 @@ Unten auf der Seite gibt es den Knopf **„Reset demo data“** (Demo-Daten zur�
 
 ## Wie kommen Änderungen auf die Live-Seite?
 
-Von allein. 🙂 Sobald eine Änderung auf GitHub im Branch `main` landet, lädt GitHub sie automatisch zu **Google Apps Script** hoch. Nach ca. 1 Minute ist sie live (Seite neu laden).
-Die Adresse bleibt immer gleich. Wie das genau funktioniert und was bei Problemen hilft: **[VEROEFFENTLICHUNG.md](VEROEFFENTLICHUNG.md)**.
+Von allein. 🙂 Sobald eine Änderung auf GitHub im Branch `main` landet, lädt GitHub sie automatisch zu **Google Apps Script** hoch. Nach ca. 1 Minute ist sie live (Seite neu laden). Die Adresse bleibt immer gleich.
+
+- **Hat es geklappt?** Auf GitHub oben **„Actions“** → links **„Apps Script veröffentlichen“**: grüner Haken ✅ = live, rotes Kreuz ❌ = Screenshot vom roten Schritt an Claude schicken (ohne Schlüssel darauf).
+- **Von Hand neu veröffentlichen:** Actions → „Apps Script veröffentlichen“ → **„Run workflow“**.
+- **Beim ersten Öffnen** fragt Google jede Person einmal nach Erlaubnis (E-Mail-Adresse sehen, Test-Mail an sich selbst senden, Gemini fragen): **„Review permissions“** → eigenes Konto → **„Zulassen“**. Steht dort „Google hat diese App nicht überprüft“: **„Erweitert“** → **„Zu Event Mastermind wechseln“**.
+- **Nie im Apps-Script-Editor ändern.** Beim nächsten Hochladen wird alles mit dem Stand von GitHub überschrieben.
+- **„Ask AI“ fehlt oder hängt?** Im Apps-Script-Editor links **„Ausführungen“** → Eintrag `frageKI` anklicken. Dort stehen Modell, Dauer und Fehler (ohne Inhalte). Screenshot an Claude.
 
 ## Welche Datei macht was?
 
@@ -86,7 +91,6 @@ bilder/             Das kleine Icon im Browser-Tab (favicon)
 apps-script/        Teile für Google Apps Script (Code.gs = liefert die Seite aus)
 .github/workflows/  Der Automatik-Ablauf, der die Seite zu Google hochlädt
 tools/              Kleine Hilfsprogramme (Demo-Daten erzeugen, App für Google zusammenbauen)
-VEROEFFENTLICHUNG.md  Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtung
 CLAUDE.md           Regeln und Fahrplan für die Arbeit mit Claude
 ```
 

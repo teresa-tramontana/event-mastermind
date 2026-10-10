@@ -5,7 +5,7 @@
 **Event Mastermind** ist ein Event-Manager für die Community-Managerin bei Impact Hub.
 Er soll später Notion, Eventbrite, Gmail und Google Calendar verbinden und zeigen, ob die Events dem Jahresplan (Modell) entsprechen.
 
-**Aktueller Stand:** klickbarer Prototyp mit erfundenen Daten, gehostet als **Google-Apps-Script-Web-App** (nur mit Impact-Hub-Konto erreichbar). Jeder Push auf `main` wird automatisch veröffentlicht (`.github/workflows/apps-script.yml`, Details in `VEROEFFENTLICHUNG.md`). GitHub Pages ist abgeschaltet.
+**Aktueller Stand:** klickbarer Prototyp mit erfundenen Daten, gehostet als **Google-Apps-Script-Web-App** (nur mit Impact-Hub-Konto erreichbar). Jeder Push auf `main` wird automatisch veröffentlicht (`.github/workflows/apps-script.yml`, Details unten im Abschnitt „Veröffentlichung“). GitHub Pages ist abgeschaltet.
 
 **Live-Adresse:** https://script.google.com/a/macros/impacthub.net/s/AKfycbxXyZ0SBbdb66GGk5xvwkSBpH5E4tyorEO39IZf_TcGuVETJ-517MTZ9OTGk1xKJABw/exec
 
@@ -45,7 +45,6 @@ apps-script/Index.html       AUTOMATISCH erzeugt (nicht im Repo, .gitignore): ko
 apps-script/appsscript.json  Apps-Script-Einstellungen (Zeitzone, Zugriff "DOMAIN" = nur Impact-Hub-Konten, "USER_ACCESSING" = läuft als die zugreifende Person)
 bilder/favicon.svg / .png   Icon im Browser-Tab (SVG für Doppelklick, PNG für Apps Script über raw.githubusercontent.com – klappt nur, solange das Repo öffentlich ist)
 .github/workflows/apps-script.yml  veröffentlicht bei jedem Push auf main automatisch zu Apps Script (clasp)
-VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtung
 .gitignore                   hält erzeugte Dateien aus dem Repo
 ```
 
@@ -82,6 +81,35 @@ VEROEFFENTLICHUNG.md         Wie die Seite live geht, Fehlerhilfe, Neu-Einrichtu
 - Navigation: Year · Quarter · Month · Week · List | Deviations · Templates. „Connections“ ist im Benutzer-Menü (auch offline sichtbar). „Demo · fictional data“ steht direkt neben dem Logo.
 - Jahr: Monatskacheln werden **nicht** nach Abweichung eingefärbt, nur ein roter ⚠-Hinweistext.
 - „Heute“ ist in der Demo fest `model.demoHeute` (2026-10-10), damit die Daten stimmig bleiben.
+
+## Veröffentlichung (Google Apps Script)
+
+- **Ablauf:** Push auf `main` → Action „Apps Script veröffentlichen“ (`.github/workflows/apps-script.yml`) baut `data/demo-daten.js` und `apps-script/Index.html` (`tools/baue-apps-script.py` packt index.html, style.css, demo-daten.js, data-layer.js, app.js in eine Datei, weil Apps Script nichts nachladen kann), schreibt `Geheim.gs` (Gemini-Schlüssel) und lädt mit **clasp 3.4.1** hoch: `push --force`, dann `update-deployment <ID>` (neue Version, Adresse bleibt). Fehlen Secrets, wird übersprungen. Von Hand: Actions → „Run workflow“.
+- `apps-script/appsscript.json`: `access: "DOMAIN"` (nur Impact-Hub-Konten; nie `"ANYONE"`), `executeAs: "USER_ACCESSING"` → jede Person erlaubt beim ersten Öffnen einmal den Zugriff (E-Mail sehen, Mail senden, externe Dienste). Braucht eine neue Funktion weitere Rechte, der Nutzerin Bescheid sagen.
+- Nie im Apps-Script-Editor ändern lassen, der nächste Push überschreibt alles.
+
+**Fehlerhilfe (Meldung im roten Action-Schritt → was tun):**
+
+| Meldung | Lösung |
+|---|---|
+| `invalid_grant` / `Unauthorized` | clasp-Schlüssel abgelaufen/gesperrt → Neu-Einrichtung Schritt 4–5. Passiert es oft: IT nach Ablaufzeit fragen. |
+| `User has not enabled the Apps Script API` | script.google.com/home/usersettings → „Google Apps Script API“ an. |
+| `Requested entity was not found` | `APPS_SCRIPT_ID` / `APPS_SCRIPT_DEPLOYMENT_ID` falsch. |
+| Grün, aber „übersprungen“ | Ein Secret fehlt oder ist falsch benannt. |
+| „Script function not found: doGet“ | `Code.gs` kaputt. |
+| „Ask AI“-Knopf fehlt | `GEMINI_API_KEY` fehlt oder seitdem nicht neu hochgeladen → Run workflow. |
+| Ask AI: `API key not valid` / `models/… is not found` / „Too many questions“ | Schlüssel in AI Studio prüfen / `KI_MODELLE` anpassen / eine Minute warten (Free Tier). |
+| Ask AI langsam oder „took too long“ | Apps-Script-Editor → „Ausführungen“ → `frageKI`: Modell, Dauer, Token-Zahlen. |
+| „Authorization is required“ | Seite neu laden, Zugriff erlauben. |
+
+**Neu einrichten** (anderes Konto, Umzug in die Organisation, ca. 30 Min.):
+1. script.google.com → neues Projekt „Event Mastermind“, Inhalt von `apps-script/Code.gs` einfügen, leere HTML-Datei `Index` anlegen.
+2. „Bereitstellen“ → „Neue Bereitstellung“ → Web-App, *Ausführen als:* Nutzer, der zugreift; *Zugriff:* Jeder in Impact Hub. Neue `/exec`-Adresse in README und CLAUDE.md eintragen.
+3. Script-ID (Projekteinstellungen → IDs) und Bereitstellungs-ID (Bereitstellungen verwalten, beginnt mit `AKfycb`) notieren; Apps Script API einschalten (siehe Tabelle).
+4. Lokal Node.js (LTS) installieren, `npx -y @google/clasp@3.4.1 login` (Version muss zur Action passen), dann `~/.clasprc.json` kopieren (Mac: `cat ~/.clasprc.json | pbcopy`, Windows: `Get-Content $HOME\.clasprc.json | Set-Clipboard`).
+5. GitHub → Settings → Secrets and variables → Actions: `CLASPRC_JSON`, `APPS_SCRIPT_ID`, `APPS_SCRIPT_DEPLOYMENT_ID`, `GEMINI_API_KEY` anlegen/aktualisieren.
+6. Actions → „Run workflow“ → grüner Haken → Adresse öffnen.
+- clasp-Schlüssel sperren: myaccount.google.com/permissions → „clasp“ → Zugriff entfernen (danach Schritt 4–5). „Zugriff blockiert“ beim Login = IT hat clasp gesperrt.
 
 ## Vorbereitete Zugangsdaten (GitHub Repo Secrets) – NOCH NICHT VERWENDEN
 
