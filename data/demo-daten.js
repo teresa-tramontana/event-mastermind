@@ -3,215 +3,34 @@
 window.DEMO_DATEN = {
  "events": [
   {
-   "id": "evt-001",
-   "titel": "Morning Spark: Your First Circular Business Move",
-   "datum": "2026-01-06",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
-   "status": "Done",
-   "ort": "Online (demo Zoom)",
-   "kapazität": 20,
-   "anmeldungen": 22,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1001",
-   "kalenderId": "CAL-DEMO-2001",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Expert guidance"
-   ],
-   "zusammenfassung": "Practical workshop on circular business – practical exercises & expert input.",
-   "beschreibung": {
-    "worum": "A hands-on session on circular business. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Online (demo Zoom), max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. An expert guides you through the topic and answers your questions.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on circular business and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of circular business needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on circular business to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on circular business\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-003",
-   "titel": "Founders After Work",
-   "datum": "2026-01-08",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
-   "status": "Done",
-   "ort": "Rooftop Terrace",
-   "kapazität": 60,
-   "anmeldungen": 71,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "EB-DEMO-1003",
-   "kalenderId": "CAL-DEMO-2003",
-   "tags": [
-    "Guided networking",
-    "Community/Gathering",
-    "Informal"
-   ],
-   "zusammenfassung": "Community evening around founder life – guided networking, community gathering & relaxed setting.",
-   "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around founder life. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Rooftop Terrace for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-004",
-   "titel": "Leading Business Beyond Growth",
-   "datum": "2026-01-14",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
-   "status": "Done",
-   "ort": "Salon",
-   "kapazität": 50,
-   "anmeldungen": 66,
-   "verantwortlich": "Programme Team",
-   "eventbriteId": "EB-DEMO-1004",
-   "kalenderId": "CAL-DEMO-2004",
-   "tags": [
-    "Keynote/panel",
-    "Peer feedback/exchange"
-   ],
-   "zusammenfassung": "Inspiring talk on business beyond growth – keynote & panel & peer feedback.",
-   "beschreibung": {
-    "worum": "An inspiring input on business beyond growth: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Salon: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on business beyond growth and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in business beyond growth and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on business beyond growth\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on business beyond growth\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
    "id": "evt-002",
-   "titel": "Storytelling for Impact Startups",
-   "datum": "2026-01-15",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
+   "titel": "Monday Kick-off: Weekly Goals",
+   "datum": "2026-01-05",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
-   "ort": "Salon",
-   "kapazität": 20,
-   "anmeldungen": 26,
-   "verantwortlich": "Community Lead",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 30,
+   "verantwortlich": "Membership Team",
    "eventbriteId": "EB-DEMO-1002",
    "kalenderId": "CAL-DEMO-2002",
    "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Peer feedback/exchange",
-    "Coaching/consulting"
-   ],
-   "zusammenfassung": "Practical workshop on storytelling – practical exercises, peer feedback & coaching.",
-   "beschreibung": {
-    "worum": "A hands-on session on storytelling. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Salon, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You'll share your work and get honest, constructive feedback from peers. Experienced coaches help you work on your own, specific challenges.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on storytelling and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of storytelling needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on storytelling to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on storytelling\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-005",
-   "titel": "Wednesday Wrap: New Year Edition",
-   "datum": "2026-01-28",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
-   "status": "Done",
-   "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 39,
-   "verantwortlich": "Community Lead",
-   "eventbriteId": "EB-DEMO-1005",
-   "kalenderId": "CAL-DEMO-2005",
-   "tags": [
     "Community/Gathering",
     "Informal",
-    "Peer feedback/exchange",
     "Unwind"
    ],
-   "zusammenfassung": "Members' lunch around new year's resolutions – community gathering, relaxed setting & peer feedback.",
+   "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around new year's resolutions. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. Leave the laptop behind and unwind with good people.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Community Lead · On site: Community Lead and Membership Team (hosting the table)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -230,10 +49,10 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-006",
-   "titel": "Money Literacy for Founders",
-   "datum": "2026-02-03",
+   "titel": "Academy: Your First Circular Business Move",
+   "datum": "2026-01-06",
    "startzeit": "10:00",
-   "kategorie": "Workshop",
+   "kategorie": "Academy",
    "status": "Done",
    "ort": "Salon",
    "kapazität": 20,
@@ -247,17 +66,17 @@ window.DEMO_DATEN = {
     "1:1 sessions",
     "Coaching/consulting"
    ],
-   "zusammenfassung": "Practical workshop on money literacy – practical exercises, 1:1 sessions & coaching.",
+   "zusammenfassung": "Practical Academy session on circular business – hands-on workshop, practical exercises & 1:1 sessions.",
    "beschreibung": {
-    "worum": "",
-    "rahmen": "",
-    "haeufigkeit": "",
-    "warum": "",
-    "zielgruppe": "",
-    "ergebnis": "",
-    "agenda": "",
-    "tickets": "",
-    "betreuung": ""
+    "worum": "A hands-on Academy session on circular business. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Salon, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions. Experienced coaches help you work on your own, specific challenges.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on circular business and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on circular business\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on circular business\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -275,34 +94,125 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-009",
-   "titel": "Placemaking: Green Spaces in the City",
-   "datum": "2026-02-11",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
+   "id": "evt-001",
+   "titel": "Monthly Meetup: New Year, New Faces",
+   "datum": "2026-01-07",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
    "status": "Done",
-   "ort": "Salon",
-   "kapazität": 50,
-   "anmeldungen": 62,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "EB-DEMO-1009",
-   "kalenderId": "CAL-DEMO-2009",
+   "ort": "Rooftop Terrace",
+   "kapazität": 60,
+   "anmeldungen": 67,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1001",
+   "kalenderId": "CAL-DEMO-2001",
    "tags": [
-    "Keynote/panel",
-    "Peer feedback/exchange",
-    "Formal"
+    "Community/Gathering",
+    "Guided networking",
+    "Informal"
    ],
-   "zusammenfassung": "Inspiring talk on urban green spaces – keynote & panel, peer feedback & structured format.",
+   "zusammenfassung": "Our monthly community evening around new faces in the community – community gathering, guided networking & relaxed setting.",
    "beschreibung": {
-    "worum": "An inspiring input on urban green spaces: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Salon: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers. The session follows a clear agenda and a structured flow.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on urban green spaces and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in urban green spaces and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on urban green spaces\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on urban green spaces\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
+    "worum": "Our monthly community evening – this time around new faces in the community. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Rooftop Terrace for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. The vibe is relaxed and informal – come as you are.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-003",
+   "titel": "Monday Kick-off: Asks & Offers",
+   "datum": "2026-01-12",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 31,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1003",
+   "kalenderId": "CAL-DEMO-2003",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-010",
+   "titel": "Town Hall: Plans for the Year",
+   "datum": "2026-01-13",
+   "startzeit": "17:00",
+   "kategorie": "Town Hall",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 80,
+   "anmeldungen": 95,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1010",
+   "kalenderId": "CAL-DEMO-2010",
+   "tags": [
+    "Formal",
+    "Community/Gathering",
+    "Group work",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "Quarterly Town Hall on plans for the year – structured format, community gathering & group work.",
+   "beschreibung": {
+    "worum": "Our quarterly Town Hall on plans for the year: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
+    "rahmen": "Plenary in the Loft – Event Space, seating for 80, followed by drinks. The session follows a clear agenda and a structured flow. It's a chance to meet the community and feel at home in the Hub. Expect to roll up your sleeves and work together in small teams. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Quarterly – 2nd Tuesday of the first month of each quarter.",
+    "warum": "Transparency builds trust. Members understand decisions and help shape the Hub.",
+    "zielgruppe": "All members and residents of the Hub.",
+    "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
+    "agenda": "17:00 – Arrival\n17:10 – Update from the team\n17:40 – Q&A and feedback\n18:20 – Drinks\n19:00 – End",
+    "tickets": "Members only, free. Please register via Eventbrite (80 seats).",
+    "betreuung": "Lead: Events Intern · On site: whole team · Moderation: Community Lead"
    },
    "aufgaben": [
     {
@@ -321,32 +231,32 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-008",
-   "titel": "Impact Capital Circle Meetup",
-   "datum": "2026-02-12",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
+   "titel": "Drops of Inspiration: Leading Beyond Growth",
+   "datum": "2026-01-14",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
    "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 60,
-   "anmeldungen": 78,
-   "verantwortlich": "Membership Team",
+   "ort": "Salon",
+   "kapazität": 40,
+   "anmeldungen": 52,
+   "verantwortlich": "Community Lead",
    "eventbriteId": "EB-DEMO-1008",
    "kalenderId": "CAL-DEMO-2008",
    "tags": [
-    "Guided networking",
-    "Unwind"
+    "Keynote/panel",
+    "Peer feedback/exchange"
    ],
-   "zusammenfassung": "Community evening around impact capital – guided networking & time to unwind.",
+   "zusammenfassung": "A short lunchtime input on business beyond growth – keynote & panel & peer feedback.",
    "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around impact capital. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Loft – Event Space for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. Leave the laptop behind and unwind with good people.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
+    "worum": "A short, inspiring input on business beyond growth over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Salon, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on business beyond growth.",
+    "zielgruppe": "Members and guests curious about business beyond growth – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on business beyond growth\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on business beyond growth\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -359,16 +269,16 @@ window.DEMO_DATEN = {
     },
     {
      "text": "Add numbers to Notion",
-     "erledigt": false
+     "erledigt": true
     }
    ]
   },
   {
    "id": "evt-007",
-   "titel": "Taming Your Inner Critic",
-   "datum": "2026-02-19",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
+   "titel": "Academy: Storytelling for Impact Startups",
+   "datum": "2026-01-15",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
    "status": "Done",
    "ort": "Online (demo Zoom)",
    "kapazität": 20,
@@ -381,17 +291,17 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Coaching/consulting"
    ],
-   "zusammenfassung": "Practical workshop on dealing with your inner critic – practical exercises & coaching.",
+   "zusammenfassung": "Practical Academy session on storytelling – hands-on workshop, practical exercises & coaching.",
    "beschreibung": {
-    "worum": "A hands-on session on dealing with your inner critic. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Online (demo Zoom), max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Experienced coaches help you work on your own, specific challenges.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on dealing with your inner critic and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of dealing with your inner critic needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on dealing with your inner critic to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on dealing with your inner critic\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "A hands-on Academy session on storytelling. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Online (demo Zoom), max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Experienced coaches help you work on your own, specific challenges.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on storytelling and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on storytelling\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on storytelling\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -409,35 +319,35 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-010",
-   "titel": "Wednesday Wrap: Soup & Exchange",
-   "datum": "2026-02-25",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
+   "id": "evt-004",
+   "titel": "Monday Kick-off: Wins of Last Week",
+   "datum": "2026-01-19",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
    "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 36,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1010",
-   "kalenderId": "CAL-DEMO-2010",
+   "kapazität": 25,
+   "anmeldungen": 31,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1004",
+   "kalenderId": "CAL-DEMO-2004",
    "tags": [
     "Community/Gathering",
     "Informal",
-    "Unwind",
-    "Peer feedback/exchange"
+    "Peer feedback/exchange",
+    "Small groups"
    ],
-   "zusammenfassung": "Members' lunch around soup and stories – community gathering, relaxed setting & time to unwind.",
+   "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around soup and stories. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Events Intern · On site: Community Lead and Membership Team (hosting the table)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -456,34 +366,34 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-011",
-   "titel": "Pitch Deck Clinic",
-   "datum": "2026-03-03",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
+   "titel": "Founders Circle",
+   "datum": "2026-01-20",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
    "status": "Done",
-   "ort": "Salon",
+   "ort": "Loft – Workshop Room",
    "kapazität": 20,
    "anmeldungen": 26,
    "verantwortlich": "Membership Team",
    "eventbriteId": "EB-DEMO-1011",
    "kalenderId": "CAL-DEMO-2011",
    "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Expert guidance",
-    "Group work"
+    "Small groups",
+    "Peer feedback/exchange",
+    "Coaching/consulting",
+    "Skillshare"
    ],
-   "zusammenfassung": "Practical workshop on pitch decks – practical exercises, expert input & group work.",
+   "zusammenfassung": "Peer circle for one member group around founder life – small group, peer feedback & coaching.",
    "beschreibung": {
-    "worum": "A hands-on session on pitch decks. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Salon, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. An expert guides you through the topic and answers your questions. Expect to roll up your sleeves and work together in small teams.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on pitch decks and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of pitch decks needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on pitch decks to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on pitch decks\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "A small peer circle around founder life: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Loft – Workshop Room, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. Experienced coaches help you work on your own, specific challenges. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -501,77 +411,35 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-014",
-   "titel": "AI for the Common Good",
-   "datum": "2026-03-11",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
+   "id": "evt-005",
+   "titel": "Monday Kick-off: Coffee & Focus",
+   "datum": "2026-01-26",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 50,
-   "anmeldungen": 58,
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 32,
    "verantwortlich": "Community Lead",
-   "eventbriteId": "EB-DEMO-1014",
-   "kalenderId": "CAL-DEMO-2014",
+   "eventbriteId": "EB-DEMO-1005",
+   "kalenderId": "CAL-DEMO-2005",
    "tags": [
-    "Keynote/panel",
-    "Peer feedback/exchange"
+    "Community/Gathering",
+    "Informal",
+    "Small groups",
+    "Unwind"
    ],
-   "zusammenfassung": "Inspiring talk on AI for the common good – keynote & panel & peer feedback.",
+   "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & small group.",
    "beschreibung": {
-    "worum": "An inspiring input on AI for the common good: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Loft – Event Space: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on AI for the common good and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in AI for the common good and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on AI for the common good\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on AI for the common good\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-013",
-   "titel": "Community Crossover Day",
-   "datum": "2026-03-12",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
-   "status": "Done",
-   "ort": "Rooftop Terrace",
-   "kapazität": 60,
-   "anmeldungen": 69,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "EB-DEMO-1013",
-   "kalenderId": "CAL-DEMO-2013",
-   "tags": [
-    "Guided networking",
-    "Collaboration"
-   ],
-   "zusammenfassung": "Community evening around cross-community exchange – guided networking & collaboration.",
-   "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around cross-community exchange. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Rooftop Terrace for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. The focus is on collaboration and finding partners for joint projects.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -590,33 +458,214 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-012",
-   "titel": "Design Thinking in 3 Hours",
-   "datum": "2026-03-19",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
+   "titel": "Community Lunch: New Year Edition",
+   "datum": "2026-01-28",
+   "startzeit": "12:30",
+   "kategorie": "Community",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 36,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1012",
+   "kalenderId": "CAL-DEMO-2012",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Members' lunch around new year's resolutions – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around new year's resolutions.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
+    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Membership Team · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-009",
+   "titel": "Winedown: Winter Reds",
+   "datum": "2026-01-29",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 50,
+   "anmeldungen": 62,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1009",
+   "kalenderId": "CAL-DEMO-2009",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Guided networking",
+    "Community/Gathering"
+   ],
+   "zusammenfassung": "End-of-month wine evening around winter reds – time to unwind, relaxed setting & guided networking.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around winter reds. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Kitchen & Lounge for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about winter reds\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-014",
+   "titel": "Monday Kick-off: Who's New?",
+   "datum": "2026-02-02",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 29,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1014",
+   "kalenderId": "CAL-DEMO-2014",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-018",
+   "titel": "Academy: Money Literacy for Founders",
+   "datum": "2026-02-03",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
    "status": "Done",
    "ort": "Salon",
    "kapazität": 20,
    "anmeldungen": 24,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1012",
-   "kalenderId": "CAL-DEMO-2012",
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1018",
+   "kalenderId": "CAL-DEMO-2018",
    "tags": [
     "Workshop",
     "Practical exercises",
-    "Peer feedback/exchange"
+    "Coaching/consulting"
    ],
-   "zusammenfassung": "Practical workshop on design thinking – practical exercises & peer feedback.",
+   "zusammenfassung": "Practical Academy session on money literacy – hands-on workshop, practical exercises & coaching.",
    "beschreibung": {
-    "worum": "A hands-on session on design thinking. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Salon, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on design thinking and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of design thinking needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on design thinking to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on design thinking\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "",
+    "rahmen": "",
+    "haeufigkeit": "",
+    "warum": "",
+    "zielgruppe": "",
+    "ergebnis": "",
+    "agenda": "",
+    "tickets": "",
+    "betreuung": ""
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-013",
+   "titel": "Monthly Meetup: Asks & Offers",
+   "datum": "2026-02-04",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 60,
+   "anmeldungen": 78,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1013",
+   "kalenderId": "CAL-DEMO-2013",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Our monthly community evening around asks and offers – community gathering, guided networking & matchmaking.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around asks and offers. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Rooftop Terrace for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -635,33 +684,33 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-015",
-   "titel": "Wednesday Wrap: Bring Your Bowl",
-   "datum": "2026-03-25",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
+   "titel": "Monday Kick-off: Tool Tip",
+   "datum": "2026-02-09",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
    "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 36,
+   "kapazität": 25,
+   "anmeldungen": 30,
    "verantwortlich": "Host Team",
    "eventbriteId": "EB-DEMO-1015",
    "kalenderId": "CAL-DEMO-2015",
    "tags": [
     "Community/Gathering",
     "Informal",
-    "Skillshare"
+    "Unwind"
    ],
-   "zusammenfassung": "Members' lunch around favourite recipes – community gathering, relaxed setting & skillshare.",
+   "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around favourite recipes. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Host Team · On site: Community Lead and Membership Team (hosting the table)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -671,98 +720,6 @@ window.DEMO_DATEN = {
     {
      "text": "Send feedback email",
      "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-016",
-   "titel": "Open Pitch Night: Meet the Next Impact Founders",
-   "datum": "2026-03-26",
-   "startzeit": "18:30",
-   "kategorie": "Pitch Night",
-   "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 80,
-   "anmeldungen": 89,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1016",
-   "kalenderId": "CAL-DEMO-2016",
-   "tags": [
-    "Peer feedback/exchange",
-    "Matchmaking",
-    "Coaching/consulting",
-    "Formal"
-   ],
-   "zusammenfassung": "Startup pitch night on the next impact founders – peer feedback, matchmaking & coaching.",
-   "beschreibung": {
-    "worum": "Young impact startups take the stage: 3 minutes each to pitch their idea – this edition: the next impact founders. Followed by questions and feedback from mentors, investors and the audience. Expect nervous energy, big ideas and a lot of cheering.",
-    "rahmen": "Evening stage event in the Loft – Event Space: 6–8 pitches, a jury of mentors & investors, audience award, 80 seats. You'll share your work and get honest, constructive feedback from peers. We match people with complementary needs and offers. Experienced coaches help you work on your own, specific challenges. The session follows a clear agenda and a structured flow.",
-    "haeufigkeit": "Quarterly – the last Thursday of each quarter.",
-    "warum": "We give early-stage founders a stage, honest feedback and access to investors – and show the community what's being built right now.",
-    "zielgruppe": "On stage: early-stage impact startups. In the audience: members, investors, mentors, partners and everyone curious about new ventures.",
-    "ergebnis": "• Founders: feedback, visibility and investor contacts\n• Audience: a first look at new ventures and ways to get involved\n• Audience award for the favourite pitch",
-    "agenda": "18:30 – Doors open & drinks\n19:00 – Welcome & jury introduction\n19:10 – Pitches (3 min + 4 min Q&A each)\n20:30 – Jury feedback & audience voting\n20:50 – Award & networking\n22:00 – End",
-    "tickets": "Free for members and pitching teams, €5 for guests. 80 tickets via Eventbrite. Startups apply to pitch via the application form (demo).",
-    "betreuung": "Lead: Events Intern · On site: Programme Team (startups & jury), Host Team (tech, bar, check-in) · Jury: mentors & investors from the network (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": false
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-017",
-   "titel": "Social Media on a Small Budget",
-   "datum": "2026-04-07",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
-   "status": "Done",
-   "ort": "Online (demo Zoom)",
-   "kapazität": 20,
-   "anmeldungen": 13,
-   "verantwortlich": "Host Team",
-   "eventbriteId": "EB-DEMO-1017",
-   "kalenderId": "CAL-DEMO-2017",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Small groups",
-    "1:1 sessions"
-   ],
-   "zusammenfassung": "Practical workshop on social media on a budget – practical exercises, small group & 1:1 sessions.",
-   "beschreibung": {
-    "worum": "A hands-on session on social media on a budget. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Online (demo Zoom), max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. We keep the group small, so everyone gets space to ask questions and contribute. You can book short 1:1 slots for your individual questions.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on social media on a budget and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of social media on a budget needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on social media on a budget to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on social media on a budget\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Host Team · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": false
     },
     {
      "text": "Add numbers to Notion",
@@ -772,302 +729,33 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-020",
-   "titel": "Democracy Needs Entrepreneurship",
-   "datum": "2026-04-08",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
+   "titel": "Drops of Inspiration: Green Spaces in the City",
+   "datum": "2026-02-11",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
    "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 50,
-   "anmeldungen": 38,
+   "ort": "Salon",
+   "kapazität": 40,
+   "anmeldungen": 50,
    "verantwortlich": "Programme Team",
    "eventbriteId": "EB-DEMO-1020",
    "kalenderId": "CAL-DEMO-2020",
    "tags": [
     "Keynote/panel",
-    "Formal",
-    "Peer feedback/exchange"
-   ],
-   "zusammenfassung": "Inspiring talk on democracy & entrepreneurship – keynote & panel, structured format & peer feedback.",
-   "beschreibung": {
-    "worum": "An inspiring input on democracy & entrepreneurship: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Loft – Event Space: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. The session follows a clear agenda and a structured flow. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on democracy & entrepreneurship and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in democracy & entrepreneurship and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on democracy & entrepreneurship\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on democracy & entrepreneurship\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-019",
-   "titel": "International Dinner – Levant Edition",
-   "datum": "2026-04-09",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
-   "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 60,
-   "anmeldungen": 51,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1019",
-   "kalenderId": "CAL-DEMO-2019",
-   "tags": [
-    "Guided networking",
-    "Community/Gathering"
-   ],
-   "zusammenfassung": "Community evening around food from the Levant – guided networking & community gathering.",
-   "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around food from the Levant. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Loft – Event Space for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": false
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-018",
-   "titel": "Measuring Impact Made Simple",
-   "datum": "2026-04-16",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
-   "status": "Done",
-   "ort": "Loft – Workshop Room",
-   "kapazität": 20,
-   "anmeldungen": 15,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "EB-DEMO-1018",
-   "kalenderId": "CAL-DEMO-2018",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Peer feedback/exchange",
-    "Expert guidance"
-   ],
-   "zusammenfassung": "Practical workshop on impact measurement – practical exercises, peer feedback & expert input.",
-   "beschreibung": {
-    "worum": "A hands-on session on impact measurement. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Loft – Workshop Room, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You'll share your work and get honest, constructive feedback from peers. An expert guides you through the topic and answers your questions.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on impact measurement and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of impact measurement needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on impact measurement to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on impact measurement\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-021",
-   "titel": "Wednesday Wrap: Spring Kitchen",
-   "datum": "2026-04-29",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
-   "status": "Done",
-   "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 23,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1021",
-   "kalenderId": "CAL-DEMO-2021",
-   "tags": [
-    "Community/Gathering",
     "Informal",
-    "Unwind"
-   ],
-   "zusammenfassung": "Members' lunch around spring food – community gathering, relaxed setting & time to unwind.",
-   "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around spring food. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Events Intern · On site: Community Lead and Membership Team (hosting the table)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-022",
-   "titel": "Finding & Using Funding",
-   "datum": "2026-05-05",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
-   "status": "Done",
-   "ort": "Loft – Workshop Room",
-   "kapazität": 20,
-   "anmeldungen": 15,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "EB-DEMO-1022",
-   "kalenderId": "CAL-DEMO-2022",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Skillshare"
-   ],
-   "zusammenfassung": "Practical workshop on funding – practical exercises & skillshare.",
-   "beschreibung": {
-    "worum": "A hands-on session on funding. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Loft – Workshop Room, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on funding and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of funding needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on funding to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on funding\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-025",
-   "titel": "Circular Fashion: What Really Counts",
-   "datum": "2026-05-13",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
-   "status": "Done",
-   "ort": "Salon",
-   "kapazität": 50,
-   "anmeldungen": 42,
-   "verantwortlich": "Host Team",
-   "eventbriteId": "EB-DEMO-1025",
-   "kalenderId": "CAL-DEMO-2025",
-   "tags": [
-    "Keynote/panel",
-    "Formal",
     "Expert guidance"
    ],
-   "zusammenfassung": "Inspiring talk on circular fashion – keynote & panel, structured format & expert input.",
+   "zusammenfassung": "A short lunchtime input on urban green spaces – keynote & panel, relaxed setting & expert input.",
    "beschreibung": {
-    "worum": "An inspiring input on circular fashion: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Salon: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. The session follows a clear agenda and a structured flow. An expert guides you through the topic and answers your questions.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on circular fashion and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in circular fashion and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on circular fashion\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on circular fashion\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-024",
-   "titel": "Welcome Evening for New Members",
-   "datum": "2026-05-14",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
-   "status": "Done",
-   "ort": "Partner venue (demo)",
-   "kapazität": 60,
-   "anmeldungen": 50,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "EB-DEMO-1024",
-   "kalenderId": "CAL-DEMO-2024",
-   "tags": [
-    "Guided networking",
-    "Informal"
-   ],
-   "zusammenfassung": "Community evening around getting started at the Hub – guided networking & relaxed setting.",
-   "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around getting started at the Hub. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Partner venue (demo) for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. The vibe is relaxed and informal – come as you are.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
+    "worum": "A short, inspiring input on urban green spaces over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Salon, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. The vibe is relaxed and informal – come as you are. An expert guides you through the topic and answers your questions.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on urban green spaces.",
+    "zielgruppe": "Members and guests curious about urban green spaces – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on urban green spaces\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on urban green spaces\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -1086,33 +774,32 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-023",
-   "titel": "Get Clear on Your Most Effective Next Steps",
-   "datum": "2026-05-21",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
+   "titel": "Collab Night with a Climate Network (demo)",
+   "datum": "2026-02-12",
+   "startzeit": "18:00",
+   "kategorie": "Collaboration",
    "status": "Done",
-   "ort": "Online (demo Zoom)",
-   "kapazität": 20,
-   "anmeldungen": 17,
-   "verantwortlich": "Programme Team",
+   "ort": "Loft – Event Space",
+   "kapazität": 50,
+   "anmeldungen": 64,
+   "verantwortlich": "Events Intern",
    "eventbriteId": "EB-DEMO-1023",
    "kalenderId": "CAL-DEMO-2023",
    "tags": [
-    "Workshop",
-    "Practical exercises",
-    "1:1 sessions"
+    "Collaboration",
+    "Group work"
    ],
-   "zusammenfassung": "Practical workshop on prioritising what matters – practical exercises & 1:1 sessions.",
+   "zusammenfassung": "Joint evening with a partner organisation on climate action – group work.",
    "beschreibung": {
-    "worum": "A hands-on session on prioritising what matters. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Online (demo Zoom), max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on prioritising what matters and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of prioritising what matters needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on prioritising what matters to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on prioritising what matters\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "A joint evening with a partner organisation on climate action. Both communities meet, share projects and look for ways to work together.",
+    "rahmen": "Evening event in the Loft – Event Space, around 50 guests from both communities. The focus is on collaboration and finding partners for joint projects. Expect to roll up your sleeves and work together in small teams.",
+    "haeufigkeit": "Every other month – 2nd Thursday.",
+    "warum": "Partnerships bring new people, ideas and opportunities into the Hub.",
+    "zielgruppe": "Members and the partner's community.",
+    "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
+    "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
+    "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
+    "betreuung": "Lead: Events Intern · On site: Host Team and partner team (demo)"
    },
    "aufgaben": [
     {
@@ -1130,39 +817,267 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-027",
-   "titel": "Wednesday Wrap: Rooftop Picnic",
-   "datum": "2026-05-27",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
+   "id": "evt-025",
+   "titel": "Partner Session: Sustainable Procurement (demo)",
+   "datum": "2026-02-13",
+   "startzeit": "10:00",
+   "kategorie": "Partner Deliverable",
+   "status": "Done",
+   "ort": "Partner venue (demo)",
+   "kapazität": 40,
+   "anmeldungen": 47,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1025",
+   "kalenderId": "CAL-DEMO-2025",
+   "tags": [
+    "Expert guidance",
+    "Formal",
+    "Keynote/panel"
+   ],
+   "zusammenfassung": "Session delivered with a programme partner on sustainable procurement – expert input, structured format & keynote & panel.",
+   "beschreibung": {
+    "worum": "A session we deliver together with a programme partner on sustainable procurement – with input, examples and room for discussion.",
+    "rahmen": "Morning session in the Partner venue (demo), up to 40 participants. An expert guides you through the topic and answers your questions. The session follows a clear agenda and a structured flow. A keynote or panel brings fresh perspectives, followed by an open Q&A.",
+    "haeufigkeit": "As agreed with the partner – about five times a year.",
+    "warum": "Part of a partner agreement: we bring the community, the partner brings expertise and funding.",
+    "zielgruppe": "Members and guests working on sustainable procurement, plus the partner's network.",
+    "ergebnis": "• Expert knowledge on sustainable procurement\n• Contacts to the partner\n• Fulfilled partner deliverable",
+    "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
+    "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Programme Team · Partner contact: partner team (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-016",
+   "titel": "Monday Kick-off: Weekly Goals",
+   "datum": "2026-02-16",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
    "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 25,
+   "kapazität": 25,
+   "anmeldungen": 28,
    "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1027",
-   "kalenderId": "CAL-DEMO-2027",
+   "eventbriteId": "EB-DEMO-1016",
+   "kalenderId": "CAL-DEMO-2016",
    "tags": [
     "Community/Gathering",
     "Informal",
-    "Peer feedback/exchange"
+    "Unwind",
+    "Small groups"
    ],
-   "zusammenfassung": "Members' lunch around a rooftop picnic – community gathering, relaxed setting & peer feedback.",
+   "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around a rooftop picnic. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Events Intern · On site: Community Lead and Membership Team (hosting the table)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-022",
+   "titel": "Freelancers Circle",
+   "datum": "2026-02-17",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 24,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1022",
+   "kalenderId": "CAL-DEMO-2022",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Formal"
+   ],
+   "zusammenfassung": "Peer circle for one member group around freelance life – small group, peer feedback & structured format.",
+   "beschreibung": {
+    "worum": "A small peer circle around freelance life: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Salon, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. The session follows a clear agenda and a structured flow.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
      "text": "Share photos",
      "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-019",
+   "titel": "Academy: Taming Your Inner Critic",
+   "datum": "2026-02-19",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 22,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1019",
+   "kalenderId": "CAL-DEMO-2019",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Skillshare",
+    "Group work"
+   ],
+   "zusammenfassung": "Practical Academy session on dealing with your inner critic – hands-on workshop, practical exercises & skillshare.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on dealing with your inner critic. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Salon, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice. Expect to roll up your sleeves and work together in small teams.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on dealing with your inner critic and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on dealing with your inner critic\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on dealing with your inner critic\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-024",
+   "titel": "Cross-Hub Exchange: Winter Edition",
+   "datum": "2026-02-20",
+   "startzeit": "15:00",
+   "kategorie": "Cross-Community",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 60,
+   "anmeldungen": 78,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1024",
+   "kalenderId": "CAL-DEMO-2024",
+   "tags": [
+    "Guided networking",
+    "Collaboration",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Exchange with other Hub communities on exchange between Hubs – guided networking, collaboration & matchmaking.",
+   "beschreibung": {
+    "worum": "Members from several Hub communities meet on exchange between Hubs: short intros, matchmaking and space for joint projects.",
+    "rahmen": "Hybrid format (Loft – Event Space), up to 60 participants from several Hubs. Our hosts guide the networking, so you meet the right people – no awkward small talk. The focus is on collaboration and finding partners for joint projects. We match people with complementary needs and offers.",
+    "haeufigkeit": "Four times a year – 3rd Friday afternoon.",
+    "warum": "The global network is one of our biggest assets – we make it tangible for members.",
+    "zielgruppe": "Members looking for partners, clients or ideas beyond the city.",
+    "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
+    "agenda": "15:00 – Welcome\n15:10 – Intros from each Hub\n15:30 – Breakout matchmaking\n16:20 – Wrap-up\n16:30 – End",
+    "tickets": "Free for members. 60 spots via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team · Co-hosts from partner Hubs (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-017",
+   "titel": "Monday Kick-off: Asks & Offers",
+   "datum": "2026-02-23",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 28,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1017",
+   "kalenderId": "CAL-DEMO-2017",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
     },
     {
      "text": "Send feedback email",
@@ -1176,33 +1091,79 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-026",
-   "titel": "Common Good Balance Sheet in Practice",
-   "datum": "2026-05-27",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
+   "titel": "Community Lunch: Soup & Exchange",
+   "datum": "2026-02-25",
+   "startzeit": "12:30",
+   "kategorie": "Community",
    "status": "Done",
-   "ort": "Salon",
-   "kapazität": 50,
-   "anmeldungen": 38,
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 36,
    "verantwortlich": "Community Lead",
    "eventbriteId": "EB-DEMO-1026",
    "kalenderId": "CAL-DEMO-2026",
    "tags": [
-    "Keynote/panel",
-    "Peer feedback/exchange",
-    "Formal"
+    "Community/Gathering",
+    "Informal",
+    "Skillshare",
+    "Unwind"
    ],
-   "zusammenfassung": "Inspiring talk on the common good balance sheet – keynote & panel, peer feedback & structured format.",
+   "zusammenfassung": "Members' lunch around soup and stories – community gathering, relaxed setting & skillshare.",
    "beschreibung": {
-    "worum": "An inspiring input on the common good balance sheet: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Salon: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers. The session follows a clear agenda and a structured flow.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on the common good balance sheet and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in the common good balance sheet and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on the common good balance sheet\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on the common good balance sheet\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around soup and stories.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
+    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Community Lead · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-021",
+   "titel": "Winedown: Natural Wines",
+   "datum": "2026-02-26",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 50,
+   "anmeldungen": 61,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1021",
+   "kalenderId": "CAL-DEMO-2021",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Guided networking"
+   ],
+   "zusammenfassung": "End-of-month wine evening around natural wines – time to unwind, relaxed setting & guided networking.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around natural wines. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Rooftop Terrace for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. Our hosts guide the networking, so you meet the right people – no awkward small talk.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about natural wines\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -1221,168 +1182,33 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-028",
-   "titel": "Prototyping Afternoon",
-   "datum": "2026-06-02",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
+   "titel": "Monday Kick-off: Wins of Last Week",
+   "datum": "2026-03-02",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
-   "ort": "Online (demo Zoom)",
-   "kapazität": 20,
-   "anmeldungen": 17,
-   "verantwortlich": "Events Intern",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 32,
+   "verantwortlich": "Community Lead",
    "eventbriteId": "EB-DEMO-1028",
    "kalenderId": "CAL-DEMO-2028",
    "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Small groups"
-   ],
-   "zusammenfassung": "Practical workshop on prototyping – practical exercises & small group.",
-   "beschreibung": {
-    "worum": "A hands-on session on prototyping. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Online (demo Zoom), max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. We keep the group small, so everyone gets space to ask questions and contribute.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on prototyping and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of prototyping needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on prototyping to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on prototyping\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-031",
-   "titel": "Fireside Chat: Failing & Starting Over",
-   "datum": "2026-06-10",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
-   "status": "Done",
-   "ort": "Salon",
-   "kapazität": 50,
-   "anmeldungen": 40,
-   "verantwortlich": "Programme Team",
-   "eventbriteId": "EB-DEMO-1031",
-   "kalenderId": "CAL-DEMO-2031",
-   "tags": [
-    "Keynote/panel",
+    "Community/Gathering",
+    "Informal",
     "Peer feedback/exchange"
    ],
-   "zusammenfassung": "Inspiring talk on failing and starting over – keynote & panel & peer feedback.",
+   "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
-    "worum": "An inspiring input on failing and starting over: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Salon: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on failing and starting over and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in failing and starting over and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on failing and starting over\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on failing and starting over\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-030",
-   "titel": "Summer Spritz on the Rooftop",
-   "datum": "2026-06-11",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
-   "status": "Done",
-   "ort": "Partner venue (demo)",
-   "kapazität": 60,
-   "anmeldungen": 40,
-   "verantwortlich": "Programme Team",
-   "eventbriteId": "EB-DEMO-1030",
-   "kalenderId": "CAL-DEMO-2030",
-   "tags": [
-    "Guided networking",
-    "Matchmaking",
-    "Collaboration"
-   ],
-   "zusammenfassung": "Community evening around summer vibes – guided networking, matchmaking & collaboration.",
-   "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around summer vibes. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Partner venue (demo) for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers. The focus is on collaboration and finding partners for joint projects.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-029",
-   "titel": "Pricing for Social Ventures",
-   "datum": "2026-06-18",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
-   "status": "Done",
-   "ort": "Online (demo Zoom)",
-   "kapazität": 20,
-   "anmeldungen": 14,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1029",
-   "kalenderId": "CAL-DEMO-2029",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Coaching/consulting",
-    "Peer feedback/exchange"
-   ],
-   "zusammenfassung": "Practical workshop on pricing – practical exercises, coaching & peer feedback.",
-   "beschreibung": {
-    "worum": "A hands-on session on pricing. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Online (demo Zoom), max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Experienced coaches help you work on your own, specific challenges. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on pricing and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of pricing needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on pricing to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on pricing\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1401,38 +1227,84 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-032",
-   "titel": "Wednesday Wrap: Members Cook",
-   "datum": "2026-06-24",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
+   "titel": "Academy: Pitch Deck Clinic",
+   "datum": "2026-03-03",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
    "status": "Done",
-   "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 21,
-   "verantwortlich": "Community Lead",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 20,
+   "anmeldungen": 24,
+   "verantwortlich": "Events Intern",
    "eventbriteId": "EB-DEMO-1032",
    "kalenderId": "CAL-DEMO-2032",
    "tags": [
-    "Community/Gathering",
-    "Informal",
-    "Peer feedback/exchange"
+    "Workshop",
+    "Practical exercises",
+    "1:1 sessions",
+    "Small groups"
    ],
-   "zusammenfassung": "Members' lunch around members' home cooking – community gathering, relaxed setting & peer feedback.",
+   "zusammenfassung": "Practical Academy session on pitch decks – hands-on workshop, practical exercises & 1:1 sessions.",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around members' home cooking. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Community Lead · On site: Community Lead and Membership Team (hosting the table)"
+    "worum": "A hands-on Academy session on pitch decks. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Loft – Workshop Room, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on pitch decks and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on pitch decks\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on pitch decks\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
      "text": "Share photos",
      "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-027",
+   "titel": "Monthly Meetup: Spring Projects",
+   "datum": "2026-03-04",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 60,
+   "anmeldungen": 77,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1027",
+   "kalenderId": "CAL-DEMO-2027",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Informal"
+   ],
+   "zusammenfassung": "Our monthly community evening around spring projects – community gathering, guided networking & relaxed setting.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around spring projects. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Rooftop Terrace for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. The vibe is relaxed and informal – come as you are.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
     },
     {
      "text": "Send feedback email",
@@ -1445,34 +1317,35 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-033",
-   "titel": "Open Pitch Night: Summer Edition",
-   "datum": "2026-06-25",
-   "startzeit": "18:30",
-   "kategorie": "Pitch Night",
+   "id": "evt-029",
+   "titel": "Monday Kick-off: Coffee & Focus",
+   "datum": "2026-03-09",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 80,
-   "anmeldungen": 52,
-   "verantwortlich": "Host Team",
-   "eventbriteId": "EB-DEMO-1033",
-   "kalenderId": "CAL-DEMO-2033",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 31,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1029",
+   "kalenderId": "CAL-DEMO-2029",
    "tags": [
-    "Peer feedback/exchange",
-    "Matchmaking",
-    "Expert guidance"
+    "Community/Gathering",
+    "Informal",
+    "Unwind",
+    "Peer feedback/exchange"
    ],
-   "zusammenfassung": "Startup pitch night on summer ventures – peer feedback, matchmaking & expert input.",
+   "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
-    "worum": "Young impact startups take the stage: 3 minutes each to pitch their idea – this edition: summer ventures. Followed by questions and feedback from mentors, investors and the audience. Expect nervous energy, big ideas and a lot of cheering.",
-    "rahmen": "Evening stage event in the Loft – Event Space: 6–8 pitches, a jury of mentors & investors, audience award, 80 seats. You'll share your work and get honest, constructive feedback from peers. We match people with complementary needs and offers. An expert guides you through the topic and answers your questions.",
-    "haeufigkeit": "Quarterly – the last Thursday of each quarter.",
-    "warum": "We give early-stage founders a stage, honest feedback and access to investors – and show the community what's being built right now.",
-    "zielgruppe": "On stage: early-stage impact startups. In the audience: members, investors, mentors, partners and everyone curious about new ventures.",
-    "ergebnis": "• Founders: feedback, visibility and investor contacts\n• Audience: a first look at new ventures and ways to get involved\n• Audience award for the favourite pitch",
-    "agenda": "18:30 – Doors open & drinks\n19:00 – Welcome & jury introduction\n19:10 – Pitches (3 min + 4 min Q&A each)\n20:30 – Jury feedback & audience voting\n20:50 – Award & networking\n22:00 – End",
-    "tickets": "Free for members and pitching teams, €5 for guests. 80 tickets via Eventbrite. Startups apply to pitch via the application form (demo).",
-    "betreuung": "Lead: Host Team · On site: Programme Team (startups & jury), Host Team (tech, bar, check-in) · Jury: mentors & investors from the network (demo)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1491,33 +1364,216 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-034",
-   "titel": "Freelance Basics: Invoices, Taxes & Co.",
-   "datum": "2026-07-07",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
+   "titel": "Drops of Inspiration: AI for the Common Good",
+   "datum": "2026-03-11",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
    "status": "Done",
-   "ort": "Online (demo Zoom)",
-   "kapazität": 20,
-   "anmeldungen": 17,
-   "verantwortlich": "Community Lead",
+   "ort": "Loft – Event Space",
+   "kapazität": 40,
+   "anmeldungen": 49,
+   "verantwortlich": "Membership Team",
    "eventbriteId": "EB-DEMO-1034",
    "kalenderId": "CAL-DEMO-2034",
    "tags": [
+    "Keynote/panel",
+    "Informal",
+    "Expert guidance"
+   ],
+   "zusammenfassung": "A short lunchtime input on AI for the common good – keynote & panel, relaxed setting & expert input.",
+   "beschreibung": {
+    "worum": "A short, inspiring input on AI for the common good over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Loft – Event Space, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. The vibe is relaxed and informal – come as you are. An expert guides you through the topic and answers your questions.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on AI for the common good.",
+    "zielgruppe": "Members and guests curious about AI for the common good – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on AI for the common good\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on AI for the common good\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-030",
+   "titel": "Monday Kick-off: Who's New?",
+   "datum": "2026-03-16",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 32,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1030",
+   "kalenderId": "CAL-DEMO-2030",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-036",
+   "titel": "Women in Impact Circle",
+   "datum": "2026-03-17",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 25,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1036",
+   "kalenderId": "CAL-DEMO-2036",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Formal",
+    "Coaching/consulting"
+   ],
+   "zusammenfassung": "Peer circle for one member group around women in impact – small group, peer feedback & structured format.",
+   "beschreibung": {
+    "worum": "A small peer circle around women in impact: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Salon, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. The session follows a clear agenda and a structured flow. Experienced coaches help you work on your own, specific challenges.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Programme Team · Facilitation: Community Lead or a member host"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-033",
+   "titel": "Academy: Design Thinking in 3 Hours",
+   "datum": "2026-03-19",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 24,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1033",
+   "kalenderId": "CAL-DEMO-2033",
+   "tags": [
     "Workshop",
     "Practical exercises",
+    "Group work",
     "1:1 sessions"
    ],
-   "zusammenfassung": "Practical workshop on freelance basics – practical exercises & 1:1 sessions.",
+   "zusammenfassung": "Practical Academy session on design thinking – hands-on workshop, practical exercises & group work.",
    "beschreibung": {
-    "worum": "A hands-on session on freelance basics. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Online (demo Zoom), max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on freelance basics and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of freelance basics needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on freelance basics to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on freelance basics\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "A hands-on Academy session on design thinking. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Salon, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Expect to roll up your sleeves and work together in small teams. You can book short 1:1 slots for your individual questions.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on design thinking and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on design thinking\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on design thinking\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-031",
+   "titel": "Monday Kick-off: Tool Tip",
+   "datum": "2026-03-23",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 30,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1031",
+   "kalenderId": "CAL-DEMO-2031",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1536,169 +1592,33 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-037",
-   "titel": "Energy Communities in the Neighbourhood",
-   "datum": "2026-07-08",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
+   "titel": "Idea Starter Pack 1: From Idea to Problem",
+   "datum": "2026-03-24",
+   "startzeit": "17:30",
+   "kategorie": "Idea Starter Pack",
    "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 50,
-   "anmeldungen": 43,
+   "ort": "Salon",
+   "kapazität": 15,
+   "anmeldungen": 18,
    "verantwortlich": "Community Lead",
    "eventbriteId": "EB-DEMO-1037",
    "kalenderId": "CAL-DEMO-2037",
    "tags": [
-    "Keynote/panel",
-    "Peer feedback/exchange"
+    "Coaching/consulting",
+    "Small groups",
+    "Workshop"
    ],
-   "zusammenfassung": "Inspiring talk on energy communities – keynote & panel & peer feedback.",
+   "zusammenfassung": "Guided step for early ideas: finding the real problem – coaching, small group & hands-on workshop.",
    "beschreibung": {
-    "worum": "An inspiring input on energy communities: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Loft – Event Space: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on energy communities and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in energy communities and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on energy communities\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on energy communities\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": false
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-036",
-   "titel": "Sunset Walk & Heuriger",
-   "datum": "2026-07-09",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
-   "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 60,
-   "anmeldungen": 42,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1036",
-   "kalenderId": "CAL-DEMO-2036",
-   "tags": [
-    "Guided networking",
-    "Community/Gathering",
-    "Matchmaking"
-   ],
-   "zusammenfassung": "Community evening around Vienna's vineyards – guided networking, community gathering & matchmaking.",
-   "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around Vienna's vineyards. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Loft – Event Space for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub. We match people with complementary needs and offers.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-035",
-   "titel": "Mindful Coworking",
-   "datum": "2026-07-16",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
-   "status": "Done",
-   "ort": "Salon",
-   "kapazität": 20,
-   "anmeldungen": 16,
-   "verantwortlich": "Community Lead",
-   "eventbriteId": "EB-DEMO-1035",
-   "kalenderId": "CAL-DEMO-2035",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "1:1 sessions",
-    "Group work"
-   ],
-   "zusammenfassung": "Practical workshop on mindful work – practical exercises, 1:1 sessions & group work.",
-   "beschreibung": {
-    "worum": "A hands-on session on mindful work. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Salon, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions. Expect to roll up your sleeves and work together in small teams.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on mindful work and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of mindful work needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on mindful work to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on mindful work\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-038",
-   "titel": "Wednesday Wrap: Summer Salads",
-   "datum": "2026-07-29",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
-   "status": "Done",
-   "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 19,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "EB-DEMO-1038",
-   "kalenderId": "CAL-DEMO-2038",
-   "tags": [
-    "Community/Gathering",
-    "Informal",
-    "Skillshare",
-    "Unwind"
-   ],
-   "zusammenfassung": "Members' lunch around summer salads – community gathering, relaxed setting & skillshare.",
-   "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around summer salads. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice. Leave the laptop behind and unwind with good people.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Membership Team · On site: Community Lead and Membership Team (hosting the table)"
+    "worum": "Part of our three-step programme for early ideas – this step: finding the real problem. With a coach and a small group you take your idea one step further.",
+    "rahmen": "Small group in the Salon, max. 15 people, with a coach. Experienced coaches help you work on your own, specific challenges. We keep the group small, so everyone gets space to ask questions and contribute. It's a hands-on format – you'll leave with concrete results, not just notes.",
+    "haeufigkeit": "Three sessions in spring and three in autumn – 4th Tuesday evening.",
+    "warum": "Many good ideas never start. A clear process and a supportive group help them get going.",
+    "zielgruppe": "Members and guests with an early idea for an impact project.",
+    "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
+    "agenda": "17:30 – Check-in\n17:40 – Method input: finding the real problem\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
+    "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
+    "betreuung": "Lead: Community Lead · Coach: external coach (demo)"
    },
    "aufgaben": [
     {
@@ -1717,34 +1637,124 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-039",
-   "titel": "Building Community from Scratch",
-   "datum": "2026-08-04",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
+   "titel": "Community Lunch: Bring Your Bowl",
+   "datum": "2026-03-25",
+   "startzeit": "12:30",
+   "kategorie": "Community",
    "status": "Done",
-   "ort": "Online (demo Zoom)",
-   "kapazität": 20,
-   "anmeldungen": 14,
-   "verantwortlich": "Events Intern",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 34,
+   "verantwortlich": "Programme Team",
    "eventbriteId": "EB-DEMO-1039",
    "kalenderId": "CAL-DEMO-2039",
    "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Skillshare",
-    "Expert guidance"
+    "Community/Gathering",
+    "Informal",
+    "Skillshare"
    ],
-   "zusammenfassung": "Practical workshop on community building – practical exercises, skillshare & expert input.",
+   "zusammenfassung": "Members' lunch around favourite recipes – community gathering, relaxed setting & skillshare.",
    "beschreibung": {
-    "worum": "A hands-on session on community building. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Online (demo Zoom), max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice. An expert guides you through the topic and answers your questions.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on community building and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of community building needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on community building to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on community building\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around favourite recipes.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
+    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Programme Team · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-035",
+   "titel": "Winedown: Spring Whites",
+   "datum": "2026-03-26",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 50,
+   "anmeldungen": 58,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1035",
+   "kalenderId": "CAL-DEMO-2035",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Community/Gathering",
+    "Guided networking"
+   ],
+   "zusammenfassung": "End-of-month wine evening around spring whites – time to unwind, relaxed setting & community gathering.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around spring whites. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Rooftop Terrace for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about spring whites\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-038",
+   "titel": "Quarterly: Spring Celebration",
+   "datum": "2026-03-27",
+   "startzeit": "17:00",
+   "kategorie": "Community Quarterlies",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 120,
+   "anmeldungen": 142,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1038",
+   "kalenderId": "CAL-DEMO-2038",
+   "tags": [
+    "Community/Gathering",
+    "Keynote/panel",
+    "Guided networking"
+   ],
+   "zusammenfassung": "Our big quarterly celebration of the first quarter – community gathering, keynote & panel & guided networking.",
+   "beschreibung": {
+    "worum": "Our big quarterly celebration: we look back at the first quarter, celebrate member wins and party together.",
+    "rahmen": "Big evening event in the Loft – Event Space for up to 120 guests, food, drinks and music. It's a chance to meet the community and feel at home in the Hub. A keynote or panel brings fresh perspectives, followed by an open Q&A. Our hosts guide the networking, so you meet the right people – no awkward small talk.",
+    "haeufigkeit": "Quarterly – last Friday of each quarter.",
+    "warum": "Celebrating milestones together makes the community visible and strong.",
+    "zielgruppe": "Members, alumni, partners and friends of the Hub.",
+    "ergebnis": "• Seeing what the community achieved\n• Meeting people from all corners of the Hub\n• A great evening",
+    "agenda": "17:00 – Doors open\n17:30 – Look back & member awards\n18:00 – Food, drinks & music\n21:00 – End",
+    "tickets": "Free for members, €10 for guests. 120 tickets via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: whole team, Host Team (bar & tech)"
    },
    "aufgaben": [
     {
@@ -1763,33 +1773,168 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-040",
-   "titel": "Speed Networking: Who Does What?",
-   "datum": "2026-08-13",
+   "titel": "Monthly Meetup: Member Spotlights",
+   "datum": "2026-04-01",
    "startzeit": "18:00",
-   "kategorie": "Networking",
+   "kategorie": "Community Monthlies",
    "status": "Done",
-   "ort": "Rooftop Terrace",
+   "ort": "Loft – Event Space",
    "kapazität": 60,
-   "anmeldungen": 48,
-   "verantwortlich": "Host Team",
+   "anmeldungen": 42,
+   "verantwortlich": "Events Intern",
    "eventbriteId": "EB-DEMO-1040",
    "kalenderId": "CAL-DEMO-2040",
    "tags": [
-    "Guided networking",
     "Community/Gathering",
-    "Informal"
+    "Guided networking",
+    "Matchmaking"
    ],
-   "zusammenfassung": "Community evening around skills in the community – guided networking, community gathering & relaxed setting.",
+   "zusammenfassung": "Our monthly community evening around member spotlights – community gathering, guided networking & matchmaking.",
    "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around skills in the community. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Rooftop Terrace for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Host Team · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
+    "worum": "Our monthly community evening – this time around member spotlights. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Loft – Event Space for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-041",
+   "titel": "Monday Kick-off: Weekly Goals",
+   "datum": "2026-04-06",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 17,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1041",
+   "kalenderId": "CAL-DEMO-2041",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-045",
+   "titel": "Academy: Social Media on a Small Budget",
+   "datum": "2026-04-07",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Online (demo Zoom)",
+   "kapazität": 20,
+   "anmeldungen": 14,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1045",
+   "kalenderId": "CAL-DEMO-2045",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Expert guidance",
+    "1:1 sessions"
+   ],
+   "zusammenfassung": "Practical Academy session on social media on a budget – hands-on workshop, practical exercises & expert input.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on social media on a budget. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Online (demo Zoom), max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. An expert guides you through the topic and answers your questions. You can book short 1:1 slots for your individual questions.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on social media on a budget and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on social media on a budget\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on social media on a budget\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-047",
+   "titel": "Drops of Inspiration: Democracy & Entrepreneurship",
+   "datum": "2026-04-08",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 40,
+   "anmeldungen": 35,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1047",
+   "kalenderId": "CAL-DEMO-2047",
+   "tags": [
+    "Keynote/panel",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "A short lunchtime input on democracy and entrepreneurship – keynote & panel & peer feedback.",
+   "beschreibung": {
+    "worum": "A short, inspiring input on democracy and entrepreneurship over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Salon, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on democracy and entrepreneurship.",
+    "zielgruppe": "Members and guests curious about democracy and entrepreneurship – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on democracy and entrepreneurship\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on democracy and entrepreneurship\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -1807,34 +1952,79 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-041",
-   "titel": "Wednesday Wrap: Bread & Ideas",
-   "datum": "2026-08-26",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
+   "id": "evt-051",
+   "titel": "Collab Night with a Design School (demo)",
+   "datum": "2026-04-09",
+   "startzeit": "18:00",
+   "kategorie": "Collaboration",
    "status": "Done",
-   "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 26,
+   "ort": "Loft – Event Space",
+   "kapazität": 50,
+   "anmeldungen": 32,
    "verantwortlich": "Host Team",
-   "eventbriteId": "EB-DEMO-1041",
-   "kalenderId": "CAL-DEMO-2041",
+   "eventbriteId": "EB-DEMO-1051",
+   "kalenderId": "CAL-DEMO-2051",
    "tags": [
-    "Community/Gathering",
-    "Informal",
-    "Skillshare"
+    "Collaboration",
+    "Keynote/panel",
+    "Matchmaking"
    ],
-   "zusammenfassung": "Members' lunch around fresh bread and ideas – community gathering, relaxed setting & skillshare.",
+   "zusammenfassung": "Joint evening with a partner organisation on design for good – keynote & panel & matchmaking.",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around fresh bread and ideas. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Host Team · On site: Community Lead and Membership Team (hosting the table)"
+    "worum": "A joint evening with a partner organisation on design for good. Both communities meet, share projects and look for ways to work together.",
+    "rahmen": "Evening event in the Loft – Event Space, around 50 guests from both communities. The focus is on collaboration and finding partners for joint projects. A keynote or panel brings fresh perspectives, followed by an open Q&A. We match people with complementary needs and offers.",
+    "haeufigkeit": "Every other month – 2nd Thursday.",
+    "warum": "Partnerships bring new people, ideas and opportunities into the Hub.",
+    "zielgruppe": "Members and the partner's community.",
+    "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
+    "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
+    "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
+    "betreuung": "Lead: Host Team · On site: Host Team and partner team (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-053",
+   "titel": "Partner Session: Green Mobility (demo)",
+   "datum": "2026-04-10",
+   "startzeit": "10:00",
+   "kategorie": "Partner Deliverable",
+   "status": "Done",
+   "ort": "Partner venue (demo)",
+   "kapazität": 40,
+   "anmeldungen": 27,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1053",
+   "kalenderId": "CAL-DEMO-2053",
+   "tags": [
+    "Expert guidance",
+    "Formal",
+    "Keynote/panel"
+   ],
+   "zusammenfassung": "Session delivered with a programme partner on green mobility – expert input, structured format & keynote & panel.",
+   "beschreibung": {
+    "worum": "A session we deliver together with a programme partner on green mobility – with input, examples and room for discussion.",
+    "rahmen": "Morning session in the Partner venue (demo), up to 40 participants. An expert guides you through the topic and answers your questions. The session follows a clear agenda and a structured flow. A keynote or panel brings fresh perspectives, followed by an open Q&A.",
+    "haeufigkeit": "As agreed with the partner – about five times a year.",
+    "warum": "Part of a partner agreement: we bring the community, the partner brings expertise and funding.",
+    "zielgruppe": "Members and guests working on green mobility, plus the partner's network.",
+    "ergebnis": "• Expert knowledge on green mobility\n• Contacts to the partner\n• Fulfilled partner deliverable",
+    "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
+    "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Programme Team · Partner contact: partner team (demo)"
    },
    "aufgaben": [
     {
@@ -1853,34 +2043,34 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-042",
-   "titel": "Inclusive Communication",
-   "datum": "2026-09-01",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
+   "titel": "Monday Kick-off: Asks & Offers",
+   "datum": "2026-04-13",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
-   "ort": "Loft – Workshop Room",
-   "kapazität": 20,
-   "anmeldungen": 16,
-   "verantwortlich": "Programme Team",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 20,
+   "verantwortlich": "Events Intern",
    "eventbriteId": "EB-DEMO-1042",
    "kalenderId": "CAL-DEMO-2042",
    "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Small groups",
-    "Skillshare"
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Unwind"
    ],
-   "zusammenfassung": "Practical workshop on inclusive communication – practical exercises, small group & skillshare.",
+   "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
-    "worum": "A hands-on session on inclusive communication. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Loft – Workshop Room, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. We keep the group small, so everyone gets space to ask questions and contribute. Community members share skills they have learned in practice.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on inclusive communication and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of inclusive communication needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on inclusive communication to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on inclusive communication\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1898,38 +2088,39 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-045",
-   "titel": "Impact Investing Explained",
-   "datum": "2026-09-09",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
+   "id": "evt-049",
+   "titel": "Town Hall: Spring Update",
+   "datum": "2026-04-14",
+   "startzeit": "17:00",
+   "kategorie": "Town Hall",
    "status": "Done",
-   "ort": "Salon",
-   "kapazität": 50,
-   "anmeldungen": 36,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1045",
-   "kalenderId": "CAL-DEMO-2045",
+   "ort": "Loft – Event Space",
+   "kapazität": 80,
+   "anmeldungen": 52,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1049",
+   "kalenderId": "CAL-DEMO-2049",
    "tags": [
-    "Keynote/panel",
+    "Formal",
+    "Community/Gathering",
     "Peer feedback/exchange"
    ],
-   "zusammenfassung": "Inspiring talk on impact investing – keynote & panel & peer feedback.",
+   "zusammenfassung": "Quarterly Town Hall on the spring update – structured format, community gathering & peer feedback.",
    "beschreibung": {
-    "worum": "An inspiring input on impact investing: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Salon: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on impact investing and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in impact investing and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on impact investing\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on impact investing\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
+    "worum": "Our quarterly Town Hall on the spring update: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
+    "rahmen": "Plenary in the Loft – Event Space, seating for 80, followed by drinks. The session follows a clear agenda and a structured flow. It's a chance to meet the community and feel at home in the Hub. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Quarterly – 2nd Tuesday of the first month of each quarter.",
+    "warum": "Transparency builds trust. Members understand decisions and help shape the Hub.",
+    "zielgruppe": "All members and residents of the Hub.",
+    "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
+    "agenda": "17:00 – Arrival\n17:10 – Update from the team\n17:40 – Q&A and feedback\n18:20 – Drinks\n19:00 – End",
+    "tickets": "Members only, free. Please register via Eventbrite (80 seats).",
+    "betreuung": "Lead: Membership Team · On site: whole team · Moderation: Community Lead"
    },
    "aufgaben": [
     {
      "text": "Share photos",
-     "erledigt": true
+     "erledigt": false
     },
     {
      "text": "Send feedback email",
@@ -1942,34 +2133,34 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-044",
-   "titel": "Collaboration Café",
-   "datum": "2026-09-10",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
+   "id": "evt-046",
+   "titel": "Academy: Measuring Impact Made Simple",
+   "datum": "2026-04-16",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
    "status": "Done",
-   "ort": "Rooftop Terrace",
-   "kapazität": 60,
-   "anmeldungen": 50,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1044",
-   "kalenderId": "CAL-DEMO-2044",
+   "ort": "Online (demo Zoom)",
+   "kapazität": 20,
+   "anmeldungen": 17,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1046",
+   "kalenderId": "CAL-DEMO-2046",
    "tags": [
-    "Guided networking",
-    "Informal",
-    "Community/Gathering"
+    "Workshop",
+    "Practical exercises",
+    "Small groups"
    ],
-   "zusammenfassung": "Community evening around joint projects – guided networking, relaxed setting & community gathering.",
+   "zusammenfassung": "Practical Academy session on impact measurement – hands-on workshop, practical exercises & small group.",
    "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around joint projects. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Rooftop Terrace for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. The vibe is relaxed and informal – come as you are. It's a chance to meet the community and feel at home in the Hub.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
+    "worum": "A hands-on Academy session on impact measurement. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Online (demo Zoom), max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on impact measurement and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on impact measurement\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on impact measurement\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -1988,169 +2179,34 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-043",
-   "titel": "Annual Planning with Impact",
-   "datum": "2026-09-17",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
+   "titel": "Monday Kick-off: Wins of Last Week",
+   "datum": "2026-04-20",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
    "status": "Done",
-   "ort": "Loft – Workshop Room",
-   "kapazität": 20,
-   "anmeldungen": 16,
-   "verantwortlich": "Events Intern",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 21,
+   "verantwortlich": "Programme Team",
    "eventbriteId": "EB-DEMO-1043",
    "kalenderId": "CAL-DEMO-2043",
    "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Skillshare"
-   ],
-   "zusammenfassung": "Practical workshop on annual planning – practical exercises & skillshare.",
-   "beschreibung": {
-    "worum": "A hands-on session on annual planning. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Loft – Workshop Room, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on annual planning and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of annual planning needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on annual planning to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on annual planning\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-047",
-   "titel": "Open Pitch Night: Autumn Edition",
-   "datum": "2026-09-24",
-   "startzeit": "18:30",
-   "kategorie": "Pitch Night",
-   "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 80,
-   "anmeldungen": 65,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1047",
-   "kalenderId": "CAL-DEMO-2047",
-   "tags": [
-    "Peer feedback/exchange",
-    "Matchmaking",
-    "Expert guidance"
-   ],
-   "zusammenfassung": "Startup pitch night on autumn ventures – peer feedback, matchmaking & expert input.",
-   "beschreibung": {
-    "worum": "Young impact startups take the stage: 3 minutes each to pitch their idea – this edition: autumn ventures. Followed by questions and feedback from mentors, investors and the audience. Expect nervous energy, big ideas and a lot of cheering.",
-    "rahmen": "Evening stage event in the Loft – Event Space: 6–8 pitches, a jury of mentors & investors, audience award, 80 seats. You'll share your work and get honest, constructive feedback from peers. We match people with complementary needs and offers. An expert guides you through the topic and answers your questions.",
-    "haeufigkeit": "Quarterly – the last Thursday of each quarter.",
-    "warum": "We give early-stage founders a stage, honest feedback and access to investors – and show the community what's being built right now.",
-    "zielgruppe": "On stage: early-stage impact startups. In the audience: members, investors, mentors, partners and everyone curious about new ventures.",
-    "ergebnis": "• Founders: feedback, visibility and investor contacts\n• Audience: a first look at new ventures and ways to get involved\n• Audience award for the favourite pitch",
-    "agenda": "18:30 – Doors open & drinks\n19:00 – Welcome & jury introduction\n19:10 – Pitches (3 min + 4 min Q&A each)\n20:30 – Jury feedback & audience voting\n20:50 – Award & networking\n22:00 – End",
-    "tickets": "Free for members and pitching teams, €5 for guests. 80 tickets via Eventbrite. Startups apply to pitch via the application form (demo).",
-    "betreuung": "Lead: Events Intern · On site: Programme Team (startups & jury), Host Team (tech, bar, check-in) · Jury: mentors & investors from the network (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-046",
-   "titel": "Wednesday Wrap: Harvest Edition",
-   "datum": "2026-09-30",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
-   "status": "Done",
-   "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 24,
-   "verantwortlich": "Programme Team",
-   "eventbriteId": "EB-DEMO-1046",
-   "kalenderId": "CAL-DEMO-2046",
-   "tags": [
     "Community/Gathering",
     "Informal",
-    "Skillshare"
+    "Unwind",
+    "Small groups"
    ],
-   "zusammenfassung": "Members' lunch around the harvest season – community gathering, relaxed setting & skillshare.",
+   "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around the harvest season. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Programme Team · On site: Community Lead and Membership Team (hosting the table)"
-   },
-   "aufgaben": [
-    {
-     "text": "Share photos",
-     "erledigt": true
-    },
-    {
-     "text": "Send feedback email",
-     "erledigt": true
-    },
-    {
-     "text": "Add numbers to Notion",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-048",
-   "titel": "Time Management for Creatives",
-   "datum": "2026-10-06",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
-   "status": "Done",
-   "ort": "Loft – Workshop Room",
-   "kapazität": 20,
-   "anmeldungen": 13,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1048",
-   "kalenderId": "CAL-DEMO-2048",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "1:1 sessions",
-    "Coaching/consulting"
-   ],
-   "zusammenfassung": "Practical workshop on time management – practical exercises, 1:1 sessions & coaching.",
-   "beschreibung": {
-    "worum": "A hands-on session on time management. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Loft – Workshop Room, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions. Experienced coaches help you work on your own, specific challenges.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on time management and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of time management needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on time management to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on time management\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -2169,32 +2225,941 @@ window.DEMO_DATEN = {
   },
   {
    "id": "evt-050",
-   "titel": "Autumn Get-Together",
-   "datum": "2026-10-08",
+   "titel": "Creatives Circle",
+   "datum": "2026-04-21",
    "startzeit": "18:00",
-   "kategorie": "Networking",
+   "kategorie": "Group-Specific",
    "status": "Done",
-   "ort": "Loft – Event Space",
-   "kapazität": 60,
-   "anmeldungen": 49,
-   "verantwortlich": "Membership Team",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 14,
+   "verantwortlich": "Events Intern",
    "eventbriteId": "EB-DEMO-1050",
    "kalenderId": "CAL-DEMO-2050",
    "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Formal"
+   ],
+   "zusammenfassung": "Peer circle for one member group around creative work – small group, peer feedback & structured format.",
+   "beschreibung": {
+    "worum": "A small peer circle around creative work: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Salon, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. The session follows a clear agenda and a structured flow.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Events Intern · Facilitation: Community Lead or a member host"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-054",
+   "titel": "Community Lunch: Spring Kitchen",
+   "datum": "2026-04-22",
+   "startzeit": "12:30",
+   "kategorie": "Community",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 20,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1054",
+   "kalenderId": "CAL-DEMO-2054",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Members' lunch around spring food – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around spring food.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
+    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Community Lead · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-044",
+   "titel": "Monday Kick-off: Coffee & Focus",
+   "datum": "2026-04-27",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 18,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1044",
+   "kalenderId": "CAL-DEMO-2044",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-052",
+   "titel": "Idea Starter Pack 2: Talking to Users",
+   "datum": "2026-04-28",
+   "startzeit": "17:30",
+   "kategorie": "Idea Starter Pack",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 15,
+   "anmeldungen": 10,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1052",
+   "kalenderId": "CAL-DEMO-2052",
+   "tags": [
+    "Coaching/consulting",
+    "Small groups",
+    "Workshop",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "Guided step for early ideas: talking to users – coaching, small group & hands-on workshop.",
+   "beschreibung": {
+    "worum": "Part of our three-step programme for early ideas – this step: talking to users. With a coach and a small group you take your idea one step further.",
+    "rahmen": "Small group in the Salon, max. 15 people, with a coach. Experienced coaches help you work on your own, specific challenges. We keep the group small, so everyone gets space to ask questions and contribute. It's a hands-on format – you'll leave with concrete results, not just notes. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Three sessions in spring and three in autumn – 4th Tuesday evening.",
+    "warum": "Many good ideas never start. A clear process and a supportive group help them get going.",
+    "zielgruppe": "Members and guests with an early idea for an impact project.",
+    "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
+    "agenda": "17:30 – Check-in\n17:40 – Method input: talking to users\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
+    "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · Coach: external coach (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-048",
+   "titel": "Winedown: Local Vineyards",
+   "datum": "2026-04-30",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 50,
+   "anmeldungen": 37,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1048",
+   "kalenderId": "CAL-DEMO-2048",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Community/Gathering"
+   ],
+   "zusammenfassung": "End-of-month wine evening around local vineyards – time to unwind, relaxed setting & community gathering.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around local vineyards. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Kitchen & Lounge for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. It's a chance to meet the community and feel at home in the Hub.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about local vineyards\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-056",
+   "titel": "Monday Kick-off: Who's New?",
+   "datum": "2026-05-04",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 19,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1056",
+   "kalenderId": "CAL-DEMO-2056",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-060",
+   "titel": "Academy: Finding & Using Funding",
+   "datum": "2026-05-05",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Online (demo Zoom)",
+   "kapazität": 20,
+   "anmeldungen": 13,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1060",
+   "kalenderId": "CAL-DEMO-2060",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Skillshare",
+    "1:1 sessions"
+   ],
+   "zusammenfassung": "Practical Academy session on funding – hands-on workshop, practical exercises & skillshare.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on funding. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Online (demo Zoom), max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice. You can book short 1:1 slots for your individual questions.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on funding and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on funding\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on funding\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-055",
+   "titel": "Monthly Meetup: Skills Market",
+   "datum": "2026-05-06",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 60,
+   "anmeldungen": 50,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1055",
+   "kalenderId": "CAL-DEMO-2055",
+   "tags": [
+    "Community/Gathering",
     "Guided networking",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Our monthly community evening around the skills in our community – community gathering, guided networking & matchmaking.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around the skills in our community. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Loft – Event Space for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Host Team · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-057",
+   "titel": "Monday Kick-off: Tool Tip",
+   "datum": "2026-05-11",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 21,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1057",
+   "kalenderId": "CAL-DEMO-2057",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-062",
+   "titel": "Drops of Inspiration: Circular Fashion",
+   "datum": "2026-05-13",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 40,
+   "anmeldungen": 32,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1062",
+   "kalenderId": "CAL-DEMO-2062",
+   "tags": [
+    "Keynote/panel",
     "Informal"
    ],
-   "zusammenfassung": "Community evening around autumn plans – guided networking & relaxed setting.",
+   "zusammenfassung": "A short lunchtime input on circular fashion – keynote & panel & relaxed setting.",
    "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around autumn plans. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Loft – Event Space for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. The vibe is relaxed and informal – come as you are.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
+    "worum": "A short, inspiring input on circular fashion over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Loft – Event Space, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. The vibe is relaxed and informal – come as you are.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on circular fashion.",
+    "zielgruppe": "Members and guests curious about circular fashion – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on circular fashion\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on circular fashion\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-067",
+   "titel": "Cross-Hub Exchange: Spring Edition",
+   "datum": "2026-05-15",
+   "startzeit": "15:00",
+   "kategorie": "Cross-Community",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 60,
+   "anmeldungen": 48,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1067",
+   "kalenderId": "CAL-DEMO-2067",
+   "tags": [
+    "Guided networking",
+    "Collaboration",
+    "Keynote/panel",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Exchange with other Hub communities on exchange between Hubs – guided networking, collaboration & keynote & panel.",
+   "beschreibung": {
+    "worum": "Members from several Hub communities meet on exchange between Hubs: short intros, matchmaking and space for joint projects.",
+    "rahmen": "Hybrid format (Loft – Event Space), up to 60 participants from several Hubs. Our hosts guide the networking, so you meet the right people – no awkward small talk. The focus is on collaboration and finding partners for joint projects. A keynote or panel brings fresh perspectives, followed by an open Q&A. We match people with complementary needs and offers.",
+    "haeufigkeit": "Four times a year – 3rd Friday afternoon.",
+    "warum": "The global network is one of our biggest assets – we make it tangible for members.",
+    "zielgruppe": "Members looking for partners, clients or ideas beyond the city.",
+    "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
+    "agenda": "15:00 – Welcome\n15:10 – Intros from each Hub\n15:30 – Breakout matchmaking\n16:20 – Wrap-up\n16:30 – End",
+    "tickets": "Free for members. 60 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team · Co-hosts from partner Hubs (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-058",
+   "titel": "Monday Kick-off: Weekly Goals",
+   "datum": "2026-05-18",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 18,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1058",
+   "kalenderId": "CAL-DEMO-2058",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-065",
+   "titel": "Tech for Good Circle",
+   "datum": "2026-05-19",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 14,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1065",
+   "kalenderId": "CAL-DEMO-2065",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Peer circle for one member group around tech for good – small group, peer feedback & skillshare.",
+   "beschreibung": {
+    "worum": "A small peer circle around tech for good: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Salon, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Events Intern · Facilitation: Community Lead or a member host"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-063",
+   "titel": "Drops of Inspiration: Failing & Starting Over",
+   "datum": "2026-05-20",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 40,
+   "anmeldungen": 29,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1063",
+   "kalenderId": "CAL-DEMO-2063",
+   "tags": [
+    "Keynote/panel",
+    "Expert guidance"
+   ],
+   "zusammenfassung": "A short lunchtime input on failing and starting over – keynote & panel & expert input.",
+   "beschreibung": {
+    "worum": "A short, inspiring input on failing and starting over over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Loft – Event Space, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. An expert guides you through the topic and answers your questions.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on failing and starting over.",
+    "zielgruppe": "Members and guests curious about failing and starting over – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on failing and starting over\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on failing and starting over\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team (tech) · Speaker: external guest (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-061",
+   "titel": "Academy: Pricing for Social Ventures",
+   "datum": "2026-05-21",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 15,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1061",
+   "kalenderId": "CAL-DEMO-2061",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Group work",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Practical Academy session on pricing – hands-on workshop, practical exercises & group work.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on pricing. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Salon, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Expect to roll up your sleeves and work together in small teams. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on pricing and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on pricing\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on pricing\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-059",
+   "titel": "Monday Kick-off: Asks & Offers",
+   "datum": "2026-05-25",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 18,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1059",
+   "kalenderId": "CAL-DEMO-2059",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-066",
+   "titel": "Idea Starter Pack 3: First Prototype",
+   "datum": "2026-05-26",
+   "startzeit": "17:30",
+   "kategorie": "Idea Starter Pack",
+   "status": "Done",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 15,
+   "anmeldungen": 11,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1066",
+   "kalenderId": "CAL-DEMO-2066",
+   "tags": [
+    "Coaching/consulting",
+    "Small groups",
+    "Workshop"
+   ],
+   "zusammenfassung": "Guided step for early ideas: a first prototype – coaching, small group & hands-on workshop.",
+   "beschreibung": {
+    "worum": "Part of our three-step programme for early ideas – this step: a first prototype. With a coach and a small group you take your idea one step further.",
+    "rahmen": "Small group in the Loft – Workshop Room, max. 15 people, with a coach. Experienced coaches help you work on your own, specific challenges. We keep the group small, so everyone gets space to ask questions and contribute. It's a hands-on format – you'll leave with concrete results, not just notes.",
+    "haeufigkeit": "Three sessions in spring and three in autumn – 4th Tuesday evening.",
+    "warum": "Many good ideas never start. A clear process and a supportive group help them get going.",
+    "zielgruppe": "Members and guests with an early idea for an impact project.",
+    "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
+    "agenda": "17:30 – Check-in\n17:40 – Method input: a first prototype\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
+    "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · Coach: external coach (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-068",
+   "titel": "Community Lunch: Members Cook",
+   "datum": "2026-05-27",
+   "startzeit": "12:30",
+   "kategorie": "Community",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 19,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1068",
+   "kalenderId": "CAL-DEMO-2068",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Members' lunch around members' home cooking – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around members' home cooking.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
+    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Programme Team · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-064",
+   "titel": "Winedown: Rosé on the Roof",
+   "datum": "2026-05-28",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 50,
+   "anmeldungen": 41,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1064",
+   "kalenderId": "CAL-DEMO-2064",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Guided networking",
+    "Community/Gathering"
+   ],
+   "zusammenfassung": "End-of-month wine evening around rosé – time to unwind, relaxed setting & guided networking.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around rosé. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Rooftop Terrace for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about rosé\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-070",
+   "titel": "Monday Kick-off: Wins of Last Week",
+   "datum": "2026-06-01",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 20,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1070",
+   "kalenderId": "CAL-DEMO-2070",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-074",
+   "titel": "Academy: Freelance Basics",
+   "datum": "2026-06-02",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 20,
+   "anmeldungen": 13,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1074",
+   "kalenderId": "CAL-DEMO-2074",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Practical Academy session on freelance basics – hands-on workshop, practical exercises & skillshare.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on freelance basics. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Loft – Workshop Room, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on freelance basics and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on freelance basics\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on freelance basics\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -2212,496 +3177,2996 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-051",
-   "titel": "Food Transition in the City",
-   "datum": "2026-10-14",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
-   "status": "Published",
-   "ort": "Salon",
-   "kapazität": 50,
-   "anmeldungen": 32,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "EB-DEMO-1051",
-   "kalenderId": "CAL-DEMO-2051",
-   "tags": [
-    "Keynote/panel",
-    "Peer feedback/exchange"
-   ],
-   "zusammenfassung": "Inspiring talk on the urban food transition – keynote & panel & peer feedback.",
-   "beschreibung": {
-    "worum": "An inspiring input on the urban food transition: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Salon: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on the urban food transition and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in the urban food transition and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on the urban food transition\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on the urban food transition\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Eventbrite page live",
-     "erledigt": true
-    },
-    {
-     "text": "Share social post",
-     "erledigt": false
-    },
-    {
-     "text": "Send reminder email",
-     "erledigt": false
-    },
-    {
-     "text": "Confirm catering",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-049",
-   "titel": "Planning a Crowdfunding Campaign",
-   "datum": "2026-10-15",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
-   "status": "Published",
-   "ort": "Salon",
-   "kapazität": 20,
-   "anmeldungen": 12,
-   "verantwortlich": "Community Lead",
-   "eventbriteId": "EB-DEMO-1049",
-   "kalenderId": "CAL-DEMO-2049",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Skillshare"
-   ],
-   "zusammenfassung": "Practical workshop on crowdfunding – practical exercises & skillshare.",
-   "beschreibung": {
-    "worum": "A hands-on session on crowdfunding. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Salon, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on crowdfunding and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of crowdfunding needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on crowdfunding to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on crowdfunding\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Eventbrite page live",
-     "erledigt": true
-    },
-    {
-     "text": "Share social post",
-     "erledigt": true
-    },
-    {
-     "text": "Send reminder email",
-     "erledigt": false
-    },
-    {
-     "text": "Confirm catering",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-052",
-   "titel": "Wednesday Wrap: Pumpkin Edition",
-   "datum": "2026-10-28",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
-   "status": "Published",
-   "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 10,
-   "verantwortlich": "Community Lead",
-   "eventbriteId": "EB-DEMO-1052",
-   "kalenderId": "CAL-DEMO-2052",
-   "tags": [
-    "Community/Gathering",
-    "Informal",
-    "Peer feedback/exchange"
-   ],
-   "zusammenfassung": "Members' lunch around pumpkin dishes – community gathering, relaxed setting & peer feedback.",
-   "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around pumpkin dishes. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "",
-    "ergebnis": "",
-    "agenda": "",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Community Lead · On site: Community Lead and Membership Team (hosting the table)"
-   },
-   "aufgaben": [
-    {
-     "text": "Eventbrite page live",
-     "erledigt": true
-    },
-    {
-     "text": "Share social post",
-     "erledigt": true
-    },
-    {
-     "text": "Send reminder email",
-     "erledigt": false
-    },
-    {
-     "text": "Confirm catering",
-     "erledigt": true
-    }
-   ]
-  },
-  {
-   "id": "evt-054",
-   "titel": "Mental Health in Startup Life",
-   "datum": "2026-11-11",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
-   "status": "Planned",
-   "ort": "Loft – Event Space",
-   "kapazität": 50,
-   "anmeldungen": 0,
-   "verantwortlich": "Programme Team",
-   "eventbriteId": "",
-   "kalenderId": "CAL-DEMO-2054",
-   "tags": [
-    "Keynote/panel",
-    "Expert guidance",
-    "Peer feedback/exchange"
-   ],
-   "zusammenfassung": "Inspiring talk on mental health – keynote & panel, expert input & peer feedback.",
-   "beschreibung": {
-    "worum": "An inspiring input on mental health: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the Loft – Event Space: approx. 30 min. input + 30 min. Q&A, seating for 50, drinks afterwards. A keynote or panel brings fresh perspectives, followed by an open Q&A. An expert guides you through the topic and answers your questions. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on mental health and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in mental health and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on mental health\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
-    "agenda": "16:00 – Arrival & welcome\n16:10 – Talk on mental health\n16:45 – Q&A with the audience\n17:15 – Drinks & informal exchange\n17:45 – End",
-    "tickets": "Free entry, open to everyone. 50 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Book room",
-     "erledigt": true
-    },
-    {
-     "text": "Create Eventbrite page",
-     "erledigt": false
-    },
-    {
-     "text": "Plan social post",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-053",
-   "titel": "Impact Capital Circle Meetup #2",
-   "datum": "2026-11-12",
+   "id": "evt-069",
+   "titel": "Monthly Meetup: Midsummer Edition",
+   "datum": "2026-06-03",
    "startzeit": "18:00",
-   "kategorie": "Networking",
-   "status": "Planned",
-   "ort": "Loft – Event Space",
-   "kapazität": 60,
-   "anmeldungen": 0,
-   "verantwortlich": "Host Team",
-   "eventbriteId": "",
-   "kalenderId": "CAL-DEMO-2053",
-   "tags": [
-    "Guided networking",
-    "Community/Gathering"
-   ],
-   "zusammenfassung": "Community evening around impact capital – guided networking & community gathering.",
-   "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around impact capital. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Loft – Event Space for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "",
-    "betreuung": ""
-   },
-   "aufgaben": [
-    {
-     "text": "Book room",
-     "erledigt": true
-    },
-    {
-     "text": "Create Eventbrite page",
-     "erledigt": false
-    },
-    {
-     "text": "Plan social post",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-055",
-   "titel": "Wednesday Wrap: Plate Swap",
-   "datum": "2026-11-25",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
-   "status": "Planned",
-   "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 0,
-   "verantwortlich": "Community Lead",
-   "eventbriteId": "",
-   "kalenderId": "CAL-DEMO-2055",
-   "tags": [
-    "Community/Gathering",
-    "Informal",
-    "Unwind"
-   ],
-   "zusammenfassung": "Members' lunch around swapping dishes – community gathering, relaxed setting & time to unwind.",
-   "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around swapping dishes. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
-    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Community Lead · On site: Community Lead and Membership Team (hosting the table)"
-   },
-   "aufgaben": [
-    {
-     "text": "Book room",
-     "erledigt": true
-    },
-    {
-     "text": "Create Eventbrite page",
-     "erledigt": false
-    },
-    {
-     "text": "Plan social post",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-056",
-   "titel": "Feedback Culture in Small Teams",
-   "datum": "2026-12-01",
-   "startzeit": "10:00",
-   "kategorie": "Workshop",
-   "status": "Planned",
-   "ort": "Salon",
-   "kapazität": 20,
-   "anmeldungen": 0,
-   "verantwortlich": "Events Intern",
-   "eventbriteId": "",
-   "kalenderId": "CAL-DEMO-2056",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "1:1 sessions"
-   ],
-   "zusammenfassung": "Practical workshop on feedback culture – practical exercises & 1:1 sessions.",
-   "beschreibung": {
-    "worum": "A hands-on session on feedback culture. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Salon, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on feedback culture and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of feedback culture needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on feedback culture to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "10:00 – Arrival, coffee & check-in round\n10:15 – Short input on feedback culture\n10:45 – Hands-on exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: everyone names their next step\n13:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Book room",
-     "erledigt": true
-    },
-    {
-     "text": "Create Eventbrite page",
-     "erledigt": false
-    },
-    {
-     "text": "Plan social post",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-059",
-   "titel": "Inclusion as a Business Model",
-   "datum": "2026-12-09",
-   "startzeit": "16:00",
-   "kategorie": "Talk",
-   "status": "Idea",
-   "ort": "Loft – Event Space",
-   "kapazität": 50,
-   "anmeldungen": 0,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "",
-   "kalenderId": "",
-   "tags": [
-    "Keynote/panel",
-    "Expert guidance",
-    "Peer feedback/exchange"
-   ],
-   "zusammenfassung": "Inspiring talk on inclusion – keynote & panel, expert input & peer feedback.",
-   "beschreibung": {
-    "worum": "",
-    "rahmen": "",
-    "haeufigkeit": "",
-    "warum": "",
-    "zielgruppe": "",
-    "ergebnis": "",
-    "agenda": "",
-    "tickets": "",
-    "betreuung": ""
-   },
-   "aufgaben": [
-    {
-     "text": "Ask speaker",
-     "erledigt": false
-    },
-    {
-     "text": "Book room",
-     "erledigt": false
-    },
-    {
-     "text": "Clarify budget",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-058",
-   "titel": "Punch & Plans",
-   "datum": "2026-12-10",
-   "startzeit": "18:00",
-   "kategorie": "Networking",
-   "status": "Planned",
+   "kategorie": "Community Monthlies",
+   "status": "Done",
    "ort": "Rooftop Terrace",
    "kapazität": 60,
-   "anmeldungen": 0,
+   "anmeldungen": 44,
    "verantwortlich": "Membership Team",
-   "eventbriteId": "",
-   "kalenderId": "CAL-DEMO-2058",
+   "eventbriteId": "EB-DEMO-1069",
+   "kalenderId": "CAL-DEMO-2069",
    "tags": [
+    "Community/Gathering",
     "Guided networking",
     "Matchmaking",
     "Informal"
    ],
-   "zusammenfassung": "Community evening around plans for the new year – guided networking, matchmaking & relaxed setting.",
+   "zusammenfassung": "Our monthly community evening around summer plans – community gathering, guided networking & matchmaking.",
    "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around plans for the new year. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the Rooftop Terrace for around 60 guests – standing tables, music in the background, drinks & snacks. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers. The vibe is relaxed and informal – come as you are.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": "18:00 – Doors open, welcome drink\n18:30 – Short welcome & intro by the hosts\n18:45 – Guided networking rounds\n19:45 – Open mingling\n21:00 – End",
-    "tickets": "Free, open to members and guests. Please register via Eventbrite (60 spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
+    "worum": "Our monthly community evening – this time around summer plans. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Rooftop Terrace for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers. The vibe is relaxed and informal – come as you are.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Share photos",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
-     "erledigt": false
+     "text": "Send feedback email",
+     "erledigt": true
     },
     {
-     "text": "Plan social post",
+     "text": "Add numbers to Notion",
      "erledigt": false
     }
    ]
   },
   {
-   "id": "evt-057",
-   "titel": "MasterClass: Access to Finance",
-   "datum": "2026-12-17",
-   "startzeit": "16:00",
-   "kategorie": "Workshop",
-   "status": "Planned",
-   "ort": "Salon",
-   "kapazität": 20,
-   "anmeldungen": 0,
-   "verantwortlich": "Membership Team",
-   "eventbriteId": "",
-   "kalenderId": "CAL-DEMO-2057",
-   "tags": [
-    "Workshop",
-    "Practical exercises",
-    "Skillshare",
-    "Small groups"
-   ],
-   "zusammenfassung": "Practical workshop on access to finance – practical exercises, skillshare & small group.",
-   "beschreibung": {
-    "worum": "A hands-on session on access to finance. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the Salon, max. 20 participants. Laptops welcome, coffee and snacks on the house. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice. We keep the group small, so everyone gets space to ask questions and contribute.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on access to finance and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of access to finance needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on access to finance to take home\n• Feedback from peers and new contacts in the community",
-    "agenda": "16:00 – Arrival, coffee & check-in round\n16:15 – Short input on access to finance\n16:45 – Hands-on exercises in small teams\n18:00 – Share-back & peer feedback\n18:40 – Wrap-up: everyone names their next step\n19:00 – End",
-    "tickets": "Free for members, €15 for guests. Only 20 spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
-   },
-   "aufgaben": [
-    {
-     "text": "Book room",
-     "erledigt": true
-    },
-    {
-     "text": "Create Eventbrite page",
-     "erledigt": false
-    },
-    {
-     "text": "Plan social post",
-     "erledigt": false
-    }
-   ]
-  },
-  {
-   "id": "evt-060",
-   "titel": "Wednesday Wrap: Cookie Edition",
-   "datum": "2026-12-30",
-   "startzeit": "12:30",
-   "kategorie": "Community Lunch",
-   "status": "Planned",
+   "id": "evt-071",
+   "titel": "Monday Kick-off: Coffee & Focus",
+   "datum": "2026-06-08",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
    "ort": "Kitchen & Lounge",
-   "kapazität": 30,
-   "anmeldungen": 0,
-   "verantwortlich": "Host Team",
-   "eventbriteId": "",
-   "kalenderId": "CAL-DEMO-2060",
+   "kapazität": 25,
+   "anmeldungen": 22,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1071",
+   "kalenderId": "CAL-DEMO-2071",
    "tags": [
     "Community/Gathering",
     "Informal",
     "Unwind",
     "Peer feedback/exchange"
    ],
-   "zusammenfassung": "Members' lunch around holiday cookies – community gathering, relaxed setting & time to unwind.",
+   "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around holiday cookies. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members – one long table, no slides, no pressure. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. You'll share your work and get honest, constructive feedback from peers.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
+    "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-076",
+   "titel": "Drops of Inspiration: Energy Communities",
+   "datum": "2026-06-10",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 40,
+   "anmeldungen": 30,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1076",
+   "kalenderId": "CAL-DEMO-2076",
+   "tags": [
+    "Keynote/panel",
+    "Peer feedback/exchange",
+    "Expert guidance"
+   ],
+   "zusammenfassung": "A short lunchtime input on energy communities – keynote & panel, peer feedback & expert input.",
+   "beschreibung": {
+    "worum": "A short, inspiring input on energy communities over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Salon, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers. An expert guides you through the topic and answers your questions.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on energy communities.",
+    "zielgruppe": "Members and guests curious about energy communities – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on energy communities\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on energy communities\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-079",
+   "titel": "Collab Night with a Food Coop (demo)",
+   "datum": "2026-06-11",
+   "startzeit": "18:00",
+   "kategorie": "Collaboration",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 50,
+   "anmeldungen": 34,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1079",
+   "kalenderId": "CAL-DEMO-2079",
+   "tags": [
+    "Collaboration",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Joint evening with a partner organisation on local food – matchmaking.",
+   "beschreibung": {
+    "worum": "A joint evening with a partner organisation on local food. Both communities meet, share projects and look for ways to work together.",
+    "rahmen": "Evening event in the Loft – Event Space, around 50 guests from both communities. The focus is on collaboration and finding partners for joint projects. We match people with complementary needs and offers.",
+    "haeufigkeit": "Every other month – 2nd Thursday.",
+    "warum": "Partnerships bring new people, ideas and opportunities into the Hub.",
+    "zielgruppe": "Members and the partner's community.",
+    "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
+    "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
+    "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
+    "betreuung": "Lead: Events Intern · On site: Host Team and partner team (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-081",
+   "titel": "Partner Session: Social Innovation Lab (demo)",
+   "datum": "2026-06-12",
+   "startzeit": "10:00",
+   "kategorie": "Partner Deliverable",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 40,
+   "anmeldungen": 31,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1081",
+   "kalenderId": "CAL-DEMO-2081",
+   "tags": [
+    "Expert guidance",
+    "Formal",
+    "Workshop"
+   ],
+   "zusammenfassung": "Session delivered with a programme partner on social innovation – expert input, structured format & hands-on workshop.",
+   "beschreibung": {
+    "worum": "A session we deliver together with a programme partner on social innovation – with input, examples and room for discussion.",
+    "rahmen": "Morning session in the Loft – Event Space, up to 40 participants. An expert guides you through the topic and answers your questions. The session follows a clear agenda and a structured flow. It's a hands-on format – you'll leave with concrete results, not just notes.",
+    "haeufigkeit": "As agreed with the partner – about five times a year.",
+    "warum": "Part of a partner agreement: we bring the community, the partner brings expertise and funding.",
+    "zielgruppe": "Members and guests working on social innovation, plus the partner's network.",
+    "ergebnis": "• Expert knowledge on social innovation\n• Contacts to the partner\n• Fulfilled partner deliverable",
+    "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
+    "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Programme Team · Partner contact: partner team (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-072",
+   "titel": "Monday Kick-off: Who's New?",
+   "datum": "2026-06-15",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 19,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1072",
+   "kalenderId": "CAL-DEMO-2072",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-078",
+   "titel": "Parents at Work Circle",
+   "datum": "2026-06-16",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Done",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 20,
+   "anmeldungen": 14,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1078",
+   "kalenderId": "CAL-DEMO-2078",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Skillshare",
+    "Coaching/consulting"
+   ],
+   "zusammenfassung": "Peer circle for one member group around parenting and work – small group, peer feedback & skillshare.",
+   "beschreibung": {
+    "worum": "A small peer circle around parenting and work: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Loft – Workshop Room, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. Community members share skills they have learned in practice. Experienced coaches help you work on your own, specific challenges.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · Facilitation: Community Lead or a member host"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-075",
+   "titel": "Academy: Inclusive Communication",
+   "datum": "2026-06-18",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Online (demo Zoom)",
+   "kapazität": 20,
+   "anmeldungen": 14,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1075",
+   "kalenderId": "CAL-DEMO-2075",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Expert guidance",
+    "1:1 sessions"
+   ],
+   "zusammenfassung": "Practical Academy session on inclusive communication – hands-on workshop, practical exercises & expert input.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on inclusive communication. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Online (demo Zoom), max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. An expert guides you through the topic and answers your questions. You can book short 1:1 slots for your individual questions.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on inclusive communication and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on inclusive communication\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on inclusive communication\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-082",
+   "titel": "Summer Kick-off on the Rooftop",
+   "datum": "2026-06-18",
+   "startzeit": "18:00",
+   "kategorie": "Community Summer",
+   "status": "Done",
+   "ort": "Partner venue (demo)",
+   "kapazität": 70,
+   "anmeldungen": 48,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1082",
+   "kalenderId": "CAL-DEMO-2082",
+   "tags": [
+    "Unwind",
+    "Community/Gathering",
+    "Informal",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Summer evening with the community: the start of summer – time to unwind, community gathering & relaxed setting.",
+   "beschreibung": {
+    "worum": "Part of our Community Summer series: the start of summer – light, outdoorsy and fun.",
+    "rahmen": "Summer evening at the Partner venue (demo) for up to 70 guests. Leave the laptop behind and unwind with good people. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Summer series – June to August, Thursday evenings.",
+    "warum": "Summer is quieter at the Hub – the series keeps the community together.",
+    "zielgruppe": "Members, alumni, friends and families.",
+    "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
+    "agenda": "18:00 – Get together\n18:30 – Main activity: the start of summer\n21:00 – End",
+    "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-073",
+   "titel": "Monday Kick-off: Tool Tip",
+   "datum": "2026-06-22",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 19,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1073",
+   "kalenderId": "CAL-DEMO-2073",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-083",
+   "titel": "Community Lunch: Rooftop Picnic",
+   "datum": "2026-06-24",
+   "startzeit": "12:30",
+   "kategorie": "Community",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 25,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1083",
+   "kalenderId": "CAL-DEMO-2083",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Unwind"
+   ],
+   "zusammenfassung": "Members' lunch around a rooftop picnic – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around a rooftop picnic.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
-    "agenda": "12:30 – Gather in the kitchen, set the table\n12:40 – Quick round: name & what you're working on\n12:50 – Lunch & conversations\n13:30 – Shout-outs: asks & offers\n13:45 – End",
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Host Team · On site: Community Lead and Membership Team (hosting the table)"
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Programme Team · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-077",
+   "titel": "Winedown: Sparkling Edition",
+   "datum": "2026-06-25",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 50,
+   "anmeldungen": 40,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1077",
+   "kalenderId": "CAL-DEMO-2077",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Community/Gathering",
+    "Guided networking"
+   ],
+   "zusammenfassung": "End-of-month wine evening around sparkling wines – time to unwind, relaxed setting & community gathering.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around sparkling wines. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Rooftop Terrace for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about sparkling wines\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-080",
+   "titel": "Quarterly: Summer Party",
+   "datum": "2026-06-26",
+   "startzeit": "17:00",
+   "kategorie": "Community Quarterlies",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 120,
+   "anmeldungen": 105,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1080",
+   "kalenderId": "CAL-DEMO-2080",
+   "tags": [
+    "Community/Gathering",
+    "Keynote/panel",
+    "Guided networking",
+    "Unwind"
+   ],
+   "zusammenfassung": "Our big quarterly celebration of the first half of the year – community gathering, keynote & panel & guided networking.",
+   "beschreibung": {
+    "worum": "Our big quarterly celebration: we look back at the first half of the year, celebrate member wins and party together.",
+    "rahmen": "Big evening event in the Rooftop Terrace for up to 120 guests, food, drinks and music. It's a chance to meet the community and feel at home in the Hub. A keynote or panel brings fresh perspectives, followed by an open Q&A. Our hosts guide the networking, so you meet the right people – no awkward small talk. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Quarterly – last Friday of each quarter.",
+    "warum": "Celebrating milestones together makes the community visible and strong.",
+    "zielgruppe": "Members, alumni, partners and friends of the Hub.",
+    "ergebnis": "• Seeing what the community achieved\n• Meeting people from all corners of the Hub\n• A great evening",
+    "agenda": "17:00 – Doors open\n17:30 – Look back & member awards\n18:00 – Food, drinks & music\n21:00 – End",
+    "tickets": "Free for members, €10 for guests. 120 tickets via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: whole team, Host Team (bar & tech)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-084",
+   "titel": "Monthly Meetup: Rooftop Edition",
+   "datum": "2026-07-01",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 60,
+   "anmeldungen": 40,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1084",
+   "kalenderId": "CAL-DEMO-2084",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Collaboration"
+   ],
+   "zusammenfassung": "Our monthly community evening around rooftop evenings – community gathering, guided networking & collaboration.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around rooftop evenings. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Loft – Event Space for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. The focus is on collaboration and finding partners for joint projects.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-095",
+   "titel": "Summer Cinema Night",
+   "datum": "2026-07-02",
+   "startzeit": "18:00",
+   "kategorie": "Community Summer",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 70,
+   "anmeldungen": 46,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1095",
+   "kalenderId": "CAL-DEMO-2095",
+   "tags": [
+    "Unwind",
+    "Community/Gathering",
+    "Informal"
+   ],
+   "zusammenfassung": "Summer evening with the community: an open-air film – time to unwind, community gathering & relaxed setting.",
+   "beschreibung": {
+    "worum": "Part of our Community Summer series: an open-air film – light, outdoorsy and fun.",
+    "rahmen": "Summer evening at the Rooftop Terrace for up to 70 guests. Leave the laptop behind and unwind with good people. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are.",
+    "haeufigkeit": "Summer series – June to August, Thursday evenings.",
+    "warum": "Summer is quieter at the Hub – the series keeps the community together.",
+    "zielgruppe": "Members, alumni, friends and families.",
+    "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
+    "agenda": "18:00 – Get together\n18:30 – Main activity: an open-air film\n21:00 – End",
+    "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-085",
+   "titel": "Monday Kick-off: Weekly Goals",
+   "datum": "2026-07-06",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 18,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1085",
+   "kalenderId": "CAL-DEMO-2085",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-089",
+   "titel": "Academy: Planning a Crowdfunding Campaign",
+   "datum": "2026-07-07",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 15,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1089",
+   "kalenderId": "CAL-DEMO-2089",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Skillshare",
+    "Expert guidance"
+   ],
+   "zusammenfassung": "Practical Academy session on crowdfunding – hands-on workshop, practical exercises & skillshare.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on crowdfunding. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Salon, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice. An expert guides you through the topic and answers your questions.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on crowdfunding and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on crowdfunding\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on crowdfunding\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-091",
+   "titel": "Drops of Inspiration: Impact Investing",
+   "datum": "2026-07-08",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 40,
+   "anmeldungen": 30,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1091",
+   "kalenderId": "CAL-DEMO-2091",
+   "tags": [
+    "Keynote/panel",
+    "Informal",
+    "Expert guidance"
+   ],
+   "zusammenfassung": "A short lunchtime input on impact investing – keynote & panel, relaxed setting & expert input.",
+   "beschreibung": {
+    "worum": "A short, inspiring input on impact investing over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Loft – Event Space, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. The vibe is relaxed and informal – come as you are. An expert guides you through the topic and answers your questions.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on impact investing.",
+    "zielgruppe": "Members and guests curious about impact investing – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on impact investing\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on impact investing\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-086",
+   "titel": "Monday Kick-off: Asks & Offers",
+   "datum": "2026-07-13",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 18,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1086",
+   "kalenderId": "CAL-DEMO-2086",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-093",
+   "titel": "Town Hall: Halfway Check",
+   "datum": "2026-07-14",
+   "startzeit": "17:00",
+   "kategorie": "Town Hall",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 80,
+   "anmeldungen": 54,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1093",
+   "kalenderId": "CAL-DEMO-2093",
+   "tags": [
+    "Formal",
+    "Community/Gathering",
+    "Peer feedback/exchange",
+    "Group work"
+   ],
+   "zusammenfassung": "Quarterly Town Hall on the halfway check – structured format, community gathering & peer feedback.",
+   "beschreibung": {
+    "worum": "Our quarterly Town Hall on the halfway check: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
+    "rahmen": "Plenary in the Loft – Event Space, seating for 80, followed by drinks. The session follows a clear agenda and a structured flow. It's a chance to meet the community and feel at home in the Hub. You'll share your work and get honest, constructive feedback from peers. Expect to roll up your sleeves and work together in small teams.",
+    "haeufigkeit": "Quarterly – 2nd Tuesday of the first month of each quarter.",
+    "warum": "Transparency builds trust. Members understand decisions and help shape the Hub.",
+    "zielgruppe": "All members and residents of the Hub.",
+    "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
+    "agenda": "17:00 – Arrival\n17:10 – Update from the team\n17:40 – Q&A and feedback\n18:20 – Drinks\n19:00 – End",
+    "tickets": "Members only, free. Please register via Eventbrite (80 seats).",
+    "betreuung": "Lead: Membership Team · On site: whole team · Moderation: Community Lead"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-090",
+   "titel": "Academy: Feedback Culture in Small Teams",
+   "datum": "2026-07-16",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 20,
+   "anmeldungen": 15,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1090",
+   "kalenderId": "CAL-DEMO-2090",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "1:1 sessions",
+    "Small groups"
+   ],
+   "zusammenfassung": "Practical Academy session on feedback culture – hands-on workshop, practical exercises & 1:1 sessions.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on feedback culture. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Loft – Workshop Room, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on feedback culture and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on feedback culture\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on feedback culture\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-096",
+   "titel": "Summer BBQ",
+   "datum": "2026-07-16",
+   "startzeit": "18:00",
+   "kategorie": "Community Summer",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 70,
+   "anmeldungen": 54,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1096",
+   "kalenderId": "CAL-DEMO-2096",
+   "tags": [
+    "Unwind",
+    "Community/Gathering",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Summer evening with the community: grilling together – time to unwind, community gathering & skillshare.",
+   "beschreibung": {
+    "worum": "Part of our Community Summer series: grilling together – light, outdoorsy and fun.",
+    "rahmen": "Summer evening at the Rooftop Terrace for up to 70 guests. Leave the laptop behind and unwind with good people. It's a chance to meet the community and feel at home in the Hub. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Summer series – June to August, Thursday evenings.",
+    "warum": "Summer is quieter at the Hub – the series keeps the community together.",
+    "zielgruppe": "Members, alumni, friends and families.",
+    "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
+    "agenda": "18:00 – Get together\n18:30 – Main activity: grilling together\n21:00 – End",
+    "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: Host Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-087",
+   "titel": "Monday Kick-off: Wins of Last Week",
+   "datum": "2026-07-20",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 21,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1087",
+   "kalenderId": "CAL-DEMO-2087",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-094",
+   "titel": "Founders Circle",
+   "datum": "2026-07-21",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Done",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 20,
+   "anmeldungen": 15,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1094",
+   "kalenderId": "CAL-DEMO-2094",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Coaching/consulting"
+   ],
+   "zusammenfassung": "Peer circle for one member group around founder life – small group, peer feedback & coaching.",
+   "beschreibung": {
+    "worum": "A small peer circle around founder life: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Loft – Workshop Room, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. Experienced coaches help you work on your own, specific challenges.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · Facilitation: Community Lead or a member host"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-088",
+   "titel": "Monday Kick-off: Coffee & Focus",
+   "datum": "2026-07-27",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 18,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1088",
+   "kalenderId": "CAL-DEMO-2088",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-092",
+   "titel": "Winedown: Harvest Edition",
+   "datum": "2026-07-30",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 50,
+   "anmeldungen": 36,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1092",
+   "kalenderId": "CAL-DEMO-2092",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Guided networking",
+    "Community/Gathering"
+   ],
+   "zusammenfassung": "End-of-month wine evening around the harvest – time to unwind, relaxed setting & guided networking.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around the harvest. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Rooftop Terrace for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about the harvest\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-098",
+   "titel": "Monday Kick-off: Who's New?",
+   "datum": "2026-08-03",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 20,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1098",
+   "kalenderId": "CAL-DEMO-2098",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-097",
+   "titel": "Monthly Meetup: Holiday Stories",
+   "datum": "2026-08-05",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 60,
+   "anmeldungen": 48,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1097",
+   "kalenderId": "CAL-DEMO-2097",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Informal",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Our monthly community evening around holiday stories – community gathering, guided networking & relaxed setting.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around holiday stories. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Loft – Event Space for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. The vibe is relaxed and informal – come as you are. We match people with complementary needs and offers.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Host Team · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-101",
+   "titel": "Sunset Walk & Heuriger",
+   "datum": "2026-08-06",
+   "startzeit": "18:00",
+   "kategorie": "Community Summer",
+   "status": "Done",
+   "ort": "Partner venue (demo)",
+   "kapazität": 70,
+   "anmeldungen": 49,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1101",
+   "kalenderId": "CAL-DEMO-2101",
+   "tags": [
+    "Unwind",
+    "Community/Gathering",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Summer evening with the community: Vienna's vineyards – time to unwind, community gathering & skillshare.",
+   "beschreibung": {
+    "worum": "Part of our Community Summer series: Vienna's vineyards – light, outdoorsy and fun.",
+    "rahmen": "Summer evening at the Partner venue (demo) for up to 70 guests. Leave the laptop behind and unwind with good people. It's a chance to meet the community and feel at home in the Hub. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Summer series – June to August, Thursday evenings.",
+    "warum": "Summer is quieter at the Hub – the series keeps the community together.",
+    "zielgruppe": "Members, alumni, friends and families.",
+    "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
+    "agenda": "18:00 – Get together\n18:30 – Main activity: Vienna's vineyards\n21:00 – End",
+    "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-100",
+   "titel": "Collab Night with a Neighbourhood Group (demo)",
+   "datum": "2026-08-13",
+   "startzeit": "18:00",
+   "kategorie": "Collaboration",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 50,
+   "anmeldungen": 33,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1100",
+   "kalenderId": "CAL-DEMO-2100",
+   "tags": [
+    "Collaboration",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Joint evening with a partner organisation on the neighbourhood – matchmaking.",
+   "beschreibung": {
+    "worum": "A joint evening with a partner organisation on the neighbourhood. Both communities meet, share projects and look for ways to work together.",
+    "rahmen": "Evening event in the Loft – Event Space, around 50 guests from both communities. The focus is on collaboration and finding partners for joint projects. We match people with complementary needs and offers.",
+    "haeufigkeit": "Every other month – 2nd Thursday.",
+    "warum": "Partnerships bring new people, ideas and opportunities into the Hub.",
+    "zielgruppe": "Members and the partner's community.",
+    "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
+    "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
+    "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
+    "betreuung": "Lead: Programme Team · On site: Host Team and partner team (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-099",
+   "titel": "Monday Kick-off: Tool Tip",
+   "datum": "2026-08-17",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 20,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1099",
+   "kalenderId": "CAL-DEMO-2099",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-102",
+   "titel": "Summer Closing Party",
+   "datum": "2026-08-20",
+   "startzeit": "18:00",
+   "kategorie": "Community Summer",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 70,
+   "anmeldungen": 45,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1102",
+   "kalenderId": "CAL-DEMO-2102",
+   "tags": [
+    "Unwind",
+    "Community/Gathering",
+    "Informal"
+   ],
+   "zusammenfassung": "Summer evening with the community: the end of summer – time to unwind, community gathering & relaxed setting.",
+   "beschreibung": {
+    "worum": "Part of our Community Summer series: the end of summer – light, outdoorsy and fun.",
+    "rahmen": "Summer evening at the Rooftop Terrace for up to 70 guests. Leave the laptop behind and unwind with good people. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are.",
+    "haeufigkeit": "Summer series – June to August, Thursday evenings.",
+    "warum": "Summer is quieter at the Hub – the series keeps the community together.",
+    "zielgruppe": "Members, alumni, friends and families.",
+    "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
+    "agenda": "18:00 – Get together\n18:30 – Main activity: the end of summer\n21:00 – End",
+    "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-108",
+   "titel": "Academy: Access to Finance",
+   "datum": "2026-09-01",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 20,
+   "anmeldungen": 13,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1108",
+   "kalenderId": "CAL-DEMO-2108",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Coaching/consulting"
+   ],
+   "zusammenfassung": "Practical Academy session on access to finance – hands-on workshop, practical exercises & coaching.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on access to finance. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Loft – Workshop Room, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Experienced coaches help you work on your own, specific challenges.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on access to finance and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on access to finance\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on access to finance\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-103",
+   "titel": "Monthly Meetup: Back to Work",
+   "datum": "2026-09-02",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 60,
+   "anmeldungen": 51,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1103",
+   "kalenderId": "CAL-DEMO-2103",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Collaboration"
+   ],
+   "zusammenfassung": "Our monthly community evening around fresh starts after summer – community gathering, guided networking & collaboration.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around fresh starts after summer. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Loft – Event Space for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. The focus is on collaboration and finding partners for joint projects.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-104",
+   "titel": "Monday Kick-off: Weekly Goals",
+   "datum": "2026-09-07",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 21,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1104",
+   "kalenderId": "CAL-DEMO-2104",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-110",
+   "titel": "Drops of Inspiration: Food Transition",
+   "datum": "2026-09-09",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 40,
+   "anmeldungen": 34,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1110",
+   "kalenderId": "CAL-DEMO-2110",
+   "tags": [
+    "Keynote/panel",
+    "Expert guidance",
+    "Informal"
+   ],
+   "zusammenfassung": "A short lunchtime input on the urban food transition – keynote & panel, expert input & relaxed setting.",
+   "beschreibung": {
+    "worum": "A short, inspiring input on the urban food transition over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Loft – Event Space, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. An expert guides you through the topic and answers your questions. The vibe is relaxed and informal – come as you are.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on the urban food transition.",
+    "zielgruppe": "Members and guests curious about the urban food transition – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on the urban food transition\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on the urban food transition\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-105",
+   "titel": "Monday Kick-off: Asks & Offers",
+   "datum": "2026-09-14",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 20,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1105",
+   "kalenderId": "CAL-DEMO-2105",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-112",
+   "titel": "Freelancers Circle",
+   "datum": "2026-09-15",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 14,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1112",
+   "kalenderId": "CAL-DEMO-2112",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Formal",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Peer circle for one member group around freelance life – small group, peer feedback & structured format.",
+   "beschreibung": {
+    "worum": "A small peer circle around freelance life: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Salon, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. The session follows a clear agenda and a structured flow. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Programme Team · Facilitation: Community Lead or a member host"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-109",
+   "titel": "Academy: Time Management for Creatives",
+   "datum": "2026-09-17",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 20,
+   "anmeldungen": 16,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1109",
+   "kalenderId": "CAL-DEMO-2109",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "1:1 sessions"
+   ],
+   "zusammenfassung": "Practical Academy session on time management – hands-on workshop, practical exercises & 1:1 sessions.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on time management. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Loft – Workshop Room, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. You can book short 1:1 slots for your individual questions.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on time management and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on time management\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on time management\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-114",
+   "titel": "Cross-Hub Exchange: Autumn Edition",
+   "datum": "2026-09-18",
+   "startzeit": "15:00",
+   "kategorie": "Cross-Community",
+   "status": "Done",
+   "ort": "Online (demo Zoom)",
+   "kapazität": 60,
+   "anmeldungen": 43,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1114",
+   "kalenderId": "CAL-DEMO-2114",
+   "tags": [
+    "Guided networking",
+    "Collaboration",
+    "Matchmaking",
+    "Keynote/panel"
+   ],
+   "zusammenfassung": "Exchange with other Hub communities on exchange between Hubs – guided networking, collaboration & matchmaking.",
+   "beschreibung": {
+    "worum": "Members from several Hub communities meet on exchange between Hubs: short intros, matchmaking and space for joint projects.",
+    "rahmen": "Hybrid format (Online (demo Zoom)), up to 60 participants from several Hubs. Our hosts guide the networking, so you meet the right people – no awkward small talk. The focus is on collaboration and finding partners for joint projects. We match people with complementary needs and offers. A keynote or panel brings fresh perspectives, followed by an open Q&A.",
+    "haeufigkeit": "Four times a year – 3rd Friday afternoon.",
+    "warum": "The global network is one of our biggest assets – we make it tangible for members.",
+    "zielgruppe": "Members looking for partners, clients or ideas beyond the city.",
+    "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
+    "agenda": "15:00 – Welcome\n15:10 – Intros from each Hub\n15:30 – Breakout matchmaking\n16:20 – Wrap-up\n16:30 – End",
+    "tickets": "Free for members. 60 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team · Co-hosts from partner Hubs (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-106",
+   "titel": "Monday Kick-off: Wins of Last Week",
+   "datum": "2026-09-21",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 20,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1106",
+   "kalenderId": "CAL-DEMO-2106",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-113",
+   "titel": "Idea Starter Pack 1: From Idea to Problem",
+   "datum": "2026-09-22",
+   "startzeit": "17:30",
+   "kategorie": "Idea Starter Pack",
+   "status": "Done",
+   "ort": "Salon",
+   "kapazität": 15,
+   "anmeldungen": 11,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1113",
+   "kalenderId": "CAL-DEMO-2113",
+   "tags": [
+    "Coaching/consulting",
+    "Small groups",
+    "Peer feedback/exchange",
+    "1:1 sessions"
+   ],
+   "zusammenfassung": "Guided step for early ideas: finding the real problem – coaching, small group & peer feedback.",
+   "beschreibung": {
+    "worum": "Part of our three-step programme for early ideas – this step: finding the real problem. With a coach and a small group you take your idea one step further.",
+    "rahmen": "Small group in the Salon, max. 15 people, with a coach. Experienced coaches help you work on your own, specific challenges. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. You can book short 1:1 slots for your individual questions.",
+    "haeufigkeit": "Three sessions in spring and three in autumn – 4th Tuesday evening.",
+    "warum": "Many good ideas never start. A clear process and a supportive group help them get going.",
+    "zielgruppe": "Members and guests with an early idea for an impact project.",
+    "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
+    "agenda": "17:30 – Check-in\n17:40 – Method input: finding the real problem\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
+    "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · Coach: external coach (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-116",
+   "titel": "Community Lunch: Harvest Edition",
+   "datum": "2026-09-23",
+   "startzeit": "12:30",
+   "kategorie": "Community",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 25,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1116",
+   "kalenderId": "CAL-DEMO-2116",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Skillshare",
+    "Unwind"
+   ],
+   "zusammenfassung": "Members' lunch around the harvest season – community gathering, relaxed setting & skillshare.",
+   "beschreibung": {
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around the harvest season.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
+    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Events Intern · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-111",
+   "titel": "Winedown: Orange Wines",
+   "datum": "2026-09-24",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 50,
+   "anmeldungen": 37,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1111",
+   "kalenderId": "CAL-DEMO-2111",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Guided networking",
+    "Community/Gathering"
+   ],
+   "zusammenfassung": "End-of-month wine evening around orange wines – time to unwind, relaxed setting & guided networking.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around orange wines. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Rooftop Terrace for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about orange wines\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Programme Team · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-115",
+   "titel": "Quarterly: Autumn Harvest Fest",
+   "datum": "2026-09-25",
+   "startzeit": "17:00",
+   "kategorie": "Community Quarterlies",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 120,
+   "anmeldungen": 82,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1115",
+   "kalenderId": "CAL-DEMO-2115",
+   "tags": [
+    "Community/Gathering",
+    "Keynote/panel",
+    "Unwind",
+    "Guided networking"
+   ],
+   "zusammenfassung": "Our big quarterly celebration of the third quarter – community gathering, keynote & panel & time to unwind.",
+   "beschreibung": {
+    "worum": "Our big quarterly celebration: we look back at the third quarter, celebrate member wins and party together.",
+    "rahmen": "Big evening event in the Rooftop Terrace for up to 120 guests, food, drinks and music. It's a chance to meet the community and feel at home in the Hub. A keynote or panel brings fresh perspectives, followed by an open Q&A. Leave the laptop behind and unwind with good people. Our hosts guide the networking, so you meet the right people – no awkward small talk.",
+    "haeufigkeit": "Quarterly – last Friday of each quarter.",
+    "warum": "Celebrating milestones together makes the community visible and strong.",
+    "zielgruppe": "Members, alumni, partners and friends of the Hub.",
+    "ergebnis": "• Seeing what the community achieved\n• Meeting people from all corners of the Hub\n• A great evening",
+    "agenda": "17:00 – Doors open\n17:30 – Look back & member awards\n18:00 – Food, drinks & music\n21:00 – End",
+    "tickets": "Free for members, €10 for guests. 120 tickets via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: whole team, Host Team (bar & tech)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": false
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-107",
+   "titel": "Monday Kick-off: Coffee & Focus",
+   "datum": "2026-09-28",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 20,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1107",
+   "kalenderId": "CAL-DEMO-2107",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": false
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-118",
+   "titel": "Monday Kick-off: Who's New?",
+   "datum": "2026-10-05",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Done",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 19,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1118",
+   "kalenderId": "CAL-DEMO-2118",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-122",
+   "titel": "Academy: Annual Planning with Impact",
+   "datum": "2026-10-06",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
+   "status": "Done",
+   "ort": "Online (demo Zoom)",
+   "kapazität": 20,
+   "anmeldungen": 16,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1122",
+   "kalenderId": "CAL-DEMO-2122",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Practical Academy session on annual planning – hands-on workshop, practical exercises & skillshare.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on annual planning. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Online (demo Zoom), max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on annual planning and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on annual planning\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on annual planning\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-117",
+   "titel": "Monthly Meetup: Autumn Goals",
+   "datum": "2026-10-07",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Done",
+   "ort": "Rooftop Terrace",
+   "kapazität": 60,
+   "anmeldungen": 46,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1117",
+   "kalenderId": "CAL-DEMO-2117",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Matchmaking",
+    "Informal"
+   ],
+   "zusammenfassung": "Our monthly community evening around autumn goals – community gathering, guided networking & matchmaking.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around autumn goals. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Rooftop Terrace for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers. The vibe is relaxed and informal – come as you are.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Programme Team · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-128",
+   "titel": "Collab Night with a Tech Meetup (demo)",
+   "datum": "2026-10-08",
+   "startzeit": "18:00",
+   "kategorie": "Collaboration",
+   "status": "Done",
+   "ort": "Loft – Event Space",
+   "kapazität": 50,
+   "anmeldungen": 39,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1128",
+   "kalenderId": "CAL-DEMO-2128",
+   "tags": [
+    "Collaboration",
+    "Group work",
+    "Keynote/panel"
+   ],
+   "zusammenfassung": "Joint evening with a partner organisation on open tech – group work & keynote & panel.",
+   "beschreibung": {
+    "worum": "A joint evening with a partner organisation on open tech. Both communities meet, share projects and look for ways to work together.",
+    "rahmen": "Evening event in the Loft – Event Space, around 50 guests from both communities. The focus is on collaboration and finding partners for joint projects. Expect to roll up your sleeves and work together in small teams. A keynote or panel brings fresh perspectives, followed by an open Q&A.",
+    "haeufigkeit": "Every other month – 2nd Thursday.",
+    "warum": "Partnerships bring new people, ideas and opportunities into the Hub.",
+    "zielgruppe": "Members and the partner's community.",
+    "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
+    "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
+    "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
+    "betreuung": "Lead: Membership Team · On site: Host Team and partner team (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-130",
+   "titel": "Partner Session: Digital Inclusion (demo)",
+   "datum": "2026-10-09",
+   "startzeit": "10:00",
+   "kategorie": "Partner Deliverable",
+   "status": "Done",
+   "ort": "Partner venue (demo)",
+   "kapazität": 40,
+   "anmeldungen": 34,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1130",
+   "kalenderId": "CAL-DEMO-2130",
+   "tags": [
+    "Expert guidance",
+    "Formal",
+    "Workshop",
+    "Group work"
+   ],
+   "zusammenfassung": "Session delivered with a programme partner on digital inclusion – expert input, structured format & hands-on workshop.",
+   "beschreibung": {
+    "worum": "A session we deliver together with a programme partner on digital inclusion – with input, examples and room for discussion.",
+    "rahmen": "Morning session in the Partner venue (demo), up to 40 participants. An expert guides you through the topic and answers your questions. The session follows a clear agenda and a structured flow. It's a hands-on format – you'll leave with concrete results, not just notes. Expect to roll up your sleeves and work together in small teams.",
+    "haeufigkeit": "As agreed with the partner – about five times a year.",
+    "warum": "Part of a partner agreement: we bring the community, the partner brings expertise and funding.",
+    "zielgruppe": "Members and guests working on digital inclusion, plus the partner's network.",
+    "ergebnis": "• Expert knowledge on digital inclusion\n• Contacts to the partner\n• Fulfilled partner deliverable",
+    "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
+    "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Programme Team · Partner contact: partner team (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Share photos",
+     "erledigt": true
+    },
+    {
+     "text": "Send feedback email",
+     "erledigt": true
+    },
+    {
+     "text": "Add numbers to Notion",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-119",
+   "titel": "Monday Kick-off: Tool Tip",
+   "datum": "2026-10-12",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Published",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 22,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1119",
+   "kalenderId": "CAL-DEMO-2119",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": false
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-126",
+   "titel": "Town Hall: Autumn Update & Space Changes",
+   "datum": "2026-10-13",
+   "startzeit": "17:00",
+   "kategorie": "Town Hall",
+   "status": "Published",
+   "ort": "Loft – Event Space",
+   "kapazität": 80,
+   "anmeldungen": 63,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1126",
+   "kalenderId": "CAL-DEMO-2126",
+   "tags": [
+    "Formal",
+    "Community/Gathering",
+    "Group work"
+   ],
+   "zusammenfassung": "Quarterly Town Hall on changes to our spaces – structured format, community gathering & group work.",
+   "beschreibung": {
+    "worum": "Our quarterly Town Hall on changes to our spaces: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
+    "rahmen": "Plenary in the Loft – Event Space, seating for 80, followed by drinks. The session follows a clear agenda and a structured flow. It's a chance to meet the community and feel at home in the Hub. Expect to roll up your sleeves and work together in small teams.",
+    "haeufigkeit": "Quarterly – 2nd Tuesday of the first month of each quarter.",
+    "warum": "Transparency builds trust. Members understand decisions and help shape the Hub.",
+    "zielgruppe": "All members and residents of the Hub.",
+    "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
+    "agenda": "17:00 – Arrival\n17:10 – Update from the team\n17:40 – Q&A and feedback\n18:20 – Drinks\n19:00 – End",
+    "tickets": "Members only, free. Please register via Eventbrite (80 seats).",
+    "betreuung": "Lead: Events Intern · On site: whole team · Moderation: Community Lead"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": true
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-124",
+   "titel": "Drops of Inspiration: Mental Health",
+   "datum": "2026-10-14",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Published",
+   "ort": "Salon",
+   "kapazität": 40,
+   "anmeldungen": 33,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "EB-DEMO-1124",
+   "kalenderId": "CAL-DEMO-2124",
+   "tags": [
+    "Keynote/panel",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "A short lunchtime input on mental health in startup life – keynote & panel & peer feedback.",
+   "beschreibung": {
+    "worum": "A short, inspiring input on mental health in startup life over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Salon, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on mental health in startup life.",
+    "zielgruppe": "Members and guests curious about mental health in startup life – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on mental health in startup life\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on mental health in startup life\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team (tech) · Speaker: external guest (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": false
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-123",
+   "titel": "Academy: Your First Circular Business Move",
+   "datum": "2026-10-15",
+   "startzeit": "14:00",
+   "kategorie": "Academy",
+   "status": "Published",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 13,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1123",
+   "kalenderId": "CAL-DEMO-2123",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Small groups"
+   ],
+   "zusammenfassung": "Practical Academy session on circular business – hands-on workshop, practical exercises & small group.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on circular business. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Salon, max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on circular business and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on circular business\n• Feedback from peers",
+    "agenda": "14:00 – Arrival & check-in\n14:15 – Input on circular business\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": true
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-120",
+   "titel": "Monday Kick-off: Weekly Goals",
+   "datum": "2026-10-19",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Published",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 13,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1120",
+   "kalenderId": "CAL-DEMO-2120",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": false
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-127",
+   "titel": "Women in Impact Circle",
+   "datum": "2026-10-20",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Published",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 11,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1127",
+   "kalenderId": "CAL-DEMO-2127",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Coaching/consulting",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Peer circle for one member group around women in impact – small group, peer feedback & coaching.",
+   "beschreibung": {
+    "worum": "A small peer circle around women in impact: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Salon, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. Experienced coaches help you work on your own, specific challenges. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Events Intern · Facilitation: Community Lead or a member host"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": false
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-121",
+   "titel": "Monday Kick-off: Asks & Offers",
+   "datum": "2026-10-26",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Published",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 10,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1121",
+   "kalenderId": "CAL-DEMO-2121",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": false
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-129",
+   "titel": "Idea Starter Pack 2: Talking to Users",
+   "datum": "2026-10-27",
+   "startzeit": "17:30",
+   "kategorie": "Idea Starter Pack",
+   "status": "Published",
+   "ort": "Salon",
+   "kapazität": 15,
+   "anmeldungen": 7,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "EB-DEMO-1129",
+   "kalenderId": "CAL-DEMO-2129",
+   "tags": [
+    "Coaching/consulting",
+    "Small groups",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "Guided step for early ideas: talking to users – coaching, small group & peer feedback.",
+   "beschreibung": {
+    "worum": "Part of our three-step programme for early ideas – this step: talking to users. With a coach and a small group you take your idea one step further.",
+    "rahmen": "Small group in the Salon, max. 15 people, with a coach. Experienced coaches help you work on your own, specific challenges. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Three sessions in spring and three in autumn – 4th Tuesday evening.",
+    "warum": "Many good ideas never start. A clear process and a supportive group help them get going.",
+    "zielgruppe": "Members and guests with an early idea for an impact project.",
+    "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
+    "agenda": "17:30 – Check-in\n17:40 – Method input: talking to users\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
+    "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
+    "betreuung": "Lead: Events Intern · Coach: external coach (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": false
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-131",
+   "titel": "Community Lunch: Pumpkin Edition",
+   "datum": "2026-10-28",
+   "startzeit": "12:30",
+   "kategorie": "Community",
+   "status": "Published",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 11,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1131",
+   "kalenderId": "CAL-DEMO-2131",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Skillshare",
+    "Unwind"
+   ],
+   "zusammenfassung": "Members' lunch around pumpkin dishes – community gathering, relaxed setting & skillshare.",
+   "beschreibung": {
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around pumpkin dishes.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "",
+    "ergebnis": "",
+    "agenda": "",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Programme Team · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": true
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-125",
+   "titel": "Winedown: Alcohol-Free Pairings",
+   "datum": "2026-10-29",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Published",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 50,
+   "anmeldungen": 15,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1125",
+   "kalenderId": "CAL-DEMO-2125",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Guided networking",
+    "Community/Gathering"
+   ],
+   "zusammenfassung": "End-of-month wine evening around alcohol-free pairings – time to unwind, relaxed setting & guided networking.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around alcohol-free pairings. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Kitchen & Lounge for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. Our hosts guide the networking, so you meet the right people – no awkward small talk. It's a chance to meet the community and feel at home in the Hub.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about alcohol-free pairings\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": true
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": true
+    }
+   ]
+  },
+  {
+   "id": "evt-133",
+   "titel": "Monday Kick-off: Wins of Last Week",
+   "datum": "2026-11-02",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Published",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 7,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "EB-DEMO-1133",
+   "kalenderId": "CAL-DEMO-2133",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": false
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-132",
+   "titel": "Monthly Meetup: Thank-You Edition",
+   "datum": "2026-11-04",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Published",
+   "ort": "Loft – Event Space",
+   "kapazität": 60,
+   "anmeldungen": 12,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "EB-DEMO-1132",
+   "kalenderId": "CAL-DEMO-2132",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Matchmaking",
+    "Collaboration"
+   ],
+   "zusammenfassung": "Our monthly community evening around gratitude – community gathering, guided networking & matchmaking.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around gratitude. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Loft – Event Space for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers. The focus is on collaboration and finding partners for joint projects.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Programme Team · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": true
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-134",
+   "titel": "Monday Kick-off: Coffee & Focus",
+   "datum": "2026-11-09",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Published",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 3,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "EB-DEMO-1134",
+   "kalenderId": "CAL-DEMO-2134",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Share social post",
+     "erledigt": false
+    },
+    {
+     "text": "Send reminder email",
+     "erledigt": false
+    },
+    {
+     "text": "Confirm catering",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-137",
+   "titel": "Drops of Inspiration: Inclusion as a Business Model",
+   "datum": "2026-11-11",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Planned",
+   "ort": "Loft – Event Space",
+   "kapazität": 40,
+   "anmeldungen": 0,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2137",
+   "tags": [
+    "Keynote/panel",
+    "Informal",
+    "Expert guidance"
+   ],
+   "zusammenfassung": "A short lunchtime input on inclusion – keynote & panel, relaxed setting & expert input.",
+   "beschreibung": {
+    "worum": "A short, inspiring input on inclusion over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the Loft – Event Space, seating for 40. Bring your own lunch. A keynote or panel brings fresh perspectives, followed by an open Q&A. The vibe is relaxed and informal – come as you are. An expert guides you through the topic and answers your questions.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on inclusion.",
+    "zielgruppe": "Members and guests curious about inclusion – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on inclusion\n• Direct exchange with the speaker\n• Ideas for your own work",
+    "agenda": "12:30 – Arrival with lunch\n12:40 – Input on inclusion\n13:00 – Q&A\n13:30 – End",
+    "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -2719,25 +6184,522 @@ window.DEMO_DATEN = {
    ]
   },
   {
-   "id": "evt-061",
-   "titel": "Open Pitch Night: Season Finale",
-   "datum": "2026-12-31",
-   "startzeit": "18:30",
-   "kategorie": "Pitch Night",
-   "status": "Idea",
+   "id": "evt-142",
+   "titel": "Partner Session: Circular Construction (demo)",
+   "datum": "2026-11-13",
+   "startzeit": "10:00",
+   "kategorie": "Partner Deliverable",
+   "status": "Planned",
    "ort": "Loft – Event Space",
-   "kapazität": 80,
+   "kapazität": 40,
+   "anmeldungen": 0,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2142",
+   "tags": [
+    "Expert guidance",
+    "Formal",
+    "Workshop"
+   ],
+   "zusammenfassung": "Session delivered with a programme partner on circular construction – expert input, structured format & hands-on workshop.",
+   "beschreibung": {
+    "worum": "A session we deliver together with a programme partner on circular construction – with input, examples and room for discussion.",
+    "rahmen": "Morning session in the Loft – Event Space, up to 40 participants. An expert guides you through the topic and answers your questions. The session follows a clear agenda and a structured flow. It's a hands-on format – you'll leave with concrete results, not just notes.",
+    "haeufigkeit": "As agreed with the partner – about five times a year.",
+    "warum": "Part of a partner agreement: we bring the community, the partner brings expertise and funding.",
+    "zielgruppe": "Members and guests working on circular construction, plus the partner's network.",
+    "ergebnis": "• Expert knowledge on circular construction\n• Contacts to the partner\n• Fulfilled partner deliverable",
+    "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
+    "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · On site: Programme Team · Partner contact: partner team (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-135",
+   "titel": "Monday Kick-off: Who's New?",
+   "datum": "2026-11-16",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 0,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2135",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Unwind",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & time to unwind.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Leave the laptop behind and unwind with good people. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-139",
+   "titel": "Creatives Circle",
+   "datum": "2026-11-17",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Planned",
+   "ort": "Loft – Workshop Room",
+   "kapazität": 20,
    "anmeldungen": 0,
    "verantwortlich": "Membership Team",
    "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2139",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Coaching/consulting"
+   ],
+   "zusammenfassung": "Peer circle for one member group around creative work – small group, peer feedback & coaching.",
+   "beschreibung": {
+    "worum": "A small peer circle around creative work: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Loft – Workshop Room, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. Experienced coaches help you work on your own, specific challenges.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "",
+    "betreuung": ""
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-141",
+   "titel": "Cross-Hub Exchange: Year-End Edition",
+   "datum": "2026-11-20",
+   "startzeit": "15:00",
+   "kategorie": "Cross-Community",
+   "status": "Planned",
+   "ort": "Online (demo Zoom)",
+   "kapazität": 60,
+   "anmeldungen": 0,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2141",
+   "tags": [
+    "Guided networking",
+    "Collaboration",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Exchange with other Hub communities on exchange between Hubs – guided networking, collaboration & matchmaking.",
+   "beschreibung": {
+    "worum": "Members from several Hub communities meet on exchange between Hubs: short intros, matchmaking and space for joint projects.",
+    "rahmen": "Hybrid format (Online (demo Zoom)), up to 60 participants from several Hubs. Our hosts guide the networking, so you meet the right people – no awkward small talk. The focus is on collaboration and finding partners for joint projects. We match people with complementary needs and offers.",
+    "haeufigkeit": "Four times a year – 3rd Friday afternoon.",
+    "warum": "The global network is one of our biggest assets – we make it tangible for members.",
+    "zielgruppe": "Members looking for partners, clients or ideas beyond the city.",
+    "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
+    "agenda": "15:00 – Welcome\n15:10 – Intros from each Hub\n15:30 – Breakout matchmaking\n16:20 – Wrap-up\n16:30 – End",
+    "tickets": "Free for members. 60 spots via Eventbrite.",
+    "betreuung": "Lead: Community Lead · On site: Host Team · Co-hosts from partner Hubs (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-136",
+   "titel": "Monday Kick-off: Tool Tip",
+   "datum": "2026-11-23",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 0,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2136",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-140",
+   "titel": "Idea Starter Pack 3: First Prototype",
+   "datum": "2026-11-24",
+   "startzeit": "17:30",
+   "kategorie": "Idea Starter Pack",
+   "status": "Planned",
+   "ort": "Salon",
+   "kapazität": 15,
+   "anmeldungen": 0,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2140",
+   "tags": [
+    "Coaching/consulting",
+    "Small groups",
+    "1:1 sessions",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "Guided step for early ideas: a first prototype – coaching, small group & 1:1 sessions.",
+   "beschreibung": {
+    "worum": "Part of our three-step programme for early ideas – this step: a first prototype. With a coach and a small group you take your idea one step further.",
+    "rahmen": "Small group in the Salon, max. 15 people, with a coach. Experienced coaches help you work on your own, specific challenges. We keep the group small, so everyone gets space to ask questions and contribute. You can book short 1:1 slots for your individual questions. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Three sessions in spring and three in autumn – 4th Tuesday evening.",
+    "warum": "Many good ideas never start. A clear process and a supportive group help them get going.",
+    "zielgruppe": "Members and guests with an early idea for an impact project.",
+    "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
+    "agenda": "17:30 – Check-in\n17:40 – Method input: a first prototype\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
+    "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
+    "betreuung": "Lead: Community Lead · Coach: external coach (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-143",
+   "titel": "Community Lunch: Plate Swap",
+   "datum": "2026-11-25",
+   "startzeit": "12:30",
+   "kategorie": "Community",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 0,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2143",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Members' lunch around swapping dishes – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around swapping dishes.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
+    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Programme Team · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-138",
+   "titel": "Winedown: Mulled Wine Edition",
+   "datum": "2026-11-26",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 50,
+   "anmeldungen": 0,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2138",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Community/Gathering",
+    "Guided networking"
+   ],
+   "zusammenfassung": "End-of-month wine evening around mulled wine – time to unwind, relaxed setting & community gathering.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around mulled wine. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Kitchen & Lounge for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about mulled wine\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-149",
+   "titel": "Academy: Storytelling for Impact Startups",
+   "datum": "2026-12-01",
+   "startzeit": "10:00",
+   "kategorie": "Academy",
+   "status": "Planned",
+   "ort": "Online (demo Zoom)",
+   "kapazität": 20,
+   "anmeldungen": 0,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2149",
+   "tags": [
+    "Workshop",
+    "Practical exercises",
+    "Group work"
+   ],
+   "zusammenfassung": "Practical Academy session on storytelling – hands-on workshop, practical exercises & group work.",
+   "beschreibung": {
+    "worum": "A hands-on Academy session on storytelling. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the Online (demo Zoom), max. 20 participants. Coffee and snacks included. It's a hands-on format – you'll leave with concrete results, not just notes. Practical exercises help you apply what you learn straight away. Expect to roll up your sleeves and work together in small teams.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on storytelling and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on storytelling\n• Feedback from peers",
+    "agenda": "10:00 – Arrival & check-in\n10:15 – Input on storytelling\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
+    "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
+    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-144",
+   "titel": "Monthly Meetup: Year in Review",
+   "datum": "2026-12-02",
+   "startzeit": "18:00",
+   "kategorie": "Community Monthlies",
+   "status": "Planned",
+   "ort": "Loft – Event Space",
+   "kapazität": 60,
+   "anmeldungen": 0,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2144",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Our monthly community evening around the year in review – community gathering, guided networking & matchmaking.",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around the year in review. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the Loft – Event Space for around 60 guests, drinks & snacks. It's a chance to meet the community and feel at home in the Hub. Our hosts guide the networking, so you meet the right people – no awkward small talk. We match people with complementary needs and offers.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
+    "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
+    "betreuung": "Lead: Community Lead · On site: Host Team (welcome & bar), Membership Team"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-145",
+   "titel": "Monday Kick-off: Weekly Goals",
+   "datum": "2026-12-07",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 0,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2145",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-150",
+   "titel": "Drops of Inspiration: Leading Beyond Growth",
+   "datum": "2026-12-09",
+   "startzeit": "12:30",
+   "kategorie": "Drops of Inspiration",
+   "status": "Idea",
+   "ort": "Loft – Event Space",
+   "kapazität": 40,
+   "anmeldungen": 0,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "",
    "kalenderId": "",
    "tags": [
-    "Peer feedback/exchange",
-    "Matchmaking",
-    "Coaching/consulting",
-    "Formal"
+    "Keynote/panel",
+    "Peer feedback/exchange"
    ],
-   "zusammenfassung": "Startup pitch night on the year's best ideas – peer feedback, matchmaking & coaching.",
+   "zusammenfassung": "A short lunchtime input on business beyond growth – keynote & panel & peer feedback.",
    "beschreibung": {
     "worum": "",
     "rahmen": "",
@@ -2760,6 +6722,369 @@ window.DEMO_DATEN = {
     },
     {
      "text": "Clarify budget",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-153",
+   "titel": "Collab Night with an Arts Collective (demo)",
+   "datum": "2026-12-10",
+   "startzeit": "18:00",
+   "kategorie": "Collaboration",
+   "status": "Idea",
+   "ort": "Partner venue (demo)",
+   "kapazität": 50,
+   "anmeldungen": 0,
+   "verantwortlich": "Programme Team",
+   "eventbriteId": "",
+   "kalenderId": "",
+   "tags": [
+    "Collaboration",
+    "Matchmaking"
+   ],
+   "zusammenfassung": "Joint evening with a partner organisation on art and impact – matchmaking.",
+   "beschreibung": {
+    "worum": "",
+    "rahmen": "",
+    "haeufigkeit": "",
+    "warum": "",
+    "zielgruppe": "",
+    "ergebnis": "",
+    "agenda": "",
+    "tickets": "",
+    "betreuung": ""
+   },
+   "aufgaben": [
+    {
+     "text": "Ask speaker",
+     "erledigt": false
+    },
+    {
+     "text": "Book room",
+     "erledigt": false
+    },
+    {
+     "text": "Clarify budget",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-146",
+   "titel": "Monday Kick-off: Asks & Offers",
+   "datum": "2026-12-14",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 0,
+   "verantwortlich": "Events Intern",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2146",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-152",
+   "titel": "Tech for Good Circle",
+   "datum": "2026-12-15",
+   "startzeit": "18:00",
+   "kategorie": "Group-Specific",
+   "status": "Planned",
+   "ort": "Salon",
+   "kapazität": 20,
+   "anmeldungen": 0,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2152",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Formal",
+    "Coaching/consulting"
+   ],
+   "zusammenfassung": "Peer circle for one member group around tech for good – small group, peer feedback & structured format.",
+   "beschreibung": {
+    "worum": "A small peer circle around tech for good: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the Salon, max. 20 participants. We keep the group small, so everyone gets space to ask questions and contribute. You'll share your work and get honest, constructive feedback from peers. The session follows a clear agenda and a structured flow. Experienced coaches help you work on your own, specific challenges.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
+    "tickets": "Members only, free. 20 spots via Eventbrite.",
+    "betreuung": "Lead: Host Team · Facilitation: Community Lead or a member host"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-147",
+   "titel": "Monday Kick-off: Wins of Last Week",
+   "datum": "2026-12-21",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 0,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2147",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Small groups"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & small group.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. We keep the group small, so everyone gets space to ask questions and contribute.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-155",
+   "titel": "Community Lunch: Cookie Edition",
+   "datum": "2026-12-23",
+   "startzeit": "12:30",
+   "kategorie": "Community",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 30,
+   "anmeldungen": 0,
+   "verantwortlich": "Community Lead",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2155",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Skillshare"
+   ],
+   "zusammenfassung": "Members' lunch around holiday cookies – community gathering, relaxed setting & skillshare.",
+   "beschreibung": {
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around holiday cookies.",
+    "rahmen": "Informal lunch in the Kitchen & Lounge for up to 30 members. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. Community members share skills they have learned in practice.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
+    "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
+    "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
+    "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
+    "betreuung": "Lead: Community Lead · On site: Membership Team (hosting the table)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-154",
+   "titel": "Quarterly: Year-End Party",
+   "datum": "2026-12-25",
+   "startzeit": "17:00",
+   "kategorie": "Community Quarterlies",
+   "status": "Idea",
+   "ort": "Loft – Event Space",
+   "kapazität": 120,
+   "anmeldungen": 0,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "",
+   "kalenderId": "",
+   "tags": [
+    "Community/Gathering",
+    "Keynote/panel",
+    "Guided networking",
+    "Unwind"
+   ],
+   "zusammenfassung": "Our big quarterly celebration of the whole year – community gathering, keynote & panel & guided networking.",
+   "beschreibung": {
+    "worum": "",
+    "rahmen": "",
+    "haeufigkeit": "",
+    "warum": "",
+    "zielgruppe": "",
+    "ergebnis": "",
+    "agenda": "",
+    "tickets": "",
+    "betreuung": ""
+   },
+   "aufgaben": [
+    {
+     "text": "Ask speaker",
+     "erledigt": false
+    },
+    {
+     "text": "Book room",
+     "erledigt": false
+    },
+    {
+     "text": "Clarify budget",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-148",
+   "titel": "Monday Kick-off: Coffee & Focus",
+   "datum": "2026-12-28",
+   "startzeit": "09:30",
+   "kategorie": "Community Weeklies",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 25,
+   "anmeldungen": 0,
+   "verantwortlich": "Host Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2148",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange",
+    "Unwind"
+   ],
+   "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & peer feedback.",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the Kitchen & Lounge, up to 25 people, coffee on the house. It's a chance to meet the community and feel at home in the Hub. The vibe is relaxed and informal – come as you are. You'll share your work and get honest, constructive feedback from peers. Leave the laptop behind and unwind with good people.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
+    "tickets": "Free, members only, no registration needed (max. 25).",
+    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
+     "erledigt": false
+    }
+   ]
+  },
+  {
+   "id": "evt-151",
+   "titel": "Winedown: Winter Reds",
+   "datum": "2026-12-31",
+   "startzeit": "18:30",
+   "kategorie": "Winedowns",
+   "status": "Planned",
+   "ort": "Kitchen & Lounge",
+   "kapazität": 50,
+   "anmeldungen": 0,
+   "verantwortlich": "Membership Team",
+   "eventbriteId": "",
+   "kalenderId": "CAL-DEMO-2151",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Guided networking"
+   ],
+   "zusammenfassung": "End-of-month wine evening around winter reds – time to unwind, relaxed setting & guided networking.",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around winter reds. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the Kitchen & Lounge for up to 50 guests, wine and alcohol-free drinks. Leave the laptop behind and unwind with good people. The vibe is relaxed and informal – come as you are. Our hosts guide the networking, so you meet the right people – no awkward small talk.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": "18:30 – Doors open\n18:45 – A few words about winter reds\n19:00 – Tasting & mingling\n21:00 – End",
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
+    "betreuung": "Lead: Membership Team · On site: Host Team (bar)"
+   },
+   "aufgaben": [
+    {
+     "text": "Book room",
+     "erledigt": true
+    },
+    {
+     "text": "Create Eventbrite page",
+     "erledigt": false
+    },
+    {
+     "text": "Plan social post",
      "erledigt": false
     }
    ]
@@ -2767,41 +7092,134 @@ window.DEMO_DATEN = {
  ],
  "templates": [
   {
-   "kategorie": "Workshop",
-   "titelVorlage": "Workshop: [Topic] – compact & practical",
+   "kategorie": "Community Monthlies",
+   "titelVorlage": "Monthly Meetup: [Theme]",
    "titelIdeen": [
-    "{thema}: A Hands-on Workshop",
-    "Learn by Doing: {thema}",
-    "{thema} in 3 Hours",
-    "The {thema} Toolkit"
+    "Monthly Meetup: {thema}",
+    "{thema} – Community Evening",
+    "Meet the Hub: {thema}"
    ],
-   "summaryVorlage": "Practical workshop on {thema} – {merkmale}.",
+   "summaryVorlage": "Our monthly community evening around {thema} – {merkmale}.",
+   "tags": [
+    "Community/Gathering",
+    "Guided networking",
+    "Informal"
+   ],
+   "socialText": "🥂 Our monthly community evening is coming up!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #CommunityMonthlies",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nFeel free to bring someone who should get to know the community!\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "Our monthly community evening – this time around {thema}. A short welcome, member news, then drinks and conversations that actually go somewhere.",
+    "rahmen": "Evening format in the {ort} for around {kapazitaet} guests, drinks & snacks.",
+    "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+    "warum": "Good collaborations start with a good conversation. Members find partners and friends, newcomers find their way into the community.",
+    "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+    "agenda": [
+     [
+      0,
+      "Doors open, welcome drink"
+     ],
+     [
+      20,
+      "Welcome & member news"
+     ],
+     [
+      40,
+      "Guided networking rounds"
+     ],
+     [
+      100,
+      "Open mingling"
+     ],
+     [
+      150,
+      "End"
+     ]
+    ],
+    "tickets": "Free for members and guests. Please register via Eventbrite ({kapazitaet} spots).",
+    "betreuung": "Lead: {verantwortlich} · On site: Host Team (welcome & bar), Membership Team"
+   }
+  },
+  {
+   "kategorie": "Community Weeklies",
+   "titelVorlage": "Monday Kick-off: [Theme]",
+   "titelIdeen": [
+    "Monday Kick-off: {thema}",
+    "Coffee & {thema}",
+    "Start the Week: {thema}"
+   ],
+   "summaryVorlage": "Weekly coffee kick-off around {thema} – {merkmale}.",
+   "tags": [
+    "Community/Gathering",
+    "Informal",
+    "Peer feedback/exchange"
+   ],
+   "socialText": "☕ Start your week with the community!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #CommunityWeeklies",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nCoffee is on us – just drop by the kitchen.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "Our weekly kick-off with coffee – this time with a focus on {thema}. Everyone shares one goal for the week and one thing they could use help with.",
+    "rahmen": "30 minutes standing round in the {ort}, up to {kapazitaet} people, coffee on the house.",
+    "haeufigkeit": "Weekly – every Monday morning.",
+    "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask for help early.",
+    "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+    "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+    "agenda": [
+     [
+      0,
+      "Coffee & arrival"
+     ],
+     [
+      5,
+      "Round: one goal, one ask"
+     ],
+     [
+      25,
+      "Announcements"
+     ],
+     [
+      30,
+      "End"
+     ]
+    ],
+    "tickets": "Free, members only, no registration needed (max. {kapazitaet}).",
+    "betreuung": "Lead: {verantwortlich} · On site: Host Team (coffee & moderation)"
+   }
+  },
+  {
+   "kategorie": "Academy",
+   "titelVorlage": "Academy: [Topic]",
+   "titelIdeen": [
+    "Academy: {thema}",
+    "{thema}: A Hands-on Session",
+    "Learn by Doing: {thema}"
+   ],
+   "summaryVorlage": "Practical Academy session on {thema} – {merkmale}.",
    "tags": [
     "Workshop",
     "Practical exercises",
     "Small groups"
    ],
-   "socialText": "🛠️ New workshop at the Hub!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSpots are limited – grab yours! 👉 Link in bio\n\n#ImpactHub #Workshop #Learning",
-   "mailText": "Hi everyone,\n\nwe're looking forward to the workshop \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\nPlease bring a laptop or notebook. If you can't make it, please release your spot via Eventbrite – the waiting list will thank you!\n\nSee you soon,\nyour Community Team",
+   "socialText": "🛠️ New Academy session at the Hub!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #Academy",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nPlease bring a laptop or notebook.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
    "beschreibung": {
-    "worum": "A hands-on session on {thema}. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying things out (and getting them wrong first) is part of the plan.",
-    "rahmen": "3-hour workshop in the {ort}, max. {kapazitaet} participants. Laptops welcome, coffee and snacks on the house.",
-    "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-    "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on {thema} and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior knowledge of {thema} needed, curiosity is enough.",
-    "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on {thema} to take home\n• Feedback from peers and new contacts in the community",
+    "worum": "A hands-on Academy session on {thema}. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
+    "rahmen": "3-hour session in the {ort}, max. {kapazitaet} participants. Coffee and snacks included.",
+    "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+    "warum": "Members get a fast, practical boost on {thema} and meet peers facing the same questions.",
+    "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+    "ergebnis": "• A concrete next step for your project\n• Tools and templates on {thema}\n• Feedback from peers",
     "agenda": [
      [
       0,
-      "Arrival, coffee & check-in round"
+      "Arrival & check-in"
      ],
      [
       15,
-      "Short input on {thema}"
+      "Input on {thema}"
      ],
      [
       45,
-      "Hands-on exercises in small teams"
+      "Exercises in small teams"
      ],
      [
       120,
@@ -2809,121 +7227,482 @@ window.DEMO_DATEN = {
      ],
      [
       160,
-      "Wrap-up: everyone names their next step"
+      "Wrap-up: next steps"
      ],
      [
       180,
       "End"
      ]
     ],
-    "tickets": "Free for members, €15 for guests. Only {kapazitaet} spots – registration via Eventbrite required. Can't make it? Please release your ticket so someone from the waiting list can join.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team (setup, coffee, check-in) · Facilitation: external trainer (demo)"
+    "tickets": "Free for members, €15 for guests. {kapazitaet} spots, registration via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · On site: Host Team · Facilitation: external trainer (demo)"
    }
   },
   {
-   "kategorie": "Networking",
-   "titelVorlage": "[Occasion] – Community Get-Together",
+   "kategorie": "Drops of Inspiration",
+   "titelVorlage": "Drops of Inspiration: [Topic]",
    "titelIdeen": [
-    "{thema}: Meet & Connect",
-    "Connect over {thema}",
-    "{thema} – Community Evening",
-    "Who's Who in {thema}"
+    "Drops of Inspiration: {thema}",
+    "{thema} in 20 Minutes",
+    "Rethinking {thema}"
    ],
-   "summaryVorlage": "Community evening around {thema} – {merkmale}.",
-   "tags": [
-    "Guided networking",
-    "Informal",
-    "Community/Gathering"
-   ],
-   "socialText": "🥂 Time for new connections!\n\n\"{titel}\"\n📅 {datum} from {uhrzeit}\n📍 {ort}\n\n{summary}\n\nFounder, freelancer or just curious – drop by and meet the community. 💛\n\n#ImpactHub #Networking #Community",
-   "mailText": "Hi everyone,\n\nit's almost time for \"{titel}\" on {datum} from {uhrzeit} ({ort}).\n\nFeel free to bring someone who should get to know the community!\n\nSee you soon,\nyour Community Team",
-   "beschreibung": {
-    "worum": "An evening to meet the people behind Vienna's impact scene, this time around {thema}. A short welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, zero pressure.",
-    "rahmen": "Relaxed evening format in the {ort} for around {kapazitaet} guests – standing tables, music in the background, drinks & snacks.",
-    "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-    "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and friends – and newcomers to find their way into the community.",
-    "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined are especially welcome.",
-    "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at home at the Hub",
-    "agenda": [
-     [
-      0,
-      "Doors open, welcome drink"
-     ],
-     [
-      30,
-      "Short welcome & intro by the hosts"
-     ],
-     [
-      45,
-      "Guided networking rounds"
-     ],
-     [
-      105,
-      "Open mingling"
-     ],
-     [
-      180,
-      "End"
-     ]
-    ],
-    "tickets": "Free, open to members and guests. Please register via Eventbrite ({kapazitaet} spots) so we can plan drinks and snacks.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team (welcome & bar) and Membership Team (introductions, questions about membership)"
-   }
-  },
-  {
-   "kategorie": "Talk",
-   "titelVorlage": "Impact Talk: [Topic]",
-   "titelIdeen": [
-    "Impact Talk: {thema}",
-    "{thema} – Insights & Q&A",
-    "Rethinking {thema}",
-    "Fireside Chat: {thema}"
-   ],
-   "summaryVorlage": "Inspiring talk on {thema} – {merkmale}.",
+   "summaryVorlage": "A short lunchtime input on {thema} – {merkmale}.",
    "tags": [
     "Keynote/panel",
     "Expert guidance"
    ],
-   "socialText": "🎤 Impact Talk at the Hub\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nFree entry, registration via Eventbrite. 👉 Link in bio\n\n#ImpactHub #Talk #Sustainability",
-   "mailText": "Hi everyone,\n\na friendly reminder about the talk \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\nSend us your questions in advance – we'll collect them for the discussion.\n\nSee you soon,\nyour Community Team",
+   "socialText": "💧 A drop of inspiration for your lunch break!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #DropsOfInspiration",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nBring your lunch and your questions.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
    "beschreibung": {
-    "worum": "An inspiring input on {thema}: a guest speaker shares experiences, numbers and honest stories – followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-    "rahmen": "Talk in the {ort}: approx. 30 min. input + 30 min. Q&A, seating for {kapazitaet}, drinks afterwards.",
-    "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-    "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on {thema} and show what impact looks like in practice.",
-    "zielgruppe": "Members, guests and partners interested in {thema} and sustainable change – no expert knowledge required.",
-    "ergebnis": "• New perspectives and knowledge on {thema}\n• Direct exchange with the speaker\n• Ideas and contacts for your own work",
+    "worum": "A short, inspiring input on {thema} over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
+    "rahmen": "Lunch talk in the {ort}, seating for {kapazitaet}. Bring your own lunch.",
+    "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+    "warum": "We bring fresh perspectives into the community and spark discussion on {thema}.",
+    "zielgruppe": "Members and guests curious about {thema} – no expert knowledge needed.",
+    "ergebnis": "• A new perspective on {thema}\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": [
      [
       0,
-      "Arrival & welcome"
+      "Arrival with lunch"
      ],
      [
       10,
-      "Talk on {thema}"
+      "Input on {thema}"
      ],
      [
-      45,
-      "Q&A with the audience"
+      30,
+      "Q&A"
      ],
      [
-      75,
-      "Drinks & informal exchange"
-     ],
-     [
-      105,
+      60,
       "End"
      ]
     ],
-    "tickets": "Free entry, open to everyone. {kapazitaet} seats – please register via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team (tech & moderation) · Speaker: external guest (demo)"
+    "tickets": "Free, open to everyone. {kapazitaet} seats – please register via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · On site: Host Team (tech) · Speaker: external guest (demo)"
    }
   },
   {
-   "kategorie": "Community Lunch",
-   "titelVorlage": "Wednesday Wrap: [Theme]",
+   "kategorie": "Winedowns",
+   "titelVorlage": "Winedown: [Theme]",
    "titelIdeen": [
-    "Wednesday Wrap: {thema}",
+    "Winedown: {thema}",
+    "Wine & Wind Down: {thema}",
+    "{thema} on the Roof"
+   ],
+   "summaryVorlage": "End-of-month wine evening around {thema} – {merkmale}.",
+   "tags": [
+    "Unwind",
+    "Informal",
+    "Community/Gathering"
+   ],
+   "socialText": "🍷 Time to wind down with the community!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #Winedowns",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nAlcohol-free options are always there, of course.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "Our end-of-month Winedown – this time around {thema}. Close the laptop, raise a glass and celebrate the month with the community.",
+    "rahmen": "Relaxed evening in the {ort} for up to {kapazitaet} guests, wine and alcohol-free drinks.",
+    "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+    "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+    "zielgruppe": "Members, alumni and their friends.",
+    "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+    "agenda": [
+     [
+      0,
+      "Doors open"
+     ],
+     [
+      15,
+      "A few words about {thema}"
+     ],
+     [
+      30,
+      "Tasting & mingling"
+     ],
+     [
+      150,
+      "End"
+     ]
+    ],
+    "tickets": "€5 for members, €10 for guests (incl. two drinks). {kapazitaet} spots via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · On site: Host Team (bar)"
+   }
+  },
+  {
+   "kategorie": "Town Hall",
+   "titelVorlage": "Town Hall: [Topic]",
+   "titelIdeen": [
+    "Town Hall: {thema}",
+    "Hub Update: {thema}",
+    "Your Voice: {thema}"
+   ],
+   "summaryVorlage": "Quarterly Town Hall on {thema} – {merkmale}.",
+   "tags": [
+    "Formal",
+    "Community/Gathering",
+    "Peer feedback/exchange"
+   ],
+   "socialText": "🏛️ Town Hall – your voice counts!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #TownHall",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nSend us your questions in advance – we'll collect them.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "Our quarterly Town Hall on {thema}: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
+    "rahmen": "Plenary in the {ort}, seating for {kapazitaet}, followed by drinks.",
+    "haeufigkeit": "Quarterly – 2nd Tuesday of the first month of each quarter.",
+    "warum": "Transparency builds trust. Members understand decisions and help shape the Hub.",
+    "zielgruppe": "All members and residents of the Hub.",
+    "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
+    "agenda": [
+     [
+      0,
+      "Arrival"
+     ],
+     [
+      10,
+      "Update from the team"
+     ],
+     [
+      40,
+      "Q&A and feedback"
+     ],
+     [
+      80,
+      "Drinks"
+     ],
+     [
+      120,
+      "End"
+     ]
+    ],
+    "tickets": "Members only, free. Please register via Eventbrite ({kapazitaet} seats).",
+    "betreuung": "Lead: {verantwortlich} · On site: whole team · Moderation: Community Lead"
+   }
+  },
+  {
+   "kategorie": "Group-Specific",
+   "titelVorlage": "[Group] Circle",
+   "titelIdeen": [
+    "{thema} Circle",
+    "Peer Circle: {thema}",
+    "Among Peers: {thema}"
+   ],
+   "summaryVorlage": "Peer circle for one member group around {thema} – {merkmale}.",
+   "tags": [
+    "Small groups",
+    "Peer feedback/exchange",
+    "Coaching/consulting"
+   ],
+   "socialText": "🫶 A circle for people like you!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #PeerCircle",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nThe circle is confidential – what's said in the room stays in the room.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "A small peer circle around {thema}: people in the same situation share challenges and help each other – honest and confidential.",
+    "rahmen": "Small circle in the {ort}, max. {kapazitaet} participants.",
+    "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+    "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+    "zielgruppe": "Members of the specific group (see title).",
+    "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+    "agenda": [
+     [
+      0,
+      "Check-in round"
+     ],
+     [
+      15,
+      "Case clinic: two challenges"
+     ],
+     [
+      75,
+      "Takeaways"
+     ],
+     [
+      90,
+      "End"
+     ]
+    ],
+    "tickets": "Members only, free. {kapazitaet} spots via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · Facilitation: Community Lead or a member host"
+   }
+  },
+  {
+   "kategorie": "Collaboration",
+   "titelVorlage": "Collab Night with [Partner]",
+   "titelIdeen": [
+    "Collab Night: {thema}",
+    "Together for {thema}",
+    "{thema} – Joint Evening"
+   ],
+   "summaryVorlage": "Joint evening with a partner organisation on {thema} – {merkmale}.",
+   "tags": [
+    "Collaboration",
+    "Matchmaking"
+   ],
+   "socialText": "🤝 Two communities, one evening!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #Collaboration",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nOur partner's community joins too – a great chance to meet new people.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "A joint evening with a partner organisation on {thema}. Both communities meet, share projects and look for ways to work together.",
+    "rahmen": "Evening event in the {ort}, around {kapazitaet} guests from both communities.",
+    "haeufigkeit": "Every other month – 2nd Thursday.",
+    "warum": "Partnerships bring new people, ideas and opportunities into the Hub.",
+    "zielgruppe": "Members and the partner's community.",
+    "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
+    "agenda": [
+     [
+      0,
+      "Welcome"
+     ],
+     [
+      15,
+      "Short intros from both sides"
+     ],
+     [
+      45,
+      "Matchmaking & mingling"
+     ],
+     [
+      150,
+      "End"
+     ]
+    ],
+    "tickets": "Free. {kapazitaet} spots via Eventbrite, shared with the partner.",
+    "betreuung": "Lead: {verantwortlich} · On site: Host Team and partner team (demo)"
+   }
+  },
+  {
+   "kategorie": "Idea Starter Pack",
+   "titelVorlage": "Idea Starter Pack [No.]: [Step]",
+   "titelIdeen": [
+    "Idea Starter Pack: {thema}",
+    "From Idea to Action: {thema}",
+    "{thema} – First Steps"
+   ],
+   "summaryVorlage": "Guided step for early ideas: {thema} – {merkmale}.",
+   "tags": [
+    "Coaching/consulting",
+    "Small groups",
+    "Workshop"
+   ],
+   "socialText": "💡 Got an idea? Let's get it started!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #IdeaStarterPack",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nBring your idea – even if it's only a sentence on a napkin.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "Part of our three-step programme for early ideas – this step: {thema}. With a coach and a small group you take your idea one step further.",
+    "rahmen": "Small group in the {ort}, max. {kapazitaet} people, with a coach.",
+    "haeufigkeit": "Three sessions in spring and three in autumn – 4th Tuesday evening.",
+    "warum": "Many good ideas never start. A clear process and a supportive group help them get going.",
+    "zielgruppe": "Members and guests with an early idea for an impact project.",
+    "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
+    "agenda": [
+     [
+      0,
+      "Check-in"
+     ],
+     [
+      10,
+      "Method input: {thema}"
+     ],
+     [
+      40,
+      "Work on your idea"
+     ],
+     [
+      100,
+      "Feedback round"
+     ],
+     [
+      120,
+      "End"
+     ]
+    ],
+    "tickets": "€10 per session, free for members. {kapazitaet} spots via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · Coach: external coach (demo)"
+   }
+  },
+  {
+   "kategorie": "Cross-Community",
+   "titelVorlage": "Cross-Hub Exchange: [Edition]",
+   "titelIdeen": [
+    "Cross-Hub Exchange: {thema}",
+    "Hubs Connect: {thema}",
+    "Beyond Our Hub: {thema}"
+   ],
+   "summaryVorlage": "Exchange with other Hub communities on {thema} – {merkmale}.",
+   "tags": [
+    "Guided networking",
+    "Collaboration",
+    "Matchmaking"
+   ],
+   "socialText": "🌍 Meet members from other Hubs!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #CrossCommunity",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nYou'll get the online link the day before.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "Members from several Hub communities meet on {thema}: short intros, matchmaking and space for joint projects.",
+    "rahmen": "Hybrid format ({ort}), up to {kapazitaet} participants from several Hubs.",
+    "haeufigkeit": "Four times a year – 3rd Friday afternoon.",
+    "warum": "The global network is one of our biggest assets – we make it tangible for members.",
+    "zielgruppe": "Members looking for partners, clients or ideas beyond the city.",
+    "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
+    "agenda": [
+     [
+      0,
+      "Welcome"
+     ],
+     [
+      10,
+      "Intros from each Hub"
+     ],
+     [
+      30,
+      "Breakout matchmaking"
+     ],
+     [
+      80,
+      "Wrap-up"
+     ],
+     [
+      90,
+      "End"
+     ]
+    ],
+    "tickets": "Free for members. {kapazitaet} spots via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · On site: Host Team · Co-hosts from partner Hubs (demo)"
+   }
+  },
+  {
+   "kategorie": "Community Quarterlies",
+   "titelVorlage": "Quarterly: [Celebration]",
+   "titelIdeen": [
+    "Quarterly: {thema}",
+    "Celebrating {thema}",
+    "The Big Quarterly: {thema}"
+   ],
+   "summaryVorlage": "Our big quarterly celebration of {thema} – {merkmale}.",
+   "tags": [
+    "Community/Gathering",
+    "Keynote/panel",
+    "Unwind"
+   ],
+   "socialText": "🎉 Our big quarterly celebration is here!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #CommunityQuarterlies",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nBring friends – the more the merrier.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "Our big quarterly celebration: we look back at {thema}, celebrate member wins and party together.",
+    "rahmen": "Big evening event in the {ort} for up to {kapazitaet} guests, food, drinks and music.",
+    "haeufigkeit": "Quarterly – last Friday of each quarter.",
+    "warum": "Celebrating milestones together makes the community visible and strong.",
+    "zielgruppe": "Members, alumni, partners and friends of the Hub.",
+    "ergebnis": "• Seeing what the community achieved\n• Meeting people from all corners of the Hub\n• A great evening",
+    "agenda": [
+     [
+      0,
+      "Doors open"
+     ],
+     [
+      30,
+      "Look back & member awards"
+     ],
+     [
+      60,
+      "Food, drinks & music"
+     ],
+     [
+      240,
+      "End"
+     ]
+    ],
+    "tickets": "Free for members, €10 for guests. {kapazitaet} tickets via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · On site: whole team, Host Team (bar & tech)"
+   }
+  },
+  {
+   "kategorie": "Partner Deliverable",
+   "titelVorlage": "Partner Session: [Topic]",
+   "titelIdeen": [
+    "Partner Session: {thema}",
+    "{thema} – in Cooperation with Our Partner",
+    "Impact Lab: {thema}"
+   ],
+   "summaryVorlage": "Session delivered with a programme partner on {thema} – {merkmale}.",
+   "tags": [
+    "Expert guidance",
+    "Formal",
+    "Workshop"
+   ],
+   "socialText": "🤝 In cooperation with our partner:\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #Partnership",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nThis session is part of a partner programme – please be on time.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "A session we deliver together with a programme partner on {thema} – with input, examples and room for discussion.",
+    "rahmen": "Morning session in the {ort}, up to {kapazitaet} participants.",
+    "haeufigkeit": "As agreed with the partner – about five times a year.",
+    "warum": "Part of a partner agreement: we bring the community, the partner brings expertise and funding.",
+    "zielgruppe": "Members and guests working on {thema}, plus the partner's network.",
+    "ergebnis": "• Expert knowledge on {thema}\n• Contacts to the partner\n• Fulfilled partner deliverable",
+    "agenda": [
+     [
+      0,
+      "Welcome"
+     ],
+     [
+      10,
+      "Partner input"
+     ],
+     [
+      60,
+      "Group work"
+     ],
+     [
+      110,
+      "Wrap-up"
+     ],
+     [
+      120,
+      "End"
+     ]
+    ],
+    "tickets": "Free (funded by the partner). {kapazitaet} spots via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · On site: Programme Team · Partner contact: partner team (demo)"
+   }
+  },
+  {
+   "kategorie": "Community Summer",
+   "titelVorlage": "Summer [Activity]",
+   "titelIdeen": [
+    "Summer Evening: {thema}",
+    "{thema} under the Sky",
+    "Community Summer: {thema}"
+   ],
+   "summaryVorlage": "Summer evening with the community: {thema} – {merkmale}.",
+   "tags": [
+    "Unwind",
+    "Community/Gathering",
+    "Informal"
+   ],
+   "socialText": "☀️ Community Summer is on!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #CommunitySummer",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nIf it rains, we move inside – we'll let you know.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "Part of our Community Summer series: {thema} – light, outdoorsy and fun.",
+    "rahmen": "Summer evening at the {ort} for up to {kapazitaet} guests.",
+    "haeufigkeit": "Summer series – June to August, Thursday evenings.",
+    "warum": "Summer is quieter at the Hub – the series keeps the community together.",
+    "zielgruppe": "Members, alumni, friends and families.",
+    "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
+    "agenda": [
+     [
+      0,
+      "Get together"
+     ],
+     [
+      30,
+      "Main activity: {thema}"
+     ],
+     [
+      180,
+      "End"
+     ]
+    ],
+    "tickets": "Free for members, €5 for guests. {kapazitaet} spots via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · On site: Host Team"
+   }
+  },
+  {
+   "kategorie": "Community",
+   "titelVorlage": "Community Lunch: [Theme]",
+   "titelIdeen": [
+    "Community Lunch: {thema}",
     "Lunch & Learn: {thema}",
     "Bring Your Bowl: {thema}"
    ],
@@ -2931,25 +7710,25 @@ window.DEMO_DATEN = {
    "tags": [
     "Community/Gathering",
     "Informal",
-    "Unwind"
+    "Peer feedback/exchange"
    ],
-   "socialText": "🥗 Lunch break with the community!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nBring your food (or your appetite). Members only. 💛\n\n#ImpactHub #CommunityLunch",
-   "mailText": "Hi lovely people,\n\non {datum} at {uhrzeit} it's Wednesday Wrap again – this time \"{titel}\" ({ort}).\n\nPlease sign up quickly so we have enough plates and ideas.\n\nSee you Wednesday,\nyour Community Team",
+   "socialText": "🥗 Lunch break with the community!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #Community",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nBring your lunch or a dish to share.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
    "beschreibung": {
-    "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a laptop – this time around {thema}. Bring your lunch, your news and your questions.",
-    "rahmen": "Informal lunch in the {ort} for up to {kapazitaet} members – one long table, no slides, no pressure.",
-    "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-    "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what they're working on and ask for help.",
-    "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially encouraged to join.",
+    "worum": "One long table, good food and the people you usually only see behind a laptop – this time around {thema}.",
+    "rahmen": "Informal lunch in the {ort} for up to {kapazitaet} members.",
+    "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+    "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+    "zielgruppe": "All members of the Hub – new members especially welcome.",
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": [
      [
       0,
-      "Gather in the kitchen, set the table"
+      "Set the table"
      ],
      [
       10,
-      "Quick round: name & what you're working on"
+      "Quick round: name & project"
      ],
      [
       20,
@@ -2957,68 +7736,15 @@ window.DEMO_DATEN = {
      ],
      [
       60,
-      "Shout-outs: asks & offers"
+      "Asks & offers"
      ],
      [
       75,
       "End"
      ]
     ],
-    "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite ({kapazitaet} seats).",
-    "betreuung": "Lead: {verantwortlich} · On site: Community Lead and Membership Team (hosting the table)"
-   }
-  },
-  {
-   "kategorie": "Pitch Night",
-   "titelVorlage": "Open Pitch Night: [Edition]",
-   "titelIdeen": [
-    "Open Pitch Night: {thema}",
-    "{thema}: Founders on Stage",
-    "Pitch & Feedback Night: {thema}"
-   ],
-   "summaryVorlage": "Startup pitch night on {thema} – {merkmale}.",
-   "tags": [
-    "Peer feedback/exchange",
-    "Matchmaking",
-    "Formal"
-   ],
-   "socialText": "🚀 Stage's yours, next impact founders!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nCheer on the startups and vote for the audience award! 👉 Tickets via link in bio\n\n#ImpactHub #PitchNight #Startups",
-   "mailText": "Hi everyone,\n\nit's almost time: \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\nDoors open 30 minutes earlier. Voting happens on your phone – please bring it charged. 😉\n\nSee you soon,\nyour Community Team",
-   "beschreibung": {
-    "worum": "Young impact startups take the stage: 3 minutes each to pitch their idea – this edition: {thema}. Followed by questions and feedback from mentors, investors and the audience. Expect nervous energy, big ideas and a lot of cheering.",
-    "rahmen": "Evening stage event in the {ort}: 6–8 pitches, a jury of mentors & investors, audience award, {kapazitaet} seats.",
-    "haeufigkeit": "Quarterly – the last Thursday of each quarter.",
-    "warum": "We give early-stage founders a stage, honest feedback and access to investors – and show the community what's being built right now.",
-    "zielgruppe": "On stage: early-stage impact startups. In the audience: members, investors, mentors, partners and everyone curious about new ventures.",
-    "ergebnis": "• Founders: feedback, visibility and investor contacts\n• Audience: a first look at new ventures and ways to get involved\n• Audience award for the favourite pitch",
-    "agenda": [
-     [
-      0,
-      "Doors open & drinks"
-     ],
-     [
-      30,
-      "Welcome & jury introduction"
-     ],
-     [
-      40,
-      "Pitches (3 min + 4 min Q&A each)"
-     ],
-     [
-      120,
-      "Jury feedback & audience voting"
-     ],
-     [
-      140,
-      "Award & networking"
-     ],
-     [
-      210,
-      "End"
-     ]
-    ],
-    "tickets": "Free for members and pitching teams, €5 for guests. {kapazitaet} tickets via Eventbrite. Startups apply to pitch via the application form (demo).",
-    "betreuung": "Lead: {verantwortlich} · On site: Programme Team (startups & jury), Host Team (tech, bar, check-in) · Jury: mentors & investors from the network (demo)"
+    "tickets": "Members only, free. Sign-up via Eventbrite ({kapazitaet} seats).",
+    "betreuung": "Lead: {verantwortlich} · On site: Membership Team (hosting the table)"
    }
   }
  ],
@@ -3026,22 +7752,40 @@ window.DEMO_DATEN = {
   "jahr": 2026,
   "demoHeute": "2026-10-10",
   "kategorien": [
-   "Workshop",
-   "Networking",
-   "Talk",
-   "Community Lunch",
-   "Pitch Night"
+   "Community Monthlies",
+   "Community Weeklies",
+   "Academy",
+   "Drops of Inspiration",
+   "Winedowns",
+   "Town Hall",
+   "Group-Specific",
+   "Collaboration",
+   "Idea Starter Pack",
+   "Cross-Community",
+   "Community Quarterlies",
+   "Partner Deliverable",
+   "Community Summer",
+   "Community"
   ],
   "monate": [
    {
     "monat": 1,
     "name": "January",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 0
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 1,
+     "Group-Specific": 1,
+     "Collaboration": 0,
+     "Idea Starter Pack": 0,
+     "Cross-Community": 0,
+     "Community Quarterlies": 0,
+     "Partner Deliverable": 0,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3049,11 +7793,20 @@ window.DEMO_DATEN = {
     "monat": 2,
     "name": "February",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 0
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 0,
+     "Group-Specific": 1,
+     "Collaboration": 1,
+     "Idea Starter Pack": 0,
+     "Cross-Community": 1,
+     "Community Quarterlies": 0,
+     "Partner Deliverable": 1,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3061,11 +7814,20 @@ window.DEMO_DATEN = {
     "monat": 3,
     "name": "March",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 1
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 0,
+     "Group-Specific": 1,
+     "Collaboration": 0,
+     "Idea Starter Pack": 1,
+     "Cross-Community": 0,
+     "Community Quarterlies": 1,
+     "Partner Deliverable": 0,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3073,11 +7835,20 @@ window.DEMO_DATEN = {
     "monat": 4,
     "name": "April",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 0
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 1,
+     "Group-Specific": 1,
+     "Collaboration": 1,
+     "Idea Starter Pack": 1,
+     "Cross-Community": 0,
+     "Community Quarterlies": 0,
+     "Partner Deliverable": 1,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3085,11 +7856,20 @@ window.DEMO_DATEN = {
     "monat": 5,
     "name": "May",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 0
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 0,
+     "Group-Specific": 1,
+     "Collaboration": 0,
+     "Idea Starter Pack": 1,
+     "Cross-Community": 1,
+     "Community Quarterlies": 0,
+     "Partner Deliverable": 0,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3097,11 +7877,20 @@ window.DEMO_DATEN = {
     "monat": 6,
     "name": "June",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 1
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 0,
+     "Group-Specific": 1,
+     "Collaboration": 1,
+     "Idea Starter Pack": 0,
+     "Cross-Community": 0,
+     "Community Quarterlies": 1,
+     "Partner Deliverable": 1,
+     "Community Summer": 1,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3109,11 +7898,20 @@ window.DEMO_DATEN = {
     "monat": 7,
     "name": "July",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 0
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 1,
+     "Group-Specific": 1,
+     "Collaboration": 0,
+     "Idea Starter Pack": 0,
+     "Cross-Community": 0,
+     "Community Quarterlies": 0,
+     "Partner Deliverable": 0,
+     "Community Summer": 2,
+     "Community": 0
     },
     "zielAuslastung": 75
    },
@@ -3121,11 +7919,20 @@ window.DEMO_DATEN = {
     "monat": 8,
     "name": "August",
     "soll": {
-     "Workshop": 1,
-     "Networking": 1,
-     "Talk": 0,
-     "Community Lunch": 1,
-     "Pitch Night": 0
+     "Community Monthlies": 1,
+     "Community Weeklies": 2,
+     "Academy": 0,
+     "Drops of Inspiration": 0,
+     "Winedowns": 0,
+     "Town Hall": 0,
+     "Group-Specific": 0,
+     "Collaboration": 1,
+     "Idea Starter Pack": 0,
+     "Cross-Community": 0,
+     "Community Quarterlies": 0,
+     "Partner Deliverable": 0,
+     "Community Summer": 2,
+     "Community": 0
     },
     "zielAuslastung": 75
    },
@@ -3133,11 +7940,20 @@ window.DEMO_DATEN = {
     "monat": 9,
     "name": "September",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 1
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 0,
+     "Group-Specific": 1,
+     "Collaboration": 0,
+     "Idea Starter Pack": 1,
+     "Cross-Community": 1,
+     "Community Quarterlies": 1,
+     "Partner Deliverable": 0,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3145,11 +7961,20 @@ window.DEMO_DATEN = {
     "monat": 10,
     "name": "October",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 0
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 1,
+     "Group-Specific": 1,
+     "Collaboration": 1,
+     "Idea Starter Pack": 1,
+     "Cross-Community": 0,
+     "Community Quarterlies": 0,
+     "Partner Deliverable": 1,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3157,11 +7982,20 @@ window.DEMO_DATEN = {
     "monat": 11,
     "name": "November",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 0
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 2,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 0,
+     "Group-Specific": 1,
+     "Collaboration": 0,
+     "Idea Starter Pack": 1,
+     "Cross-Community": 1,
+     "Community Quarterlies": 0,
+     "Partner Deliverable": 1,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3169,11 +8003,20 @@ window.DEMO_DATEN = {
     "monat": 12,
     "name": "December",
     "soll": {
-     "Workshop": 2,
-     "Networking": 1,
-     "Talk": 1,
-     "Community Lunch": 1,
-     "Pitch Night": 1
+     "Community Monthlies": 1,
+     "Community Weeklies": 4,
+     "Academy": 1,
+     "Drops of Inspiration": 1,
+     "Winedowns": 1,
+     "Town Hall": 0,
+     "Group-Specific": 1,
+     "Collaboration": 1,
+     "Idea Starter Pack": 0,
+     "Cross-Community": 0,
+     "Community Quarterlies": 1,
+     "Partner Deliverable": 0,
+     "Community Summer": 0,
+     "Community": 1
     },
     "zielAuslastung": 75
    }
@@ -3183,11 +8026,20 @@ window.DEMO_DATEN = {
     "quartal": 1,
     "name": "Q1",
     "soll": {
-     "Workshop": 6,
-     "Networking": 3,
-     "Talk": 3,
-     "Community Lunch": 3,
-     "Pitch Night": 1
+     "Community Monthlies": 3,
+     "Community Weeklies": 12,
+     "Academy": 6,
+     "Drops of Inspiration": 3,
+     "Winedowns": 3,
+     "Town Hall": 1,
+     "Group-Specific": 3,
+     "Collaboration": 1,
+     "Idea Starter Pack": 1,
+     "Cross-Community": 1,
+     "Community Quarterlies": 1,
+     "Partner Deliverable": 1,
+     "Community Summer": 0,
+     "Community": 3
     },
     "zielAuslastung": 75
    },
@@ -3195,11 +8047,20 @@ window.DEMO_DATEN = {
     "quartal": 2,
     "name": "Q2",
     "soll": {
-     "Workshop": 6,
-     "Networking": 3,
-     "Talk": 3,
-     "Community Lunch": 3,
-     "Pitch Night": 1
+     "Community Monthlies": 3,
+     "Community Weeklies": 12,
+     "Academy": 6,
+     "Drops of Inspiration": 3,
+     "Winedowns": 3,
+     "Town Hall": 1,
+     "Group-Specific": 3,
+     "Collaboration": 2,
+     "Idea Starter Pack": 2,
+     "Cross-Community": 1,
+     "Community Quarterlies": 1,
+     "Partner Deliverable": 2,
+     "Community Summer": 1,
+     "Community": 3
     },
     "zielAuslastung": 75
    },
@@ -3207,11 +8068,20 @@ window.DEMO_DATEN = {
     "quartal": 3,
     "name": "Q3",
     "soll": {
-     "Workshop": 5,
-     "Networking": 3,
-     "Talk": 2,
-     "Community Lunch": 3,
-     "Pitch Night": 1
+     "Community Monthlies": 3,
+     "Community Weeklies": 10,
+     "Academy": 4,
+     "Drops of Inspiration": 2,
+     "Winedowns": 2,
+     "Town Hall": 1,
+     "Group-Specific": 2,
+     "Collaboration": 1,
+     "Idea Starter Pack": 1,
+     "Cross-Community": 1,
+     "Community Quarterlies": 1,
+     "Partner Deliverable": 0,
+     "Community Summer": 4,
+     "Community": 1
     },
     "zielAuslastung": 75
    },
@@ -3219,11 +8089,20 @@ window.DEMO_DATEN = {
     "quartal": 4,
     "name": "Q4",
     "soll": {
-     "Workshop": 6,
-     "Networking": 3,
-     "Talk": 3,
-     "Community Lunch": 3,
-     "Pitch Night": 1
+     "Community Monthlies": 3,
+     "Community Weeklies": 12,
+     "Academy": 5,
+     "Drops of Inspiration": 3,
+     "Winedowns": 3,
+     "Town Hall": 1,
+     "Group-Specific": 3,
+     "Collaboration": 2,
+     "Idea Starter Pack": 2,
+     "Cross-Community": 1,
+     "Community Quarterlies": 1,
+     "Partner Deliverable": 2,
+     "Community Summer": 0,
+     "Community": 3
     },
     "zielAuslastung": 75
    }

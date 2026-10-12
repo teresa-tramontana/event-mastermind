@@ -45,12 +45,12 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 **Vorschläge für Titel, Description und Summary:** Im Event-Formular gibst du ein Thema ein (z. B. „crowdfunding“), wählst Tags und klickst auf **„✨ Suggest title, description & summary“**. Du bekommst mehrere Titel-Ideen, eine Kurzbeschreibung (Summary) und eine komplette Description mit allen Abschnitten. Mit „Fill missing sections only“ werden nur die leeren Abschnitte gefüllt, was du schon geschrieben hast, bleibt stehen. Mit „Replace all sections“ wird alles ersetzt. Danach kannst du alles frei ändern. Die Vorschläge entstehen aus der Vorlage der Kategorie und aus den gewählten Tags. Es ist noch keine KI dabei, das kommt laut Fahrplan später.
 
-Die 5 Kategorien sind: Workshop, Networking, Talk, Community Lunch, Pitch Night. Jede hat eine eigene Farbe.
+Die 14 Kategorien (wie in Notion) sind: Community Monthlies, Community Weeklies, Academy, Drops of Inspiration, Winedowns, Town Hall, Group-Specific, Collaboration, Idea Starter Pack, Cross-Community, Community Quarterlies, Partner Deliverable, Community Summer, Community. Jede hat eine eigene warme Farbe (kein Grün, kein Blau, darum weichen manche Farben von Notion ab).
 
 **Absichtlich eingebaute Probleme** (damit man sieht, wie Warnungen aussehen):
 - Januar bis März (Q1): überbucht, also mehr Anmeldungen als Plätze
-- Mai: ein Talk mehr als geplant
-- November: gar keine Workshops (geplant waren 2)
+- Mai: ein „Drops of Inspiration“ mehr als geplant
+- November: gar keine Academy-Termine (geplant waren 2)
 
 ## Wie öffne ich es auf meinem Computer?
 

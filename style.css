@@ -25,11 +25,20 @@
   --kritisch-hell: #f9d9d4;
 
   /* Ein Farbton pro Kategorie */
-  --kat-workshop: #d2552e;        /* Terrakotta */
-  --kat-networking: #d99a1e;      /* Safran */
-  --kat-talk: #8e3b5e;            /* Pflaume */
-  --kat-lunch: #d9677a;           /* Rosé */
-  --kat-pitch: #7a4426;           /* Zimt */
+  --kat-monthlies: #d99a1e;      /* Safran */
+  --kat-weeklies: #8e3b5e;       /* Pflaume */
+  --kat-academy: #5b2a48;        /* Aubergine */
+  --kat-drops: #e8894f;          /* Aprikose */
+  --kat-winedowns: #7b2335;      /* Weinrot */
+  --kat-townhall: #a8687f;       /* Malve */
+  --kat-gruppe: #b56a2a;         /* Karamell */
+  --kat-collab: #9c7a5b;         /* Taupe */
+  --kat-idee: #c58b6b;           /* Ton */
+  --kat-cross: #d2552e;          /* Terrakotta */
+  --kat-quarterlies: #b0395d;    /* Beere */
+  --kat-partner: #d9677a;        /* Rosé */
+  --kat-summer: #e46a5a;         /* Koralle */
+  --kat-community: #7a4426;      /* Zimt */
 
 
   /* Eingabefelder: weiß mit ruhigem Rahmen (gut lesbar) */
@@ -120,7 +129,7 @@ button { font: inherit; color: inherit; }
   background: var(--akzent); color: #fff; font: inherit; font-weight: 700; white-space: nowrap;
 }
 .ki-knopf:hover { background: var(--akzent-dunkel); }
-.ki-knopf .funkel { color: var(--kat-networking); }
+.ki-knopf .funkel { color: var(--kat-monthlies); }
 .ki-fenster {
   /* Schublade von rechts, volle Höhe – liegt über der Event-Schublade */
   position: fixed; top: 0; right: 0; bottom: 0; z-index: 50;
@@ -248,11 +257,20 @@ button { font: inherit; color: inherit; }
 .kennzahl .label { color: var(--text-leise); font-size: .85rem; }
 
 /* Kategorie-Farben */
-.kat-Workshop { --kat: var(--kat-workshop); }
-.kat-Networking { --kat: var(--kat-networking); }
-.kat-Talk { --kat: var(--kat-talk); }
-.kat-Community-Lunch { --kat: var(--kat-lunch); }
-.kat-Pitch-Night { --kat: var(--kat-pitch); }
+.kat-Community-Monthlies { --kat: var(--kat-monthlies); }
+.kat-Community-Weeklies { --kat: var(--kat-weeklies); }
+.kat-Academy { --kat: var(--kat-academy); }
+.kat-Drops-of-Inspiration { --kat: var(--kat-drops); }
+.kat-Winedowns { --kat: var(--kat-winedowns); }
+.kat-Town-Hall { --kat: var(--kat-townhall); }
+.kat-Group-Specific { --kat: var(--kat-gruppe); }
+.kat-Collaboration { --kat: var(--kat-collab); }
+.kat-Idea-Starter-Pack { --kat: var(--kat-idee); }
+.kat-Cross-Community { --kat: var(--kat-cross); }
+.kat-Community-Quarterlies { --kat: var(--kat-quarterlies); }
+.kat-Partner-Deliverable { --kat: var(--kat-partner); }
+.kat-Community-Summer { --kat: var(--kat-summer); }
+.kat-Community { --kat: var(--kat-community); }
 .kat-auslastung { --kat: var(--akzent); }
 .kat-punkt { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--kat); flex: none; }
 .kat-pille {

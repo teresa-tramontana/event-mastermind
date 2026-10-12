@@ -30,7 +30,10 @@
     benutzer: { angemeldet: false, email: "", mailMoeglich: false, kiMoeglich: false },
   };
 
-  const KATEGORIEN = ["Workshop", "Networking", "Talk", "Community Lunch", "Pitch Night"];
+  // Reihenfolge und Namen wie in Notion
+  const KATEGORIEN = ["Community Monthlies", "Community Weeklies", "Academy", "Drops of Inspiration", "Winedowns",
+    "Town Hall", "Group-Specific", "Collaboration", "Idea Starter Pack", "Cross-Community", "Community Quarterlies",
+    "Partner Deliverable", "Community Summer", "Community"];
   const STATUS = ["Idea", "Planned", "Published", "Done"];
   const MONATE = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
@@ -111,7 +114,7 @@
   function tageBis(text) {
     return Math.round((alsDatum(text) - heute()) / 86400000);
   }
-  /** "Community Lunch" -> "kat-Community-Lunch" (CSS-Klasse für die Farbe) */
+  /** "Town Hall" -> "kat-Town-Hall" (CSS-Klasse für die Farbe) */
   function katKlasse(kat) {
     return "kat-" + String(kat).replace(/\s+/g, "-");
   }
@@ -1767,7 +1770,7 @@
     "Which months deviate most from the plan?",
     "Which upcoming events are missing description info?",
     "What's on in the next two weeks?",
-    "How full were our workshops on average?",
+    "How full were our Academy sessions on average?",
     "Fill in the missing description info of the next 3 events",
   ];
   const kiVerlauf = []; // { rolle: "user" | "model", text } – nur solange die Seite offen ist

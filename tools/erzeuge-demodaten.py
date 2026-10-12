@@ -4,10 +4,11 @@ Erzeugt die ERFUNDENEN Demo-Daten für den Event-Manager (Inhalte auf Englisch).
 Was macht dieses Skript?
 - Es schreibt data/events.json, data/templates.json, data/model.json und data/tags.json.
 - Alle Inhalte sind synthetisch (keine echten Namen, Mails oder Teilnehmenden).
+- Die 14 Kategorien entsprechen den Kategorien in Notion (Reihenfolge wie dort).
 - Absichtlich eingebaute Abweichungen vom Modell:
     * Q1 (Jan–März) ist überbucht (Auslastung weit über Ziel)
-    * Mai: ein Talk mehr als geplant
-    * November: gar keine Workshops (Soll: 2)
+    * Mai: ein „Drops of Inspiration“ mehr als geplant
+    * November: gar keine Academy-Termine (Soll: 2)
 - Der Zufall ist "festgenagelt" (seed), damit bei jedem Lauf dasselbe herauskommt.
 
 Ausführen (nur nötig, wenn man die Demo-Daten neu würfeln will):
@@ -27,7 +28,6 @@ DATA = Path(__file__).resolve().parent.parent / "data"
 
 MONATE = ["January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December"]
-KATEGORIEN = ["Workshop", "Networking", "Talk", "Community Lunch", "Pitch Night"]
 
 # ---------------------------------------------------------------- Tags
 # Feste Tag-Liste. "kurz" = Stichwort für die Summary, "satz" = Satz für die Description.
@@ -69,27 +69,492 @@ TAGS = [
 ]
 TAG_INFO = {t["tag"]: t for t in TAGS}
 
-# Welche Tags passen zu welcher Kategorie? (immer + manchmal)
-TAG_POOL = {
-    "Workshop": (["Workshop", "Practical exercises"],
-                 ["Small groups", "Expert guidance", "Group work", "1:1 sessions",
-                  "Coaching/consulting", "Skillshare", "Peer feedback/exchange"]),
-    "Networking": (["Guided networking"],
-                   ["Matchmaking", "Informal", "Community/Gathering", "Collaboration", "Unwind"]),
-    "Talk": (["Keynote/panel"], ["Expert guidance", "Formal", "Peer feedback/exchange"]),
-    "Community Lunch": (["Community/Gathering", "Informal"],
-                        ["Peer feedback/exchange", "Unwind", "Skillshare"]),
-    "Pitch Night": (["Peer feedback/exchange", "Matchmaking"],
-                    ["Expert guidance", "Formal", "Coaching/consulting"]),
+# ---------------------------------------------------------------- Kategorien
+# Alles, was eine Kategorie ausmacht, steht an EINER Stelle:
+#   termine   = {Monat: [(Wochentag 0=Mo..6=So, n-ter im Monat (-1 = letzter), Uhrzeit), ...]}
+#               -> daraus entsteht auch das Soll im Modell (Anzahl Termine je Monat)
+#   kap/orte  = Plätze und mögliche Orte
+#   tags      = (immer, manchmal) – Tags aus der festen Liste
+#   titel     = Liste aus (Titel, Thema); das Thema landet in Summary und Description
+#   vorlage   = Vorlage (Titel-Ideen, Summary, Social-/Mail-Text, Description mit Agenda)
+ALLE = range(1, 13)
+OHNE_AUGUST = [m for m in ALLE if m != 8]
+
+
+def jeden_monat(slots, monate=ALLE):
+    return {m: list(slots) for m in monate}
+
+
+def social(emoji, satz, hashtag):
+    return (f"{emoji} {satz}\n\n\"{{titel}}\"\n📅 {{datum}} at {{uhrzeit}}\n📍 {{ort}}\n\n{{summary}}\n\n"
+            f"Sign up via the link in bio. 💛\n\n#ImpactHub #{hashtag}")
+
+
+def mail(satz):
+    return ("Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\n"
+            f"{satz}\n\nIf you can't make it, please release your spot via Eventbrite.\n\n"
+            "See you soon,\nyour Community Team")
+
+
+KAT = {
+    "Community Monthlies": {
+        "termine": jeden_monat([(2, 1, "18:00")]),                       # 1. Mittwoch
+        "kap": 60, "orte": ["Loft – Event Space", "Rooftop Terrace"],
+        "tags": (["Community/Gathering", "Guided networking"], ["Informal", "Matchmaking", "Collaboration"]),
+        "titel": [("Monthly Meetup: New Year, New Faces", "new faces in the community"),
+                  ("Monthly Meetup: Asks & Offers", "asks and offers"),
+                  ("Monthly Meetup: Spring Projects", "spring projects"),
+                  ("Monthly Meetup: Member Spotlights", "member spotlights"),
+                  ("Monthly Meetup: Skills Market", "the skills in our community"),
+                  ("Monthly Meetup: Midsummer Edition", "summer plans"),
+                  ("Monthly Meetup: Rooftop Edition", "rooftop evenings"),
+                  ("Monthly Meetup: Holiday Stories", "holiday stories"),
+                  ("Monthly Meetup: Back to Work", "fresh starts after summer"),
+                  ("Monthly Meetup: Autumn Goals", "autumn goals"),
+                  ("Monthly Meetup: Thank-You Edition", "gratitude"),
+                  ("Monthly Meetup: Year in Review", "the year in review")],
+        "vorlage": {
+            "titelVorlage": "Monthly Meetup: [Theme]",
+            "titelIdeen": ["Monthly Meetup: {thema}", "{thema} – Community Evening", "Meet the Hub: {thema}"],
+            "summaryVorlage": "Our monthly community evening around {thema} – {merkmale}.",
+            "socialText": social("🥂", "Our monthly community evening is coming up!", "CommunityMonthlies"),
+            "mailText": mail("Feel free to bring someone who should get to know the community!"),
+            "beschreibung": {
+                "worum": "Our monthly community evening – this time around {thema}. A short welcome, member news, "
+                         "then drinks and conversations that actually go somewhere.",
+                "rahmen": "Evening format in the {ort} for around {kapazitaet} guests, drinks & snacks.",
+                "haeufigkeit": "Monthly – every 1st Wednesday evening.",
+                "warum": "Good collaborations start with a good conversation. Members find partners and friends, "
+                         "newcomers find their way into the community.",
+                "zielgruppe": "All members, alumni and partners – newcomers especially welcome.",
+                "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
+                "agenda": [[0, "Doors open, welcome drink"], [20, "Welcome & member news"],
+                           [40, "Guided networking rounds"], [100, "Open mingling"], [150, "End"]],
+                "tickets": "Free for members and guests. Please register via Eventbrite ({kapazitaet} spots).",
+                "betreuung": "Lead: {verantwortlich} · On site: Host Team (welcome & bar), Membership Team",
+            },
+        },
+    },
+    "Community Weeklies": {
+        "termine": {m: [(0, n, "09:30") for n in (1, 2, 3, 4)] if m != 8 else [(0, 1, "09:30"), (0, 3, "09:30")]
+                    for m in ALLE},                                       # jeden Montag
+        "kap": 25, "orte": ["Kitchen & Lounge"],
+        "tags": (["Community/Gathering", "Informal"], ["Peer feedback/exchange", "Small groups", "Unwind"]),
+        "titel": [("Monday Kick-off: Weekly Goals", "weekly goals"),
+                  ("Monday Kick-off: Asks & Offers", "asks and offers"),
+                  ("Monday Kick-off: Wins of Last Week", "last week's wins"),
+                  ("Monday Kick-off: Coffee & Focus", "focus for the week"),
+                  ("Monday Kick-off: Who's New?", "new members"),
+                  ("Monday Kick-off: Tool Tip", "a useful tool")],
+        "vorlage": {
+            "titelVorlage": "Monday Kick-off: [Theme]",
+            "titelIdeen": ["Monday Kick-off: {thema}", "Coffee & {thema}", "Start the Week: {thema}"],
+            "summaryVorlage": "Weekly coffee kick-off around {thema} – {merkmale}.",
+            "socialText": social("☕", "Start your week with the community!", "CommunityWeeklies"),
+            "mailText": mail("Coffee is on us – just drop by the kitchen."),
+            "beschreibung": {
+                "worum": "Our weekly kick-off with coffee – this time with a focus on {thema}. Everyone shares one "
+                         "goal for the week and one thing they could use help with.",
+                "rahmen": "30 minutes standing round in the {ort}, up to {kapazitaet} people, coffee on the house.",
+                "haeufigkeit": "Weekly – every Monday morning.",
+                "warum": "A shared ritual makes the Hub feel like a team: people know what others work on and ask "
+                         "for help early.",
+                "zielgruppe": "Everyone working at the Hub this week – members, residents and the team.",
+                "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
+                "agenda": [[0, "Coffee & arrival"], [5, "Round: one goal, one ask"], [25, "Announcements"], [30, "End"]],
+                "tickets": "Free, members only, no registration needed (max. {kapazitaet}).",
+                "betreuung": "Lead: {verantwortlich} · On site: Host Team (coffee & moderation)",
+            },
+        },
+    },
+    "Academy": {
+        "termine": {m: ([] if m == 8 else [(1, 1, "10:00")] if m == 12 else [(1, 1, "10:00"), (3, 3, "14:00")])
+                    for m in ALLE},                                       # 1. Di, 3. Do
+        "kap": 20, "orte": ["Loft – Workshop Room", "Salon", "Online (demo Zoom)"],
+        "tags": (["Workshop", "Practical exercises"],
+                 ["Small groups", "Expert guidance", "Group work", "1:1 sessions", "Coaching/consulting", "Skillshare"]),
+        "titel": [("Academy: Your First Circular Business Move", "circular business"),
+                  ("Academy: Storytelling for Impact Startups", "storytelling"),
+                  ("Academy: Money Literacy for Founders", "money literacy"),
+                  ("Academy: Taming Your Inner Critic", "dealing with your inner critic"),
+                  ("Academy: Pitch Deck Clinic", "pitch decks"),
+                  ("Academy: Design Thinking in 3 Hours", "design thinking"),
+                  ("Academy: Social Media on a Small Budget", "social media on a budget"),
+                  ("Academy: Measuring Impact Made Simple", "impact measurement"),
+                  ("Academy: Finding & Using Funding", "funding"),
+                  ("Academy: Pricing for Social Ventures", "pricing"),
+                  ("Academy: Freelance Basics", "freelance basics"),
+                  ("Academy: Inclusive Communication", "inclusive communication"),
+                  ("Academy: Planning a Crowdfunding Campaign", "crowdfunding"),
+                  ("Academy: Feedback Culture in Small Teams", "feedback culture"),
+                  ("Academy: Access to Finance", "access to finance"),
+                  ("Academy: Time Management for Creatives", "time management"),
+                  ("Academy: Annual Planning with Impact", "annual planning")],
+        "vorlage": {
+            "titelVorlage": "Academy: [Topic]",
+            "titelIdeen": ["Academy: {thema}", "{thema}: A Hands-on Session", "Learn by Doing: {thema}"],
+            "summaryVorlage": "Practical Academy session on {thema} – {merkmale}.",
+            "socialText": social("🛠️", "New Academy session at the Hub!", "Academy"),
+            "mailText": mail("Please bring a laptop or notebook."),
+            "beschreibung": {
+                "worum": "A hands-on Academy session on {thema}. Instead of endless slides, we work on real cases "
+                         "from the room – you bring your project, we bring the methods.",
+                "rahmen": "3-hour session in the {ort}, max. {kapazitaet} participants. Coffee and snacks included.",
+                "haeufigkeit": "Twice a month – 1st Tuesday morning and 3rd Thursday afternoon.",
+                "warum": "Members get a fast, practical boost on {thema} and meet peers facing the same questions.",
+                "zielgruppe": "Founders, freelancers and intrapreneurs in early stages. No prior knowledge needed.",
+                "ergebnis": "• A concrete next step for your project\n• Tools and templates on {thema}\n"
+                            "• Feedback from peers",
+                "agenda": [[0, "Arrival & check-in"], [15, "Input on {thema}"], [45, "Exercises in small teams"],
+                           [120, "Share-back & peer feedback"], [160, "Wrap-up: next steps"], [180, "End"]],
+                "tickets": "Free for members, €15 for guests. {kapazitaet} spots, registration via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · On site: Host Team · Facilitation: external trainer (demo)",
+            },
+        },
+    },
+    "Drops of Inspiration": {
+        "termine": jeden_monat([(2, 2, "12:30")], OHNE_AUGUST),          # 2. Mittwoch
+        "kap": 40, "orte": ["Salon", "Loft – Event Space"],
+        "tags": (["Keynote/panel"], ["Expert guidance", "Informal", "Peer feedback/exchange"]),
+        "titel": [("Drops of Inspiration: Leading Beyond Growth", "business beyond growth"),
+                  ("Drops of Inspiration: Green Spaces in the City", "urban green spaces"),
+                  ("Drops of Inspiration: AI for the Common Good", "AI for the common good"),
+                  ("Drops of Inspiration: Democracy & Entrepreneurship", "democracy and entrepreneurship"),
+                  ("Drops of Inspiration: Circular Fashion", "circular fashion"),
+                  ("Drops of Inspiration: Failing & Starting Over", "failing and starting over"),
+                  ("Drops of Inspiration: Energy Communities", "energy communities"),
+                  ("Drops of Inspiration: Impact Investing", "impact investing"),
+                  ("Drops of Inspiration: Food Transition", "the urban food transition"),
+                  ("Drops of Inspiration: Mental Health", "mental health in startup life"),
+                  ("Drops of Inspiration: Inclusion as a Business Model", "inclusion")],
+        "vorlage": {
+            "titelVorlage": "Drops of Inspiration: [Topic]",
+            "titelIdeen": ["Drops of Inspiration: {thema}", "{thema} in 20 Minutes", "Rethinking {thema}"],
+            "summaryVorlage": "A short lunchtime input on {thema} – {merkmale}.",
+            "socialText": social("💧", "A drop of inspiration for your lunch break!", "DropsOfInspiration"),
+            "mailText": mail("Bring your lunch and your questions."),
+            "beschreibung": {
+                "worum": "A short, inspiring input on {thema} over lunch: one speaker, 20 minutes, honest stories – "
+                         "then questions from the room.",
+                "rahmen": "Lunch talk in the {ort}, seating for {kapazitaet}. Bring your own lunch.",
+                "haeufigkeit": "Monthly – 2nd Wednesday at lunchtime (summer break in August).",
+                "warum": "We bring fresh perspectives into the community and spark discussion on {thema}.",
+                "zielgruppe": "Members and guests curious about {thema} – no expert knowledge needed.",
+                "ergebnis": "• A new perspective on {thema}\n• Direct exchange with the speaker\n• Ideas for your own work",
+                "agenda": [[0, "Arrival with lunch"], [10, "Input on {thema}"], [30, "Q&A"], [60, "End"]],
+                "tickets": "Free, open to everyone. {kapazitaet} seats – please register via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · On site: Host Team (tech) · Speaker: external guest (demo)",
+            },
+        },
+    },
+    "Winedowns": {
+        "termine": jeden_monat([(3, -1, "18:30")], OHNE_AUGUST),         # letzter Donnerstag
+        "kap": 50, "orte": ["Rooftop Terrace", "Kitchen & Lounge"],
+        "tags": (["Unwind", "Informal"], ["Community/Gathering", "Guided networking"]),
+        "titel": [("Winedown: Winter Reds", "winter reds"), ("Winedown: Natural Wines", "natural wines"),
+                  ("Winedown: Spring Whites", "spring whites"), ("Winedown: Local Vineyards", "local vineyards"),
+                  ("Winedown: Rosé on the Roof", "rosé"), ("Winedown: Sparkling Edition", "sparkling wines"),
+                  ("Winedown: Harvest Edition", "the harvest"), ("Winedown: Orange Wines", "orange wines"),
+                  ("Winedown: Alcohol-Free Pairings", "alcohol-free pairings"),
+                  ("Winedown: Mulled Wine Edition", "mulled wine")],
+        "vorlage": {
+            "titelVorlage": "Winedown: [Theme]",
+            "titelIdeen": ["Winedown: {thema}", "Wine & Wind Down: {thema}", "{thema} on the Roof"],
+            "summaryVorlage": "End-of-month wine evening around {thema} – {merkmale}.",
+            "socialText": social("🍷", "Time to wind down with the community!", "Winedowns"),
+            "mailText": mail("Alcohol-free options are always there, of course."),
+            "beschreibung": {
+                "worum": "Our end-of-month Winedown – this time around {thema}. Close the laptop, raise a glass and "
+                         "celebrate the month with the community.",
+                "rahmen": "Relaxed evening in the {ort} for up to {kapazitaet} guests, wine and alcohol-free drinks.",
+                "haeufigkeit": "Monthly – last Thursday evening (summer series replaces it in August).",
+                "warum": "Celebrating together builds trust – and that's where new ideas and collaborations start.",
+                "zielgruppe": "Members, alumni and their friends.",
+                "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
+                "agenda": [[0, "Doors open"], [15, "A few words about {thema}"], [30, "Tasting & mingling"],
+                           [150, "End"]],
+                "tickets": "€5 for members, €10 for guests (incl. two drinks). {kapazitaet} spots via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · On site: Host Team (bar)",
+            },
+        },
+    },
+    "Town Hall": {
+        "termine": {m: [(1, 2, "17:00")] for m in (1, 4, 7, 10)},        # 2. Dienstag im Quartal
+        "kap": 80, "orte": ["Loft – Event Space"],
+        "tags": (["Formal", "Community/Gathering"], ["Peer feedback/exchange", "Group work"]),
+        "titel": [("Town Hall: Plans for the Year", "plans for the year"),
+                  ("Town Hall: Spring Update", "the spring update"),
+                  ("Town Hall: Halfway Check", "the halfway check"),
+                  ("Town Hall: Autumn Update & Space Changes", "changes to our spaces")],
+        "vorlage": {
+            "titelVorlage": "Town Hall: [Topic]",
+            "titelIdeen": ["Town Hall: {thema}", "Hub Update: {thema}", "Your Voice: {thema}"],
+            "summaryVorlage": "Quarterly Town Hall on {thema} – {merkmale}.",
+            "socialText": social("🏛️", "Town Hall – your voice counts!", "TownHall"),
+            "mailText": mail("Send us your questions in advance – we'll collect them."),
+            "beschreibung": {
+                "worum": "Our quarterly Town Hall on {thema}: the team shares numbers, plans and changes – and you "
+                         "get to ask questions and give feedback.",
+                "rahmen": "Plenary in the {ort}, seating for {kapazitaet}, followed by drinks.",
+                "haeufigkeit": "Quarterly – 2nd Tuesday of the first month of each quarter.",
+                "warum": "Transparency builds trust. Members understand decisions and help shape the Hub.",
+                "zielgruppe": "All members and residents of the Hub.",
+                "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
+                "agenda": [[0, "Arrival"], [10, "Update from the team"], [40, "Q&A and feedback"],
+                           [80, "Drinks"], [120, "End"]],
+                "tickets": "Members only, free. Please register via Eventbrite ({kapazitaet} seats).",
+                "betreuung": "Lead: {verantwortlich} · On site: whole team · Moderation: Community Lead",
+            },
+        },
+    },
+    "Group-Specific": {
+        "termine": jeden_monat([(1, 3, "18:00")], OHNE_AUGUST),          # 3. Dienstag
+        "kap": 20, "orte": ["Salon", "Loft – Workshop Room"],
+        "tags": (["Small groups", "Peer feedback/exchange"], ["Coaching/consulting", "Skillshare", "Formal"]),
+        "titel": [("Founders Circle", "founder life"), ("Freelancers Circle", "freelance life"),
+                  ("Women in Impact Circle", "women in impact"), ("Creatives Circle", "creative work"),
+                  ("Tech for Good Circle", "tech for good"), ("Parents at Work Circle", "parenting and work")],
+        "vorlage": {
+            "titelVorlage": "[Group] Circle",
+            "titelIdeen": ["{thema} Circle", "Peer Circle: {thema}", "Among Peers: {thema}"],
+            "summaryVorlage": "Peer circle for one member group around {thema} – {merkmale}.",
+            "socialText": social("🫶", "A circle for people like you!", "PeerCircle"),
+            "mailText": mail("The circle is confidential – what's said in the room stays in the room."),
+            "beschreibung": {
+                "worum": "A small peer circle around {thema}: people in the same situation share challenges and "
+                         "help each other – honest and confidential.",
+                "rahmen": "Small circle in the {ort}, max. {kapazitaet} participants.",
+                "haeufigkeit": "Monthly – 3rd Tuesday evening, rotating groups.",
+                "warum": "Specific groups have specific questions. Peers are often the best advisors.",
+                "zielgruppe": "Members of the specific group (see title).",
+                "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
+                "agenda": [[0, "Check-in round"], [15, "Case clinic: two challenges"], [75, "Takeaways"], [90, "End"]],
+                "tickets": "Members only, free. {kapazitaet} spots via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · Facilitation: Community Lead or a member host",
+            },
+        },
+    },
+    "Collaboration": {
+        "termine": {m: [(3, 2, "18:00")] for m in (2, 4, 6, 8, 10, 12)},  # 2. Donnerstag, jeden 2. Monat
+        "kap": 50, "orte": ["Loft – Event Space", "Partner venue (demo)"],
+        "tags": (["Collaboration"], ["Matchmaking", "Group work", "Keynote/panel"]),
+        "titel": [("Collab Night with a Climate Network (demo)", "climate action"),
+                  ("Collab Night with a Design School (demo)", "design for good"),
+                  ("Collab Night with a Food Coop (demo)", "local food"),
+                  ("Collab Night with a Neighbourhood Group (demo)", "the neighbourhood"),
+                  ("Collab Night with a Tech Meetup (demo)", "open tech"),
+                  ("Collab Night with an Arts Collective (demo)", "art and impact")],
+        "vorlage": {
+            "titelVorlage": "Collab Night with [Partner]",
+            "titelIdeen": ["Collab Night: {thema}", "Together for {thema}", "{thema} – Joint Evening"],
+            "summaryVorlage": "Joint evening with a partner organisation on {thema} – {merkmale}.",
+            "socialText": social("🤝", "Two communities, one evening!", "Collaboration"),
+            "mailText": mail("Our partner's community joins too – a great chance to meet new people."),
+            "beschreibung": {
+                "worum": "A joint evening with a partner organisation on {thema}. Both communities meet, share "
+                         "projects and look for ways to work together.",
+                "rahmen": "Evening event in the {ort}, around {kapazitaet} guests from both communities.",
+                "haeufigkeit": "Every other month – 2nd Thursday.",
+                "warum": "Partnerships bring new people, ideas and opportunities into the Hub.",
+                "zielgruppe": "Members and the partner's community.",
+                "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
+                "agenda": [[0, "Welcome"], [15, "Short intros from both sides"], [45, "Matchmaking & mingling"],
+                           [150, "End"]],
+                "tickets": "Free. {kapazitaet} spots via Eventbrite, shared with the partner.",
+                "betreuung": "Lead: {verantwortlich} · On site: Host Team and partner team (demo)",
+            },
+        },
+    },
+    "Idea Starter Pack": {
+        "termine": {m: [(1, 4, "17:30")] for m in (3, 4, 5, 9, 10, 11)},  # 4. Dienstag, Frühling & Herbst
+        "kap": 15, "orte": ["Loft – Workshop Room", "Salon"],
+        "tags": (["Coaching/consulting", "Small groups"], ["Workshop", "1:1 sessions", "Peer feedback/exchange"]),
+        "titel": [("Idea Starter Pack 1: From Idea to Problem", "finding the real problem"),
+                  ("Idea Starter Pack 2: Talking to Users", "talking to users"),
+                  ("Idea Starter Pack 3: First Prototype", "a first prototype")],
+        "vorlage": {
+            "titelVorlage": "Idea Starter Pack [No.]: [Step]",
+            "titelIdeen": ["Idea Starter Pack: {thema}", "From Idea to Action: {thema}", "{thema} – First Steps"],
+            "summaryVorlage": "Guided step for early ideas: {thema} – {merkmale}.",
+            "socialText": social("💡", "Got an idea? Let's get it started!", "IdeaStarterPack"),
+            "mailText": mail("Bring your idea – even if it's only a sentence on a napkin."),
+            "beschreibung": {
+                "worum": "Part of our three-step programme for early ideas – this step: {thema}. With a coach and a "
+                         "small group you take your idea one step further.",
+                "rahmen": "Small group in the {ort}, max. {kapazitaet} people, with a coach.",
+                "haeufigkeit": "Three sessions in spring and three in autumn – 4th Tuesday evening.",
+                "warum": "Many good ideas never start. A clear process and a supportive group help them get going.",
+                "zielgruppe": "Members and guests with an early idea for an impact project.",
+                "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
+                "agenda": [[0, "Check-in"], [10, "Method input: {thema}"], [40, "Work on your idea"],
+                           [100, "Feedback round"], [120, "End"]],
+                "tickets": "€10 per session, free for members. {kapazitaet} spots via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · Coach: external coach (demo)",
+            },
+        },
+    },
+    "Cross-Community": {
+        "termine": {m: [(4, 3, "15:00")] for m in (2, 5, 9, 11)},       # 3. Freitag
+        "kap": 60, "orte": ["Online (demo Zoom)", "Loft – Event Space"],
+        "tags": (["Guided networking", "Collaboration"], ["Matchmaking", "Keynote/panel"]),
+        "titel": [("Cross-Hub Exchange: Winter Edition", "exchange between Hubs"),
+                  ("Cross-Hub Exchange: Spring Edition", "exchange between Hubs"),
+                  ("Cross-Hub Exchange: Autumn Edition", "exchange between Hubs"),
+                  ("Cross-Hub Exchange: Year-End Edition", "exchange between Hubs")],
+        "vorlage": {
+            "titelVorlage": "Cross-Hub Exchange: [Edition]",
+            "titelIdeen": ["Cross-Hub Exchange: {thema}", "Hubs Connect: {thema}", "Beyond Our Hub: {thema}"],
+            "summaryVorlage": "Exchange with other Hub communities on {thema} – {merkmale}.",
+            "socialText": social("🌍", "Meet members from other Hubs!", "CrossCommunity"),
+            "mailText": mail("You'll get the online link the day before."),
+            "beschreibung": {
+                "worum": "Members from several Hub communities meet on {thema}: short intros, matchmaking and "
+                         "space for joint projects.",
+                "rahmen": "Hybrid format ({ort}), up to {kapazitaet} participants from several Hubs.",
+                "haeufigkeit": "Four times a year – 3rd Friday afternoon.",
+                "warum": "The global network is one of our biggest assets – we make it tangible for members.",
+                "zielgruppe": "Members looking for partners, clients or ideas beyond the city.",
+                "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
+                "agenda": [[0, "Welcome"], [10, "Intros from each Hub"], [30, "Breakout matchmaking"],
+                           [80, "Wrap-up"], [90, "End"]],
+                "tickets": "Free for members. {kapazitaet} spots via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · On site: Host Team · Co-hosts from partner Hubs (demo)",
+            },
+        },
+    },
+    "Community Quarterlies": {
+        "termine": {m: [(4, -1, "17:00")] for m in (3, 6, 9, 12)},      # letzter Freitag im Quartal
+        "kap": 120, "orte": ["Loft – Event Space", "Rooftop Terrace"],
+        "tags": (["Community/Gathering", "Keynote/panel"], ["Unwind", "Guided networking"]),
+        "titel": [("Quarterly: Spring Celebration", "the first quarter"),
+                  ("Quarterly: Summer Party", "the first half of the year"),
+                  ("Quarterly: Autumn Harvest Fest", "the third quarter"),
+                  ("Quarterly: Year-End Party", "the whole year")],
+        "vorlage": {
+            "titelVorlage": "Quarterly: [Celebration]",
+            "titelIdeen": ["Quarterly: {thema}", "Celebrating {thema}", "The Big Quarterly: {thema}"],
+            "summaryVorlage": "Our big quarterly celebration of {thema} – {merkmale}.",
+            "socialText": social("🎉", "Our big quarterly celebration is here!", "CommunityQuarterlies"),
+            "mailText": mail("Bring friends – the more the merrier."),
+            "beschreibung": {
+                "worum": "Our big quarterly celebration: we look back at {thema}, celebrate member wins and party "
+                         "together.",
+                "rahmen": "Big evening event in the {ort} for up to {kapazitaet} guests, food, drinks and music.",
+                "haeufigkeit": "Quarterly – last Friday of each quarter.",
+                "warum": "Celebrating milestones together makes the community visible and strong.",
+                "zielgruppe": "Members, alumni, partners and friends of the Hub.",
+                "ergebnis": "• Seeing what the community achieved\n• Meeting people from all corners of the Hub\n"
+                            "• A great evening",
+                "agenda": [[0, "Doors open"], [30, "Look back & member awards"], [60, "Food, drinks & music"],
+                           [240, "End"]],
+                "tickets": "Free for members, €10 for guests. {kapazitaet} tickets via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · On site: whole team, Host Team (bar & tech)",
+            },
+        },
+    },
+    "Partner Deliverable": {
+        "termine": {m: [(4, 2, "10:00")] for m in (2, 4, 6, 10, 11)},   # 2. Freitag
+        "kap": 40, "orte": ["Loft – Event Space", "Partner venue (demo)"],
+        "tags": (["Expert guidance", "Formal"], ["Workshop", "Keynote/panel", "Group work"]),
+        "titel": [("Partner Session: Sustainable Procurement (demo)", "sustainable procurement"),
+                  ("Partner Session: Green Mobility (demo)", "green mobility"),
+                  ("Partner Session: Social Innovation Lab (demo)", "social innovation"),
+                  ("Partner Session: Digital Inclusion (demo)", "digital inclusion"),
+                  ("Partner Session: Circular Construction (demo)", "circular construction")],
+        "vorlage": {
+            "titelVorlage": "Partner Session: [Topic]",
+            "titelIdeen": ["Partner Session: {thema}", "{thema} – in Cooperation with Our Partner",
+                           "Impact Lab: {thema}"],
+            "summaryVorlage": "Session delivered with a programme partner on {thema} – {merkmale}.",
+            "socialText": social("🤝", "In cooperation with our partner:", "Partnership"),
+            "mailText": mail("This session is part of a partner programme – please be on time."),
+            "beschreibung": {
+                "worum": "A session we deliver together with a programme partner on {thema} – with input, "
+                         "examples and room for discussion.",
+                "rahmen": "Morning session in the {ort}, up to {kapazitaet} participants.",
+                "haeufigkeit": "As agreed with the partner – about five times a year.",
+                "warum": "Part of a partner agreement: we bring the community, the partner brings expertise and "
+                         "funding.",
+                "zielgruppe": "Members and guests working on {thema}, plus the partner's network.",
+                "ergebnis": "• Expert knowledge on {thema}\n• Contacts to the partner\n• Fulfilled partner deliverable",
+                "agenda": [[0, "Welcome"], [10, "Partner input"], [60, "Group work"], [110, "Wrap-up"], [120, "End"]],
+                "tickets": "Free (funded by the partner). {kapazitaet} spots via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · On site: Programme Team · Partner contact: partner team (demo)",
+            },
+        },
+    },
+    "Community Summer": {
+        "termine": {6: [(3, 3, "18:00")], 7: [(3, 1, "18:00"), (3, 3, "18:00")],
+                    8: [(3, 1, "18:00"), (3, 3, "18:00")]},               # Sommer-Donnerstage
+        "kap": 70, "orte": ["Rooftop Terrace", "Partner venue (demo)"],
+        "tags": (["Unwind", "Community/Gathering"], ["Informal", "Skillshare"]),
+        "titel": [("Summer Kick-off on the Rooftop", "the start of summer"),
+                  ("Summer Cinema Night", "an open-air film"),
+                  ("Summer BBQ", "grilling together"),
+                  ("Sunset Walk & Heuriger", "Vienna's vineyards"),
+                  ("Summer Closing Party", "the end of summer")],
+        "vorlage": {
+            "titelVorlage": "Summer [Activity]",
+            "titelIdeen": ["Summer Evening: {thema}", "{thema} under the Sky", "Community Summer: {thema}"],
+            "summaryVorlage": "Summer evening with the community: {thema} – {merkmale}.",
+            "socialText": social("☀️", "Community Summer is on!", "CommunitySummer"),
+            "mailText": mail("If it rains, we move inside – we'll let you know."),
+            "beschreibung": {
+                "worum": "Part of our Community Summer series: {thema} – light, outdoorsy and fun.",
+                "rahmen": "Summer evening at the {ort} for up to {kapazitaet} guests.",
+                "haeufigkeit": "Summer series – June to August, Thursday evenings.",
+                "warum": "Summer is quieter at the Hub – the series keeps the community together.",
+                "zielgruppe": "Members, alumni, friends and families.",
+                "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
+                "agenda": [[0, "Get together"], [30, "Main activity: {thema}"], [180, "End"]],
+                "tickets": "Free for members, €5 for guests. {kapazitaet} spots via Eventbrite.",
+                "betreuung": "Lead: {verantwortlich} · On site: Host Team",
+            },
+        },
+    },
+    "Community": {
+        "termine": jeden_monat([(2, 4, "12:30")], [m for m in ALLE if m not in (7, 8)]),  # 4. Mittwoch
+        "kap": 30, "orte": ["Kitchen & Lounge"],
+        "tags": (["Community/Gathering", "Informal"], ["Peer feedback/exchange", "Unwind", "Skillshare"]),
+        "titel": [("Community Lunch: New Year Edition", "new year's resolutions"),
+                  ("Community Lunch: Soup & Exchange", "soup and stories"),
+                  ("Community Lunch: Bring Your Bowl", "favourite recipes"),
+                  ("Community Lunch: Spring Kitchen", "spring food"),
+                  ("Community Lunch: Members Cook", "members' home cooking"),
+                  ("Community Lunch: Rooftop Picnic", "a rooftop picnic"),
+                  ("Community Lunch: Harvest Edition", "the harvest season"),
+                  ("Community Lunch: Pumpkin Edition", "pumpkin dishes"),
+                  ("Community Lunch: Plate Swap", "swapping dishes"),
+                  ("Community Lunch: Cookie Edition", "holiday cookies")],
+        "vorlage": {
+            "titelVorlage": "Community Lunch: [Theme]",
+            "titelIdeen": ["Community Lunch: {thema}", "Lunch & Learn: {thema}", "Bring Your Bowl: {thema}"],
+            "summaryVorlage": "Members' lunch around {thema} – {merkmale}.",
+            "socialText": social("🥗", "Lunch break with the community!", "Community"),
+            "mailText": mail("Bring your lunch or a dish to share."),
+            "beschreibung": {
+                "worum": "One long table, good food and the people you usually only see behind a laptop – this "
+                         "time around {thema}.",
+                "rahmen": "Informal lunch in the {ort} for up to {kapazitaet} members.",
+                "haeufigkeit": "Monthly – 4th Wednesday at lunchtime (not in summer).",
+                "warum": "Lunch is where community happens: members get to know each other beyond the desk.",
+                "zielgruppe": "All members of the Hub – new members especially welcome.",
+                "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n"
+                            "• A real lunch break 🙂",
+                "agenda": [[0, "Set the table"], [10, "Quick round: name & project"], [20, "Lunch & conversations"],
+                           [60, "Asks & offers"], [75, "End"]],
+                "tickets": "Members only, free. Sign-up via Eventbrite ({kapazitaet} seats).",
+                "betreuung": "Lead: {verantwortlich} · On site: Membership Team (hosting the table)",
+            },
+        },
+    },
 }
+KATEGORIEN = list(KAT)
 
 # ---------------------------------------------------------------- Modell (Soll)
 def soll_fuer_monat(m):
-    soll = {"Workshop": 2, "Networking": 1, "Talk": 1, "Community Lunch": 1,
-            "Pitch Night": 1 if m in (3, 6, 9, 12) else 0}
-    if m == 8:  # Sommerpause ist im Modell schon eingeplant
-        soll.update({"Workshop": 1, "Talk": 0})
-    return soll
+    return {k: len(KAT[k]["termine"].get(m, [])) for k in KATEGORIEN}
+
 
 ZIEL_AUSLASTUNG = 75
 model = {
@@ -110,189 +575,25 @@ for q in range(1, 5):
                               "zielAuslastung": ZIEL_AUSLASTUNG})
 
 # ---------------------------------------------------------------- Vorlagen
-# {thema} = Thema des Events, {merkmale} = Stichworte aus den Tags
-templates = [
-    {
-        "kategorie": "Workshop",
-        "titelVorlage": "Workshop: [Topic] – compact & practical",
-        "titelIdeen": ["{thema}: A Hands-on Workshop", "Learn by Doing: {thema}",
-                       "{thema} in 3 Hours", "The {thema} Toolkit"],
-        "summaryVorlage": "Practical workshop on {thema} – {merkmale}.",
-        "tags": ["Workshop", "Practical exercises", "Small groups"],
-        "socialText": "🛠️ New workshop at the Hub!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n"
-                      "{summary}\n\nSpots are limited – grab yours! 👉 Link in bio\n\n#ImpactHub #Workshop #Learning",
-        "mailText": "Hi everyone,\n\nwe're looking forward to the workshop \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\n"
-                    "Please bring a laptop or notebook. If you can't make it, please release your spot via "
-                    "Eventbrite – the waiting list will thank you!\n\nSee you soon,\nyour Community Team",
-    },
-    {
-        "kategorie": "Networking",
-        "titelVorlage": "[Occasion] – Community Get-Together",
-        "titelIdeen": ["{thema}: Meet & Connect", "Connect over {thema}",
-                       "{thema} – Community Evening", "Who's Who in {thema}"],
-        "summaryVorlage": "Community evening around {thema} – {merkmale}.",
-        "tags": ["Guided networking", "Informal", "Community/Gathering"],
-        "socialText": "🥂 Time for new connections!\n\n\"{titel}\"\n📅 {datum} from {uhrzeit}\n📍 {ort}\n\n"
-                      "{summary}\n\nFounder, freelancer or just curious – drop by and meet the community. 💛\n\n"
-                      "#ImpactHub #Networking #Community",
-        "mailText": "Hi everyone,\n\nit's almost time for \"{titel}\" on {datum} from {uhrzeit} ({ort}).\n\n"
-                    "Feel free to bring someone who should get to know the community!\n\n"
-                    "See you soon,\nyour Community Team",
-    },
-    {
-        "kategorie": "Talk",
-        "titelVorlage": "Impact Talk: [Topic]",
-        "titelIdeen": ["Impact Talk: {thema}", "{thema} – Insights & Q&A",
-                       "Rethinking {thema}", "Fireside Chat: {thema}"],
-        "summaryVorlage": "Inspiring talk on {thema} – {merkmale}.",
-        "tags": ["Keynote/panel", "Expert guidance"],
-        "socialText": "🎤 Impact Talk at the Hub\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n"
-                      "{summary}\n\nFree entry, registration via Eventbrite. 👉 Link in bio\n\n"
-                      "#ImpactHub #Talk #Sustainability",
-        "mailText": "Hi everyone,\n\na friendly reminder about the talk \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\n"
-                    "Send us your questions in advance – we'll collect them for the discussion.\n\n"
-                    "See you soon,\nyour Community Team",
-    },
-    {
-        "kategorie": "Community Lunch",
-        "titelVorlage": "Wednesday Wrap: [Theme]",
-        "titelIdeen": ["Wednesday Wrap: {thema}", "Lunch & Learn: {thema}",
-                       "Bring Your Bowl: {thema}"],
-        "summaryVorlage": "Members' lunch around {thema} – {merkmale}.",
-        "tags": ["Community/Gathering", "Informal", "Unwind"],
-        "socialText": "🥗 Lunch break with the community!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n"
-                      "{summary}\n\nBring your food (or your appetite). Members only. 💛\n\n#ImpactHub #CommunityLunch",
-        "mailText": "Hi lovely people,\n\non {datum} at {uhrzeit} it's Wednesday Wrap again – this time "
-                    "\"{titel}\" ({ort}).\n\nPlease sign up quickly so we have enough plates and ideas.\n\n"
-                    "See you Wednesday,\nyour Community Team",
-    },
-    {
-        "kategorie": "Pitch Night",
-        "titelVorlage": "Open Pitch Night: [Edition]",
-        "titelIdeen": ["Open Pitch Night: {thema}", "{thema}: Founders on Stage",
-                       "Pitch & Feedback Night: {thema}"],
-        "summaryVorlage": "Startup pitch night on {thema} – {merkmale}.",
-        "tags": ["Peer feedback/exchange", "Matchmaking", "Formal"],
-        "socialText": "🚀 Stage's yours, next impact founders!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n"
-                      "{summary}\n\nCheer on the startups and vote for the audience award! 👉 Tickets via link in bio\n\n"
-                      "#ImpactHub #PitchNight #Startups",
-        "mailText": "Hi everyone,\n\nit's almost time: \"{titel}\" on {datum} at {uhrzeit} ({ort}).\n\n"
-                    "Doors open 30 minutes earlier. Voting happens on your phone – please bring it charged. 😉\n\n"
-                    "See you soon,\nyour Community Team",
-    },
-]
-# Strukturierte Description je Kategorie. Abschnitte (Schlüssel bleiben deutsch):
-#   worum       = What is it about?
-#   rahmen      = Setting/Framework (hier werden zusätzlich die Tag-Sätze angehängt)
-#   haeufigkeit = Frequency
-#   warum       = Why are we doing this? (Outcome des Events)
-#   zielgruppe  = For whom is it? (Target group)
-#   ergebnis    = Outcome for members & goals
-#   agenda      = What's on the agenda? – Liste aus [Minuten ab Start, Programmpunkt]
-#   tickets     = Ticket info
-#   betreuung   = Attended by / responsibility (team)
+# Description-Abschnitte (Schlüssel bleiben deutsch):
+#   worum = What is it about? · rahmen = Setting/Framework · haeufigkeit = Frequency
+#   warum = Why are we doing this? · zielgruppe = For whom is it? · ergebnis = Outcome for members & goals
+#   agenda = What's on the agenda? (Liste aus [Minuten ab Start, Programmpunkt]) · tickets · betreuung
 # Platzhalter: {thema}, {ort}, {kapazitaet}, {verantwortlich}
-BESCHREIBUNG = {
-    "Workshop": {
-        "worum": "A hands-on session on {thema}. Instead of endless slides, we work on real cases from the room – "
-                 "you bring your project, we bring the methods. Expect a focused, friendly atmosphere where trying "
-                 "things out (and getting them wrong first) is part of the plan.",
-        "rahmen": "3-hour workshop in the {ort}, max. {kapazitaet} participants. Laptops welcome, coffee and snacks "
-                  "on the house.",
-        "haeufigkeit": "Twice a month – usually the 1st Tuesday morning and the 3rd Thursday afternoon.",
-        "warum": "Many members build something on their own. Our workshops give them a fast, practical boost on "
-                 "{thema} and connect them with peers facing the same questions – so nobody has to figure it out alone.",
-        "zielgruppe": "Founders, freelancers and intrapreneurs in early stages – members and guests. No prior "
-                      "knowledge of {thema} needed, curiosity is enough.",
-        "ergebnis": "• A concrete next step for your own project\n• Practical tools and templates on {thema} to take "
-                    "home\n• Feedback from peers and new contacts in the community",
-        "agenda": [[0, "Arrival, coffee & check-in round"], [15, "Short input on {thema}"],
-                   [45, "Hands-on exercises in small teams"], [120, "Share-back & peer feedback"],
-                   [160, "Wrap-up: everyone names their next step"], [180, "End"]],
-        "tickets": "Free for members, €15 for guests. Only {kapazitaet} spots – registration via Eventbrite required. "
-                   "Can't make it? Please release your ticket so someone from the waiting list can join.",
-        "betreuung": "Lead: {verantwortlich} · On site: Host Team (setup, coffee, check-in) · Facilitation: external "
-                     "trainer (demo)",
-    },
-    "Networking": {
-        "worum": "An evening to meet the people behind Vienna's impact scene, this time around {thema}. A short "
-                 "welcome, then drinks, snacks and conversations that actually go somewhere – warm, buzzing, "
-                 "zero pressure.",
-        "rahmen": "Relaxed evening format in the {ort} for around {kapazitaet} guests – standing tables, music in "
-                  "the background, drinks & snacks.",
-        "haeufigkeit": "Monthly – every 2nd Thursday evening.",
-        "warum": "Good collaborations start with a good conversation. We want members to find partners, clients and "
-                 "friends – and newcomers to find their way into the community.",
-        "zielgruppe": "Members, alumni, partners and newcomers who are curious about the Hub. People who just joined "
-                      "are especially welcome.",
-        "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who in the community can help with what\n• Feeling at "
-                    "home at the Hub",
-        "agenda": [[0, "Doors open, welcome drink"], [30, "Short welcome & intro by the hosts"],
-                   [45, "Guided networking rounds"], [105, "Open mingling"], [180, "End"]],
-        "tickets": "Free, open to members and guests. Please register via Eventbrite ({kapazitaet} spots) so we can "
-                   "plan drinks and snacks.",
-        "betreuung": "Lead: {verantwortlich} · On site: Host Team (welcome & bar) and Membership Team (introductions, "
-                     "questions about membership)",
-    },
-    "Talk": {
-        "worum": "An inspiring input on {thema}: a guest speaker shares experiences, numbers and honest stories – "
-                 "followed by an open Q&A where the room gets to dig deeper. Thought-provoking, but never dry.",
-        "rahmen": "Talk in the {ort}: approx. 30 min. input + 30 min. Q&A, seating for {kapazitaet}, drinks afterwards.",
-        "haeufigkeit": "Monthly – usually the 2nd Wednesday afternoon.",
-        "warum": "We bring fresh perspectives and expert knowledge into the community, spark discussion on {thema} "
-                 "and show what impact looks like in practice.",
-        "zielgruppe": "Members, guests and partners interested in {thema} and sustainable change – no expert "
-                      "knowledge required.",
-        "ergebnis": "• New perspectives and knowledge on {thema}\n• Direct exchange with the speaker\n• Ideas and "
-                    "contacts for your own work",
-        "agenda": [[0, "Arrival & welcome"], [10, "Talk on {thema}"], [45, "Q&A with the audience"],
-                   [75, "Drinks & informal exchange"], [105, "End"]],
-        "tickets": "Free entry, open to everyone. {kapazitaet} seats – please register via Eventbrite.",
-        "betreuung": "Lead: {verantwortlich} · On site: Host Team (tech & moderation) · Speaker: external guest (demo)",
-    },
-    "Community Lunch": {
-        "worum": "Our Wednesday Wrap: one long table, good food and the people you usually only see behind a "
-                 "laptop – this time around {thema}. Bring your lunch, your news and your questions.",
-        "rahmen": "Informal lunch in the {ort} for up to {kapazitaet} members – one long table, no slides, no "
-                  "pressure.",
-        "haeufigkeit": "Monthly – the last Wednesday of the month at lunchtime.",
-        "warum": "Lunch is where community happens. Members get to know each other beyond the desk, share what "
-                 "they're working on and ask for help.",
-        "zielgruppe": "All members of the Hub – coworkers, residents and the team. New members are especially "
-                      "encouraged to join.",
-        "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch "
-                    "break 🙂",
-        "agenda": [[0, "Gather in the kitchen, set the table"], [10, "Quick round: name & what you're working on"],
-                   [20, "Lunch & conversations"], [60, "Shout-outs: asks & offers"], [75, "End"]],
-        "tickets": "Members only, free. Bring your own lunch or a dish to share. Sign-up via Eventbrite "
-                   "({kapazitaet} seats).",
-        "betreuung": "Lead: {verantwortlich} · On site: Community Lead and Membership Team (hosting the table)",
-    },
-    "Pitch Night": {
-        "worum": "Young impact startups take the stage: 3 minutes each to pitch their idea – this edition: "
-                 "{thema}. Followed by questions and feedback from mentors, investors and the audience. Expect "
-                 "nervous energy, big ideas and a lot of cheering.",
-        "rahmen": "Evening stage event in the {ort}: 6–8 pitches, a jury of mentors & investors, audience award, "
-                  "{kapazitaet} seats.",
-        "haeufigkeit": "Quarterly – the last Thursday of each quarter.",
-        "warum": "We give early-stage founders a stage, honest feedback and access to investors – and show the "
-                 "community what's being built right now.",
-        "zielgruppe": "On stage: early-stage impact startups. In the audience: members, investors, mentors, "
-                      "partners and everyone curious about new ventures.",
-        "ergebnis": "• Founders: feedback, visibility and investor contacts\n• Audience: a first look at new "
-                    "ventures and ways to get involved\n• Audience award for the favourite pitch",
-        "agenda": [[0, "Doors open & drinks"], [30, "Welcome & jury introduction"],
-                   [40, "Pitches (3 min + 4 min Q&A each)"], [120, "Jury feedback & audience voting"],
-                   [140, "Award & networking"], [210, "End"]],
-        "tickets": "Free for members and pitching teams, €5 for guests. {kapazitaet} tickets via Eventbrite. "
-                   "Startups apply to pitch via the application form (demo).",
-        "betreuung": "Lead: {verantwortlich} · On site: Programme Team (startups & jury), Host Team (tech, bar, "
-                     "check-in) · Jury: mentors & investors from the network (demo)",
-    },
-}
 ABSCHNITTE = ["worum", "rahmen", "haeufigkeit", "warum", "zielgruppe", "ergebnis", "agenda", "tickets", "betreuung"]
-for t in templates:
-    t["beschreibung"] = BESCHREIBUNG[t["kategorie"]]
+templates = []
+for kat in KATEGORIEN:
+    v = KAT[kat]["vorlage"]
+    templates.append({
+        "kategorie": kat,
+        "titelVorlage": v["titelVorlage"],
+        "titelIdeen": v["titelIdeen"],
+        "summaryVorlage": v["summaryVorlage"],
+        "tags": KAT[kat]["tags"][0] + KAT[kat]["tags"][1][:1],
+        "socialText": v["socialText"],
+        "mailText": v["mailText"],
+        "beschreibung": {k: v["beschreibung"][k] for k in ABSCHNITTE},
+    })
 VORLAGE = {t["kategorie"]: t for t in templates}
 
 
@@ -332,10 +633,10 @@ def summary_fuer(kat, thema, tags):
 
 
 # ---------------------------------------------------------------- Ist-Planung
-# Wie viele Events es pro Monat WIRKLICH gibt (mit Abweichungen)
-ist = {m: dict(soll_fuer_monat(m)) for m in range(1, 13)}
-ist[5]["Talk"] = 2          # Mai: ein Talk zu viel
-ist[11]["Workshop"] = 0     # November: Workshops fehlen
+# Welche Termine es WIRKLICH gibt (mit Abweichungen)
+ist = {m: {k: list(KAT[k]["termine"].get(m, [])) for k in KATEGORIEN} for m in range(1, 13)}
+ist[5]["Drops of Inspiration"].append((2, 3, "12:30"))   # Mai: ein Termin zu viel
+ist[11]["Academy"] = []                                   # November: Academy fällt aus
 
 
 def nter_wochentag(m, wochentag, n):
@@ -345,97 +646,6 @@ def nter_wochentag(m, wochentag, n):
     return date(JAHR, m, tage[n - 1] if n > 0 else tage[n])
 
 
-# Feste Rhythmen, angelehnt an typische Hub-Wochen
-TERMINE = {
-    "Workshop": [(1, 1, "10:00"), (3, 3, "16:00")],    # 1. Di, 3. Do
-    "Networking": [(3, 2, "18:00")],                   # 2. Do
-    "Talk": [(2, 2, "16:00"), (2, 4, "16:00")],        # 2. Mi, 4. Mi
-    "Community Lunch": [(2, -1, "12:30")],             # letzter Mi
-    "Pitch Night": [(3, -1, "18:30")],                 # letzter Do
-}
-
-# (Titel, Thema) – das Thema wird für Description und Summary verwendet
-TITEL = {
-    "Workshop": [
-        ("Morning Spark: Your First Circular Business Move", "circular business"),
-        ("Storytelling for Impact Startups", "storytelling"),
-        ("Money Literacy for Founders", "money literacy"),
-        ("Taming Your Inner Critic", "dealing with your inner critic"),
-        ("Pitch Deck Clinic", "pitch decks"),
-        ("Design Thinking in 3 Hours", "design thinking"),
-        ("Social Media on a Small Budget", "social media on a budget"),
-        ("Measuring Impact Made Simple", "impact measurement"),
-        ("Finding & Using Funding", "funding"),
-        ("Get Clear on Your Most Effective Next Steps", "prioritising what matters"),
-        ("Prototyping Afternoon", "prototyping"),
-        ("Pricing for Social Ventures", "pricing"),
-        ("Freelance Basics: Invoices, Taxes & Co.", "freelance basics"),
-        ("Mindful Coworking", "mindful work"),
-        ("Building Community from Scratch", "community building"),
-        ("Inclusive Communication", "inclusive communication"),
-        ("Annual Planning with Impact", "annual planning"),
-        ("Time Management for Creatives", "time management"),
-        ("Planning a Crowdfunding Campaign", "crowdfunding"),
-        ("Feedback Culture in Small Teams", "feedback culture"),
-        ("MasterClass: Access to Finance", "access to finance"),
-        ("Creative Sprint: New Ideas for the New Year", "new ideas"),
-    ],
-    "Networking": [
-        ("Founders After Work", "founder life"),
-        ("Impact Capital Circle Meetup", "impact capital"),
-        ("Community Crossover Day", "cross-community exchange"),
-        ("International Dinner – Levant Edition", "food from the Levant"),
-        ("Welcome Evening for New Members", "getting started at the Hub"),
-        ("Summer Spritz on the Rooftop", "summer vibes"),
-        ("Sunset Walk & Heuriger", "Vienna's vineyards"),
-        ("Speed Networking: Who Does What?", "skills in the community"),
-        ("Collaboration Café", "joint projects"),
-        ("Autumn Get-Together", "autumn plans"),
-        ("Impact Capital Circle Meetup #2", "impact capital"),
-        ("Punch & Plans", "plans for the new year"),
-    ],
-    "Talk": [
-        ("Leading Business Beyond Growth", "business beyond growth"),
-        ("Placemaking: Green Spaces in the City", "urban green spaces"),
-        ("AI for the Common Good", "AI for the common good"),
-        ("Democracy Needs Entrepreneurship", "democracy & entrepreneurship"),
-        ("Circular Fashion: What Really Counts", "circular fashion"),
-        ("Common Good Balance Sheet in Practice", "the common good balance sheet"),
-        ("Fireside Chat: Failing & Starting Over", "failing and starting over"),
-        ("Energy Communities in the Neighbourhood", "energy communities"),
-        ("Impact Investing Explained", "impact investing"),
-        ("Food Transition in the City", "the urban food transition"),
-        ("Mental Health in Startup Life", "mental health"),
-        ("Inclusion as a Business Model", "inclusion"),
-    ],
-    "Community Lunch": [
-        ("Wednesday Wrap: New Year Edition", "new year's resolutions"),
-        ("Wednesday Wrap: Soup & Exchange", "soup and stories"),
-        ("Wednesday Wrap: Bring Your Bowl", "favourite recipes"),
-        ("Wednesday Wrap: Spring Kitchen", "spring food"),
-        ("Wednesday Wrap: Rooftop Picnic", "a rooftop picnic"),
-        ("Wednesday Wrap: Members Cook", "members' home cooking"),
-        ("Wednesday Wrap: Summer Salads", "summer salads"),
-        ("Wednesday Wrap: Bread & Ideas", "fresh bread and ideas"),
-        ("Wednesday Wrap: Harvest Edition", "the harvest season"),
-        ("Wednesday Wrap: Pumpkin Edition", "pumpkin dishes"),
-        ("Wednesday Wrap: Plate Swap", "swapping dishes"),
-        ("Wednesday Wrap: Cookie Edition", "holiday cookies"),
-    ],
-    "Pitch Night": [
-        ("Open Pitch Night: Meet the Next Impact Founders", "the next impact founders"),
-        ("Open Pitch Night: Summer Edition", "summer ventures"),
-        ("Open Pitch Night: Autumn Edition", "autumn ventures"),
-        ("Open Pitch Night: Season Finale", "the year's best ideas"),
-    ],
-}
-KAPAZITAET = {"Workshop": 20, "Networking": 60, "Talk": 50,
-              "Community Lunch": 30, "Pitch Night": 80}
-ORTE = {"Workshop": ["Loft – Workshop Room", "Salon", "Online (demo Zoom)"],
-        "Networking": ["Loft – Event Space", "Rooftop Terrace", "Partner venue (demo)"],
-        "Talk": ["Loft – Event Space", "Salon"],
-        "Community Lunch": ["Kitchen & Lounge"],
-        "Pitch Night": ["Loft – Event Space"]}
 TEAM = ["Community Lead", "Programme Team", "Host Team",
         "Membership Team", "Events Intern"]
 
@@ -447,13 +657,14 @@ AUFGABEN = {
     "Done": [("Share photos", None), ("Send feedback email", None),
              ("Add numbers to Notion", None)],
 }
+# Im Dezember sind diese Kategorien noch reine Ideen
+IDEEN_IM_DEZEMBER = ("Community Quarterlies", "Drops of Inspiration", "Collaboration")
 
 events = []
 titel_index = {k: 0 for k in KATEGORIEN}
 for m in range(1, 13):
     for kat in KATEGORIEN:
-        for i in range(ist[m][kat]):
-            wochentag, n, zeit = TERMINE[kat][i]
+        for wochentag, n, zeit in ist[m][kat]:
             tag = nter_wochentag(m, wochentag, n)
             tage_bis = (tag - DEMO_HEUTE).days
 
@@ -462,12 +673,12 @@ for m in range(1, 13):
                 status = "Done"
             elif tage_bis <= 30:
                 status = "Published"
-            elif tag.month == 12 and kat in ("Pitch Night", "Talk"):
+            elif tag.month == 12 and kat in IDEEN_IM_DEZEMBER:
                 status = "Idea"
             else:
                 status = "Planned"
 
-            kap = KAPAZITAET[kat]
+            kap = KAT[kat]["kap"]
             if status == "Done":
                 if m <= 3:   # Q1: überbucht (Warteliste wurde reingelassen)
                     quote = random.uniform(1.08, 1.32)
@@ -479,12 +690,12 @@ for m in range(1, 13):
                 quote = 0
             anmeldungen = round(kap * quote)
 
-            titel_liste = TITEL[kat]
+            titel_liste = KAT[kat]["titel"]
             titel, thema = titel_liste[titel_index[kat] % len(titel_liste)]
             titel_index[kat] += 1
 
-            immer, manchmal = TAG_POOL[kat]
-            tags = immer + random.sample(manchmal, random.randint(1, 2))
+            immer, manchmal = KAT[kat]["tags"]
+            tags = immer + random.sample(manchmal, random.randint(1, min(2, len(manchmal))))
 
             aufgaben = []
             for text, erledigt in AUFGABEN[status]:
@@ -492,7 +703,7 @@ for m in range(1, 13):
                     erledigt = random.random() < (0.85 if status == "Done" else 0.5)
                 aufgaben.append({"text": text, "erledigt": erledigt})
 
-            ort = random.choice(ORTE[kat])
+            ort = random.choice(KAT[kat]["orte"])
             nr = len(events) + 1
             events.append({
                 "id": f"evt-{nr:03d}",
@@ -523,14 +734,15 @@ events.sort(key=lambda e: (e["datum"], e["startzeit"]))
 # Absichtlich fehlende Infos, damit man sieht, wie die Warnungen aussehen:
 LEER = {k: "" for k in ABSCHNITTE}
 for e in events:
-    if e["status"] == "Idea":                  # Ideen haben noch gar keine Description
+    monat, kat = int(e["datum"][5:7]), e["kategorie"]
+    if e["status"] == "Idea":                           # Ideen haben noch gar keine Description
         e["beschreibung"] = dict(LEER)
-    elif e["datum"] == "2026-02-03":           # altes Event, nie ausgefüllt
+    elif monat == 2 and kat == "Academy" and e["datum"] <= "2026-02-07":   # altes Event, nie ausgefüllt
         e["beschreibung"] = dict(LEER)
-    elif e["datum"] == "2026-10-28":           # bald! Zielgruppe, Ergebnis und Agenda fehlen
+    elif monat == 10 and kat == "Community":            # bald! Zielgruppe, Ergebnis und Agenda fehlen
         for k in ("zielgruppe", "ergebnis", "agenda"):
             e["beschreibung"][k] = ""
-    elif e["datum"] == "2026-11-12":           # Warum und Tickets fehlen
+    elif monat == 11 and kat == "Group-Specific":       # Warum, Tickets und Betreuung fehlen
         for k in ("warum", "tickets", "betreuung"):
             e["beschreibung"][k] = ""
 
