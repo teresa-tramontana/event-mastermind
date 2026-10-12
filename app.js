@@ -429,8 +429,8 @@
           <div class="kennzahl"><div class="wert">${jahresEvents.length}</div><div class="label">events this year (target ${sollJahr})</div></div>
           <div class="kennzahl"><div class="wert">${jahresEvents.filter((e) => e.status === "Done").length}</div><div class="label">already done</div></div>
           <div class="kennzahl"><div class="wert">${jahresVergleich.auslastung !== null ? prozent(jahresVergleich.auslastung) : "–"}</div><div class="label">⌀ occupancy (target ${zustand.model.monate[0].zielAuslastung}%)</div></div>
-          <div class="kennzahl"><div class="wert">${auffaelligeMonate.length}</div><div class="label">months deviating &gt; ${zustand.einstellungen.schwelleProzent}%</div></div>
-          <a class="kennzahl ${eventsMitLuecken().length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/fehlende-infos"><div class="wert">${eventsMitLuecken().length ? "⚠ " + eventsMitLuecken().length : "✓"}</div><div class="label">events with missing description info</div></a>
+          <a class="kennzahl ${auffaelligeMonate.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/abweichungen" title="Show details"><div class="wert">${auffaelligeMonate.length ? "⚠ " + auffaelligeMonate.length : "✓"}</div><div class="label">months deviating &gt; ${zustand.einstellungen.schwelleProzent}% <span class="mehr">details →</span></div></a>
+          <a class="kennzahl ${eventsMitLuecken().length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/fehlende-infos"><div class="wert">${eventsMitLuecken().length ? "⚠ " + eventsMitLuecken().length : "✓"}</div><div class="label">events with missing description info <span class="mehr">details →</span></div></a>
         </div>
         <div class="heatmap">${kacheln}</div>
         <div class="abschnitt">
@@ -490,7 +490,7 @@
         <div class="kennzahlen">
           <div class="kennzahl"><div class="wert">${v.istGesamt} <span class="leise" style="font-size:1rem">/ ${v.sollGesamt}</span></div><div class="label">events actual / target</div></div>
           <div class="kennzahl"><div class="wert">${v.auslastung !== null ? prozent(v.auslastung) : "–"}</div><div class="label">occupancy (target ${prozent(v.ziel)})</div></div>
-          <div class="kennzahl"><div class="wert">${v.abweichungen.length}</div><div class="label">deviations &gt; ${zustand.einstellungen.schwelleProzent}%</div></div>
+          <a class="kennzahl ${v.abweichungen.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/abweichungen" title="Show details"><div class="wert">${v.abweichungen.length ? "⚠ " + v.abweichungen.length : "✓"}</div><div class="label">deviations &gt; ${zustand.einstellungen.schwelleProzent}% <span class="mehr">details →</span></div></a>
         </div>
         ${abweichungsBanner(v, "this quarter")}
         <div class="gitter-2">
@@ -1042,6 +1042,11 @@
       regler.addEventListener("input", () => setze(Number(regler.value)));
       document.getElementById("schwelle-standard").addEventListener("click", () => setze(20));
       zeichneWarnliste();
+      if (fokus === "abweichungen") document.getElementById("warnliste").scrollIntoView({ block: "start" });
+      document.getElementById("warnliste").addEventListener("click", (ev) => {
+        const knopf = ev.target.closest("[data-event]");
+        if (knopf) oeffneEvent(knopf.dataset.event);
+      });
     },
   };
 
@@ -1072,8 +1077,51 @@
       oeffneEventFormular(zustand.events.find((x) => x.id === b.dataset.ergaenzen))));
   }
 
+  /** Was steckt hinter einer Abweichung (welche Events) und was kann man tun? */
+  function abweichungDetails(a, events, vorbei) {
+    if (a.art === "auslastung") {
+      return {
+        events: events.filter((e) => e.status === "Done" && Number(e["kapazität"]) > 0),
+        zusatz: (e) => prozent(Number(e.anmeldungen || 0) / Number(e["kapazität"])) + " full",
+        bedeutung: a.abw > 0 ? "overbooked" : "too empty",
+        tipp: a.abw > 0
+          ? "Events were fuller than planned – consider bigger rooms, more spots or an extra date."
+          : "Fewer people came than planned – promote earlier, send reminders, or choose smaller rooms.",
+      };
+    }
+    const diff = a.ist - a.soll;
+    return {
+      events: events.filter((e) => e.kategorie === a.kat),
+      zusatz: (e) => e.status,
+      bedeutung: a.soll === 0 ? "not planned" : diff < 0 ? "too few events" : "more than planned",
+      tipp: a.soll === 0
+        ? "Not in the model for this period – check if this was intended, or adjust the model."
+        : diff < 0
+          ? vorbei
+            ? `Period is over – ${-diff} ${a.kat} ${-diff === 1 ? "event is" : "events are"} missing. Consider making up for ${-diff === 1 ? "it" : "them"} later.`
+            : `Plan ${-diff} more ${a.kat} ${-diff === 1 ? "event" : "events"} to reach the target.`
+          : `${diff} more than planned – fine if intended, otherwise move ${diff === 1 ? "it" : "some"} to a quieter period.`,
+    };
+  }
+
+  /** Kleine anklickbare Event-Liste für die Abweichungs-Tabelle */
+  function eventMiniListe(events, zusatz) {
+    if (!events.length) return '<span class="leise">No events yet</span>';
+    return `<div class="ev-mini-liste">${events.map((e) => `
+      <button type="button" class="ev-chip ${katKlasse(e.kategorie)} ${e.status === "Idea" ? "idee" : ""}" data-event="${esc(e.id)}"
+              title="Open ${esc(e.titel)}">
+        <span class="zeit">${esc(datumKurz(e.datum))}</span> ${esc(e.titel)}${zusatz ? ` <span class="leise">· ${esc(zusatz(e))}</span>` : ""}
+      </button>`).join("")}</div>`;
+  }
+  function datumKurz(text) {
+    const [, m, t] = text.split("-").map(Number);
+    return t + " " + MONATE_KURZ[m - 1];
+  }
+
   function zeichneWarnliste() {
     const jahr = zustand.model.jahr;
+    const schwelle = zustand.einstellungen.schwelleProzent;
+    const heuteText = alsText(heute());
     const zeilen = (art) => {
       const anzahl = art === "month" ? 12 : 4;
       let html = "", zeitraeume = 0;
@@ -1083,30 +1131,66 @@
         zeitraeume++;
         const name = art === "month" ? MONATE[i - 1] : "Q" + i;
         const ziel = art === "month" ? alsText(new Date(jahr, i - 1, 1)) : alsText(new Date(jahr, (i - 1) * 3, 1));
+        const ende = art === "month" ? new Date(jahr, i, 0) : new Date(jahr, i * 3, 0);
+        const vorbei = alsText(ende) < heuteText;
+        const events = art === "month" ? eventsImMonat(jahr, i) : eventsImQuartal(jahr, i);
         v.abweichungen.forEach((a, n) => {
           const istAuslastung = a.art === "auslastung";
           const klasse = a.abw < 0 ? "zu-wenig" : "zu-viel";
-          html += `<tr>
-            <td>${n === 0 ? `<a href="#/${art}/${ziel}"><strong>${name}</strong></a>` : ""}</td>
+          const det = abweichungDetails(a, events, vorbei);
+          html += `<tr class="${vorbei ? "vergangen" : ""} ${n === 0 ? "erste-zeile" : ""}">
+            <td>${n === 0 ? `<a href="#/${art}/${ziel}"><strong>${name}</strong></a><br><span class="leise">${vorbei ? "over" : "open"}</span>` : ""}</td>
             <td>${istAuslastung ? "📊 Occupancy" : katPille(a.kat)}</td>
             <td class="zahl">${istAuslastung ? prozent(a.ist) : a.ist}</td>
             <td class="zahl">${istAuslastung ? prozent(a.soll) : a.soll}</td>
             <td class="zahl"><span class="abw ${klasse}">${vorzeichenProzent(a.abw)}</span></td>
-            <td>${esc(istAuslastung ? (a.abw > 0 ? "overbooked" : "too empty") : a.abw === Infinity ? "not planned" : a.abw < 0 ? "too few events" : "more than planned")}</td>
+            <td><strong>${esc(det.bedeutung)}</strong><br><span class="tipp">${esc(det.tipp)}</span></td>
+            <td>${eventMiniListe(det.events, det.zusatz)}</td>
           </tr>`;
         });
       }
       return { html, zeitraeume };
     };
     const m = zeilen("month"), q = zeilen("quarter");
+
+    // Jahresblick je Kategorie: Ist gegen Soll, und wie viele noch in offenen Monaten geplant sind
+    const jahresZeilen = KATEGORIEN.map((kat) => {
+      let ist = 0, soll = 0, nochSoll = 0, nochIst = 0;
+      zustand.model.monate.forEach((mo) => {
+        const evs = eventsImMonat(jahr, mo.monat).filter((e) => e.kategorie === kat);
+        const s = mo.soll[kat] || 0;
+        ist += evs.length; soll += s;
+        if (alsText(new Date(jahr, mo.monat, 0)) >= heuteText) { nochSoll += s; nochIst += evs.length; }
+      });
+      const abw = soll > 0 ? (ist - soll) / soll : ist > 0 ? Infinity : 0;
+      const klasse = Math.abs(abw) <= schwelle / 100 ? "passt" : abw < 0 ? "zu-wenig" : "zu-viel";
+      const fehlen = Math.max(0, nochSoll - nochIst);
+      return `<tr>
+        <td>${katPille(kat)}</td>
+        <td class="zahl">${ist}</td><td class="zahl">${soll}</td>
+        <td class="zahl"><span class="abw ${klasse}">${soll === 0 && ist === 0 ? "–" : vorzeichenProzent(abw)}</span></td>
+        <td>${fehlen ? `⚠ ${fehlen} still to plan in the coming months` : '<span class="leise">✓ coming months covered</span>'}</td>
+      </tr>`;
+    }).join("");
+
     const tabelle = (titel, z, leerText) => `
-      <section class="karte abschnitt">
-        <h2>${titel} <span class="leise">(${z.zeitraeume} flagged)</span></h2>
-        ${z.html ? `<div class="tabellen-rahmen"><table class="tabelle abschnitt">
-          <thead><tr><th>Period</th><th>What</th><th class="zahl">Actual</th><th class="zahl">Target</th><th class="zahl">Deviation</th><th>Meaning</th></tr></thead>
+      <section class="karte abschnitt ${z.zeitraeume ? "rahmen-warnung" : ""}">
+        <h2>${z.zeitraeume ? "⚠ " : "✓ "}${titel} <span class="leise">(${z.zeitraeume} flagged)</span></h2>
+        ${z.html ? `<div class="tabellen-rahmen"><table class="tabelle abweichungs-tabelle abschnitt">
+          <thead><tr><th>Period</th><th>What</th><th class="zahl">Actual</th><th class="zahl">Target</th><th class="zahl">Deviation</th><th>Meaning &amp; what to do</th><th>Events behind it</th></tr></thead>
           <tbody>${z.html}</tbody></table></div>` : `<p class="leise">${leerText}</p>`}
       </section>`;
-    document.getElementById("warnliste").innerHTML =
+    document.getElementById("warnliste").innerHTML = `
+      <section class="karte abschnitt">
+        <h2>Deviations from the model</h2>
+        <p class="untertitel">For each month and quarter, the app counts the events per category and compares them with the model (target).
+          A period is flagged when they differ by more than ${schwelle}%. Occupancy (registrations ÷ spots) only counts events marked “Done”.
+          Click an event to open it, or a period to see its calendar.</p>
+        <h3 class="abschnitt">Year ${jahr} at a glance</h3>
+        <div class="tabellen-rahmen"><table class="tabelle abschnitt">
+          <thead><tr><th>Category</th><th class="zahl">Actual</th><th class="zahl">Target</th><th class="zahl">Deviation</th><th>Coming months</th></tr></thead>
+          <tbody>${jahresZeilen}</tbody></table></div>
+      </section>` +
       tabelle("Months", m, "No month deviates more than the threshold. 🎉") +
       tabelle("Quarters", q, "No quarter deviates more than the threshold. 🎉");
   }

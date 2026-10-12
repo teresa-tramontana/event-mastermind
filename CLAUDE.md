@@ -82,6 +82,7 @@ IT-KURZINFO.html             dasselbe als HTML zum Kopieren in eine E-Mail
 - Ask AI ist eine eigene Schublade (volle Höhe, liegt über der Event-Schublade). Esc schließt immer das Oberste; der Chat bleibt erhalten, „New chat“ (`kiNeuerChat`) leert ihn. Der Knopf „Ask AI“ sitzt in der Kopfzeile links neben dem Benutzer-Menü (gleiche Höhe 40 px wie Suchfeld und Menü). Klick neben eine Schublade schließt sie (bzw. bricht das Bearbeiten ab); bei ungespeicherten Änderungen fragt `darfFormularVerlassen` nach.
 - Navigation: Year · Quarter · Month · Week · List | Deviations · Templates. „Connections“ ist im Benutzer-Menü (auch offline sichtbar). „Demo · fictional data“ steht direkt neben dem Logo.
 - Jahr: Monatskacheln werden **nicht** nach Abweichung eingefärbt, nur ein roter ⚠-Hinweistext.
+- Kennzahl-Kacheln „months deviating“ (Jahr) und „deviations“ (Quartal) führen wie „missing description info“ auf die Abweichungs-Seite (`#/deviations/<datum>/abweichungen` bzw. `/fehlende-infos`). Dort: Jahresblick je Kategorie (Ist/Soll, „still to plan“ in kommenden Monaten) und je Abweichung Bedeutung, Tipp und die Events dahinter (klickbar, `abweichungDetails`).
 - „Heute“ ist in der Demo fest `model.demoHeute` (2026-10-10), damit die Daten stimmig bleiben.
 
 ## Veröffentlichung (Google Apps Script)
