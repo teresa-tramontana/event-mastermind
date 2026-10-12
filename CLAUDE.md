@@ -46,6 +46,7 @@ apps-script/appsscript.json  Apps-Script-Einstellungen (Zeitzone, Zugriff "DOMAI
 bilder/favicon.svg / .png   Icon im Browser-Tab (SVG für Doppelklick, PNG für Apps Script über raw.githubusercontent.com – klappt nur, solange das Repo öffentlich ist)
 .github/workflows/apps-script.yml  veröffentlicht bei jedem Push auf main automatisch zu Apps Script (clasp)
 .gitignore                   hält erzeugte Dateien aus dem Repo
+IT-KURZINFO.md               kurze, einfache Vorstellung des Projekts für die IT (Ausführliches: Gesprächsleitfaden unten)
 ```
 
 ### Datenmodell
