@@ -251,7 +251,7 @@ button { font: inherit; color: inherit; }
 .gitter-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
 
 /* Kennzahlen oben */
-.kennzahlen { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 18px; }
+.kennzahlen { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 18px; }
 .kennzahl { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); padding: 14px 16px; }
 .kennzahl .wert { font-size: 1.6rem; font-weight: 700; }
 .kennzahl .label { color: var(--text-leise); font-size: .85rem; }
@@ -686,4 +686,22 @@ details.vorschau { background: var(--flaeche); border-radius: 8px; padding: 6px 
   .fuss-luecke { flex-basis: 100%; height: 0; }
   .formular, .f-reihe { grid-template-columns: 1fr; }
 }
-#warnliste, #fehlende-infos-box { scroll-margin-top: 120px; }
+#warnliste, #fehlende-infos-box, #blueprint-box, #auslastung-box, #termine-box, #einstellungen-box { scroll-margin-top: 120px; }
+/* Abweichungs-Seite: Sprung-Leiste, Einstellungen */
+.sprung-leiste { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+.sprung-leiste a { font-size: .85rem; padding: 5px 12px; border-radius: 999px; border: 1px solid var(--linie);
+  background: var(--flaeche); color: var(--text); text-decoration: none; }
+.sprung-leiste a:hover { border-color: var(--akzent); color: var(--akzent-dunkel); }
+.einstellungen-reihe { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; }
+.einstellung { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--text-leise); max-width: 220px; }
+.einstellung input { width: 90px; padding: 6px 8px; border: 1px solid var(--feld-rand); border-radius: var(--radius-klein);
+  background: var(--feld); font: inherit; color: var(--text); }
+.ausnahmen-liste { margin: 6px 0 0; padding-left: 20px; font-size: .9rem; }
+.link-knopf { background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+.link-knopf:hover strong { color: var(--akzent-dunkel); text-decoration: underline; }
+/* Terminplan-Konflikte */
+.tag-zelle.konflikt { border-color: #eeb0a8; background: var(--kritisch-hell); }
+.konflikt-text { color: var(--kritisch); font-weight: 700; font-size: .72rem; }
+.wk-tag-kopf.konflikt span, .wk-tag-kopf.konflikt strong { color: var(--kritisch); }
+a.banner-link { text-decoration: none; color: inherit; margin-bottom: 12px; }
+a.banner-link:hover { border-color: var(--warnung); }

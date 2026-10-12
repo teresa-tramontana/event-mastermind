@@ -59,7 +59,7 @@ IT-KURZINFO.html             dasselbe als HTML zum Kopieren in eine E-Mail
   Leere Abschnitte = fehlende Info → werden **überall deutlich markiert** (Woche, Monat, Event-Schublade, Liste, Jahres-Kennzahl, Abweichungs-Seite, Navigations-Zähler). Fehlende Infos nie still mit erfundenem Text füllen, sondern sichtbar lassen, bis ein Mensch sie ergänzt oder einen Vorschlag übernimmt.
 - **Vorlage:** `kategorie, titelVorlage, titelIdeen[], beschreibung, summaryVorlage, tags[], socialText, mailText`. `beschreibung` hat dieselben Abschnitte wie beim Event; `agenda` ist dort eine Liste `[Minuten ab Start, Programmpunkt]`. Platzhalter: `{thema}` (Thema), `{merkmale}` (Tag-Stichworte), `{ort}`, `{kapazitaet}`, `{verantwortlich}`. In `socialText`/`mailText`: `{titel} {datum} {uhrzeit} {ort} {kategorie} {summary} {tickets} {agenda}`.
 - **Tag:** `tag, kurz (Stichwort für die Summary), satz (Satz für die Description)`.
-- **Modell:** `jahr, demoHeute, kategorien[], monate[] ({monat, name, soll{Kategorie: Anzahl}, zielAuslastung})`, `quartale[]` (gleich aufgebaut).
+- **Modell (Blueprint):** `jahr, demoHeute, kategorien[], zielAuslastung, basisMonat {soll{Kategorie: Anzahl}}` (gilt für jeden Monat), `basisQuartal {soll}` (kommt je Quartal zu 3 Monaten dazu, Kategorien mit Quartals-Rhythmus), `monate[] ({monat, name, ausnahmen{Kategorie: Anzahl}, notiz})` (bewusste Abweichungen, z. B. Sommerpause). Das Soll rechnet die App selbst aus (`sollMonat`, `sollQuartal`, `sollJahr`); `tools/erzeuge-demodaten.py` prüft, dass der Demo-Terminplan genau zum Blueprint passt.
 
 ### DataLayer-Schnittstelle (nicht umbenennen)
 
@@ -69,7 +69,11 @@ IT-KURZINFO.html             dasselbe als HTML zum Kopieren in eine E-Mail
 
 ### Rechenregeln
 
-- Abweichung Anzahl = (Ist − Soll) / Soll je Kategorie; Soll 0 und Ist > 0 gilt als „nicht eingeplant“.
+- Abweichung Anzahl = (Ist − Soll) / Soll je Kategorie; Soll 0 und Ist > 0 gilt als „nicht eingeplant“. Im **Monat** werden nur die Kategorien aus Blueprint-Monat + Ausnahmen geprüft; Quartals-Kategorien erst im **Quartal** (`vergleiche(…, geprueft)`).
+- **Zu wenige Anmeldungen** (`anmeldeWarnung`): Anmeldungen/Kapazität < `mindestAnmeldungProzent` (Standard 50 %). Geprüft werden „Done“-Events (low turnout) und kommende Events in den nächsten 14 Tagen (`VORLAUF_TAGE`). Anzeige: Kachel im Jahr, 👥 an Chips in Monat/Woche, Abzeichen und Hinweis in der Schublade, Liste auf der Abweichungs-Seite.
+- **Terminplan** (`terminKonflikte`): Wochen mit mehr als `maxProWoche` (Standard 2) und Tage mit mehr als `maxProTag` (Standard 1) Events, alle Events des Jahres inkl. Ideen. Anzeige: Kachel im Jahr, Banner in Woche/Monat, rote Tage, eigener Abschnitt auf der Abweichungs-Seite.
+- Alle Grenzen sind auf der Abweichungs-Seite unter „Settings“ einstellbar (im Browser gespeichert, Standardwerte in `STANDARD_EINSTELLUNGEN` in data-layer.js).
+- Abweichungs-Seite (`#/deviations/<datum>/<abschnitt>`, Abschnitte `fehlende-infos`, `blueprint`, `abweichungen`, `auslastung`, `termine`): Sprung-Leiste, Missing info, Blueprint, Abweichungen (Jahresblick, Monate, Quartale), Occupancy & low sign-ups, Scheduling, Settings.
 - Auslastung = Anmeldungen / Kapazität, **nur** für Events mit Status „Done“.
 - Auffällig, wenn |Abweichung| > Schwelle (Standard 20 %, einstellbar, gespeichert im Browser).
 - Liste/Suche (Menüpunkt „List“, intern Ansicht `search`): jedes eingegebene Wort muss irgendwo im Event vorkommen (Titel, Summary, Description, Tags, Kategorie, Status, Ort, Verantwortlich, Aufgaben, Datum, IDs).
@@ -83,7 +87,7 @@ IT-KURZINFO.html             dasselbe als HTML zum Kopieren in eine E-Mail
 - Ask AI ist eine eigene Schublade (volle Höhe, liegt über der Event-Schublade). Esc schließt immer das Oberste; der Chat bleibt erhalten, „New chat“ (`kiNeuerChat`) leert ihn. Der Knopf „Ask AI“ sitzt in der Kopfzeile links neben dem Benutzer-Menü (gleiche Höhe 40 px wie Suchfeld und Menü). Klick neben eine Schublade schließt sie (bzw. bricht das Bearbeiten ab); bei ungespeicherten Änderungen fragt `darfFormularVerlassen` nach.
 - Navigation: Year · Quarter · Month · Week · List | Deviations · Templates. „Connections“ ist im Benutzer-Menü (auch offline sichtbar). „Demo · fictional data“ steht direkt neben dem Logo.
 - Jahr: Monatskacheln werden **nicht** nach Abweichung eingefärbt, nur ein roter ⚠-Hinweistext.
-- Kennzahl-Kacheln „months deviating“ (Jahr) und „deviations“ (Quartal) führen wie „missing description info“ auf die Abweichungs-Seite (`#/deviations/<datum>/abweichungen` bzw. `/fehlende-infos`). Dort: Jahresblick je Kategorie (Ist/Soll, „still to plan“ in kommenden Monaten) und je Abweichung Bedeutung, Tipp und die Events dahinter (klickbar, `abweichungDetails`).
+- Alle Warn-Kacheln (Jahr: occupancy, low sign-ups, scheduling conflicts, months deviating, missing info; Quartal: occupancy, deviations) sind Links auf den passenden Abschnitt der Abweichungs-Seite. Dort je Abweichung Bedeutung, Tipp und die Events dahinter (klickbar, `abweichungDetails`).
 - „Heute“ ist in der Demo fest `model.demoHeute` (2026-10-10), damit die Daten stimmig bleiben.
 
 ## Veröffentlichung (Google Apps Script)

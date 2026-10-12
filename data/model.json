@@ -17,344 +17,126 @@
     "Community Summer",
     "Community"
   ],
+  "zielAuslastung": 75,
+  "basisMonat": {
+    "soll": {
+      "Community Weeklies": 4,
+      "Community Monthlies": 1,
+      "Academy": 2,
+      "Drops of Inspiration": 1,
+      "Winedowns": 1,
+      "Group-Specific": 1,
+      "Community": 1
+    }
+  },
+  "basisQuartal": {
+    "soll": {
+      "Town Hall": 1,
+      "Community Quarterlies": 1,
+      "Cross-Community": 1,
+      "Collaboration": 2,
+      "Partner Deliverable": 1
+    }
+  },
   "monate": [
     {
       "monat": 1,
       "name": "January",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 1,
-        "Group-Specific": 1,
-        "Collaboration": 0,
-        "Idea Starter Pack": 0,
-        "Cross-Community": 0,
-        "Community Quarterlies": 0,
-        "Partner Deliverable": 0,
-        "Community Summer": 0,
-        "Community": 1
-      },
-      "zielAuslastung": 75
+      "ausnahmen": {},
+      "notiz": ""
     },
     {
       "monat": 2,
       "name": "February",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 0,
-        "Group-Specific": 1,
-        "Collaboration": 1,
-        "Idea Starter Pack": 0,
-        "Cross-Community": 1,
-        "Community Quarterlies": 0,
-        "Partner Deliverable": 1,
-        "Community Summer": 0,
-        "Community": 1
-      },
-      "zielAuslastung": 75
+      "ausnahmen": {},
+      "notiz": ""
     },
     {
       "monat": 3,
       "name": "March",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 0,
-        "Group-Specific": 1,
-        "Collaboration": 0,
-        "Idea Starter Pack": 1,
-        "Cross-Community": 0,
-        "Community Quarterlies": 1,
-        "Partner Deliverable": 0,
-        "Community Summer": 0,
-        "Community": 1
+      "ausnahmen": {
+        "Idea Starter Pack": 1
       },
-      "zielAuslastung": 75
+      "notiz": "Idea Starter Pack (spring)"
     },
     {
       "monat": 4,
       "name": "April",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 1,
-        "Group-Specific": 1,
-        "Collaboration": 1,
-        "Idea Starter Pack": 1,
-        "Cross-Community": 0,
-        "Community Quarterlies": 0,
-        "Partner Deliverable": 1,
-        "Community Summer": 0,
-        "Community": 1
+      "ausnahmen": {
+        "Idea Starter Pack": 1
       },
-      "zielAuslastung": 75
+      "notiz": "Idea Starter Pack (spring)"
     },
     {
       "monat": 5,
       "name": "May",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 0,
-        "Group-Specific": 1,
-        "Collaboration": 0,
-        "Idea Starter Pack": 1,
-        "Cross-Community": 1,
-        "Community Quarterlies": 0,
-        "Partner Deliverable": 0,
-        "Community Summer": 0,
-        "Community": 1
+      "ausnahmen": {
+        "Idea Starter Pack": 1
       },
-      "zielAuslastung": 75
+      "notiz": "Idea Starter Pack (spring)"
     },
     {
       "monat": 6,
       "name": "June",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 0,
-        "Group-Specific": 1,
-        "Collaboration": 1,
-        "Idea Starter Pack": 0,
-        "Cross-Community": 0,
-        "Community Quarterlies": 1,
-        "Partner Deliverable": 1,
-        "Community Summer": 1,
-        "Community": 1
+      "ausnahmen": {
+        "Community Summer": 1
       },
-      "zielAuslastung": 75
+      "notiz": "Community Summer starts"
     },
     {
       "monat": 7,
       "name": "July",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 1,
-        "Group-Specific": 1,
-        "Collaboration": 0,
-        "Idea Starter Pack": 0,
-        "Cross-Community": 0,
-        "Community Quarterlies": 0,
-        "Partner Deliverable": 0,
+      "ausnahmen": {
         "Community Summer": 2,
         "Community": 0
       },
-      "zielAuslastung": 75
+      "notiz": "Community Summer instead of Community Lunch"
     },
     {
       "monat": 8,
       "name": "August",
-      "soll": {
-        "Community Monthlies": 1,
+      "ausnahmen": {
+        "Community Summer": 2,
         "Community Weeklies": 2,
         "Academy": 0,
         "Drops of Inspiration": 0,
         "Winedowns": 0,
-        "Town Hall": 0,
         "Group-Specific": 0,
-        "Collaboration": 1,
-        "Idea Starter Pack": 0,
-        "Cross-Community": 0,
-        "Community Quarterlies": 0,
-        "Partner Deliverable": 0,
-        "Community Summer": 2,
         "Community": 0
       },
-      "zielAuslastung": 75
+      "notiz": "Summer break – only Community Summer"
     },
     {
       "monat": 9,
       "name": "September",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 0,
-        "Group-Specific": 1,
-        "Collaboration": 0,
-        "Idea Starter Pack": 1,
-        "Cross-Community": 1,
-        "Community Quarterlies": 1,
-        "Partner Deliverable": 0,
-        "Community Summer": 0,
-        "Community": 1
+      "ausnahmen": {
+        "Idea Starter Pack": 1
       },
-      "zielAuslastung": 75
+      "notiz": "Idea Starter Pack (autumn)"
     },
     {
       "monat": 10,
       "name": "October",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 1,
-        "Group-Specific": 1,
-        "Collaboration": 1,
-        "Idea Starter Pack": 1,
-        "Cross-Community": 0,
-        "Community Quarterlies": 0,
-        "Partner Deliverable": 1,
-        "Community Summer": 0,
-        "Community": 1
+      "ausnahmen": {
+        "Idea Starter Pack": 1
       },
-      "zielAuslastung": 75
+      "notiz": "Idea Starter Pack (autumn)"
     },
     {
       "monat": 11,
       "name": "November",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 2,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 0,
-        "Group-Specific": 1,
-        "Collaboration": 0,
-        "Idea Starter Pack": 1,
-        "Cross-Community": 1,
-        "Community Quarterlies": 0,
-        "Partner Deliverable": 1,
-        "Community Summer": 0,
-        "Community": 1
+      "ausnahmen": {
+        "Idea Starter Pack": 1
       },
-      "zielAuslastung": 75
+      "notiz": "Idea Starter Pack (autumn)"
     },
     {
       "monat": 12,
       "name": "December",
-      "soll": {
-        "Community Monthlies": 1,
-        "Community Weeklies": 4,
-        "Academy": 1,
-        "Drops of Inspiration": 1,
-        "Winedowns": 1,
-        "Town Hall": 0,
-        "Group-Specific": 1,
-        "Collaboration": 1,
-        "Idea Starter Pack": 0,
-        "Cross-Community": 0,
-        "Community Quarterlies": 1,
-        "Partner Deliverable": 0,
-        "Community Summer": 0,
-        "Community": 1
+      "ausnahmen": {
+        "Academy": 1
       },
-      "zielAuslastung": 75
-    }
-  ],
-  "quartale": [
-    {
-      "quartal": 1,
-      "name": "Q1",
-      "soll": {
-        "Community Monthlies": 3,
-        "Community Weeklies": 12,
-        "Academy": 6,
-        "Drops of Inspiration": 3,
-        "Winedowns": 3,
-        "Town Hall": 1,
-        "Group-Specific": 3,
-        "Collaboration": 1,
-        "Idea Starter Pack": 1,
-        "Cross-Community": 1,
-        "Community Quarterlies": 1,
-        "Partner Deliverable": 1,
-        "Community Summer": 0,
-        "Community": 3
-      },
-      "zielAuslastung": 75
-    },
-    {
-      "quartal": 2,
-      "name": "Q2",
-      "soll": {
-        "Community Monthlies": 3,
-        "Community Weeklies": 12,
-        "Academy": 6,
-        "Drops of Inspiration": 3,
-        "Winedowns": 3,
-        "Town Hall": 1,
-        "Group-Specific": 3,
-        "Collaboration": 2,
-        "Idea Starter Pack": 2,
-        "Cross-Community": 1,
-        "Community Quarterlies": 1,
-        "Partner Deliverable": 2,
-        "Community Summer": 1,
-        "Community": 3
-      },
-      "zielAuslastung": 75
-    },
-    {
-      "quartal": 3,
-      "name": "Q3",
-      "soll": {
-        "Community Monthlies": 3,
-        "Community Weeklies": 10,
-        "Academy": 4,
-        "Drops of Inspiration": 2,
-        "Winedowns": 2,
-        "Town Hall": 1,
-        "Group-Specific": 2,
-        "Collaboration": 1,
-        "Idea Starter Pack": 1,
-        "Cross-Community": 1,
-        "Community Quarterlies": 1,
-        "Partner Deliverable": 0,
-        "Community Summer": 4,
-        "Community": 1
-      },
-      "zielAuslastung": 75
-    },
-    {
-      "quartal": 4,
-      "name": "Q4",
-      "soll": {
-        "Community Monthlies": 3,
-        "Community Weeklies": 12,
-        "Academy": 5,
-        "Drops of Inspiration": 3,
-        "Winedowns": 3,
-        "Town Hall": 1,
-        "Group-Specific": 3,
-        "Collaboration": 2,
-        "Idea Starter Pack": 2,
-        "Cross-Community": 1,
-        "Community Quarterlies": 1,
-        "Partner Deliverable": 2,
-        "Community Summer": 0,
-        "Community": 3
-      },
-      "zielAuslastung": 75
+      "notiz": "Holidays – only one Academy session"
     }
   ]
 }

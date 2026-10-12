@@ -23,7 +23,9 @@
   const SPEICHER_EVENTS = "eventManager.events.v4"; // v3: gegliederte Description, v4: 14 Kategorien wie in Notion
   const SPEICHER_EINSTELLUNGEN = "eventManager.einstellungen.v1";
 
-  const STANDARD_EINSTELLUNGEN = { schwelleProzent: 20 };
+  // schwelleProzent = Abweichung vom Blueprint · mindestAnmeldungProzent = Warnung bei zu wenigen Anmeldungen
+  // maxProWoche / maxProTag = Terminplan-Grenzen
+  const STANDARD_EINSTELLUNGEN = { schwelleProzent: 20, mindestAnmeldungProzent: 50, maxProWoche: 2, maxProTag: 1 };
 
   let grunddaten = null; // { events, templates, model, tags } – unverändert aus den Dateien
 

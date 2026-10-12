@@ -167,6 +167,62 @@
   function eventsMitLuecken() {
     return zustand.events.filter((e) => beschreibungsStand(e) !== "ok");
   }
+  // ---------- Zu wenige Anmeldungen (unter "mindestAnmeldungProzent", Standard 50 %)
+  // Geprüft werden durchgeführte Events ("Done") und kommende Events in den nächsten VORLAUF_TAGE Tagen
+  // (weiter in der Zukunft ist es normal, dass erst wenige angemeldet sind).
+  const VORLAUF_TAGE = 14;
+  function anmeldeQuote(e) {
+    const kap = Number(e["kapazität"]) || 0;
+    return kap > 0 ? (Number(e.anmeldungen) || 0) / kap : null;
+  }
+  function anmeldeWarnung(e) {
+    const q = anmeldeQuote(e);
+    if (q === null || q >= zustand.einstellungen.mindestAnmeldungProzent / 100) return null;
+    const zahlen = `${Number(e.anmeldungen) || 0} of ${e["kapazität"]} spots (${prozent(q)})`;
+    if (e.status === "Done") return { art: "vorbei", kurz: "Low turnout", text: `Low turnout: ${zahlen}` };
+    if (e.status === "Idea") return null;
+    const tage = tageBis(e.datum);
+    if (tage < 0 || tage > VORLAUF_TAGE) return null;
+    return { art: "bald", kurz: "Low sign-ups",
+      text: `Low sign-ups: only ${zahlen}, ${tage === 0 ? "today" : tage === 1 ? "1 day to go" : tage + " days to go"}` };
+  }
+  function eventsMitWenigAnmeldungen() {
+    return zustand.events.filter((e) => anmeldeWarnung(e));
+  }
+  function anmeldeAbzeichen(e) {
+    const w = anmeldeWarnung(e);
+    return w ? `<span class="abzeichen ${w.art === "bald" ? "kritisch" : ""}" title="${esc(w.text)}">👥 ${esc(w.kurz)}</span>` : "";
+  }
+  function anmeldeHinweis(e) {
+    const w = anmeldeWarnung(e);
+    if (!w) return "";
+    const tipp = w.art === "bald"
+      ? "Promote it now: social post, reminder to members, ask partners to share."
+      : "Check why: date, topic, promotion? Consider a smaller room next time.";
+    return `<div class="info-fehlt ${w.art === "bald" ? "kritisch" : ""}">👥 <strong>${esc(w.text)}.</strong> ${tipp}
+      <span class="leise">(warning below ${zustand.einstellungen.mindestAnmeldungProzent}%)</span></div>`;
+  }
+
+  // ---------- Terminplan: zu viele Events pro Woche / am selben Tag
+  function terminKonflikte() {
+    const { maxProWoche, maxProTag } = zustand.einstellungen;
+    const jahr = String(zustand.model.jahr);
+    const wochen = new Map(), tage = new Map();
+    zustand.events.filter((e) => e.datum.startsWith(jahr))
+      .sort((a, b) => (a.datum + a.startzeit).localeCompare(b.datum + b.startzeit))
+      .forEach((e) => {
+        const w = alsText(wochenStart(alsDatum(e.datum)));
+        if (!wochen.has(w)) wochen.set(w, []);
+        wochen.get(w).push(e);
+        if (!tage.has(e.datum)) tage.set(e.datum, []);
+        tage.get(e.datum).push(e);
+      });
+    return {
+      wochen: [...wochen].filter(([, l]) => l.length > maxProWoche).map(([start, events]) => ({ start, events })),
+      tage: [...tage].filter(([, l]) => l.length > maxProTag).map(([datum, events]) => ({ datum, events })),
+    };
+  }
+
   /** Gut sichtbarer Warnhinweis für fehlende Infos */
   function lueckenHinweis(e) {
     const stand = beschreibungsStand(e);
@@ -229,7 +285,7 @@
    * Auslastung wird nur aus bereits durchgeführten Events ("Done") berechnet
    * (bei zukünftigen Events stehen die Anmeldungen ja noch nicht fest).
    */
-  function vergleiche(events, soll, zielAuslastung) {
+  function vergleiche(events, soll, zielAuslastung, geprueft) {
     const schwelle = zustand.einstellungen.schwelleProzent / 100;
     const kategorien = KATEGORIEN.map((kat) => {
       const ist = events.filter((e) => e.kategorie === kat).length;
@@ -237,7 +293,10 @@
       let abw = 0;
       if (s > 0) abw = (ist - s) / s;
       else if (ist > 0) abw = Infinity; // stattgefunden, aber nicht eingeplant
-      return { kat, ist, soll: s, abw, auffaellig: Math.abs(abw) > schwelle };
+      // "geprueft" = nur diese Kategorien werden hier verglichen (Monat: nur Blueprint-Monat + Ausnahmen;
+      // Kategorien mit Quartals-Rhythmus werden erst im Quartal geprüft)
+      const wirdGeprueft = !geprueft || geprueft.includes(kat);
+      return { kat, ist, soll: s, abw, geprueft: wirdGeprueft, auffaellig: wirdGeprueft && Math.abs(abw) > schwelle };
     });
 
     const erledigt = events.filter((e) => e.status === "Done" && Number(e["kapazität"]) > 0);
@@ -247,7 +306,7 @@
     const ziel = (zielAuslastung || 0) / 100;
     const auslastungAbw = auslastung !== null && ziel > 0 ? (auslastung - ziel) / ziel : null;
 
-    const istGesamt = kategorien.reduce((s, k) => s + k.ist, 0);
+    const istGesamt = kategorien.filter((k) => k.geprueft).reduce((s, k) => s + k.ist, 0);
     const sollGesamt = kategorien.reduce((s, k) => s + k.soll, 0);
 
     const abweichungen = kategorien
@@ -276,19 +335,34 @@
     return { kategorien, istGesamt, sollGesamt, auslastung, ziel, auslastungAbw, abweichungen, staerke };
   }
 
+  // Das Soll kommt aus dem Blueprint (model.json):
+  //   Monat   = Blueprint-Monat, überschrieben durch die Ausnahmen des Monats (z. B. Sommerpause)
+  //   Quartal = die 3 Monate zusammen + Blueprint-Quartal (Kategorien mit Quartals-Rhythmus)
   function sollMonat(monat) {
-    return zustand.model.monate.find((m) => m.monat === monat) || { soll: {}, zielAuslastung: 0 };
+    const m = zustand.model.monate.find((x) => x.monat === monat) || {};
+    const soll = Object.assign({}, (zustand.model.basisMonat || {}).soll, m.ausnahmen || {});
+    return { soll, zielAuslastung: zustand.model.zielAuslastung, notiz: m.notiz || "", ausnahmen: m.ausnahmen || {} };
   }
   function sollQuartal(q) {
-    return zustand.model.quartale.find((x) => x.quartal === q) || { soll: {}, zielAuslastung: 0 };
+    const soll = Object.assign({}, (zustand.model.basisQuartal || {}).soll);
+    for (let m = q * 3 - 2; m <= q * 3; m++) {
+      Object.entries(sollMonat(m).soll).forEach(([kat, n]) => { soll[kat] = (soll[kat] || 0) + n; });
+    }
+    return { soll, zielAuslastung: zustand.model.zielAuslastung };
   }
   function vergleichMonat(jahr, monat) {
     const m = sollMonat(monat);
-    return vergleiche(eventsImMonat(jahr, monat), m.soll, m.zielAuslastung);
+    return vergleiche(eventsImMonat(jahr, monat), m.soll, m.zielAuslastung, Object.keys(m.soll));
   }
   function vergleichQuartal(jahr, q) {
     const m = sollQuartal(q);
     return vergleiche(eventsImQuartal(jahr, q), m.soll, m.zielAuslastung);
+  }
+  /** Soll fürs ganze Jahr je Kategorie (Summe der 4 Quartale) */
+  function sollJahr() {
+    const soll = {};
+    [1, 2, 3, 4].forEach((q) => Object.entries(sollQuartal(q).soll).forEach(([k, n]) => { soll[k] = (soll[k] || 0) + n; }));
+    return soll;
   }
 
 
@@ -402,9 +476,11 @@
     zeichne(d) {
       const jahr = d.getFullYear();
       const jahresEvents = eventsZwischen(new Date(jahr, 0, 1), new Date(jahr, 11, 31));
-      const sollJahr = zustand.model.monate.reduce(
-        (s, m) => s + Object.values(m.soll).reduce((a, b) => a + b, 0), 0);
-      const jahresVergleich = vergleiche(jahresEvents, {}, zustand.model.monate[0].zielAuslastung);
+      const sollJahrGesamt = Object.values(sollJahr()).reduce((a, b) => a + b, 0);
+      const jahresVergleich = vergleiche(jahresEvents, {}, zustand.model.zielAuslastung);
+      const wenig = eventsMitWenigAnmeldungen();
+      const wenigBald = wenig.filter((e) => anmeldeWarnung(e).art === "bald").length;
+      const konflikte = terminKonflikte();
       const auffaelligeMonate = [];
 
       const kacheln = MONATE.map((name, i) => {
@@ -429,9 +505,11 @@
 
       $inhalt.innerHTML = `
         <div class="kennzahlen">
-          <div class="kennzahl"><div class="wert">${jahresEvents.length}</div><div class="label">events this year (target ${sollJahr})</div></div>
+          <div class="kennzahl"><div class="wert">${jahresEvents.length}</div><div class="label">events this year (target ${sollJahrGesamt})</div></div>
           <div class="kennzahl"><div class="wert">${jahresEvents.filter((e) => e.status === "Done").length}</div><div class="label">already done</div></div>
-          <div class="kennzahl"><div class="wert">${jahresVergleich.auslastung !== null ? prozent(jahresVergleich.auslastung) : "–"}</div><div class="label">⌀ occupancy (target ${zustand.model.monate[0].zielAuslastung}%)</div></div>
+          <a class="kennzahl" href="#/deviations/${alsText(d)}/auslastung" title="Show details"><div class="wert">${jahresVergleich.auslastung !== null ? prozent(jahresVergleich.auslastung) : "–"}</div><div class="label">⌀ occupancy (target ${zustand.model.zielAuslastung}%) <span class="mehr">details →</span></div></a>
+          <a class="kennzahl ${wenig.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/auslastung" title="Show details"><div class="wert">${wenig.length ? "⚠ " + wenig.length : "✓"}</div><div class="label">events with sign-ups &lt; ${zustand.einstellungen.mindestAnmeldungProzent}%${wenigBald ? ` (${wenigBald} upcoming)` : ""} <span class="mehr">details →</span></div></a>
+          <a class="kennzahl ${konflikte.wochen.length || konflikte.tage.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/termine" title="Show details"><div class="wert">${konflikte.wochen.length || konflikte.tage.length ? "⚠ " + (konflikte.wochen.length + konflikte.tage.length) : "✓"}</div><div class="label">scheduling conflicts (${konflikte.wochen.length} weeks, ${konflikte.tage.length} days) <span class="mehr">details →</span></div></a>
           <a class="kennzahl ${auffaelligeMonate.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/abweichungen" title="Show details"><div class="wert">${auffaelligeMonate.length ? "⚠ " + auffaelligeMonate.length : "✓"}</div><div class="label">months deviating &gt; ${zustand.einstellungen.schwelleProzent}% <span class="mehr">details →</span></div></a>
           <a class="kennzahl ${eventsMitLuecken().length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/fehlende-infos"><div class="wert">${eventsMitLuecken().length ? "⚠ " + eventsMitLuecken().length : "✓"}</div><div class="label">events with missing description info <span class="mehr">details →</span></div></a>
         </div>
@@ -492,7 +570,7 @@
       $inhalt.innerHTML = `
         <div class="kennzahlen">
           <div class="kennzahl"><div class="wert">${v.istGesamt} <span class="leise" style="font-size:1rem">/ ${v.sollGesamt}</span></div><div class="label">events actual / target</div></div>
-          <div class="kennzahl"><div class="wert">${v.auslastung !== null ? prozent(v.auslastung) : "–"}</div><div class="label">occupancy (target ${prozent(v.ziel)})</div></div>
+          <a class="kennzahl" href="#/deviations/${alsText(d)}/auslastung" title="Show details"><div class="wert">${v.auslastung !== null ? prozent(v.auslastung) : "–"}</div><div class="label">occupancy (target ${prozent(v.ziel)}) <span class="mehr">details →</span></div></a>
           <a class="kennzahl ${v.abweichungen.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/abweichungen" title="Show details"><div class="wert">${v.abweichungen.length ? "⚠ " + v.abweichungen.length : "✓"}</div><div class="label">deviations &gt; ${zustand.einstellungen.schwelleProzent}% <span class="mehr">details →</span></div></a>
         </div>
         ${abweichungsBanner(v, "this quarter")}
@@ -552,21 +630,30 @@
         const chips = events.map((e) => `
           <button class="ev-chip ${katKlasse(e.kategorie)} ${e.status === "Idea" ? "idee" : ""}" data-event="${esc(e.id)}" data-datum="${text}"
                   title="${esc(e.titel)} · ${esc(e.status)}">
-            ${beschreibungsStand(e) !== "ok" ? `<span class="chip-warnung" title="Description ${beschreibungsStand(e) === "keine" ? "missing" : "incomplete"}">⚠</span>` : ""}<span class="zeit">${esc(e.startzeit)}</span> ${esc(e.titel)}
+            ${beschreibungsStand(e) !== "ok" ? `<span class="chip-warnung" title="Description ${beschreibungsStand(e) === "keine" ? "missing" : "incomplete"}">⚠</span>` : ""}${anmeldeWarnung(e) ? `<span class="chip-warnung" title="${esc(anmeldeWarnung(e).text)}">👥</span>` : ""}<span class="zeit">${esc(e.startzeit)}</span> ${esc(e.titel)}
           </button>`).join("");
+        const konflikt = !fremd && events.length > zustand.einstellungen.maxProTag;
         zellen += `
-          <div class="tag-zelle ${fremd ? "fremd" : ""} ${text === heuteText ? "heute" : ""} ${events.length ? "" : "ohne-events"}">
-            <button class="tag-nr" data-datum="${text}" title="Open week">${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]} ${tag.getDate()}</button>
+          <div class="tag-zelle ${fremd ? "fremd" : ""} ${text === heuteText ? "heute" : ""} ${events.length ? "" : "ohne-events"} ${konflikt ? "konflikt" : ""}">
+            <button class="tag-nr" data-datum="${text}" title="Open week">${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]} ${tag.getDate()}${konflikt ? ` <span class="konflikt-text" title="${events.length} events on the same day">⚠ ${events.length} events</span>` : ""}</button>
             ${chips}
           </div>`;
       }
 
-      const sollZeile = v.kategorien.filter((k) => k.ist || k.soll).map((k) =>
+      const sollZeile = v.kategorien.filter((k) => k.geprueft && (k.ist || k.soll)).map((k) =>
         `<span class="${katKlasse(k.kat)}"><span class="kat-punkt"></span>${k.kat}: <strong>${k.ist}</strong>/${k.soll}</span>`).join("");
+      const quartalsZeile = v.kategorien.filter((k) => !k.geprueft && k.ist).map((k) =>
+        `<span class="${katKlasse(k.kat)}"><span class="kat-punkt"></span>${k.kat}: <strong>${k.ist}</strong></span>`).join("");
+      const notiz = sollMonat(monat).notiz;
+      const tagKonflikte = terminKonflikte().tage.filter((t) => t.datum.startsWith(alsText(erster).slice(0, 7)));
 
       $inhalt.innerHTML = `
         ${abweichungsBanner(v, MONATE[monat - 1])}
-        <div class="legende" style="margin-bottom:12px">Actual/target: ${sollZeile}</div>
+        ${tagKonflikte.length ? `<a class="banner warnung banner-link" href="#/deviations/${alsText(d)}/termine"><span class="banner-symbol">⚠</span><div>
+          <strong>${tagKonflikte.length} ${tagKonflikte.length === 1 ? "day" : "days"} with more than ${zustand.einstellungen.maxProTag} ${zustand.einstellungen.maxProTag === 1 ? "event" : "events"}</strong>
+          <span class="leise">– ${tagKonflikte.map((t) => esc(datumSchoen(t.datum))).join(" · ")}</span></div></a>` : ""}
+        <div class="legende" style="margin-bottom:6px">Actual/target (blueprint month${notiz ? ", exception: " + esc(notiz) : ""}): ${sollZeile}</div>
+        ${quartalsZeile ? `<div class="legende leise" style="margin-bottom:12px">Checked per quarter: ${quartalsZeile}</div>` : ""}
         <div class="kalender">${zellen}</div>
         <p class="leise abschnitt">Tip: click an event to see all details, or a day to open its week.</p>`;
 
@@ -637,6 +724,7 @@
             <ul class="aufgaben">${aufgaben || '<li class="leise">No tasks</li>'}</ul>
           </div>
         </div>
+        ${anmeldeHinweis(e)}
         ${lueckenHinweis(e)}
         ${beschreibungsStand(e) !== "keine" ? `<section class="drawer-abschnitt beschreibung-offen"><h3>Description${beschreibungsStand(e) === "luecken" ? ' <span class="text-kritisch">· incomplete</span>' : ""}</h3>${beschreibungHtml(e.beschreibung, e.kategorie)}</section>` : ""}
         ${r ? `<div class="reminder ${r.stufe}">${esc(r.text)}</div>` : ""}
@@ -708,10 +796,20 @@
       const hoehe = (bisStd - vonStd) * STUNDE;
       const y = (min) => ((min - vonStd * 60) / 60) * STUNDE;
 
+      const { maxProWoche, maxProTag } = zustand.einstellungen;
       const kopf = tage.map((t, i) => `
-        <button class="wk-tag-kopf ${t.text === heuteText ? "heute" : ""}" data-datum="${t.text}" title="Open month">
-          <span>${WOCHENTAGE_KURZ[i]}</span><strong>${t.tag.getDate()}</strong>
+        <button class="wk-tag-kopf ${t.text === heuteText ? "heute" : ""} ${t.events.length > maxProTag ? "konflikt" : ""}" data-datum="${t.text}"
+                title="${t.events.length > maxProTag ? `⚠ ${t.events.length} events on this day (max. ${maxProTag})` : "Open month"}">
+          <span>${WOCHENTAGE_KURZ[i]}${t.events.length > maxProTag ? " ⚠" : ""}</span><strong>${t.tag.getDate()}</strong>
         </button>`).join("");
+      const konfliktTage = tage.filter((t) => t.events.length > maxProTag);
+      const wochenWarnung = alle.length > maxProWoche || konfliktTage.length
+        ? `<a class="banner warnung banner-link" href="#/deviations/${alsText(start)}/termine"><span class="banner-symbol">⚠</span><div>
+            <strong>Scheduling: ${[alle.length > maxProWoche ? `${alle.length} events this week (max. ${maxProWoche})` : "",
+              konfliktTage.length ? `${konfliktTage.length === 1 ? "1 day" : konfliktTage.length + " days"} with more than ${maxProTag} ${maxProTag === 1 ? "event" : "events"}` : ""]
+              .filter(Boolean).join(" · ")}</strong>
+            ${konfliktTage.length ? `<span class="leise">– ${konfliktTage.map((t) => esc(datumSchoen(t.text))).join(" · ")}</span>` : ""}</div></a>`
+        : "";
       const zeiten = [];
       for (let h = vonStd + 1; h < bisStd; h++) zeiten.push(`<span style="top:${(h - vonStd) * STUNDE}px">${uhrzeit(h * 60)}</span>`);
       const spalten = tage.map((t) => `
@@ -721,13 +819,14 @@
                     style="top:${y(x.von) + 1}px;height:${Math.max(22, y(x.bis) - y(x.von) - 3)}px;
                            left:calc(${(x.spur / x.spuren) * 100}% + 2px);width:calc(${100 / x.spuren}% - 4px)"
                     title="${esc(x.e.titel)} · ${esc(x.e.status)}">
-              <strong>${beschreibungsStand(x.e) !== "ok" ? '<span class="chip-warnung">⚠</span> ' : ""}${esc(x.e.titel)}</strong>
+              <strong>${beschreibungsStand(x.e) !== "ok" ? '<span class="chip-warnung">⚠</span> ' : ""}${anmeldeWarnung(x.e) ? `<span class="chip-warnung" title="${esc(anmeldeWarnung(x.e).text)}">👥</span> ` : ""}${esc(x.e.titel)}</strong>
               <span>${uhrzeit(x.von)} – ${uhrzeit(x.bis)}</span>
               <span>${esc(x.e.ort)}</span>
             </button>`).join("")}
         </div>`).join("");
 
       $inhalt.innerHTML = `
+        ${wochenWarnung}
         <p class="leise" style="margin-top:0">${alle.length ? alle.length + (alle.length === 1 ? " event" : " events") + " this week · click an event for details" : "Nothing planned this week."}</p>
         <div class="wochen-raster-huelle">
           <div class="wochen-raster" style="--stunde:${STUNDE}px">
@@ -794,7 +893,7 @@
     Object.assign(drawerStand, { id, modus: "ansehen", abbrechen: null, geaendert: null });
     const z = eventZeitraum(e);
     const inhalt = fuelleDrawer({
-      pillen: `${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)}`,
+      pillen: `${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)} ${anmeldeAbzeichen(e)}`,
       titel: e.titel,
       unter: datumSchoen(e.datum, true) + " · " + uhrzeit(z.von) + " – " + uhrzeit(z.bis),
       fuss: `
@@ -965,7 +1064,7 @@
                aria-label="${esc(e.titel)} – show details">
         <div class="treffer-datum"><strong>${alsDatum(e.datum).getDate()}</strong><span>${MONATE_KURZ[alsDatum(e.datum).getMonth()]}</span></div>
         <div class="treffer-inhalt">
-          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)}
+          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)} ${anmeldeAbzeichen(e)}
             <span class="leise" style="font-size:.82rem">${esc(datumSchoen(e.datum))} · ${esc(e.startzeit)} · ${markiere(e.ort, woerter)}</span></div>
           <h3>${markiere(e.titel, woerter)}</h3>
           ${e.zusammenfassung ? `<p class="summary">${markiere(e.zusammenfassung, woerter)}</p>` : ""}
@@ -1014,44 +1113,239 @@
   // ---------------------------------------------------------------- Deviations
   ANSICHTEN.deviations = {
     blaettern: false,
-    titel: () => "Deviations & missing info",
+    titel: () => "Deviations & warnings",
     zeichne(d, fokus) {
-      const schwelle = zustand.einstellungen.schwelleProzent;
+      const e = zustand.einstellungen;
+      const zahlFeld = (id, wert, min, max, text) =>
+        `<label class="einstellung"><span>${text}</span><input type="number" id="${id}" min="${min}" max="${max}" value="${wert}"></label>`;
       $inhalt.innerHTML = `
-        <section class="karte">
+        <nav class="sprung-leiste" aria-label="Jump to section">
+          <a href="#fehlende-infos-box">Missing info</a><a href="#blueprint-box">Blueprint</a>
+          <a href="#warnliste">Deviations</a><a href="#auslastung-box">Occupancy &amp; sign-ups</a>
+          <a href="#termine-box">Scheduling</a><a href="#einstellungen-box">Settings</a>
+        </nav>
+        <div id="fehlende-infos-box"></div>
+        <div id="warn-bereich">
+          <div id="blueprint-box"></div>
+          <div id="warnliste"></div>
+          <div id="auslastung-box"></div>
+          <div id="termine-box"></div>
+        </div>
+        <section class="karte abschnitt" id="einstellungen-box">
           <h2>When should we warn you?</h2>
-          <p class="untertitel">A period is flagged when actual and target differ by more than this percentage
+          <p class="untertitel">These settings are saved in this browser.</p>
+          <h3 class="abschnitt">Deviation from the blueprint</h3>
+          <p class="untertitel">A month or quarter is flagged when actual and target differ by more than this percentage
             (number of events per category, or occupancy).</p>
           <div class="schwelle abschnitt">
-            <input type="range" id="schwelle" min="5" max="100" step="5" value="${schwelle}" aria-label="Threshold in percent">
-            <output id="schwelle-wert">${schwelle}%</output>
+            <input type="range" id="schwelle" min="5" max="100" step="5" value="${e.schwelleProzent}" aria-label="Threshold in percent">
+            <output id="schwelle-wert">${e.schwelleProzent}%</output>
             <button class="knopf klein leise" id="schwelle-standard">Default (20%)</button>
           </div>
-        </section>
-        <div id="fehlende-infos-box"></div>
-        <div id="warnliste"></div>`;
+          <h3 class="abschnitt">Sign-ups and scheduling</h3>
+          <div class="einstellungen-reihe abschnitt">
+            ${zahlFeld("min-anmeldung", e.mindestAnmeldungProzent, 5, 100, "Warn when sign-ups are below (% of spots)")}
+            ${zahlFeld("max-woche", e.maxProWoche, 1, 20, "Max. events per week")}
+            ${zahlFeld("max-tag", e.maxProTag, 1, 10, "Max. events per day")}
+            <button class="knopf klein leise" id="regeln-standard">Defaults (50% · 2 · 1)</button>
+          </div>
+        </section>`;
       zeichneFehlendeInfos();
-      if (fokus === "fehlende-infos") document.getElementById("fehlende-infos-box").scrollIntoView({ block: "start" });
+      zeichneAlleWarnungen();
 
-      const regler = document.getElementById("schwelle");
-      const setze = async (wert) => {
-        zustand.einstellungen.schwelleProzent = wert;
-        regler.value = wert;
-        document.getElementById("schwelle-wert").textContent = wert + "%";
-        zeichneWarnliste();
-        aktualisiereWarnZaehler();
-        await window.DataLayer.speichereEinstellungen(zustand.einstellungen);
-      };
-      regler.addEventListener("input", () => setze(Number(regler.value)));
-      document.getElementById("schwelle-standard").addEventListener("click", () => setze(20));
-      zeichneWarnliste();
-      if (fokus === "abweichungen") document.getElementById("warnliste").scrollIntoView({ block: "start" });
-      document.getElementById("warnliste").addEventListener("click", (ev) => {
+      const ziel = { "fehlende-infos": "fehlende-infos-box", abweichungen: "warnliste", auslastung: "auslastung-box",
+        termine: "termine-box", blueprint: "blueprint-box" }[fokus];
+      if (ziel) document.getElementById(ziel).scrollIntoView({ block: "start" });
+
+      // Sprung-Leiste: nur scrollen, die Adresse (#/deviations/...) bleibt
+      $inhalt.querySelectorAll(".sprung-leiste a").forEach((a) => a.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        document.querySelector(a.getAttribute("href")).scrollIntoView({ behavior: "smooth", block: "start" });
+      }));
+      // Klick auf ein Event in den Listen öffnet es in der Schublade
+      document.getElementById("warn-bereich").addEventListener("click", (ev) => {
         const knopf = ev.target.closest("[data-event]");
         if (knopf) oeffneEvent(knopf.dataset.event);
       });
+
+      const speichere = async () => {
+        zeichneAlleWarnungen();
+        await window.DataLayer.speichereEinstellungen(zustand.einstellungen);
+      };
+      const regler = document.getElementById("schwelle");
+      const setzeSchwelle = (wert) => {
+        zustand.einstellungen.schwelleProzent = wert;
+        regler.value = wert;
+        document.getElementById("schwelle-wert").textContent = wert + "%";
+        speichere();
+      };
+      regler.addEventListener("input", () => setzeSchwelle(Number(regler.value)));
+      document.getElementById("schwelle-standard").addEventListener("click", () => setzeSchwelle(20));
+      const felder = { "min-anmeldung": "mindestAnmeldungProzent", "max-woche": "maxProWoche", "max-tag": "maxProTag" };
+      Object.entries(felder).forEach(([id, schluessel]) => {
+        const feld = document.getElementById(id);
+        feld.addEventListener("change", () => {
+          const wert = Math.round(Number(feld.value));
+          if (!wert || wert < Number(feld.min) || wert > Number(feld.max)) { feld.value = zustand.einstellungen[schluessel]; return; }
+          zustand.einstellungen[schluessel] = wert;
+          speichere();
+        });
+      });
+      document.getElementById("regeln-standard").addEventListener("click", () => {
+        Object.assign(zustand.einstellungen, { mindestAnmeldungProzent: 50, maxProWoche: 2, maxProTag: 1 });
+        Object.entries(felder).forEach(([id, schluessel]) => { document.getElementById(id).value = zustand.einstellungen[schluessel]; });
+        speichere();
+      });
     },
   };
+
+  function zeichneAlleWarnungen() {
+    zeichneBlueprint();
+    zeichneWarnliste();
+    zeichneAuslastung();
+    zeichneTermine();
+    aktualisiereWarnZaehler();
+  }
+
+  /** Der Blueprint: Soll für jeden Monat und jedes Quartal, plus die bewussten Ausnahmen */
+  function zeichneBlueprint() {
+    const basisM = (zustand.model.basisMonat || {}).soll || {};
+    const basisQ = (zustand.model.basisQuartal || {}).soll || {};
+    const summe = (o) => Object.values(o).reduce((a, b) => a + b, 0);
+    const ausnahmen = zustand.model.monate.filter((m) => m.notiz || Object.keys(m.ausnahmen || {}).length);
+    const zeilen = KATEGORIEN.map((kat) => {
+      const proMonat = basisM[kat] || 0, extraQ = basisQ[kat] || 0;
+      const abweichend = ausnahmen.filter((m) => kat in (m.ausnahmen || {}))
+        .map((m) => `${MONATE_KURZ[m.monat - 1]}: ${m.ausnahmen[kat]}`);
+      return `<tr>
+        <td>${katPille(kat)}</td>
+        <td class="zahl">${proMonat || '<span class="leise">–</span>'}</td>
+        <td class="zahl">${proMonat * 3 + extraQ || '<span class="leise">–</span>'}</td>
+        <td>${proMonat ? "monthly" : extraQ ? "quarterly" : "only in some months"}</td>
+        <td class="leise">${abweichend.join(" · ") || "–"}</td>
+      </tr>`;
+    }).join("");
+    document.getElementById("blueprint-box").innerHTML = `
+      <section class="karte abschnitt">
+        <h2>Blueprint (model)</h2>
+        <p class="untertitel">The standard plan every month and quarter is compared with automatically.
+          <strong>Blueprint month:</strong> ${summe(basisM)} events. <strong>Blueprint quarter:</strong> 3 blueprint months
+          + ${summe(basisQ)} quarterly events = ${summe(basisM) * 3 + summe(basisQ)} events. Monthly categories are checked every month,
+          quarterly ones only per quarter. Target occupancy: ${zustand.model.zielAuslastung}%.</p>
+        <div class="tabellen-rahmen"><table class="tabelle abschnitt">
+          <thead><tr><th>Category</th><th class="zahl">Per month</th><th class="zahl">Per quarter</th><th>Rhythm</th><th>Exceptions (target in that month)</th></tr></thead>
+          <tbody>${zeilen}</tbody></table></div>
+        ${ausnahmen.length ? `<h3 class="abschnitt">Planned exceptions</h3>
+          <ul class="ausnahmen-liste">${ausnahmen.map((m) => `<li><strong>${MONATE[m.monat - 1]}:</strong> ${esc(m.notiz || "")}
+            <span class="leise">(${Object.entries(m.ausnahmen || {}).map(([k, n]) => esc(k) + " " + n).join(", ")})</span></li>`).join("")}</ul>` : ""}
+      </section>`;
+  }
+
+  /** Auslastung (Done-Events) und Events mit zu wenigen Anmeldungen */
+  function zeichneAuslastung() {
+    const jahr = zustand.model.jahr;
+    const ziel = zustand.model.zielAuslastung / 100;
+    const schwelle = zustand.einstellungen.schwelleProzent / 100;
+    const min = zustand.einstellungen.mindestAnmeldungProzent;
+    const heuteText = alsText(heute());
+    const zelle = (v) => {
+      if (v.auslastung === null) return '<td class="zahl leise">–</td><td class="zahl leise">–</td>';
+      const abw = (v.auslastung - ziel) / ziel;
+      const klasse = Math.abs(abw) <= schwelle ? "passt" : abw < 0 ? "zu-wenig" : "zu-viel";
+      return `<td class="zahl"><strong>${prozent(v.auslastung)}</strong></td><td class="zahl"><span class="abw ${klasse}">${vorzeichenProzent(abw)}</span></td>`;
+    };
+    const fertig = (liste) => liste.filter((e) => e.status === "Done" && Number(e["kapazität"]) > 0);
+    const monatsZeilen = MONATE.map((name, i) => {
+      const evs = eventsImMonat(jahr, i + 1), v = vergleichMonat(jahr, i + 1);
+      const f = fertig(evs);
+      return `<tr><td><a href="#/month/${alsText(new Date(jahr, i, 1))}">${name}</a></td>${zelle(v)}
+        <td class="zahl">${f.length || '<span class="leise">–</span>'}</td>
+        <td class="zahl">${f.reduce((s, e) => s + Number(e.anmeldungen || 0), 0) || '<span class="leise">–</span>'}</td>
+        <td class="zahl">${f.reduce((s, e) => s + Number(e["kapazität"]), 0) || '<span class="leise">–</span>'}</td></tr>`;
+    }).join("");
+    const katZeilen = KATEGORIEN.map((kat) => {
+      const evs = zustand.events.filter((e) => e.kategorie === kat && e.datum.startsWith(String(jahr)));
+      const v = vergleiche(evs, {}, zustand.model.zielAuslastung);
+      const f = fertig(evs);
+      const quoten = f.map(anmeldeQuote);
+      return `<tr><td>${katPille(kat)}</td>${zelle(v)}<td class="zahl">${f.length || '<span class="leise">–</span>'}</td>
+        <td class="zahl leise">${quoten.length ? prozent(Math.min(...quoten)) + " – " + prozent(Math.max(...quoten)) : "–"}</td></tr>`;
+    }).join("");
+    const wenig = eventsMitWenigAnmeldungen().sort((a, b) => {
+      const ak = a.datum >= heuteText, bk = b.datum >= heuteText;
+      if (ak !== bk) return ak ? -1 : 1;
+      return ak ? a.datum.localeCompare(b.datum) : b.datum.localeCompare(a.datum);
+    });
+    document.getElementById("auslastung-box").innerHTML = `
+      <section class="karte abschnitt ${wenig.length ? "rahmen-warnung" : ""}">
+        <h2>${wenig.length ? "⚠ " : "✓ "}Events with low sign-ups <span class="leise">(${wenig.length} below ${min}%)</span></h2>
+        <p class="untertitel">An event gets a warning when fewer than ${min}% of its spots are taken: past events (“Done”) as
+          low turnout, upcoming events from ${VORLAUF_TAGE} days before the date (earlier, few sign-ups are normal).</p>
+        ${wenig.length ? `<div class="tabellen-rahmen"><table class="tabelle abschnitt">
+          <thead><tr><th>Date</th><th>Event</th><th>Status</th><th class="zahl">Sign-ups</th><th class="zahl">Full</th><th>What to do</th></tr></thead>
+          <tbody>${wenig.map((e) => {
+            const w = anmeldeWarnung(e);
+            return `<tr class="${w.art === "vorbei" ? "vergangen" : ""}">
+              <td style="white-space:nowrap">${esc(datumSchoen(e.datum))}${w.art === "bald" ? ' <span class="abzeichen kritisch">soon</span>' : ""}</td>
+              <td><button type="button" class="link-knopf" data-event="${esc(e.id)}">${katPille(e.kategorie)}<br><strong>${esc(e.titel)}</strong></button></td>
+              <td>${statusPille(e.status)}</td>
+              <td class="zahl">${Number(e.anmeldungen) || 0} / ${e["kapazität"]}</td>
+              <td class="zahl"><span class="abw zu-wenig">${prozent(anmeldeQuote(e))}</span></td>
+              <td class="tipp">${w.art === "bald" ? "Promote now: social post, member reminder, ask partners to share." : "Low turnout – check date, topic and promotion; maybe a smaller room next time."}</td>
+            </tr>`;
+          }).join("")}</tbody></table></div>` : `<p class="leise">No event below ${min}%. 🎉</p>`}
+      </section>
+      <section class="karte abschnitt">
+        <h2>Occupancy in detail</h2>
+        <p class="untertitel">Occupancy = registrations ÷ spots, only for events that already took place (“Done”).
+          Target: ${zustand.model.zielAuslastung}%. Above 100% means the waiting list was let in.</p>
+        <div class="gitter-2">
+          <div><h3 class="abschnitt">Per month</h3>
+            <div class="tabellen-rahmen"><table class="tabelle abschnitt">
+              <thead><tr><th>Month</th><th class="zahl">Occupancy</th><th class="zahl">vs. target</th><th class="zahl">Events done</th><th class="zahl">Sign-ups</th><th class="zahl">Spots</th></tr></thead>
+              <tbody>${monatsZeilen}</tbody></table></div></div>
+          <div><h3 class="abschnitt">Per category (whole year)</h3>
+            <div class="tabellen-rahmen"><table class="tabelle abschnitt">
+              <thead><tr><th>Category</th><th class="zahl">Occupancy</th><th class="zahl">vs. target</th><th class="zahl">Events done</th><th class="zahl">Range</th></tr></thead>
+              <tbody>${katZeilen}</tbody></table></div></div>
+        </div>
+      </section>`;
+  }
+
+  /** Terminplan-Konflikte: zu viele Events pro Woche und mehrere Events am selben Tag */
+  function zeichneTermine() {
+    const { maxProWoche, maxProTag } = zustand.einstellungen;
+    const k = terminKonflikte();
+    const wochenZeilen = k.wochen.map((w) => {
+      const start = alsDatum(w.start), ende = plusTage(start, 6);
+      return `<tr>
+        <td style="white-space:nowrap"><a href="#/week/${w.start}"><strong>Week ${kalenderwoche(start)}</strong></a><br>
+          <span class="leise">${start.getDate()} ${MONATE_KURZ[start.getMonth()]} – ${ende.getDate()} ${MONATE_KURZ[ende.getMonth()]}</span></td>
+        <td class="zahl"><span class="abw zu-viel">${w.events.length}</span> <span class="leise">/ ${maxProWoche}</span></td>
+        <td>${eventMiniListe(w.events, (e) => WOCHENTAGE_KURZ[(alsDatum(e.datum).getDay() + 6) % 7])}</td>
+      </tr>`;
+    }).join("");
+    const tagZeilen = k.tage.map((t) => `<tr>
+        <td style="white-space:nowrap"><a href="#/week/${t.datum}"><strong>${esc(datumSchoen(t.datum))}</strong></a></td>
+        <td class="zahl"><span class="abw zu-viel">${t.events.length}</span> <span class="leise">/ ${maxProTag}</span></td>
+        <td>${eventMiniListe(t.events, (e) => e.startzeit)}</td>
+      </tr>`).join("");
+    const viele = k.wochen.length + k.tage.length;
+    document.getElementById("termine-box").innerHTML = `
+      <section class="karte abschnitt ${viele ? "rahmen-warnung" : ""}">
+        <h2>${viele ? "⚠ " : "✓ "}Scheduling <span class="leise">(${k.wochen.length} weeks with more than ${maxProWoche} events · ${k.tage.length} days with more than ${maxProTag} ${maxProTag === 1 ? "event" : "events"})</span></h2>
+        <p class="untertitel">Too many events in one week or on one day stretch the team and split the audience.
+          All events of the year count, including ideas. Limits can be changed under “Settings”.</p>
+        <h3 class="abschnitt">Days with more than ${maxProTag} ${maxProTag === 1 ? "event" : "events"}</h3>
+        ${tagZeilen ? `<div class="tabellen-rahmen"><table class="tabelle abweichungs-tabelle abschnitt">
+          <thead><tr><th>Day</th><th class="zahl">Events</th><th>Which ones</th></tr></thead><tbody>${tagZeilen}</tbody></table></div>`
+          : '<p class="leise">No day is over the limit. 🎉</p>'}
+        <h3 class="abschnitt">Weeks with more than ${maxProWoche} events</h3>
+        ${wochenZeilen ? `<div class="tabellen-rahmen"><table class="tabelle abweichungs-tabelle abschnitt">
+          <thead><tr><th>Week</th><th class="zahl">Events</th><th>Which ones</th></tr></thead><tbody>${wochenZeilen}</tbody></table></div>`
+          : '<p class="leise">No week is over the limit. 🎉</p>'}
+      </section>`;
+  }
 
   /** Liste aller Events, bei denen Infos in der Description fehlen (kommende zuerst) */
   function zeichneFehlendeInfos() {
@@ -1156,23 +1450,23 @@
     };
     const m = zeilen("month"), q = zeilen("quarter");
 
-    // Jahresblick je Kategorie: Ist gegen Soll, und wie viele noch in offenen Monaten geplant sind
+    // Jahresblick je Kategorie: Ist gegen Soll (Blueprint), und was in offenen Quartalen noch fehlt
+    const sollJ = sollJahr();
     const jahresZeilen = KATEGORIEN.map((kat) => {
-      let ist = 0, soll = 0, nochSoll = 0, nochIst = 0;
-      zustand.model.monate.forEach((mo) => {
-        const evs = eventsImMonat(jahr, mo.monat).filter((e) => e.kategorie === kat);
-        const s = mo.soll[kat] || 0;
-        ist += evs.length; soll += s;
-        if (alsText(new Date(jahr, mo.monat, 0)) >= heuteText) { nochSoll += s; nochIst += evs.length; }
+      let ist = 0, fehlen = 0;
+      [1, 2, 3, 4].forEach((q) => {
+        const n = eventsImQuartal(jahr, q).filter((e) => e.kategorie === kat).length;
+        ist += n;
+        if (alsText(new Date(jahr, q * 3, 0)) >= heuteText) fehlen += Math.max(0, (sollQuartal(q).soll[kat] || 0) - n);
       });
+      const soll = sollJ[kat] || 0;
       const abw = soll > 0 ? (ist - soll) / soll : ist > 0 ? Infinity : 0;
       const klasse = Math.abs(abw) <= schwelle / 100 ? "passt" : abw < 0 ? "zu-wenig" : "zu-viel";
-      const fehlen = Math.max(0, nochSoll - nochIst);
       return `<tr>
         <td>${katPille(kat)}</td>
         <td class="zahl">${ist}</td><td class="zahl">${soll}</td>
         <td class="zahl"><span class="abw ${klasse}">${soll === 0 && ist === 0 ? "–" : vorzeichenProzent(abw)}</span></td>
-        <td>${fehlen ? `⚠ ${fehlen} still to plan in the coming months` : '<span class="leise">✓ coming months covered</span>'}</td>
+        <td>${fehlen ? `⚠ ${fehlen} still to plan this year` : '<span class="leise">✓ rest of the year covered</span>'}</td>
       </tr>`;
     }).join("");
 
@@ -1185,13 +1479,13 @@
       </section>`;
     document.getElementById("warnliste").innerHTML = `
       <section class="karte abschnitt">
-        <h2>Deviations from the model</h2>
-        <p class="untertitel">For each month and quarter, the app counts the events per category and compares them with the model (target).
+        <h2>Deviations from the blueprint</h2>
+        <p class="untertitel">For each month and quarter, the app counts the events per category and compares them with the blueprint (target, see above).
           A period is flagged when they differ by more than ${schwelle}%. Occupancy (registrations ÷ spots) only counts events marked “Done”.
           Click an event to open it, or a period to see its calendar.</p>
         <h3 class="abschnitt">Year ${jahr} at a glance</h3>
         <div class="tabellen-rahmen"><table class="tabelle abschnitt">
-          <thead><tr><th>Category</th><th class="zahl">Actual</th><th class="zahl">Target</th><th class="zahl">Deviation</th><th>Coming months</th></tr></thead>
+          <thead><tr><th>Category</th><th class="zahl">Actual</th><th class="zahl">Target</th><th class="zahl">Deviation</th><th>Rest of the year</th></tr></thead>
           <tbody>${jahresZeilen}</tbody></table></div>
       </section>` +
       tabelle("Months", m, "No month deviates more than the threshold. 🎉") +
@@ -1801,6 +2095,20 @@
       }),
       eventsMitFehlendenInfos: eventsMitLuecken().map((e) =>
         ({ id: e.id, titel: e.titel, datum: e.datum, fehlt: fehlendeTeile(e) })),
+      // Blueprint: Soll je Monat (Blueprint-Monat + Ausnahmen) und je Quartal, so wie die App vergleicht
+      blueprintSollMonate: MONATE.map((name, i) => ({ monat: name, soll: sollMonat(i + 1).soll, ausnahme: sollMonat(i + 1).notiz })),
+      blueprintSollQuartale: [1, 2, 3, 4].map((q) => ({ quartal: "Q" + q, soll: sollQuartal(q).soll })),
+      mindestAnmeldungProzent: zustand.einstellungen.mindestAnmeldungProzent,
+      eventsMitWenigAnmeldungen: eventsMitWenigAnmeldungen().map((e) =>
+        ({ id: e.id, titel: e.titel, datum: e.datum, warnung: anmeldeWarnung(e).text })),
+      terminKonflikte: (() => {
+        const k = terminKonflikte();
+        return {
+          maxProWoche: zustand.einstellungen.maxProWoche, maxProTag: zustand.einstellungen.maxProTag,
+          wochen: k.wochen.map((w) => ({ wocheAb: w.start, anzahl: w.events.length, events: w.events.map((e) => e.titel) })),
+          tage: k.tage.map((t) => ({ datum: t.datum, events: t.events.map((e) => e.titel) })),
+        };
+      })(),
       modell: zustand.model,
       events: zustand.events,
       vorlagen: zustand.templates,

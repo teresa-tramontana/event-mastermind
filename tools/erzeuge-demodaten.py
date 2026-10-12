@@ -9,6 +9,7 @@ Was macht dieses Skript?
     * Q1 (Jan–März) ist überbucht (Auslastung weit über Ziel)
     * Mai: ein „Drops of Inspiration“ mehr als geplant
     * November: gar keine Academy-Termine (Soll: 2)
+    * einzelne Events mit zu wenigen Anmeldungen (unter 50 %)
 - Der Zufall ist "festgenagelt" (seed), damit bei jedem Lauf dasselbe herauskommt.
 
 Ausführen (nur nötig, wenn man die Demo-Daten neu würfeln will):
@@ -335,7 +336,7 @@ KAT = {
         },
     },
     "Collaboration": {
-        "termine": {m: [(3, 2, "18:00")] for m in (2, 4, 6, 8, 10, 12)},  # 2. Donnerstag, jeden 2. Monat
+        "termine": {m: [(3, 2, "18:00")] for m in (2, 3, 5, 6, 8, 9, 11, 12)},  # 2. Do, 2x pro Quartal
         "kap": 50, "orte": ["Loft – Event Space", "Partner venue (demo)"],
         "tags": (["Collaboration"], ["Matchmaking", "Group work", "Keynote/panel"]),
         "titel": [("Collab Night with a Climate Network (demo)", "climate action"),
@@ -354,7 +355,7 @@ KAT = {
                 "worum": "A joint evening with a partner organisation on {thema}. Both communities meet, share "
                          "projects and look for ways to work together.",
                 "rahmen": "Evening event in the {ort}, around {kapazitaet} guests from both communities.",
-                "haeufigkeit": "Every other month – 2nd Thursday.",
+                "haeufigkeit": "Twice a quarter – 2nd Thursday.",
                 "warum": "Partnerships bring new people, ideas and opportunities into the Hub.",
                 "zielgruppe": "Members and the partner's community.",
                 "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
@@ -453,7 +454,7 @@ KAT = {
         },
     },
     "Partner Deliverable": {
-        "termine": {m: [(4, 2, "10:00")] for m in (2, 4, 6, 10, 11)},   # 2. Freitag
+        "termine": {m: [(4, 2, "10:00")] for m in (2, 5, 9, 11)},       # 2. Freitag, 1x pro Quartal
         "kap": 40, "orte": ["Loft – Event Space", "Partner venue (demo)"],
         "tags": (["Expert guidance", "Formal"], ["Workshop", "Keynote/panel", "Group work"]),
         "titel": [("Partner Session: Sustainable Procurement (demo)", "sustainable procurement"),
@@ -472,7 +473,7 @@ KAT = {
                 "worum": "A session we deliver together with a programme partner on {thema} – with input, "
                          "examples and room for discussion.",
                 "rahmen": "Morning session in the {ort}, up to {kapazitaet} participants.",
-                "haeufigkeit": "As agreed with the partner – about five times a year.",
+                "haeufigkeit": "Once a quarter, as agreed with the partner.",
                 "warum": "Part of a partner agreement: we bring the community, the partner brings expertise and "
                          "funding.",
                 "zielgruppe": "Members and guests working on {thema}, plus the partner's network.",
@@ -551,28 +552,61 @@ KAT = {
 }
 KATEGORIEN = list(KAT)
 
-# ---------------------------------------------------------------- Modell (Soll)
-def soll_fuer_monat(m):
-    return {k: len(KAT[k]["termine"].get(m, [])) for k in KATEGORIEN}
-
-
+# ---------------------------------------------------------------- Modell (Soll) = Blueprint
+# Blueprint-Monat: gilt für JEDEN Monat (nur Kategorien mit monatlichem Rhythmus).
+# Blueprint-Quartal: kommt in JEDEM Quartal zusätzlich zu 3 Blueprint-Monaten dazu
+#   (Kategorien mit Quartals-Rhythmus; sie werden nur im Quartal geprüft, nicht im Monat).
+# Ausnahmen: einzelne Monate weichen bewusst ab (z. B. Sommerpause) – mit kurzer Notiz.
+BASIS_MONAT = {"Community Weeklies": 4, "Community Monthlies": 1, "Academy": 2, "Drops of Inspiration": 1,
+               "Winedowns": 1, "Group-Specific": 1, "Community": 1}
+BASIS_QUARTAL = {"Town Hall": 1, "Community Quarterlies": 1, "Cross-Community": 1, "Collaboration": 2,
+                 "Partner Deliverable": 1}
+ISP = {"Idea Starter Pack": 1}
+AUSNAHMEN = {
+    3: (ISP, "Idea Starter Pack (spring)"), 4: (ISP, "Idea Starter Pack (spring)"),
+    5: (ISP, "Idea Starter Pack (spring)"),
+    6: ({"Community Summer": 1}, "Community Summer starts"),
+    7: ({"Community Summer": 2, "Community": 0}, "Community Summer instead of Community Lunch"),
+    8: ({"Community Summer": 2, "Community Weeklies": 2, "Academy": 0, "Drops of Inspiration": 0,
+         "Winedowns": 0, "Group-Specific": 0, "Community": 0}, "Summer break – only Community Summer"),
+    9: (ISP, "Idea Starter Pack (autumn)"), 10: (ISP, "Idea Starter Pack (autumn)"),
+    11: (ISP, "Idea Starter Pack (autumn)"),
+    12: ({"Academy": 1}, "Holidays – only one Academy session"),
+}
 ZIEL_AUSLASTUNG = 75
 model = {
     "jahr": JAHR,
     "demoHeute": DEMO_HEUTE.isoformat(),
     "kategorien": KATEGORIEN,
-    "monate": [],
-    "quartale": [],
+    "zielAuslastung": ZIEL_AUSLASTUNG,
+    "basisMonat": {"soll": BASIS_MONAT},
+    "basisQuartal": {"soll": BASIS_QUARTAL},
+    "monate": [{"monat": m, "name": MONATE[m - 1],
+                "ausnahmen": AUSNAHMEN.get(m, ({}, ""))[0], "notiz": AUSNAHMEN.get(m, ({}, ""))[1]}
+               for m in range(1, 13)],
 }
+
+
+def soll_monat(m):
+    return {**BASIS_MONAT, **AUSNAHMEN.get(m, ({}, ""))[0]}
+
+
+def soll_quartal(q):
+    summe = dict(BASIS_QUARTAL)
+    for m in range(q * 3 - 2, q * 3 + 1):
+        for k, n in soll_monat(m).items():
+            summe[k] = summe.get(k, 0) + n
+    return summe
+
+
+# Prüfen: Der Demo-Terminplan (KAT[...]["termine"]) muss genau zum Blueprint passen
 for m in range(1, 13):
-    model["monate"].append({"monat": m, "name": MONATE[m - 1],
-                            "soll": soll_fuer_monat(m),
-                            "zielAuslastung": ZIEL_AUSLASTUNG})
+    for k, n in soll_monat(m).items():
+        assert len(KAT[k]["termine"].get(m, [])) == n, ("Monat", m, k)
 for q in range(1, 5):
-    summe = {k: sum(soll_fuer_monat(m)[k] for m in range(q * 3 - 2, q * 3 + 1))
-             for k in KATEGORIEN}
-    model["quartale"].append({"quartal": q, "name": f"Q{q}", "soll": summe,
-                              "zielAuslastung": ZIEL_AUSLASTUNG})
+    for k in KATEGORIEN:
+        plan = sum(len(KAT[k]["termine"].get(m, [])) for m in range(q * 3 - 2, q * 3 + 1))
+        assert plan == soll_quartal(q).get(k, 0), ("Quartal", q, k, plan)
 
 # ---------------------------------------------------------------- Vorlagen
 # Description-Abschnitte (Schlüssel bleiben deutsch):
@@ -660,6 +694,8 @@ AUFGABEN = {
 # Im Dezember sind diese Kategorien noch reine Ideen
 IDEEN_IM_DEZEMBER = ("Community Quarterlies", "Drops of Inspiration", "Collaboration")
 
+WENIG_ANMELDUNGEN = {(6, "Winedowns"): 0.36, (9, "Drops of Inspiration"): 0.42,
+                     (10, "Group-Specific"): 0.30}
 events = []
 titel_index = {k: 0 for k in KATEGORIEN}
 for m in range(1, 13):
@@ -688,6 +724,9 @@ for m in range(1, 13):
                 quote = max(0.15, 0.85 - tage_bis * 0.025) * random.uniform(0.8, 1.1)
             else:
                 quote = 0
+            # Absichtlich schwache Events (Warnung "zu wenige Anmeldungen", unter 50 %)
+            if (m, kat) in WENIG_ANMELDUNGEN:
+                quote = WENIG_ANMELDUNGEN[(m, kat)]
             anmeldungen = round(kap * quote)
 
             titel_liste = KAT[kat]["titel"]

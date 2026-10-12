@@ -47,10 +47,18 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 Die 14 Kategorien (wie in Notion) sind: Community Monthlies, Community Weeklies, Academy, Drops of Inspiration, Winedowns, Town Hall, Group-Specific, Collaboration, Idea Starter Pack, Cross-Community, Community Quarterlies, Partner Deliverable, Community Summer, Community. Jede hat eine eigene warme Farbe (kein Grün, kein Blau, darum weichen manche Farben von Notion ab).
 
+**Blueprint (Soll-Plan):** Es gibt einen **Blueprint-Monat** (z. B. 4× Community Weeklies, 2× Academy …) und ein **Blueprint-Quartal** (zusätzlich z. B. 1× Town Hall, 2× Collaboration …). Jeder Monat und jedes Quartal wird automatisch damit verglichen. Bewusste Ausnahmen (z. B. Sommerpause im August) stehen dabei. Du siehst alles auf der Seite **Deviations** im Abschnitt „Blueprint“.
+
+**Automatische Warnungen:**
+- **Zu wenige Anmeldungen:** weniger als 50 % der Plätze belegt (bei kommenden Events ab 14 Tagen vorher, bei vergangenen als „Low turnout“). Erkennbar am 👥.
+- **Zu volle Woche / zu voller Tag:** mehr als 2 Events in einer Woche oder mehr als 1 Event am selben Tag.
+- Die Grenzen (50 %, 2, 1 und die 20 % Abweichung) kannst du auf der Seite **Deviations** unter „Settings“ ändern.
+
 **Absichtlich eingebaute Probleme** (damit man sieht, wie Warnungen aussehen):
 - Januar bis März (Q1): überbucht, also mehr Anmeldungen als Plätze
 - Mai: ein „Drops of Inspiration“ mehr als geplant
 - November: gar keine Academy-Termine (geplant waren 2)
+- drei Events mit zu wenigen Anmeldungen (eines davon kommt bald: 20. Oktober)
 
 ## Wie öffne ich es auf meinem Computer?
 
