@@ -47,6 +47,7 @@ bilder/favicon.svg / .png   Icon im Browser-Tab (SVG für Doppelklick, PNG für 
 .github/workflows/apps-script.yml  veröffentlicht bei jedem Push auf main automatisch zu Apps Script (clasp)
 .gitignore                   hält erzeugte Dateien aus dem Repo
 IT-KURZINFO.md               kurze, einfache Vorstellung des Projekts für die IT (Ausführliches: Gesprächsleitfaden unten)
+IT-KURZINFO.html             dasselbe als HTML zum Kopieren in eine E-Mail
 ```
 
 ### Datenmodell
