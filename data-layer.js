@@ -25,7 +25,7 @@
 
   // schwelleProzent = Abweichung vom Blueprint · mindestAnmeldungProzent = Warnung bei zu wenigen Anmeldungen
   // maxProWoche / maxProTag = Terminplan-Grenzen
-  const STANDARD_EINSTELLUNGEN = { schwelleProzent: 20, mindestAnmeldungProzent: 50, maxProWoche: 2, maxProTag: 1 };
+  const STANDARD_EINSTELLUNGEN = { schwelleProzent: 20, mindestAnmeldungProzent: 50, maxProWoche: 2, maxProTag: 1, monatsAnsicht: "calendar" };
 
   let grunddaten = null; // { events, templates, model, tags } – unverändert aus den Dateien
 

@@ -34,6 +34,14 @@
   const KATEGORIEN = ["Community Monthlies", "Community Weeklies", "Academy", "Drops of Inspiration", "Winedowns",
     "Town Hall", "Group-Specific", "Collaboration", "Idea Starter Pack", "Cross-Community", "Community Quarterlies",
     "Partner Deliverable", "Community Summer", "Community"];
+  // Die 14 Kategorien in 4 Gruppen – eine Farbe pro Gruppe (CSS: --grp-… in style.css).
+  // So bleibt der Kalender ruhig; die genaue Kategorie steht trotzdem überall als Text dabei.
+  const GRUPPEN = [
+    { name: "Gather", klasse: "grp-gather", kategorien: ["Community Weeklies", "Community Monthlies", "Community Quarterlies", "Town Hall", "Winedowns"] },
+    { name: "Learn", klasse: "grp-learn", kategorien: ["Academy", "Drops of Inspiration", "Idea Starter Pack"] },
+    { name: "Connect", klasse: "grp-connect", kategorien: ["Group-Specific", "Collaboration", "Cross-Community", "Partner Deliverable"] },
+    { name: "Celebrate", klasse: "grp-celebrate", kategorien: ["Community", "Community Summer"] },
+  ];
   const STATUS = ["Idea", "Planned", "Published", "Done"];
   const MONATE = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
@@ -468,6 +476,20 @@
   // ======================================================================
   const ANSICHTEN = {};
 
+  // Kleine Symbole für den Umschalter ("Pille" neben dem Titel)
+  const SYMBOL_KALENDER = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>';
+  const SYMBOL_LISTE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>';
+
+  /** Umschalter neben dem Titel zeigen. optionen = [[wert, Beschriftung, Symbol], …] */
+  function zeigeUmschalter(optionen, aktiv, beiWahl) {
+    const platz = document.getElementById("umschalter");
+    platz.innerHTML = `<div class="pillen-umschalter" role="group" aria-label="Display">${optionen.map(([wert, text, symbol]) =>
+      `<button type="button" data-wert="${wert}" aria-pressed="${wert === aktiv}">${symbol}${text}</button>`).join("")}</div>`;
+    platz.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+      if (b.dataset.wert !== aktiv) beiWahl(b.dataset.wert);
+    }));
+  }
+
   // ---------------------------------------------------------------- Year
   ANSICHTEN.year = {
     blaettern: true,
@@ -608,6 +630,64 @@
   }
 
   // ---------------------------------------------------------------- Month
+  // Zwei Darstellungen, umschaltbar über die "Pille" neben dem Titel:
+  //   Calendar = Monatsraster · Agenda = Liste Woche für Woche. Die Wahl merkt sich der Browser.
+  // Daneben (bei beiden gleich): Kennzahlen oben, rechts "Needs attention" und "Plan check" (4 Gruppen).
+
+  /** Dünner Anmelde-Balken (Anmeldungen / Plätze); rot, wenn zu wenige */
+  function anmeldeBalken(e) {
+    const q = anmeldeQuote(e);
+    if (q === null || e.status === "Idea") return "";
+    return `<span class="mini-balken ${anmeldeWarnung(e) ? "warnend" : ""}" aria-hidden="true"><span style="width:${Math.min(100, Math.round(q * 100))}%"></span></span>`;
+  }
+
+  /** Warum braucht ein Event Aufmerksamkeit? (Text für den Tooltip, leer = alles gut) */
+  function eventProbleme(e) {
+    const p = [];
+    if (anmeldeWarnung(e)) p.push(anmeldeWarnung(e).text);
+    if (beschreibungsStand(e) !== "ok") p.push(beschreibungsStand(e) === "keine" ? "No description yet" : "Missing: " + fehlendeTeile(e).join(", "));
+    return p.join(" · ");
+  }
+
+  /** Was braucht in diesem Monat Aufmerksamkeit? Sortiert nach Dringlichkeit. */
+  function monatsHinweise(jahr, monat, v) {
+    const events = eventsImMonat(jahr, monat);
+    const prefix = alsText(new Date(jahr, monat - 1, 1)).slice(0, 7);
+    const datum = alsText(new Date(jahr, monat - 1, 1));
+    const { maxProWoche, maxProTag } = zustand.einstellungen;
+    const liste = [];
+    events.filter((e) => anmeldeWarnung(e) && anmeldeWarnung(e).art === "bald").forEach((e) =>
+      liste.push({ art: "Sign-ups", stufe: "kritisch", titel: e.titel, text: anmeldeWarnung(e).text, event: e.id }));
+    events.filter((e) => e.status !== "Done" && beschreibungsStand(e) !== "ok").forEach((e) =>
+      liste.push({ art: "Missing info", stufe: "warnung", titel: e.titel,
+        text: beschreibungsStand(e) === "keine" ? "No description yet" : fehlendeTeile(e).length + " description parts missing", event: e.id }));
+    v.abweichungen.forEach((a) =>
+      liste.push({ art: "Plan", stufe: "plan", titel: a.text, text: "Compared with the blueprint", link: `#/deviations/${datum}/abweichungen` }));
+    events.filter((e) => anmeldeWarnung(e) && anmeldeWarnung(e).art === "vorbei").forEach((e) =>
+      liste.push({ art: "Turnout", stufe: "ruhig", titel: e.titel, text: anmeldeWarnung(e).text, event: e.id }));
+    const k = terminKonflikte();
+    k.tage.filter((t) => t.datum.startsWith(prefix)).forEach((t) =>
+      liste.push({ art: "Schedule", stufe: "ruhig", titel: `${datumSchoen(t.datum)}: ${t.events.length} events`, text: `Your limit is ${maxProTag} per day`, link: `#/week/${t.datum}` }));
+    k.wochen.filter((w) => w.events.some((e) => e.datum.startsWith(prefix))).forEach((w) =>
+      liste.push({ art: "Schedule", stufe: "ruhig", titel: `Week ${kalenderwoche(alsDatum(w.start))}: ${w.events.length} events`, text: `Your limit is ${maxProWoche} per week`, link: `#/week/${w.start}` }));
+    return liste;
+  }
+
+  /** Die 4 Gruppen im Monat: Ist/Soll (nur Kategorien, die im Monat geprüft werden) */
+  function gruppenStand(v) {
+    return GRUPPEN.map((g) => {
+      const kats = v.kategorien.filter((k) => g.kategorien.includes(k.kat));
+      const geprueft = kats.filter((k) => k.geprueft && (k.ist || k.soll));
+      const quartal = kats.filter((k) => !k.geprueft && k.ist);
+      return {
+        g, geprueft, quartal,
+        ist: geprueft.reduce((s, k) => s + k.ist, 0),
+        soll: geprueft.reduce((s, k) => s + k.soll, 0),
+        auffaellig: geprueft.some((k) => k.auffaellig),
+      };
+    }).filter((x) => x.geprueft.length || x.quartal.length);
+  }
+
   ANSICHTEN.month = {
     blaettern: true,
     titel: (d) => MONATE[d.getMonth()] + " " + d.getFullYear(),
@@ -620,47 +700,160 @@
       const start = wochenStart(erster);
       const ende = plusTage(wochenStart(letzter), 6);
       const heuteText = alsText(heute());
+      const monatsEvents = eventsImMonat(jahr, monat);
+      const darstellung = zustand.einstellungen.monatsAnsicht === "agenda" ? "agenda" : "calendar";
+      const { maxProWoche, maxProTag } = zustand.einstellungen;
 
-      let zellen = WOCHENTAGE_KURZ.map((t) => `<div class="wochentag">${t}</div>`).join("");
-      for (let tag = new Date(start); tag <= ende; tag = plusTage(tag, 1)) {
-        const text = alsText(tag);
-        const fremd = tag.getMonth() !== monat - 1;
-        const events = fremd ? [] : zustand.events.filter((e) => e.datum === text)
-          .sort((a, b) => a.startzeit.localeCompare(b.startzeit));
-        const chips = events.map((e) => `
-          <button class="ev-chip ${katKlasse(e.kategorie)} ${e.status === "Idea" ? "idee" : ""}" data-event="${esc(e.id)}" data-datum="${text}"
-                  title="${esc(e.titel)} · ${esc(e.status)}">
-            ${beschreibungsStand(e) !== "ok" ? `<span class="chip-warnung" title="Description ${beschreibungsStand(e) === "keine" ? "missing" : "incomplete"}">⚠</span>` : ""}${anmeldeWarnung(e) ? `<span class="chip-warnung" title="${esc(anmeldeWarnung(e).text)}">👥</span>` : ""}<span class="zeit">${esc(e.startzeit)}</span> ${esc(e.titel)}
-          </button>`).join("");
-        const konflikt = !fremd && events.length > zustand.einstellungen.maxProTag;
-        zellen += `
-          <div class="tag-zelle ${fremd ? "fremd" : ""} ${text === heuteText ? "heute" : ""} ${events.length ? "" : "ohne-events"} ${konflikt ? "konflikt" : ""}">
-            <button class="tag-nr" data-datum="${text}" title="Open week">${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]} ${tag.getDate()}${konflikt ? ` <span class="konflikt-text" title="${events.length} events on the same day">⚠ ${events.length} events</span>` : ""}</button>
-            ${chips}
-          </div>`;
-      }
+      // Umschalter neben dem Titel
+      zeigeUmschalter([["calendar", "Calendar", SYMBOL_KALENDER], ["agenda", "Agenda", SYMBOL_LISTE]], darstellung, (wert) => {
+        zustand.einstellungen.monatsAnsicht = wert;
+        window.DataLayer.speichereEinstellungen(zustand.einstellungen);
+        zeichne();
+      });
 
-      const sollZeile = v.kategorien.filter((k) => k.geprueft && (k.ist || k.soll)).map((k) =>
-        `<span class="${katKlasse(k.kat)}"><span class="kat-punkt"></span>${k.kat}: <strong>${k.ist}</strong>/${k.soll}</span>`).join("");
-      const quartalsZeile = v.kategorien.filter((k) => !k.geprueft && k.ist).map((k) =>
-        `<span class="${katKlasse(k.kat)}"><span class="kat-punkt"></span>${k.kat}: <strong>${k.ist}</strong></span>`).join("");
+      // ---- Kennzahlen
+      const hinweise = monatsHinweise(jahr, monat, v);
+      const kommend = monatsEvents.filter((e) => e.datum >= heuteText && e.status === "Published" && Number(e["kapazität"]) > 0);
+      const plaetze = kommend.reduce((s, e) => s + Number(e["kapazität"]), 0);
+      const angemeldet = kommend.reduce((s, e) => s + (Number(e.anmeldungen) || 0), 0);
+      const planAbw = v.abweichungen.filter((a) => a.art === "anzahl").length;
+      const kennzahlen = `
+        <div class="kennzahlen monat-kennzahlen">
+          <div class="kennzahl"><div class="label">Events this month</div><div class="wert">${monatsEvents.length}</div>
+            <div class="label">${planAbw ? `<span class="text-kritisch">${planAbw} ${planAbw === 1 ? "category" : "categories"} off plan</span>` : "matches the blueprint"}</div></div>
+          <div class="kennzahl"><div class="label">Occupancy (done)</div><div class="wert">${v.auslastung !== null ? prozent(v.auslastung) : "–"}</div>
+            <div class="label">${v.auslastung !== null ? "target " + zustand.model.zielAuslastung + "%" : "no event done yet"}</div></div>
+          <div class="kennzahl"><div class="label">Upcoming sign-ups</div><div class="wert">${plaetze ? prozent(angemeldet / plaetze) : "–"}</div>
+            <div class="label">${plaetze ? `${angemeldet} of ${plaetze} spots · ${kommend.length} ${kommend.length === 1 ? "event" : "events"}` : "nothing published ahead"}</div></div>
+          <div class="kennzahl"><div class="label">Needs attention</div><div class="wert">${hinweise.length || "✓"}</div>
+            <div class="label">${hinweise.length ? [...new Set(hinweise.map((h) => h.art))].join(" · ") : "all good"}</div></div>
+        </div>`;
+
+      // ---- Calendar
+      const kalender = () => {
+        let zellen = WOCHENTAGE_KURZ.map((t) => `<div class="wochentag">${t}</div>`).join("");
+        for (let tag = new Date(start); tag <= ende; tag = plusTage(tag, 1)) {
+          const text = alsText(tag);
+          const fremd = tag.getMonth() !== monat - 1;
+          const events = fremd ? [] : zustand.events.filter((e) => e.datum === text)
+            .sort((a, b) => a.startzeit.localeCompare(b.startzeit));
+          const chips = events.map((e) => {
+            const problem = eventProbleme(e);
+            return `
+            <button class="ev-chip ${katKlasse(e.kategorie)} ${e.status === "Idea" ? "idee" : ""} ${e.status === "Done" ? "erledigt" : ""} ${problem && e.status !== "Done" ? "achtung" : ""}"
+                    data-event="${esc(e.id)}" title="${esc(e.titel)} · ${esc(e.kategorie)} · ${esc(e.status)}${problem ? " · ⚠ " + esc(problem) : ""}">
+              <span class="chip-kopf"><span class="kat-punkt"></span><span class="zeit">${esc(e.startzeit)}</span>${problem ? '<span class="chip-flagge" aria-label="Needs attention">!</span>' : ""}</span>
+              <span class="chip-titel">${esc(e.titel)}</span>
+              ${anmeldeBalken(e)}
+            </button>`;
+          }).join("");
+          const konflikt = !fremd && events.length > maxProTag;
+          zellen += `
+            <div class="tag-zelle ${fremd ? "fremd" : ""} ${text === heuteText ? "heute" : ""} ${events.length ? "" : "ohne-events"} ${konflikt ? "konflikt" : ""}">
+              <button class="tag-nr" data-datum="${text}" title="Open week">${tag.getDate()}<span class="tag-nr-wt"> ${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]}</span>${konflikt ? ` <span class="konflikt-text" title="${events.length} events on the same day">⚠ ${events.length}</span>` : ""}</button>
+              ${chips}
+            </div>`;
+        }
+        return `<div class="kalender">${zellen}</div>
+          <div class="legende kalender-legende">${GRUPPEN.map((g) => `<span class="${g.klasse}"><span class="kat-punkt"></span>${g.name}</span>`).join("")}
+            <span class="legende-rechts">Thin bar = sign-ups · faded = done · <strong class="text-kritisch">!</strong> = needs attention</span></div>`;
+      };
+
+      // ---- Agenda (Woche für Woche)
+      const agenda = () => {
+        let html = "";
+        for (let w = new Date(start); w <= letzter; w = plusTage(w, 7)) {
+          const wEnde = plusTage(w, 6);
+          const alleWoche = eventsZwischen(w, wEnde);
+          const events = alleWoche.filter((e) => e.datum.startsWith(alsText(erster).slice(0, 7)));
+          const istJetzt = heuteText >= alsText(w) && heuteText <= alsText(wEnde);
+          const zuViele = alleWoche.length > maxProWoche;
+          const von = w.getMonth() === wEnde.getMonth() ? String(w.getDate()) : w.getDate() + " " + MONATE_KURZ[w.getMonth()];
+          html += `
+            <section class="agenda-woche ${istJetzt ? "jetzt" : ""}">
+              <header class="agenda-kopf">
+                <button class="link-knopf" data-woche="${alsText(w)}" title="Open week"><strong>Week ${kalenderwoche(w)}</strong></button>
+                <span class="leise">${von} – ${wEnde.getDate()} ${MONATE_KURZ[wEnde.getMonth()]}${istJetzt ? " · this week" : ""}</span>
+                <span class="agenda-notiz ${zuViele ? "warnend" : ""}">${zuViele ? `⚠ ${alleWoche.length} events this week – limit ${maxProWoche}` : events.length === 1 ? "1 event" : events.length ? events.length + " events" : ""}</span>
+              </header>
+              ${events.length ? events.map((e) => {
+                const kap = Number(e["kapazität"]) || 0;
+                const fehlt = beschreibungsStand(e) === "ok" ? 0 : fehlendeTeile(e).length;
+                const tag = alsDatum(e.datum);
+                return `
+                <button class="agenda-zeile ${katKlasse(e.kategorie)} ${e.status === "Done" ? "erledigt" : ""}" data-event="${esc(e.id)}">
+                  <span class="agenda-datum"><small>${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]}</small><strong>${tag.getDate()}</strong></span>
+                  <span class="agenda-titel"><strong>${esc(e.titel)}</strong>
+                    <small><span class="kat-punkt"></span>${esc(e.kategorie)} · ${esc(e.startzeit)} · ${esc(e.ort || "no place yet")}</small></span>
+                  <span class="agenda-status">${statusPille(e.status)}</span>
+                  <span class="agenda-anmeldung">${kap ? `<small><strong>${Number(e.anmeldungen) || 0}</strong> / ${kap} spots</small>${anmeldeBalken(e)}` : '<small class="leise">no spots set</small>'}</span>
+                  <span class="agenda-info ${fehlt ? "text-kritisch" : "leise"}">${fehlt ? (fehlt === BESCHREIBUNG_TEILE.length ? "no description" : fehlt + " missing") : "complete"}</span>
+                </button>`;
+              }).join("") : '<p class="agenda-leer leise">Nothing planned.</p>'}
+            </section>`;
+        }
+        return `<div class="agenda">${html}</div>`;
+      };
+
+      // ---- Seitenleiste
+      const miniKalender = () => {
+        let z = WOCHENTAGE_KURZ.map((t) => `<span class="mini-wt">${t[0]}</span>`).join("");
+        for (let tag = new Date(start); tag <= ende; tag = plusTage(tag, 1)) {
+          const text = alsText(tag);
+          const fremd = tag.getMonth() !== monat - 1;
+          const n = fremd ? 0 : zustand.events.filter((e) => e.datum === text).length;
+          z += `<button class="mini-tag ${fremd ? "fremd" : ""} ${n ? "belegt" : ""} ${text === heuteText ? "heute" : ""}" data-datum="${text}"
+                  ${fremd ? 'tabindex="-1"' : ""} title="${n ? n + (n === 1 ? " event" : " events") : "No events"} · open week">${tag.getDate()}</button>`;
+        }
+        return `<section class="seiten-karte"><h2>${MONATE[monat - 1]} at a glance</h2><div class="mini-kalender">${z}</div>
+          <p class="leise klein-text">Darker = event on that day. Click a day to open its week.</p></section>`;
+      };
+      const MAX_HINWEISE = 5;
+      const hinweisListe = hinweise.length ? hinweise.slice(0, MAX_HINWEISE).map((h) => `
+        <button class="hinweis-zeile" ${h.event ? `data-event="${esc(h.event)}"` : `data-link="${esc(h.link)}"`}>
+          <span class="hinweis-art ${h.stufe}">${esc(h.art)}</span>
+          <span><strong>${esc(h.titel)}</strong><small>${esc(h.text)}</small></span>
+        </button>`).join("") : '<p class="leise">Nothing to do – everything looks good.</p>';
+      const gruppen = gruppenStand(v).map((x) => `
+        <details class="gruppe-zeile ${x.g.klasse}">
+          <summary>
+            <span class="gruppe-name"><span class="kat-punkt"></span>${x.g.name}</span>
+            <span class="gruppe-zahl ${x.auffaellig ? "text-kritisch" : ""}"><strong>${x.ist}</strong> / ${x.soll}</span>
+            <span class="gruppe-balken ${x.auffaellig ? "warnend" : ""}"><span style="width:${x.soll ? Math.min(100, Math.round(100 * x.ist / x.soll)) : 100}%"></span></span>
+          </summary>
+          <ul>${x.geprueft.map((k) => `<li class="${k.auffaellig ? "text-kritisch" : ""}">${esc(k.kat)} <span>${k.ist} / ${k.soll}</span></li>`).join("")}
+            ${x.quartal.map((k) => `<li class="leise">${esc(k.kat)} <span>${k.ist} · checked per quarter</span></li>`).join("")}</ul>
+        </details>`).join("");
       const notiz = sollMonat(monat).notiz;
-      const tagKonflikte = terminKonflikte().tage.filter((t) => t.datum.startsWith(alsText(erster).slice(0, 7)));
 
       $inhalt.innerHTML = `
-        ${abweichungsBanner(v, MONATE[monat - 1])}
-        ${tagKonflikte.length ? `<a class="banner warnung banner-link" href="#/deviations/${alsText(d)}/termine"><span class="banner-symbol">⚠</span><div>
-          <strong>${tagKonflikte.length} ${tagKonflikte.length === 1 ? "day" : "days"} with more than ${zustand.einstellungen.maxProTag} ${zustand.einstellungen.maxProTag === 1 ? "event" : "events"}</strong>
-          <span class="leise">– ${tagKonflikte.map((t) => esc(datumSchoen(t.datum))).join(" · ")}</span></div></a>` : ""}
-        <div class="legende" style="margin-bottom:6px">Actual/target (blueprint month${notiz ? ", exception: " + esc(notiz) : ""}): ${sollZeile}</div>
-        ${quartalsZeile ? `<div class="legende leise" style="margin-bottom:12px">Checked per quarter: ${quartalsZeile}</div>` : ""}
-        <div class="kalender">${zellen}</div>
-        <p class="leise abschnitt">Tip: click an event to see all details, or a day to open its week.</p>`;
+        ${kennzahlen}
+        <div class="monat-layout">
+          <div class="monat-haupt">${darstellung === "agenda" ? agenda() : kalender()}</div>
+          <aside class="monat-seite">
+            ${darstellung === "agenda" ? miniKalender() : ""}
+            <section class="seiten-karte">
+              <h2>Needs attention</h2>
+              <div class="hinweis-liste">${hinweisListe}</div>
+              <a class="mehr-link" href="#/deviations/${alsText(erster)}">${hinweise.length > MAX_HINWEISE ? `${hinweise.length - MAX_HINWEISE} more · ` : ""}All warnings →</a>
+            </section>
+            <section class="seiten-karte">
+              <h2>Plan check</h2>
+              ${notiz ? `<p class="leise klein-text">This month: ${esc(notiz)}</p>` : ""}
+              <div class="gruppen-liste">${gruppen}</div>
+              <p class="leise klein-text">Click a group to see its categories.</p>
+            </section>
+          </aside>
+        </div>`;
 
-      $inhalt.querySelectorAll(".tag-nr").forEach((b) =>
+      $inhalt.querySelectorAll(".tag-nr, .mini-tag").forEach((b) =>
         b.addEventListener("click", () => geheZu("week", alsDatum(b.dataset.datum))));
-      $inhalt.querySelectorAll(".ev-chip").forEach((b) =>
+      $inhalt.querySelectorAll("[data-woche]").forEach((b) =>
+        b.addEventListener("click", () => geheZu("week", alsDatum(b.dataset.woche))));
+      $inhalt.querySelectorAll("[data-event]").forEach((b) =>
         b.addEventListener("click", () => oeffneEvent(b.dataset.event)));
+      $inhalt.querySelectorAll("[data-link]").forEach((b) =>
+        b.addEventListener("click", () => { window.location.hash = b.dataset.link; }));
     },
   };
 
@@ -1949,7 +2142,7 @@
   /** Adresse (Hash) wie "#/month/2026-11-01" -> Ansicht + Datum */
   function leseAdresse() {
     const teile = window.location.hash.replace(/^#\/?/, "").split("/");
-    const ansicht = ANSICHTEN[teile[0]] ? teile[0] : "year";
+    const ansicht = ANSICHTEN[teile[0]] ? teile[0] : "month";
     const datum = teile[1] && /^\d{4}-\d{2}-\d{2}$/.test(teile[1]) ? alsDatum(teile[1]) : null;
     return { ansicht, datum, fokus: teile[2] || null };
   }
@@ -1982,6 +2175,7 @@
       document.getElementById("vor").disabled = !imJahr(a.schritt(zustand.datum, 1), jahr);
     }
 
+    document.getElementById("umschalter").innerHTML = ""; // nur Ansichten mit Umschalter füllen ihn
     a.zeichne(zustand.datum, fokus);
     aktualisiereWarnZaehler();
     // Ist in der Adresse ein Event angegeben? Dann Details in der Schublade zeigen

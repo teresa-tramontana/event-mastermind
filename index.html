@@ -14,7 +14,7 @@
 <body>
   <header class="kopf">
     <div class="kopf-innen">
-      <a class="marke" href="#/year">
+      <a class="marke" href="#/month">
         <img class="marke-zeichen" src="bilder/favicon.svg" alt="" width="36" height="36">
         <span class="marke-text">
           <strong>Event Mastermind</strong>
@@ -33,10 +33,10 @@
       <div class="benutzer" id="benutzer" hidden></div>
     </div>
     <nav class="hauptnav" aria-label="Views">
-      <a href="#/year" data-ansicht="year">Year</a>
-      <a href="#/quarter" data-ansicht="quarter">Quarter</a>
       <a href="#/month" data-ansicht="month">Month</a>
       <a href="#/week" data-ansicht="week">Week</a>
+      <a href="#/year" data-ansicht="year">Year</a>
+      <a href="#/quarter" data-ansicht="quarter">Quarter</a>
       <a href="#/search" data-ansicht="search">List</a>
       <span class="nav-trenner" aria-hidden="true"></span>
       <a href="#/deviations" data-ansicht="deviations">Deviations <span class="zaehler" id="warn-zaehler"></span> <span class="zaehler info" id="info-zaehler"></span></a>
@@ -49,6 +49,8 @@
       <button class="knopf rund" id="zurueck" aria-label="Previous">‹</button>
       <h1 id="titel">…</h1>
       <button class="knopf rund" id="vor" aria-label="Next">›</button>
+      <!-- Umschalter für die Darstellung (z. B. Calendar | Agenda), wird von app.js gefüllt -->
+      <div id="umschalter"></div>
     </div>
     <div class="aktionen">
       <button class="knopf leise" id="heute">Today</button>

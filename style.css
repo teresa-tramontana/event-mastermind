@@ -25,20 +25,25 @@
   --kritisch-hell: #f9d9d4;
 
   /* Ein Farbton pro Kategorie */
-  --kat-monthlies: #d99a1e;      /* Safran */
-  --kat-weeklies: #8e3b5e;       /* Pflaume */
-  --kat-academy: #5b2a48;        /* Aubergine */
-  --kat-drops: #e8894f;          /* Aprikose */
-  --kat-winedowns: #7b2335;      /* Weinrot */
-  --kat-townhall: #a8687f;       /* Malve */
-  --kat-gruppe: #b56a2a;         /* Karamell */
-  --kat-collab: #9c7a5b;         /* Taupe */
-  --kat-idee: #c58b6b;           /* Ton */
-  --kat-cross: #d2552e;          /* Terrakotta */
-  --kat-quarterlies: #b0395d;    /* Beere */
-  --kat-partner: #d9677a;        /* Rosé */
-  --kat-summer: #e46a5a;         /* Koralle */
-  --kat-community: #7a4426;      /* Zimt */
+  /* 4 Gruppen – eine Farbe pro Gruppe (die 14 Kategorien bekommen die Farbe ihrer Gruppe) */
+  --grp-gather: #8e3b5e;         /* Pflaume */
+  --grp-learn: #d99a1e;          /* Safran */
+  --grp-connect: #d2552e;        /* Terrakotta */
+  --grp-celebrate: #e39aa3;      /* Rosé */
+  --kat-weeklies: var(--grp-gather);
+  --kat-monthlies: var(--grp-gather);
+  --kat-quarterlies: var(--grp-gather);
+  --kat-townhall: var(--grp-gather);
+  --kat-winedowns: var(--grp-gather);
+  --kat-academy: var(--grp-learn);
+  --kat-drops: var(--grp-learn);
+  --kat-idee: var(--grp-learn);
+  --kat-gruppe: var(--grp-connect);
+  --kat-collab: var(--grp-connect);
+  --kat-cross: var(--grp-connect);
+  --kat-partner: var(--grp-connect);
+  --kat-community: var(--grp-celebrate);
+  --kat-summer: var(--grp-celebrate);
 
 
   /* Eingabefelder: weiß mit ruhigem Rahmen (gut lesbar) */
@@ -272,6 +277,10 @@ button { font: inherit; color: inherit; }
 .kat-Community-Summer { --kat: var(--kat-summer); }
 .kat-Community { --kat: var(--kat-community); }
 .kat-auslastung { --kat: var(--akzent); }
+.grp-gather { --kat: var(--grp-gather); }
+.grp-learn { --kat: var(--grp-learn); }
+.grp-connect { --kat: var(--grp-connect); }
+.grp-celebrate { --kat: var(--grp-celebrate); }
 .kat-punkt { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--kat); flex: none; }
 .kat-pille {
   display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 500;
@@ -705,3 +714,127 @@ details.vorschau { background: var(--flaeche); border-radius: 8px; padding: 6px 
 .wk-tag-kopf.konflikt span, .wk-tag-kopf.konflikt strong { color: var(--kritisch); }
 a.banner-link { text-decoration: none; color: inherit; margin-bottom: 12px; }
 a.banner-link:hover { border-color: var(--warnung); }
+
+/* ---------------------------------------------------------- Umschalter ("Pille" neben dem Titel) */
+#umschalter:empty { display: none; }
+.pillen-umschalter { display: inline-flex; gap: 4px; padding: 4px; background: var(--flaeche-warm); border-radius: 999px; margin-left: 6px; }
+.pillen-umschalter button {
+  display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; color: var(--text-leise);
+  border-radius: 999px; padding: 6px 14px; font-size: .88rem; font-weight: 500; cursor: pointer;
+}
+.pillen-umschalter button svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pillen-umschalter button:hover { color: var(--text); }
+.pillen-umschalter button[aria-pressed="true"] { background: var(--flaeche); color: var(--text); box-shadow: 0 1px 3px rgba(43, 35, 32, .15); }
+
+/* ---------------------------------------------------------- Monat: Kennzahlen, Kalender, Agenda, Seitenleiste */
+.text-kritisch { color: var(--kritisch); font-weight: 700; }
+.klein-text { font-size: .8rem; margin: 0; }
+.monat-kennzahlen { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.monat-kennzahlen .kennzahl { display: flex; flex-direction: column; gap: 2px; }
+.monat-layout { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+.monat-haupt { flex: 999 1 600px; min-width: 0; }
+.monat-seite { flex: 1 1 280px; display: flex; flex-direction: column; gap: 14px; }
+.seiten-karte { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.seiten-karte h2 { font-size: 1rem; }
+.mehr-link { font-size: .85rem; }
+
+/* Kalender als eine Fläche mit feinen Linien */
+.monat-haupt .kalender { gap: 0; background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); overflow: hidden; }
+.monat-haupt .kalender .wochentag { background: var(--hintergrund); border-bottom: 1px solid var(--linie); text-align: left; padding: 6px 8px; text-transform: uppercase; letter-spacing: .04em; font-size: .72rem; }
+.monat-haupt .tag-zelle { border: 0; border-radius: 0; border-right: 1px solid #f1e6d8; border-bottom: 1px solid #f1e6d8; min-height: 112px; padding: 6px; }
+.monat-haupt .tag-zelle:nth-child(7n) { border-right: 0; }
+.monat-haupt .tag-zelle.fremd { background: var(--hintergrund); border-style: solid; opacity: 1; }
+.monat-haupt .tag-zelle.fremd .tag-nr { color: #cdbdad; }
+.monat-haupt .tag-zelle.heute { border: 0; border-right: 1px solid #f1e6d8; border-bottom: 1px solid #f1e6d8; }
+.monat-haupt .tag-zelle.heute .tag-nr { background: var(--akzent); color: #fff; border-radius: 999px; padding: 0 8px; }
+.monat-haupt .tag-zelle.konflikt { background: color-mix(in srgb, var(--kritisch-hell) 55%, white); }
+.tag-nr-wt { display: none; }
+.monat-haupt .ev-chip {
+  display: flex; flex-direction: column; gap: 3px; border-left: 0; border-radius: 8px; padding: 6px 7px;
+  background: var(--hintergrund); font-size: .76rem;
+}
+.monat-haupt .ev-chip:hover { background: color-mix(in srgb, var(--kat) 14%, white); }
+.monat-haupt .ev-chip.erledigt { opacity: .55; }
+.monat-haupt .ev-chip.achtung { background: var(--kritisch-hell); }
+.monat-haupt .ev-chip.idee { border: 1px dashed var(--feld-rand); opacity: 1; }
+.chip-kopf { display: flex; align-items: center; gap: 6px; color: var(--text-leise); font-size: .7rem; }
+.chip-kopf .kat-punkt { width: 8px; height: 8px; }
+.chip-flagge { margin-left: auto; color: var(--kritisch); font-weight: 700; }
+.chip-titel { font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.mini-balken { display: block; height: 3px; background: #f1e6d8; border-radius: 3px; overflow: hidden; }
+.mini-balken > span { display: block; height: 100%; background: var(--kat); }
+.mini-balken.warnend > span { background: var(--kritisch); }
+.kalender-legende { padding: 10px 2px 0; font-size: .8rem; }
+.legende-rechts { margin-left: auto; }
+
+/* Agenda: Woche für Woche */
+.agenda { display: flex; flex-direction: column; gap: 14px; }
+.agenda-woche { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); overflow: hidden; }
+.agenda-woche.jetzt { border-color: var(--akzent); }
+.agenda-kopf { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 9px 16px; background: var(--flaeche-warm); }
+.agenda-notiz { margin-left: auto; font-size: .8rem; color: var(--text-leise); }
+.agenda-notiz.warnend { color: var(--akzent-dunkel); background: var(--warnung-hell); border-radius: 999px; padding: 2px 10px; font-weight: 700; }
+.agenda-zeile {
+  display: grid; grid-template-columns: 48px minmax(0, 1fr) 96px 140px 90px; gap: 14px; align-items: center;
+  width: 100%; text-align: left; background: none; border: 0; border-top: 1px solid #f1e6d8; padding: 10px 16px; cursor: pointer;
+}
+.agenda-zeile:hover { background: var(--hintergrund); }
+.agenda-zeile.erledigt { opacity: .6; }
+.agenda-datum { display: flex; flex-direction: column; line-height: 1.1; }
+.agenda-datum small { color: var(--text-leise); font-size: .75rem; }
+.agenda-datum strong { font-size: 1.25rem; }
+.agenda-titel { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.agenda-titel strong { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.agenda-titel small { display: flex; align-items: center; gap: 6px; color: var(--text-leise); font-size: .78rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.agenda-titel .kat-punkt { width: 8px; height: 8px; }
+.agenda-anmeldung { display: flex; flex-direction: column; gap: 4px; }
+.agenda-anmeldung .mini-balken { height: 5px; }
+.agenda-info { font-size: .8rem; }
+.agenda-leer { margin: 0; padding: 10px 16px; border-top: 1px solid #f1e6d8; }
+
+/* Seitenleiste: Mini-Kalender, Hinweise, Plan check */
+.mini-kalender { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; text-align: center; }
+.mini-wt { font-size: .7rem; color: var(--text-leise); }
+.mini-tag { border: 0; border-radius: 6px; padding: 5px 0; font-size: .75rem; background: var(--hintergrund); cursor: pointer; }
+.mini-tag.fremd { background: none; color: #d8cabb; cursor: default; }
+.mini-tag.belegt { background: #e3c9b4; }
+.mini-tag.heute { background: var(--akzent); color: #fff; font-weight: 700; }
+.hinweis-liste { display: flex; flex-direction: column; gap: 4px; }
+.hinweis-zeile { display: flex; gap: 10px; align-items: flex-start; text-align: left; background: none; border: 0; padding: 6px; margin: 0 -6px; border-radius: 8px; cursor: pointer; }
+.hinweis-zeile:hover { background: var(--hintergrund); }
+.hinweis-zeile > span:last-child { display: flex; flex-direction: column; min-width: 0; }
+.hinweis-zeile strong { font-weight: 500; }
+.hinweis-zeile small { color: var(--text-leise); font-size: .78rem; }
+.hinweis-art { flex: none; font-size: .7rem; font-weight: 700; border-radius: 6px; padding: 2px 6px; margin-top: 2px; white-space: nowrap; }
+.hinweis-art.kritisch { color: var(--kritisch); background: var(--kritisch-hell); }
+.hinweis-art.warnung { color: #7a4a10; background: var(--warnung-hell); }
+.hinweis-art.plan { color: #5b2a48; background: #efe0e8; }
+.hinweis-art.ruhig { color: #6b5c51; background: #efe7de; }
+.gruppen-liste { display: flex; flex-direction: column; gap: 10px; }
+.gruppe-zeile summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 1fr auto; gap: 4px 8px; align-items: center; }
+.gruppe-zeile summary::-webkit-details-marker { display: none; }
+.gruppe-name { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; }
+.gruppe-zahl { font-size: .85rem; color: var(--text-leise); }
+.gruppe-zahl strong { color: var(--text); }
+.gruppe-zahl.text-kritisch strong { color: var(--kritisch); }
+.gruppe-balken { grid-column: 1 / -1; height: 6px; background: #f1e6d8; border-radius: 6px; overflow: hidden; }
+.gruppe-balken > span { display: block; height: 100%; background: var(--kat); }
+.gruppe-balken.warnend > span { background: var(--kritisch); }
+.gruppe-zeile ul { list-style: none; margin: 8px 0 2px; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 3px; font-size: .82rem; }
+.gruppe-zeile li { display: flex; justify-content: space-between; gap: 8px; }
+
+@media (max-width: 900px) {
+  .monat-kennzahlen { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .agenda-zeile { grid-template-columns: 44px minmax(0, 1fr) 110px; }
+  .agenda-status, .agenda-info { display: none; }
+}
+@media (max-width: 640px) {
+  .pillen-umschalter { margin-left: 0; }
+  .monat-haupt .kalender { border-radius: var(--radius); }
+  .monat-haupt .tag-zelle { border-right: 0; min-height: 0; }
+  .tag-nr-wt { display: inline; }
+  .legende-rechts { margin-left: 0; }
+  .agenda-zeile { grid-template-columns: 40px minmax(0, 1fr); }
+  .agenda-anmeldung { grid-column: 2; }
+}
+.blaettern { flex-wrap: wrap; }
