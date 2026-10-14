@@ -84,7 +84,14 @@
 
   async function aktuelleEvents() {
     const basis = await ladeGrunddaten();
-    return leseSpeicher(SPEICHER_EVENTS) || kopie(basis.events);
+    const gespeichert = leseSpeicher(SPEICHER_EVENTS);
+    if (!gespeichert) return kopie(basis.events);
+    // Ältere gespeicherte Stände kennen das Feld "setting" noch nicht: aus den Demo-Daten ergänzen
+    const original = new Map(basis.events.map((e) => [e.id, e]));
+    gespeichert.forEach((e) => {
+      if (!("setting" in e) && original.has(e.id)) e.setting = original.get(e.id).setting || "";
+    });
+    return gespeichert;
   }
 
   function neueId(events) {

@@ -97,6 +97,28 @@ def mail(satz):
             "See you soon,\nyour Community Team")
 
 
+# Settings (Format des Events) – vorläufige Platzhalter-Liste, bis die echten Werte aus Notion kommen.
+# Steht im Modell (model.json -> "settings"); die App filtert danach.
+SETTINGS = ["Workshop", "Training", "1:1 Consulting", "Keynote", "Panel", "Group Setting", "Pairs"]
+# Welche Settings je Kategorie vorkommen (der Reihe nach verteilt, ohne Zufall,
+# damit sich die übrigen Demo-Daten nicht verändern)
+SETTING_JE_KAT = {
+    "Community Monthlies": ["Group Setting"],
+    "Community Weeklies": ["Group Setting", "Pairs"],
+    "Academy": ["Workshop", "Training", "1:1 Consulting"],
+    "Drops of Inspiration": ["Keynote", "Panel"],
+    "Winedowns": ["Group Setting"],
+    "Town Hall": ["Keynote"],
+    "Group-Specific": ["Group Setting", "Pairs"],
+    "Collaboration": ["Panel", "Workshop"],
+    "Idea Starter Pack": ["Training", "Workshop"],
+    "Cross-Community": ["Panel", "Group Setting"],
+    "Community Quarterlies": ["Group Setting"],
+    "Partner Deliverable": ["Training", "1:1 Consulting"],
+    "Community Summer": ["Group Setting"],
+    "Community": ["Group Setting", "Pairs"],
+}
+
 KAT = {
     "Community Monthlies": {
         "termine": jeden_monat([(2, 1, "18:00")]),                       # 1. Mittwoch
@@ -577,6 +599,7 @@ ZIEL_AUSLASTUNG = 75
 model = {
     "jahr": JAHR,
     "demoHeute": DEMO_HEUTE.isoformat(),
+    "settings": SETTINGS,
     "kategorien": KATEGORIEN,
     "zielAuslastung": ZIEL_AUSLASTUNG,
     "basisMonat": {"soll": BASIS_MONAT},
@@ -731,6 +754,7 @@ for m in range(1, 13):
 
             titel_liste = KAT[kat]["titel"]
             titel, thema = titel_liste[titel_index[kat] % len(titel_liste)]
+            setting = SETTING_JE_KAT[kat][titel_index[kat] % len(SETTING_JE_KAT[kat])]
             titel_index[kat] += 1
 
             immer, manchmal = KAT[kat]["tags"]
@@ -758,6 +782,7 @@ for m in range(1, 13):
                 "eventbriteId": f"EB-DEMO-{1000 + nr}" if status in ("Published", "Done") else "",
                 "kalenderId": f"CAL-DEMO-{2000 + nr}" if status != "Idea" else "",
                 "tags": tags,
+                "setting": setting,
                 "zusammenfassung": summary_fuer(kat, thema, tags),
                 "beschreibung": None,  # wird unten gesetzt (braucht den Ort)
                 "aufgaben": aufgaben,

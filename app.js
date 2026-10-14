@@ -482,9 +482,11 @@
   const ANSICHTEN = {};
 
   // ---------- Filter (Month und List): Gruppe · Tags · Setting
-  /** Alle Settings, die in den Daten vorkommen (Feld "setting"; im Demo noch leer, kommt mit Notion) */
+  /** Alle Settings: feste Liste aus dem Modell (vorläufige Platzhalter bis Notion) + was sonst in den Events steht */
   function alleSettings() {
-    return [...new Set(zustand.events.map((e) => String(e.setting || "").trim()).filter(Boolean))].sort();
+    const liste = (zustand.model && zustand.model.settings) || [];
+    const extra = zustand.events.map((e) => String(e.setting || "").trim()).filter((x) => x && !liste.includes(x));
+    return liste.concat([...new Set(extra)].sort());
   }
   function filterAktiv() {
     const f = zustand.filter;
@@ -517,7 +519,7 @@
         </details>
         <label class="filter-auswahl ${f.setting ? "aktiv" : ""}">
           <span class="sr-only">Setting</span>
-          <select data-filter-setting ${settings.length ? "" : "disabled"} title="${settings.length ? "Filter by setting" : "Settings come with the real data from Notion"}">
+          <select data-filter-setting ${settings.length ? "" : "disabled"} title="${settings.length ? "Filter by setting (placeholder list until the Notion data is connected)" : "Settings come with the real data from Notion"}">
             ${settings.length
               ? `<option value="">All settings</option>${settings.map((x) => `<option ${x === f.setting ? "selected" : ""}>${esc(x)}</option>`).join("")}`
               : "<option>Setting · coming with Notion</option>"}
@@ -2047,7 +2049,7 @@
             ${feldHtml("Owner", `<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}">`, '<span class="f-hilfe">a role, no real names</span>')}
           </div>
           <div class="f-reihe">
-            ${feldHtml("Setting", `<input name="setting" list="settings" value="${esc(e.setting || "")}" placeholder="comes from Notion later">`, '<span class="f-hilfe">optional, used for filtering</span>')}
+            ${feldHtml("Setting", `<select name="setting"><option value="">– none –</option>${alleSettings().map((x) => `<option ${x === e.setting ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>`, '<span class="f-hilfe">used for filtering</span>')}
           </div>
         </section>
 
@@ -2083,7 +2085,6 @@
 
         <datalist id="team">${team.map((x) => `<option value="${esc(x)}">`).join("")}</datalist>
         <datalist id="orte">${orte.map((x) => `<option value="${esc(x)}">`).join("")}</datalist>
-        <datalist id="settings">${alleSettings().map((x) => `<option value="${esc(x)}">`).join("")}</datalist>
         <p class="f-hinweis">Only title and date are required. Saved in this browser only – “Reset demo data” (bottom of the page) undoes everything.</p>
         <p id="formular-fehler" class="text-kritisch"></p>
       </form>`;

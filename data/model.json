@@ -1,6 +1,15 @@
 {
   "jahr": 2026,
   "demoHeute": "2026-10-10",
+  "settings": [
+    "Workshop",
+    "Training",
+    "1:1 Consulting",
+    "Keynote",
+    "Panel",
+    "Group Setting",
+    "Pairs"
+  ],
   "kategorien": [
     "Community Monthlies",
     "Community Weeklies",

@@ -20,6 +20,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
@@ -66,6 +67,7 @@ window.DEMO_DATEN = {
     "1:1 sessions",
     "Coaching/consulting"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Practical Academy session on circular business – hands-on workshop, practical exercises & 1:1 sessions.",
    "beschreibung": {
     "worum": "A hands-on Academy session on circular business. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -111,6 +113,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Informal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around new faces in the community – community gathering, guided networking & relaxed setting.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around new faces in the community. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -156,6 +159,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
@@ -202,6 +206,7 @@ window.DEMO_DATEN = {
     "Group work",
     "Peer feedback/exchange"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "Quarterly Town Hall on plans for the year – structured format, community gathering & group work.",
    "beschreibung": {
     "worum": "Our quarterly Town Hall on plans for the year: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
@@ -246,6 +251,7 @@ window.DEMO_DATEN = {
     "Keynote/panel",
     "Peer feedback/exchange"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "A short lunchtime input on business beyond growth – keynote & panel & peer feedback.",
    "beschreibung": {
     "worum": "A short, inspiring input on business beyond growth over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -291,6 +297,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Coaching/consulting"
    ],
+   "setting": "Training",
    "zusammenfassung": "Practical Academy session on storytelling – hands-on workshop, practical exercises & coaching.",
    "beschreibung": {
     "worum": "A hands-on Academy session on storytelling. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -337,6 +344,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
@@ -383,6 +391,7 @@ window.DEMO_DATEN = {
     "Coaching/consulting",
     "Skillshare"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Peer circle for one member group around founder life – small group, peer feedback & coaching.",
    "beschreibung": {
     "worum": "A small peer circle around founder life: people in the same situation share challenges and help each other – honest and confidential.",
@@ -429,6 +438,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
@@ -474,6 +484,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Members' lunch around new year's resolutions – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around new year's resolutions.",
@@ -520,6 +531,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Community/Gathering"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around winter reds – time to unwind, relaxed setting & guided networking.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around winter reds. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -565,6 +577,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
@@ -610,6 +623,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Coaching/consulting"
    ],
+   "setting": "1:1 Consulting",
    "zusammenfassung": "Practical Academy session on money literacy – hands-on workshop, practical exercises & coaching.",
    "beschreibung": {
     "worum": "",
@@ -655,6 +669,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Matchmaking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around asks and offers – community gathering, guided networking & matchmaking.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around asks and offers. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -700,6 +715,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
@@ -745,6 +761,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Expert guidance"
    ],
+   "setting": "Panel",
    "zusammenfassung": "A short lunchtime input on urban green spaces – keynote & panel, relaxed setting & expert input.",
    "beschreibung": {
     "worum": "A short, inspiring input on urban green spaces over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -789,6 +806,7 @@ window.DEMO_DATEN = {
     "Collaboration",
     "Group work"
    ],
+   "setting": "Panel",
    "zusammenfassung": "Joint evening with a partner organisation on climate action – group work.",
    "beschreibung": {
     "worum": "A joint evening with a partner organisation on climate action. Both communities meet, share projects and look for ways to work together.",
@@ -834,6 +852,7 @@ window.DEMO_DATEN = {
     "Formal",
     "Keynote/panel"
    ],
+   "setting": "Training",
    "zusammenfassung": "Session delivered with a programme partner on sustainable procurement – expert input, structured format & keynote & panel.",
    "beschreibung": {
     "worum": "A session we deliver together with a programme partner on sustainable procurement – with input, examples and room for discussion.",
@@ -880,6 +899,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
@@ -925,6 +945,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Formal"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Peer circle for one member group around freelance life – small group, peer feedback & structured format.",
    "beschreibung": {
     "worum": "A small peer circle around freelance life: people in the same situation share challenges and help each other – honest and confidential.",
@@ -971,6 +992,7 @@ window.DEMO_DATEN = {
     "Skillshare",
     "Group work"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Practical Academy session on dealing with your inner critic – hands-on workshop, practical exercises & skillshare.",
    "beschreibung": {
     "worum": "A hands-on Academy session on dealing with your inner critic. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -1016,6 +1038,7 @@ window.DEMO_DATEN = {
     "Collaboration",
     "Matchmaking"
    ],
+   "setting": "Panel",
    "zusammenfassung": "Exchange with other Hub communities on exchange between Hubs – guided networking, collaboration & matchmaking.",
    "beschreibung": {
     "worum": "Members from several Hub communities meet on exchange between Hubs: short intros, matchmaking and space for joint projects.",
@@ -1062,6 +1085,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
@@ -1108,6 +1132,7 @@ window.DEMO_DATEN = {
     "Skillshare",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Members' lunch around soup and stories – community gathering, relaxed setting & skillshare.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around soup and stories.",
@@ -1153,6 +1178,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around natural wines – time to unwind, relaxed setting & guided networking.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around natural wines. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -1198,6 +1224,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Peer feedback/exchange"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
@@ -1244,6 +1271,7 @@ window.DEMO_DATEN = {
     "1:1 sessions",
     "Small groups"
    ],
+   "setting": "Training",
    "zusammenfassung": "Practical Academy session on pitch decks – hands-on workshop, practical exercises & 1:1 sessions.",
    "beschreibung": {
     "worum": "A hands-on Academy session on pitch decks. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -1289,6 +1317,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Informal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around spring projects – community gathering, guided networking & relaxed setting.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around spring projects. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -1335,6 +1364,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Peer feedback/exchange"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
@@ -1380,6 +1410,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Expert guidance"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "A short lunchtime input on AI for the common good – keynote & panel, relaxed setting & expert input.",
    "beschreibung": {
     "worum": "A short, inspiring input on AI for the common good over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -1424,6 +1455,7 @@ window.DEMO_DATEN = {
     "Collaboration",
     "Matchmaking"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Joint evening with a partner organisation on design for good – matchmaking.",
    "beschreibung": {
     "worum": "A joint evening with a partner organisation on design for good. Both communities meet, share projects and look for ways to work together.",
@@ -1469,6 +1501,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
@@ -1515,6 +1548,7 @@ window.DEMO_DATEN = {
     "Formal",
     "Coaching/consulting"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Peer circle for one member group around women in impact – small group, peer feedback & structured format.",
    "beschreibung": {
     "worum": "A small peer circle around women in impact: people in the same situation share challenges and help each other – honest and confidential.",
@@ -1561,6 +1595,7 @@ window.DEMO_DATEN = {
     "Group work",
     "1:1 sessions"
    ],
+   "setting": "1:1 Consulting",
    "zusammenfassung": "Practical Academy session on design thinking – hands-on workshop, practical exercises & group work.",
    "beschreibung": {
     "worum": "A hands-on Academy session on design thinking. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -1607,6 +1642,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Peer feedback/exchange"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
@@ -1652,6 +1688,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "1:1 sessions"
    ],
+   "setting": "Training",
    "zusammenfassung": "Guided step for early ideas: finding the real problem – coaching, small group & 1:1 sessions.",
    "beschreibung": {
     "worum": "Part of our three-step programme for early ideas – this step: finding the real problem. With a coach and a small group you take your idea one step further.",
@@ -1698,6 +1735,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Skillshare"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Members' lunch around favourite recipes – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around favourite recipes.",
@@ -1744,6 +1782,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around spring whites – time to unwind, relaxed setting & community gathering.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around spring whites. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -1789,6 +1828,7 @@ window.DEMO_DATEN = {
     "Keynote/panel",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our big quarterly celebration of the first quarter – community gathering, keynote & panel & guided networking.",
    "beschreibung": {
     "worum": "Our big quarterly celebration: we look back at the first quarter, celebrate member wins and party together.",
@@ -1835,6 +1875,7 @@ window.DEMO_DATEN = {
     "Matchmaking",
     "Collaboration"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around member spotlights – community gathering, guided networking & matchmaking.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around member spotlights. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -1880,6 +1921,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
@@ -1925,6 +1967,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Coaching/consulting"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Practical Academy session on social media on a budget – hands-on workshop, practical exercises & coaching.",
    "beschreibung": {
     "worum": "A hands-on Academy session on social media on a budget. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -1970,6 +2013,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Peer feedback/exchange"
    ],
+   "setting": "Panel",
    "zusammenfassung": "A short lunchtime input on democracy and entrepreneurship – keynote & panel, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "A short, inspiring input on democracy and entrepreneurship over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -2015,6 +2059,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
@@ -2061,6 +2106,7 @@ window.DEMO_DATEN = {
     "Group work",
     "Peer feedback/exchange"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "Quarterly Town Hall on the spring update – structured format, community gathering & group work.",
    "beschreibung": {
     "worum": "Our quarterly Town Hall on the spring update: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
@@ -2107,6 +2153,7 @@ window.DEMO_DATEN = {
     "Coaching/consulting",
     "Skillshare"
    ],
+   "setting": "Training",
    "zusammenfassung": "Practical Academy session on impact measurement – hands-on workshop, practical exercises & coaching.",
    "beschreibung": {
     "worum": "A hands-on Academy session on impact measurement. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -2153,6 +2200,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
@@ -2198,6 +2246,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Formal"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Peer circle for one member group around creative work – small group, peer feedback & structured format.",
    "beschreibung": {
     "worum": "A small peer circle around creative work: people in the same situation share challenges and help each other – honest and confidential.",
@@ -2243,6 +2292,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Members' lunch around spring food – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around spring food.",
@@ -2289,6 +2339,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
@@ -2334,6 +2385,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "Peer feedback/exchange"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Guided step for early ideas: talking to users – coaching, small group & peer feedback.",
    "beschreibung": {
     "worum": "Part of our three-step programme for early ideas – this step: talking to users. With a coach and a small group you take your idea one step further.",
@@ -2380,6 +2432,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Community/Gathering"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around local vineyards – time to unwind, relaxed setting & guided networking.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around local vineyards. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -2425,6 +2478,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
@@ -2470,6 +2524,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Coaching/consulting"
    ],
+   "setting": "1:1 Consulting",
    "zusammenfassung": "Practical Academy session on funding – hands-on workshop, practical exercises & coaching.",
    "beschreibung": {
     "worum": "A hands-on Academy session on funding. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -2515,6 +2570,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Matchmaking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around the skills in our community – community gathering, guided networking & matchmaking.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around the skills in our community. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -2561,6 +2617,7 @@ window.DEMO_DATEN = {
     "Keynote/panel",
     "Workshop"
    ],
+   "setting": "1:1 Consulting",
    "zusammenfassung": "Session delivered with a programme partner on green mobility – expert input, structured format & keynote & panel.",
    "beschreibung": {
     "worum": "A session we deliver together with a programme partner on green mobility – with input, examples and room for discussion.",
@@ -2607,6 +2664,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
@@ -2652,6 +2710,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Peer feedback/exchange"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "A short lunchtime input on circular fashion – keynote & panel, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "A short, inspiring input on circular fashion over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -2696,6 +2755,7 @@ window.DEMO_DATEN = {
     "Collaboration",
     "Matchmaking"
    ],
+   "setting": "Panel",
    "zusammenfassung": "Joint evening with a partner organisation on local food – matchmaking.",
    "beschreibung": {
     "worum": "A joint evening with a partner organisation on local food. Both communities meet, share projects and look for ways to work together.",
@@ -2741,6 +2801,7 @@ window.DEMO_DATEN = {
     "Collaboration",
     "Keynote/panel"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Exchange with other Hub communities on exchange between Hubs – guided networking, collaboration & keynote & panel.",
    "beschreibung": {
     "worum": "Members from several Hub communities meet on exchange between Hubs: short intros, matchmaking and space for joint projects.",
@@ -2787,6 +2848,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
@@ -2833,6 +2895,7 @@ window.DEMO_DATEN = {
     "Formal",
     "Skillshare"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Peer circle for one member group around tech for good – small group, peer feedback & structured format.",
    "beschreibung": {
     "worum": "A small peer circle around tech for good: people in the same situation share challenges and help each other – honest and confidential.",
@@ -2877,6 +2940,7 @@ window.DEMO_DATEN = {
     "Keynote/panel",
     "Informal"
    ],
+   "setting": "Panel",
    "zusammenfassung": "A short lunchtime input on failing and starting over – keynote & panel & relaxed setting.",
    "beschreibung": {
     "worum": "A short, inspiring input on failing and starting over over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -2923,6 +2987,7 @@ window.DEMO_DATEN = {
     "Skillshare",
     "1:1 sessions"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Practical Academy session on pricing – hands-on workshop, practical exercises & skillshare.",
    "beschreibung": {
     "worum": "A hands-on Academy session on pricing. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -2968,6 +3033,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
@@ -3014,6 +3080,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Workshop"
    ],
+   "setting": "Training",
    "zusammenfassung": "Guided step for early ideas: a first prototype – coaching, small group & peer feedback.",
    "beschreibung": {
     "worum": "Part of our three-step programme for early ideas – this step: a first prototype. With a coach and a small group you take your idea one step further.",
@@ -3060,6 +3127,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Members' lunch around members' home cooking – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around members' home cooking.",
@@ -3105,6 +3173,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Community/Gathering"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around rosé – time to unwind, relaxed setting & community gathering.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around rosé. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -3151,6 +3220,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "Peer feedback/exchange"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
@@ -3196,6 +3266,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Skillshare"
    ],
+   "setting": "Training",
    "zusammenfassung": "Practical Academy session on freelance basics – hands-on workshop, practical exercises & skillshare.",
    "beschreibung": {
     "worum": "A hands-on Academy session on freelance basics. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -3242,6 +3313,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Matchmaking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around summer plans – community gathering, guided networking & relaxed setting.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around summer plans. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -3288,6 +3360,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Peer feedback/exchange"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
@@ -3333,6 +3406,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Expert guidance"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "A short lunchtime input on energy communities – keynote & panel, peer feedback & expert input.",
    "beschreibung": {
     "worum": "A short, inspiring input on energy communities over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -3377,6 +3451,7 @@ window.DEMO_DATEN = {
     "Collaboration",
     "Matchmaking"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Joint evening with a partner organisation on the neighbourhood – matchmaking.",
    "beschreibung": {
     "worum": "A joint evening with a partner organisation on the neighbourhood. Both communities meet, share projects and look for ways to work together.",
@@ -3422,6 +3497,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
@@ -3468,6 +3544,7 @@ window.DEMO_DATEN = {
     "Skillshare",
     "Coaching/consulting"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Peer circle for one member group around parenting and work – small group, peer feedback & skillshare.",
    "beschreibung": {
     "worum": "A small peer circle around parenting and work: people in the same situation share challenges and help each other – honest and confidential.",
@@ -3514,6 +3591,7 @@ window.DEMO_DATEN = {
     "Expert guidance",
     "1:1 sessions"
    ],
+   "setting": "1:1 Consulting",
    "zusammenfassung": "Practical Academy session on inclusive communication – hands-on workshop, practical exercises & expert input.",
    "beschreibung": {
     "worum": "A hands-on Academy session on inclusive communication. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -3559,6 +3637,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Informal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Summer evening with the community: the start of summer – time to unwind, community gathering & relaxed setting.",
    "beschreibung": {
     "worum": "Part of our Community Summer series: the start of summer – light, outdoorsy and fun.",
@@ -3605,6 +3684,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
@@ -3651,6 +3731,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Members' lunch around a rooftop picnic – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around a rooftop picnic.",
@@ -3697,6 +3778,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around sparkling wines – time to unwind, relaxed setting & community gathering.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around sparkling wines. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -3743,6 +3825,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our big quarterly celebration of the first half of the year – community gathering, keynote & panel & guided networking.",
    "beschreibung": {
     "worum": "Our big quarterly celebration: we look back at the first half of the year, celebrate member wins and party together.",
@@ -3789,6 +3872,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Matchmaking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around rooftop evenings – community gathering, guided networking & relaxed setting.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around rooftop evenings. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -3834,6 +3918,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Informal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Summer evening with the community: an open-air film – time to unwind, community gathering & relaxed setting.",
    "beschreibung": {
     "worum": "Part of our Community Summer series: an open-air film – light, outdoorsy and fun.",
@@ -3879,6 +3964,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
@@ -3924,6 +4010,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Coaching/consulting"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Practical Academy session on crowdfunding – hands-on workshop, practical exercises & coaching.",
    "beschreibung": {
     "worum": "A hands-on Academy session on crowdfunding. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -3969,6 +4056,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Expert guidance"
    ],
+   "setting": "Panel",
    "zusammenfassung": "A short lunchtime input on impact investing – keynote & panel, relaxed setting & expert input.",
    "beschreibung": {
     "worum": "A short, inspiring input on impact investing over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -4015,6 +4103,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Peer feedback/exchange"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
@@ -4061,6 +4150,7 @@ window.DEMO_DATEN = {
     "Group work",
     "Peer feedback/exchange"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "Quarterly Town Hall on the halfway check – structured format, community gathering & group work.",
    "beschreibung": {
     "worum": "Our quarterly Town Hall on the halfway check: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
@@ -4107,6 +4197,7 @@ window.DEMO_DATEN = {
     "Skillshare",
     "Expert guidance"
    ],
+   "setting": "Training",
    "zusammenfassung": "Practical Academy session on feedback culture – hands-on workshop, practical exercises & skillshare.",
    "beschreibung": {
     "worum": "A hands-on Academy session on feedback culture. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -4152,6 +4243,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Informal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Summer evening with the community: grilling together – time to unwind, community gathering & relaxed setting.",
    "beschreibung": {
     "worum": "Part of our Community Summer series: grilling together – light, outdoorsy and fun.",
@@ -4197,6 +4289,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
@@ -4243,6 +4336,7 @@ window.DEMO_DATEN = {
     "Coaching/consulting",
     "Formal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Peer circle for one member group around founder life – small group, peer feedback & coaching.",
    "beschreibung": {
     "worum": "A small peer circle around founder life: people in the same situation share challenges and help each other – honest and confidential.",
@@ -4289,6 +4383,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
@@ -4335,6 +4430,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Community/Gathering"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around the harvest – time to unwind, relaxed setting & guided networking.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around the harvest. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -4381,6 +4477,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
@@ -4426,6 +4523,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Matchmaking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around holiday stories – community gathering, guided networking & matchmaking.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around holiday stories. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -4471,6 +4569,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Informal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Summer evening with the community: Vienna's vineyards – time to unwind, community gathering & relaxed setting.",
    "beschreibung": {
     "worum": "Part of our Community Summer series: Vienna's vineyards – light, outdoorsy and fun.",
@@ -4515,6 +4614,7 @@ window.DEMO_DATEN = {
     "Collaboration",
     "Group work"
    ],
+   "setting": "Panel",
    "zusammenfassung": "Joint evening with a partner organisation on open tech – group work.",
    "beschreibung": {
     "worum": "A joint evening with a partner organisation on open tech. Both communities meet, share projects and look for ways to work together.",
@@ -4560,6 +4660,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
@@ -4605,6 +4706,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Skillshare"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Summer evening with the community: the end of summer – time to unwind, community gathering & skillshare.",
    "beschreibung": {
     "worum": "Part of our Community Summer series: the end of summer – light, outdoorsy and fun.",
@@ -4650,6 +4752,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Skillshare"
    ],
+   "setting": "1:1 Consulting",
    "zusammenfassung": "Practical Academy session on access to finance – hands-on workshop, practical exercises & skillshare.",
    "beschreibung": {
     "worum": "A hands-on Academy session on access to finance. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -4695,6 +4798,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Collaboration"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around fresh starts after summer – community gathering, guided networking & collaboration.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around fresh starts after summer. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -4740,6 +4844,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
@@ -4785,6 +4890,7 @@ window.DEMO_DATEN = {
     "Expert guidance",
     "Informal"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "A short lunchtime input on the urban food transition – keynote & panel, expert input & relaxed setting.",
    "beschreibung": {
     "worum": "A short, inspiring input on the urban food transition over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -4830,6 +4936,7 @@ window.DEMO_DATEN = {
     "Keynote/panel",
     "Group work"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Joint evening with a partner organisation on art and impact – keynote & panel & group work.",
    "beschreibung": {
     "worum": "A joint evening with a partner organisation on art and impact. Both communities meet, share projects and look for ways to work together.",
@@ -4876,6 +4983,7 @@ window.DEMO_DATEN = {
     "Group work",
     "Keynote/panel"
    ],
+   "setting": "Training",
    "zusammenfassung": "Session delivered with a programme partner on social innovation – expert input, structured format & group work.",
    "beschreibung": {
     "worum": "A session we deliver together with a programme partner on social innovation – with input, examples and room for discussion.",
@@ -4921,6 +5029,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
@@ -4967,6 +5076,7 @@ window.DEMO_DATEN = {
     "Skillshare",
     "Formal"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Peer circle for one member group around freelance life – small group, peer feedback & skillshare.",
    "beschreibung": {
     "worum": "A small peer circle around freelance life: people in the same situation share challenges and help each other – honest and confidential.",
@@ -5012,6 +5122,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Small groups"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Practical Academy session on time management – hands-on workshop, practical exercises & small group.",
    "beschreibung": {
     "worum": "A hands-on Academy session on time management. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -5058,6 +5169,7 @@ window.DEMO_DATEN = {
     "Matchmaking",
     "Keynote/panel"
    ],
+   "setting": "Panel",
    "zusammenfassung": "Exchange with other Hub communities on exchange between Hubs – guided networking, collaboration & matchmaking.",
    "beschreibung": {
     "worum": "Members from several Hub communities meet on exchange between Hubs: short intros, matchmaking and space for joint projects.",
@@ -5103,6 +5215,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
@@ -5149,6 +5262,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "1:1 sessions"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Guided step for early ideas: finding the real problem – coaching, small group & peer feedback.",
    "beschreibung": {
     "worum": "Part of our three-step programme for early ideas – this step: finding the real problem. With a coach and a small group you take your idea one step further.",
@@ -5195,6 +5309,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Peer feedback/exchange"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Members' lunch around the harvest season – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around the harvest season.",
@@ -5241,6 +5356,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around orange wines – time to unwind, relaxed setting & community gathering.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around orange wines. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -5287,6 +5403,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our big quarterly celebration of the third quarter – community gathering, keynote & panel & time to unwind.",
    "beschreibung": {
     "worum": "Our big quarterly celebration: we look back at the third quarter, celebrate member wins and party together.",
@@ -5332,6 +5449,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
@@ -5377,6 +5495,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
@@ -5422,6 +5541,7 @@ window.DEMO_DATEN = {
     "Practical exercises",
     "Small groups"
    ],
+   "setting": "Training",
    "zusammenfassung": "Practical Academy session on annual planning – hands-on workshop, practical exercises & small group.",
    "beschreibung": {
     "worum": "A hands-on Academy session on annual planning. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -5468,6 +5588,7 @@ window.DEMO_DATEN = {
     "Matchmaking",
     "Informal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around autumn goals – community gathering, guided networking & matchmaking.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around autumn goals. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -5513,6 +5634,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
@@ -5562,6 +5684,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Peer feedback/exchange"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "Quarterly Town Hall on changes to our spaces – structured format, community gathering & peer feedback.",
    "beschreibung": {
     "worum": "Our quarterly Town Hall on changes to our spaces: the team shares numbers, plans and changes – and you get to ask questions and give feedback.",
@@ -5611,6 +5734,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Peer feedback/exchange"
    ],
+   "setting": "Panel",
    "zusammenfassung": "A short lunchtime input on mental health in startup life – keynote & panel, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "A short, inspiring input on mental health in startup life over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -5661,6 +5785,7 @@ window.DEMO_DATEN = {
     "Expert guidance",
     "Small groups"
    ],
+   "setting": "1:1 Consulting",
    "zusammenfassung": "Practical Academy session on circular business – hands-on workshop, practical exercises & expert input.",
    "beschreibung": {
     "worum": "A hands-on Academy session on circular business. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -5711,6 +5836,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
@@ -5761,6 +5887,7 @@ window.DEMO_DATEN = {
     "Coaching/consulting",
     "Formal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Peer circle for one member group around women in impact – small group, peer feedback & coaching.",
    "beschreibung": {
     "worum": "A small peer circle around women in impact: people in the same situation share challenges and help each other – honest and confidential.",
@@ -5810,6 +5937,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Unwind"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
@@ -5860,6 +5988,7 @@ window.DEMO_DATEN = {
     "1:1 sessions",
     "Peer feedback/exchange"
    ],
+   "setting": "Training",
    "zusammenfassung": "Guided step for early ideas: talking to users – coaching, small group & 1:1 sessions.",
    "beschreibung": {
     "worum": "Part of our three-step programme for early ideas – this step: talking to users. With a coach and a small group you take your idea one step further.",
@@ -5909,6 +6038,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Skillshare"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Members' lunch around pumpkin dishes – community gathering, relaxed setting & skillshare.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around pumpkin dishes.",
@@ -5958,6 +6088,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around alcohol-free pairings – time to unwind, relaxed setting & guided networking.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around alcohol-free pairings. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -6008,6 +6139,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
@@ -6058,6 +6190,7 @@ window.DEMO_DATEN = {
     "Collaboration",
     "Matchmaking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around gratitude – community gathering, guided networking & collaboration.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around gratitude. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -6108,6 +6241,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
@@ -6157,6 +6291,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Informal"
    ],
+   "setting": "Keynote",
    "zusammenfassung": "A short lunchtime input on inclusion – keynote & panel, peer feedback & relaxed setting.",
    "beschreibung": {
     "worum": "A short, inspiring input on inclusion over lunch: one speaker, 20 minutes, honest stories – then questions from the room.",
@@ -6202,6 +6337,7 @@ window.DEMO_DATEN = {
     "Matchmaking",
     "Keynote/panel"
    ],
+   "setting": "Panel",
    "zusammenfassung": "Joint evening with a partner organisation on climate action – matchmaking & keynote & panel.",
    "beschreibung": {
     "worum": "A joint evening with a partner organisation on climate action. Both communities meet, share projects and look for ways to work together.",
@@ -6247,6 +6383,7 @@ window.DEMO_DATEN = {
     "Formal",
     "Workshop"
    ],
+   "setting": "1:1 Consulting",
    "zusammenfassung": "Session delivered with a programme partner on digital inclusion – expert input, structured format & hands-on workshop.",
    "beschreibung": {
     "worum": "A session we deliver together with a programme partner on digital inclusion – with input, examples and room for discussion.",
@@ -6293,6 +6430,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around new members – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on new members. Everyone shares one goal for the week and one thing they could use help with.",
@@ -6339,6 +6477,7 @@ window.DEMO_DATEN = {
     "Skillshare",
     "Coaching/consulting"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Peer circle for one member group around creative work – small group, peer feedback & skillshare.",
    "beschreibung": {
     "worum": "A small peer circle around creative work: people in the same situation share challenges and help each other – honest and confidential.",
@@ -6385,6 +6524,7 @@ window.DEMO_DATEN = {
     "Keynote/panel",
     "Matchmaking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Exchange with other Hub communities on exchange between Hubs – guided networking, collaboration & keynote & panel.",
    "beschreibung": {
     "worum": "Members from several Hub communities meet on exchange between Hubs: short intros, matchmaking and space for joint projects.",
@@ -6431,6 +6571,7 @@ window.DEMO_DATEN = {
     "Unwind",
     "Peer feedback/exchange"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around a useful tool – community gathering, relaxed setting & time to unwind.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on a useful tool. Everyone shares one goal for the week and one thing they could use help with.",
@@ -6476,6 +6617,7 @@ window.DEMO_DATEN = {
     "Small groups",
     "Workshop"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Guided step for early ideas: a first prototype – coaching, small group & hands-on workshop.",
    "beschreibung": {
     "worum": "Part of our three-step programme for early ideas – this step: a first prototype. With a coach and a small group you take your idea one step further.",
@@ -6521,6 +6663,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Peer feedback/exchange"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Members' lunch around swapping dishes – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around swapping dishes.",
@@ -6566,6 +6709,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around mulled wine – time to unwind, relaxed setting & guided networking.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around mulled wine. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -6612,6 +6756,7 @@ window.DEMO_DATEN = {
     "Expert guidance",
     "Small groups"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Practical Academy session on storytelling – hands-on workshop, practical exercises & expert input.",
    "beschreibung": {
     "worum": "A hands-on Academy session on storytelling. Instead of endless slides, we work on real cases from the room – you bring your project, we bring the methods.",
@@ -6658,6 +6803,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Collaboration"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our monthly community evening around the year in review – community gathering, guided networking & relaxed setting.",
    "beschreibung": {
     "worum": "Our monthly community evening – this time around the year in review. A short welcome, member news, then drinks and conversations that actually go somewhere.",
@@ -6703,6 +6849,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around weekly goals – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on weekly goals. Everyone shares one goal for the week and one thing they could use help with.",
@@ -6747,6 +6894,7 @@ window.DEMO_DATEN = {
     "Keynote/panel",
     "Informal"
    ],
+   "setting": "Panel",
    "zusammenfassung": "A short lunchtime input on business beyond growth – keynote & panel & relaxed setting.",
    "beschreibung": {
     "worum": "",
@@ -6792,6 +6940,7 @@ window.DEMO_DATEN = {
     "Matchmaking",
     "Keynote/panel"
    ],
+   "setting": "Workshop",
    "zusammenfassung": "Joint evening with a partner organisation on design for good – matchmaking & keynote & panel.",
    "beschreibung": {
     "worum": "",
@@ -6837,6 +6986,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Peer feedback/exchange"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around asks and offers – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on asks and offers. Everyone shares one goal for the week and one thing they could use help with.",
@@ -6883,6 +7033,7 @@ window.DEMO_DATEN = {
     "Skillshare",
     "Formal"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Peer circle for one member group around tech for good – small group, peer feedback & skillshare.",
    "beschreibung": {
     "worum": "A small peer circle around tech for good: people in the same situation share challenges and help each other – honest and confidential.",
@@ -6929,6 +7080,7 @@ window.DEMO_DATEN = {
     "Peer feedback/exchange",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Weekly coffee kick-off around last week's wins – community gathering, relaxed setting & peer feedback.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on last week's wins. Everyone shares one goal for the week and one thing they could use help with.",
@@ -6974,6 +7126,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Skillshare"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Members' lunch around holiday cookies – community gathering, relaxed setting & skillshare.",
    "beschreibung": {
     "worum": "One long table, good food and the people you usually only see behind a laptop – this time around holiday cookies.",
@@ -7020,6 +7173,7 @@ window.DEMO_DATEN = {
     "Guided networking",
     "Unwind"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "Our big quarterly celebration of the whole year – community gathering, keynote & panel & guided networking.",
    "beschreibung": {
     "worum": "",
@@ -7065,6 +7219,7 @@ window.DEMO_DATEN = {
     "Informal",
     "Small groups"
    ],
+   "setting": "Pairs",
    "zusammenfassung": "Weekly coffee kick-off around focus for the week – community gathering, relaxed setting & small group.",
    "beschreibung": {
     "worum": "Our weekly kick-off with coffee – this time with a focus on focus for the week. Everyone shares one goal for the week and one thing they could use help with.",
@@ -7111,6 +7266,7 @@ window.DEMO_DATEN = {
     "Community/Gathering",
     "Guided networking"
    ],
+   "setting": "Group Setting",
    "zusammenfassung": "End-of-month wine evening around winter reds – time to unwind, relaxed setting & community gathering.",
    "beschreibung": {
     "worum": "Our end-of-month Winedown – this time around winter reds. Close the laptop, raise a glass and celebrate the month with the community.",
@@ -7800,6 +7956,15 @@ window.DEMO_DATEN = {
  "model": {
   "jahr": 2026,
   "demoHeute": "2026-10-10",
+  "settings": [
+   "Workshop",
+   "Training",
+   "1:1 Consulting",
+   "Keynote",
+   "Panel",
+   "Group Setting",
+   "Pairs"
+  ],
   "kategorien": [
    "Community Monthlies",
    "Community Weeklies",
