@@ -7951,6 +7951,100 @@ window.DEMO_DATEN = {
     "tickets": "Members only, free. Sign-up via Eventbrite ({kapazitaet} seats).",
     "betreuung": "Lead: {verantwortlich} · On site: Membership Team (hosting the table)"
    }
+  },
+  {
+   "kategorie": "HiveMind",
+   "titelVorlage": "HiveMind: [Challenge]",
+   "titelIdeen": [
+    "HiveMind: {thema}",
+    "Ask the Hive: {thema}",
+    "Collective Brain: {thema}"
+   ],
+   "summaryVorlage": "Peer session where the community puts its heads together on {thema} – {merkmale}.",
+   "tags": [
+    "Peer feedback/exchange",
+    "Small groups",
+    "Group work"
+   ],
+   "socialText": "🐝 Bring a challenge, leave with ideas from the hive!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #HiveMind",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nThink about one question you'd like the group to help you with.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "A HiveMind session on {thema}: members bring a real challenge and the group works on it together – honest questions, ideas and experiences from peers.",
+    "rahmen": "Small round in the {ort} for up to {kapazitaet} people, guided by a host.",
+    "haeufigkeit": "Regular format – dates are set in the yearly plan.",
+    "warum": "The community knows more than any single expert. Sharing challenges builds trust and speed.",
+    "zielgruppe": "Members who want peer input on a current question.",
+    "ergebnis": "• Fresh perspectives on your challenge\n• Concrete next steps\n• New contacts in the Hub",
+    "agenda": [
+     [
+      0,
+      "Welcome & check-in"
+     ],
+     [
+      15,
+      "Challenges in the round"
+     ],
+     [
+      30,
+      "Group work on the challenges"
+     ],
+     [
+      80,
+      "Key takeaways"
+     ],
+     [
+      90,
+      "End"
+     ]
+    ],
+    "tickets": "Members only, free. {kapazitaet} spots via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · Hosting: Programme Team"
+   }
+  },
+  {
+   "kategorie": "Morning Spark",
+   "titelVorlage": "Morning Spark: [Topic]",
+   "titelIdeen": [
+    "Morning Spark: {thema}",
+    "Coffee & Spark: {thema}",
+    "Rise & Learn: {thema}"
+   ],
+   "summaryVorlage": "Short morning input on {thema} with coffee – {merkmale}.",
+   "tags": [
+    "Expert guidance",
+    "Informal",
+    "Keynote/panel"
+   ],
+   "socialText": "☀️ Start your day with a spark of inspiration!\n\n\"{titel}\"\n📅 {datum} at {uhrzeit}\n📍 {ort}\n\n{summary}\n\nSign up via the link in bio. 💛\n\n#ImpactHub #MorningSpark",
+   "mailText": "Hi everyone,\n\na friendly reminder: \"{titel}\" takes place on {datum} at {uhrzeit} ({ort}).\n\nCoffee is ready from 08:45 – come a little earlier.\n\nIf you can't make it, please release your spot via Eventbrite.\n\nSee you soon,\nyour Community Team",
+   "beschreibung": {
+    "worum": "A short morning input on {thema} – one idea, explained well, with time for questions.",
+    "rahmen": "Breakfast-style session in the {ort} for up to {kapazitaet} people, coffee on the house.",
+    "haeufigkeit": "Regular format – dates are set in the yearly plan.",
+    "warum": "A good start into the day: new knowledge in a short, easy format.",
+    "zielgruppe": "Members and guests curious about {thema}.",
+    "ergebnis": "• One clear new idea\n• Answers to your questions\n• An energising start to the day",
+    "agenda": [
+     [
+      0,
+      "Coffee & arrival"
+     ],
+     [
+      15,
+      "Input"
+     ],
+     [
+      40,
+      "Questions"
+     ],
+     [
+      60,
+      "End"
+     ]
+    ],
+    "tickets": "Free for members, {kapazitaet} spots via Eventbrite.",
+    "betreuung": "Lead: {verantwortlich} · Input: guest expert or member"
+   }
   }
  ],
  "model": {
@@ -7979,7 +8073,9 @@ window.DEMO_DATEN = {
    "Community Quarterlies",
    "Partner Deliverable",
    "Community Summer",
-   "Community"
+   "Community",
+   "HiveMind",
+   "Morning Spark"
   ],
   "zielAuslastung": 75,
   "basisMonat": {

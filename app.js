@@ -35,20 +35,23 @@
   // Reihenfolge und Namen wie in Notion
   const KATEGORIEN = ["Community Monthlies", "Community Weeklies", "Academy", "Drops of Inspiration", "Winedowns",
     "Town Hall", "Group-Specific", "Collaboration", "Idea Starter Pack", "Cross-Community", "Community Quarterlies",
-    "Partner Deliverable", "Community Summer", "Community"];
+    "Partner Deliverable", "Community Summer", "Community", "HiveMind", "Morning Spark"];
   // Die 14 Kategorien in 3 Gruppen – eine Farbe pro Gruppe (CSS: --grp-… in style.css).
   // So bleibt der Kalender ruhig; die genaue Kategorie steht trotzdem überall als Text dabei.
   // Feiner beschreiben die Tags und (mit den echten Daten) das Setting – danach kann man filtern.
   const GRUPPEN = [
-    { name: "Learn", klasse: "grp-learn", kategorien: ["Academy", "Drops of Inspiration", "Idea Starter Pack"],
+    { name: "Learn", klasse: "grp-learn", kategorien: ["Academy", "Drops of Inspiration", "Idea Starter Pack", "HiveMind", "Morning Spark"],
       text: "Content-forward or expert-guided sessions, skillshare or peer-to-peer feedback formats.",
       beispiele: "Academy · Drops of Inspiration · Idea Starter Pack · HiveMind · Morning Spark" },
-    { name: "Connect", klasse: "grp-connect", kategorien: ["Community Weeklies", "Community Monthlies", "Winedowns", "Town Hall", "Cross-Community", "Community Summer", "Group-Specific", "Collaboration", "Partner Deliverable"],
+    { name: "Connect", klasse: "grp-connect", kategorien: ["Community Weeklies", "Community Monthlies", "Winedowns", "Town Hall", "Cross-Community", "Community Summer", "Group-Specific", "Collaboration"],
       text: "Pure community formats and informal gatherings.",
       beispiele: "Community Weeklies (Bier um Vier) · Community Monthlies (Wednesday Wraps) · Winedowns · Town Halls (Impact Disco, Impact Ball) · Cross-Community · Community Summer" },
     { name: "Celebrate", klasse: "grp-celebrate", kategorien: ["Community", "Community Quarterlies"],
       text: "Our big celebrations.",
       beispiele: "Winter Party · Summer Party" },
+    { name: "Other", klasse: "grp-other", kategorien: ["Partner Deliverable"],
+      text: "Depends on the event and its content – can fit Learn, Connect or Celebrate.",
+      beispiele: "Partner Deliverable" },
   ];
   function gruppeVon(kat) {
     return GRUPPEN.find((g) => g.kategorien.includes(kat)) || GRUPPEN[1];

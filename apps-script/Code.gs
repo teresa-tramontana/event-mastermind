@@ -97,7 +97,7 @@ const KI_ANWEISUNG = [
   "- tags: the COMPLETE new tag list (it replaces the old one), ONLY tags from the 'tags' list in the data (exact",
   "  spelling). kategorie: Community Monthlies, Community Weeklies, Academy, Drops of Inspiration, Winedowns,",
   "  Town Hall, Group-Specific, Collaboration, Idea Starter Pack, Cross-Community, Community Quarterlies,",
-  "  Partner Deliverable, Community Summer, Community. status: Idea, Planned, Published, Done.",
+  "  Partner Deliverable, Community Summer, Community, HiveMind, Morning Spark. status: Idea, Planned, Published, Done.",
   "- verantwortlich and betreuung are ROLES or teams (e.g. 'Community Lead', 'Host team'), never names of people.",
   "- Write texts in English, in the style of the category template ('vorlagen'). Use the event's own data, the",
   "  template of its category (replace placeholders like {thema}, {ort}, {kapazitaet}) and the 'satz' of its tags.",

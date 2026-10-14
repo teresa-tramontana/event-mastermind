@@ -29,6 +29,7 @@
   --grp-learn: #d99a1e;          /* Safran */
   --grp-connect: #8e3b5e;        /* Pflaume */
   --grp-celebrate: #e39aa3;      /* Rosé */
+  --grp-other: #9c7a5b;          /* Taupe – je nach Event */
   --kat-academy: var(--grp-learn);
   --kat-drops: var(--grp-learn);
   --kat-idee: var(--grp-learn);
@@ -38,7 +39,9 @@
   --kat-gruppe: var(--grp-connect);
   --kat-collab: var(--grp-connect);
   --kat-cross: var(--grp-connect);
-  --kat-partner: var(--grp-connect);
+  --kat-partner: var(--grp-other);
+  --kat-hivemind: var(--grp-learn);
+  --kat-morning: var(--grp-learn);
   --kat-winedowns: var(--grp-connect);
   --kat-summer: var(--grp-connect);
   --kat-community: var(--grp-celebrate);      /* in Notion u. a. die Winter Party */
@@ -275,10 +278,13 @@ button { font: inherit; color: inherit; }
 .kat-Partner-Deliverable { --kat: var(--kat-partner); }
 .kat-Community-Summer { --kat: var(--kat-summer); }
 .kat-Community { --kat: var(--kat-community); }
+.kat-HiveMind { --kat: var(--kat-hivemind); }
+.kat-Morning-Spark { --kat: var(--kat-morning); }
 .kat-auslastung { --kat: var(--akzent); }
 .grp-learn { --kat: var(--grp-learn); }
 .grp-connect { --kat: var(--grp-connect); }
 .grp-celebrate { --kat: var(--grp-celebrate); }
+.grp-other { --kat: var(--grp-other); }
 .kat-punkt { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--kat); flex: none; }
 .kat-pille {
   display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 500;
@@ -876,11 +882,12 @@ a.banner-link:hover { border-color: var(--warnung); }
 .filter-menue-inhalt [hidden] { display: none; }
 
 /* Legende der Gruppen mit Erklärung (unter Kalender/Agenda) */
-.gruppen-legende { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.gruppen-legende { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
 .gruppen-legende > div { display: flex; gap: 8px; align-items: flex-start; font-size: .85rem; line-height: 1.4; }
 .gruppen-legende .kat-punkt { margin-top: 5px; }
 .gruppen-legende small { display: block; color: var(--text-leise); font-size: .75rem; margin-top: 2px; }
-@media (max-width: 900px) { .gruppen-legende { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .gruppen-legende { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .gruppen-legende { grid-template-columns: 1fr; } }
 
 /* ---------------------------------------------------------- Jahr: Quartalskarten, Plan matrix, Quartals-Kacheln */
 .quartals-karten { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
