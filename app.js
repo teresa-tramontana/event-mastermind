@@ -584,6 +584,8 @@
 
   // Kleine Symbole für den Umschalter ("Pille" neben dem Titel)
   const SYMBOL_KALENDER = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>';
+  const SYMBOL_RASTER = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>';
+  const SYMBOL_KACHELN = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>';
   const SYMBOL_LISTE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>';
 
   /** Umschalter neben dem Titel zeigen. optionen = [[wert, Beschriftung, Symbol], …] */
@@ -597,59 +599,157 @@
   }
 
   // ---------------------------------------------------------------- Year
+  // Zwei Darstellungen, umschaltbar über die "Pille" neben dem Titel:
+  //   Plan matrix = alle Kategorien × Monate/Quartale (nur Abweichungen sind farbig)
+  //   Quarters    = 4 Quartalsspalten mit je 3 Monatskacheln (Mix der Gruppen als Balken)
+  // Die Wahl merkt sich der Browser (einstellungen.jahresAnsicht). Die alte Quartals-Ansicht ist hier aufgegangen.
+
+  /** Ein Feld der Plan-Tabelle: ruhig, wenn alles passt; farbig nur bei Abweichung */
+  function matrixZelle(k, fett) {
+    if (!k) return '<span class="mx-zelle"></span>';
+    if (!k.geprueft) return `<span class="mx-zelle quartalsweise" title="Checked per quarter">${k.ist || ""}</span>`;
+    if (!k.ist && !k.soll) return '<span class="mx-zelle leer">·</span>';
+    const text = k.ist === k.soll ? String(k.ist) : `${k.ist}/${k.soll}`;
+    const art = !k.auffaellig ? "" : k.ist < k.soll ? "zu-wenig" : "zu-viel";
+    const titel = k.ist === k.soll ? "As planned" : `${k.ist} of ${k.soll} planned`;
+    return `<span class="mx-zelle ${art} ${fett ? "fett" : ""}" title="${titel}">${text}</span>`;
+  }
+
   ANSICHTEN.year = {
     blaettern: true,
     titel: (d) => "Year " + d.getFullYear(),
     schritt: (d, r) => new Date(d.getFullYear() + r, d.getMonth(), 1),
     zeichne(d) {
       const jahr = d.getFullYear();
-      const jahresEvents = eventsZwischen(new Date(jahr, 0, 1), new Date(jahr, 11, 31));
-      const sollJahrGesamt = Object.values(sollJahr()).reduce((a, b) => a + b, 0);
-      const jahresVergleich = vergleiche(jahresEvents, {}, zustand.model.zielAuslastung);
-      const wenig = eventsMitWenigAnmeldungen();
-      const wenigBald = wenig.filter((e) => anmeldeWarnung(e).art === "bald").length;
-      const konflikte = terminKonflikte();
-      const auffaelligeMonate = [];
+      const darstellung = zustand.einstellungen.jahresAnsicht === "quarters" ? "quarters" : "matrix";
+      zeigeUmschalter([["matrix", "Plan matrix", SYMBOL_RASTER], ["quarters", "Quarters", SYMBOL_KACHELN]], darstellung, (wert) => {
+        zustand.einstellungen.jahresAnsicht = wert;
+        window.DataLayer.speichereEinstellungen(zustand.einstellungen);
+        zeichne();
+      });
 
-      const kacheln = MONATE.map((name, i) => {
-        const v = vergleichMonat(jahr, i + 1);
-        if (v.abweichungen.length) auffaelligeMonate.push(name);
-        const punkte = eventsImMonat(jahr, i + 1)
-          .map((e) => `<span class="kat-punkt ${katKlasse(e.kategorie)}" title="${esc(e.titel)}"></span>`)
-          .join("");
-        const groesste = v.abweichungen.slice().sort((a, b) =>
-          (b.abw === Infinity ? 9 : Math.abs(b.abw)) - (a.abw === Infinity ? 9 : Math.abs(a.abw)))[0];
-        const istHeute = heute().getFullYear() === jahr && heute().getMonth() === i;
+      const jahresEvents = eventsZwischen(new Date(jahr, 0, 1), new Date(jahr, 11, 31));
+      const sollJ = sollJahr();
+      const sollJahrGesamt = Object.values(sollJ).reduce((a, b) => a + b, 0);
+      const jahresVergleich = vergleiche(jahresEvents, {}, zustand.model.zielAuslastung);
+      const monate = MONATE.map((name, i) => ({ name, nr: i + 1, v: vergleichMonat(jahr, i + 1), events: eventsImMonat(jahr, i + 1) }));
+      const quartale = [1, 2, 3, 4].map((q) => ({ q, v: vergleichQuartal(jahr, q), events: eventsImQuartal(jahr, q) }));
+      const monateAbw = monate.filter((m) => m.v.abweichungen.length).length;
+      const quartaleAbw = quartale.filter((q) => q.v.abweichungen.length).length;
+      const wenig = eventsMitWenigAnmeldungen();
+      const konflikte = terminKonflikte();
+      const luecken = eventsMitLuecken().length;
+      const heuteD = heute();
+      const tagText = alsText(d);
+      const groessteAbw = (v) => v.abweichungen.slice().sort((a, b) =>
+        (b.abw === Infinity ? 9 : Math.abs(b.abw)) - (a.abw === Infinity ? 9 : Math.abs(a.abw)))[0];
+
+      // ---- Kennzahlen (wie im Monat)
+      const kennzahlen = `
+        <div class="kennzahlen monat-kennzahlen">
+          <div class="kennzahl"><div class="label">Events this year</div><div class="wert">${jahresEvents.length}</div>
+            <div class="label">target ${sollJahrGesamt} from the blueprint</div></div>
+          <a class="kennzahl" href="#/deviations/${tagText}/auslastung"><div class="label">Occupancy (done)</div>
+            <div class="wert">${jahresVergleich.auslastung !== null ? prozent(jahresVergleich.auslastung) : "–"}</div>
+            <div class="label">target ${zustand.model.zielAuslastung}% · ${wenig.length} with low sign-ups <span class="mehr">details →</span></div></a>
+          <a class="kennzahl" href="#/deviations/${tagText}/abweichungen"><div class="label">Off plan</div>
+            <div class="wert ${monateAbw + quartaleAbw ? "text-kritisch" : ""}">${monateAbw + quartaleAbw || "✓"}</div>
+            <div class="label">${monateAbw} ${monateAbw === 1 ? "month" : "months"} · ${quartaleAbw} ${quartaleAbw === 1 ? "quarter" : "quarters"} <span class="mehr">details →</span></div></a>
+          <a class="kennzahl" href="#/deviations/${tagText}/fehlende-infos"><div class="label">Needs attention</div>
+            <div class="wert">${luecken + konflikte.wochen.length + konflikte.tage.length || "✓"}</div>
+            <div class="label">${luecken} missing info · ${konflikte.wochen.length + konflikte.tage.length} scheduling <span class="mehr">details →</span></div></a>
+        </div>`;
+
+      // ---- Quartalskarten (in beiden Darstellungen oben)
+      const quartalsKarten = `<div class="quartals-karten">${quartale.map(({ q, v }) => {
+        const jetzt = heuteD.getFullYear() === jahr && quartalVon(heuteD) === q;
+        const a = groessteAbw(v);
+        const occ = v.auslastung;
         return `
-          <button class="kachel ${v.abweichungen.length ? "mit-abweichung" : ""} ${istHeute ? "heute-monat" : ""}" data-monat="${i + 1}"
-                  aria-label="${name}: ${v.istGesamt} of ${v.sollGesamt} events. Open">
-            <div class="kachel-kopf"><strong>${name}</strong>
-              <span class="leise">${v.auslastung !== null ? "⌀ " + prozent(v.auslastung) : "open"}</span></div>
-            <div><span class="zahl">${v.istGesamt}</span> <span class="leise">/ ${v.sollGesamt} events</span></div>
-            <div class="mini-punkte">${punkte}</div>
-            <div class="hinweis">${groesste ? "⚠ " + esc(groesste.text) : "✓ on plan"}</div>
-          </button>`;
-      }).join("");
+          <div class="quartals-karte ${jetzt ? "jetzt" : ""}">
+            <div class="qk-kopf"><strong>Q${q}${jetzt ? " · now" : ""}</strong><span class="leise">${MONATE_KURZ[q * 3 - 3]} – ${MONATE_KURZ[q * 3 - 1]}</span></div>
+            <div class="qk-zahl"><strong>${v.istGesamt}</strong> <span class="leise">/ ${v.sollGesamt} events</span></div>
+            <div class="qk-auslastung"><span class="leise">Occupancy</span><strong>${occ !== null ? prozent(occ) : "upcoming"}</strong></div>
+            <div class="qk-balken ${occ !== null && occ > 1 ? "ueber" : ""}"><span style="width:${occ !== null ? Math.min(100, Math.round(occ * 100)) : 0}%"></span>
+              <i style="left:${zustand.model.zielAuslastung}%" title="Target ${zustand.model.zielAuslastung}%"></i></div>
+            ${a ? `<a class="qk-notiz warnend" href="#/deviations/${tagText}/abweichungen">${esc(a.text)}${v.abweichungen.length > 1 ? ` · +${v.abweichungen.length - 1} more` : ""}</a>`
+              : '<span class="qk-notiz">On plan</span>'}
+          </div>`;
+      }).join("")}</div>`;
+
+      // ---- Plan matrix
+      const matrix = () => {
+        const spalten = [];
+        quartale.forEach(({ q }) => {
+          for (let m = q * 3 - 2; m <= q * 3; m++) spalten.push({ art: "monat", nr: m });
+          spalten.push({ art: "quartal", nr: q });
+        });
+        const kopf = spalten.map((s) => s.art === "monat"
+          ? `<button class="mx-kopf ${heuteD.getFullYear() === jahr && heuteD.getMonth() === s.nr - 1 ? "jetzt" : ""}" data-monat="${s.nr}" title="Open ${MONATE[s.nr - 1]}">${MONATE_KURZ[s.nr - 1]}</button>`
+          : `<span class="mx-kopf fett">Q${s.nr}</span>`).join("") + '<span class="mx-kopf fett">Year</span>';
+        const zeilen = GRUPPEN.map((g) => `
+          <div class="mx-gruppe ${g.klasse}"><span class="kat-punkt"></span>${g.name}</div>
+          ${g.kategorien.map((kat) => {
+            const zellen = spalten.map((s) => {
+              const v = s.art === "monat" ? monate[s.nr - 1].v : quartale[s.nr - 1].v;
+              return matrixZelle(v.kategorien.find((k) => k.kat === kat), s.art === "quartal");
+            }).join("");
+            const ist = jahresEvents.filter((e) => e.kategorie === kat).length;
+            const soll = sollJ[kat] || 0;
+            const abw = soll ? (ist - soll) / soll : ist ? Infinity : 0;
+            const jahrZelle = matrixZelle({ ist, soll, geprueft: true, auffaellig: Math.abs(abw) > zustand.einstellungen.schwelleProzent / 100 }, true);
+            return `<div class="mx-zeile"><span class="mx-name">${esc(kat)}</span>${zellen}${jahrZelle}</div>`;
+          }).join("")}`).join("");
+        const auslastungsZeile = spalten.map((s) => {
+          const v = s.art === "monat" ? monate[s.nr - 1].v : quartale[s.nr - 1].v;
+          if (v.auslastung === null) return '<span class="mx-zelle leer">·</span>';
+          const auff = v.auslastungAbw !== null && Math.abs(v.auslastungAbw) > zustand.einstellungen.schwelleProzent / 100;
+          return `<span class="mx-zelle ${auff ? (v.auslastung > v.ziel ? "zu-viel" : "zu-wenig") : ""} ${s.art === "quartal" ? "fett" : ""}">${Math.round(v.auslastung * 100)}</span>`;
+        }).join("") + `<span class="mx-zelle fett">${jahresVergleich.auslastung !== null ? Math.round(jahresVergleich.auslastung * 100) : "·"}</span>`;
+        return `
+          <section class="matrix-karte">
+            <div class="matrix">
+              <div class="mx-zeile mx-kopfzeile"><span class="mx-name">Category</span>${kopf}</div>
+              ${zeilen}
+              <div class="mx-gruppe"><span>Occupancy in % <span class="leise">(target ${zustand.model.zielAuslastung})</span></span></div>
+              <div class="mx-zeile"><span class="mx-name">Events that took place</span>${auslastungsZeile}</div>
+            </div>
+          </section>
+          <div class="legende matrix-legende">
+            <span><span class="mx-muster"></span>as planned</span>
+            <span><span class="mx-muster zu-wenig"></span>too few (actual / target)</span>
+            <span><span class="mx-muster zu-viel"></span>more than planned</span>
+            <span>Grey numbers = quarterly formats, checked in the Q column · click a month to open it</span>
+          </div>`;
+      };
+
+      // ---- Quarters (Kacheln)
+      const kacheln = () => `<div class="quartals-spalten">${quartale.map(({ q, v }) => `
+        <section class="quartals-spalte">
+          <div class="qs-kopf"><h2>Q${q}</h2><span><strong>${v.istGesamt}</strong> <span class="leise">/ ${v.sollGesamt}</span></span></div>
+          ${monate.slice(q * 3 - 3, q * 3).map((m) => {
+            const jetzt = heuteD.getFullYear() === jahr && heuteD.getMonth() === m.nr - 1;
+            const a = groessteAbw(m.v);
+            const notiz = sollMonat(m.nr).notiz;
+            const mix = GRUPPEN.map((g) => [g, m.events.filter((e) => g.kategorien.includes(e.kategorie)).length]).filter(([, n]) => n);
+            return `
+            <button class="monats-kachel ${jetzt ? "jetzt" : ""}" data-monat="${m.nr}" aria-label="${m.name}: ${m.events.length} events. Open">
+              <span class="mk-kopf"><strong>${m.name}</strong><span class="leise">${m.v.auslastung !== null ? prozent(m.v.auslastung) : "upcoming"}</span></span>
+              <span class="mk-zahl"><strong>${m.events.length}</strong> <span class="leise">events</span></span>
+              <span class="mk-mix" title="${mix.map(([g, n]) => g.name + ": " + n).join(" · ")}">${mix.map(([g, n]) => `<span class="${g.klasse}" style="flex:${n} 1 0"></span>`).join("")}</span>
+              <span class="mk-notiz ${a ? "text-kritisch" : "leise"}">${a ? "⚠ " + esc(a.text) : notiz ? "✓ " + esc(notiz) : "✓ On plan"}</span>
+            </button>`;
+          }).join("")}
+        </section>`).join("")}</div>
+        <p class="leise klein-text matrix-legende">Bar = mix of the groups · % = occupancy of events that took place · click a month to open it</p>`;
 
       $inhalt.innerHTML = `
-        <div class="kennzahlen">
-          <div class="kennzahl"><div class="wert">${jahresEvents.length}</div><div class="label">events this year (target ${sollJahrGesamt})</div></div>
-          <div class="kennzahl"><div class="wert">${jahresEvents.filter((e) => e.status === "Done").length}</div><div class="label">already done</div></div>
-          <a class="kennzahl" href="#/deviations/${alsText(d)}/auslastung" title="Show details"><div class="wert">${jahresVergleich.auslastung !== null ? prozent(jahresVergleich.auslastung) : "–"}</div><div class="label">⌀ occupancy (target ${zustand.model.zielAuslastung}%) <span class="mehr">details →</span></div></a>
-          <a class="kennzahl ${wenig.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/auslastung" title="Show details"><div class="wert">${wenig.length ? "⚠ " + wenig.length : "✓"}</div><div class="label">events with sign-ups &lt; ${zustand.einstellungen.mindestAnmeldungProzent}%${wenigBald ? ` (${wenigBald} upcoming)` : ""} <span class="mehr">details →</span></div></a>
-          <a class="kennzahl ${konflikte.wochen.length || konflikte.tage.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/termine" title="Show details"><div class="wert">${konflikte.wochen.length || konflikte.tage.length ? "⚠ " + (konflikte.wochen.length + konflikte.tage.length) : "✓"}</div><div class="label">scheduling conflicts (${konflikte.wochen.length} weeks, ${konflikte.tage.length} days) <span class="mehr">details →</span></div></a>
-          <a class="kennzahl ${auffaelligeMonate.length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/abweichungen" title="Show details"><div class="wert">${auffaelligeMonate.length ? "⚠ " + auffaelligeMonate.length : "✓"}</div><div class="label">months deviating &gt; ${zustand.einstellungen.schwelleProzent}% <span class="mehr">details →</span></div></a>
-          <a class="kennzahl ${eventsMitLuecken().length ? "warnend" : ""}" href="#/deviations/${alsText(d)}/fehlende-infos"><div class="wert">${eventsMitLuecken().length ? "⚠ " + eventsMitLuecken().length : "✓"}</div><div class="label">events with missing description info <span class="mehr">details →</span></div></a>
-        </div>
-        <div class="heatmap">${kacheln}</div>
-        <div class="abschnitt">
-          <div class="legende">${KATEGORIEN.map((k) =>
-            `<span class="${katKlasse(k)}"><span class="kat-punkt"></span>${k}</span>`).join("")}</div>
-        </div>
-        <p class="leise abschnitt">Tip: click a month to open its calendar. “⌀” = average occupancy of events that already took place.</p>`;
+        ${kennzahlen}
+        ${darstellung === "matrix" ? quartalsKarten + matrix() : kacheln()}
+        ${gruppenLegende()}`;
 
-      $inhalt.querySelectorAll(".kachel").forEach((k) =>
-        k.addEventListener("click", () => geheZu("month", new Date(jahr, Number(k.dataset.monat) - 1, 1))));
+      $inhalt.querySelectorAll("[data-monat]").forEach((b) =>
+        b.addEventListener("click", () => geheZu("month", new Date(jahr, Number(b.dataset.monat) - 1, 1))));
     },
   };
 
@@ -2291,6 +2391,7 @@
   /** Adresse (Hash) wie "#/month/2026-11-01" -> Ansicht + Datum */
   function leseAdresse() {
     const teile = window.location.hash.replace(/^#\/?/, "").split("/");
+    if (teile[0] === "quarter") teile[0] = "year"; // die Quartale stehen jetzt im Jahr
     const ansicht = ANSICHTEN[teile[0]] ? teile[0] : "month";
     const datum = teile[1] && /^\d{4}-\d{2}-\d{2}$/.test(teile[1]) ? alsDatum(teile[1]) : null;
     return { ansicht, datum, fokus: teile[2] || null };

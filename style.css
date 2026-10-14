@@ -881,3 +881,62 @@ a.banner-link:hover { border-color: var(--warnung); }
 .gruppen-legende .kat-punkt { margin-top: 5px; }
 .gruppen-legende small { display: block; color: var(--text-leise); font-size: .75rem; margin-top: 2px; }
 @media (max-width: 900px) { .gruppen-legende { grid-template-columns: 1fr; } }
+
+/* ---------------------------------------------------------- Jahr: Quartalskarten, Plan matrix, Quartals-Kacheln */
+.quartals-karten { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 16px; }
+.quartals-karte { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.quartals-karte.jetzt { border: 2px solid var(--akzent); }
+.qk-kopf, .qk-auslastung { display: flex; justify-content: space-between; align-items: baseline; font-size: .85rem; }
+.qk-kopf strong { font-size: 1rem; }
+.qk-zahl strong { font-size: 1.5rem; }
+.qk-balken { position: relative; height: 6px; background: #f1e6d8; border-radius: 6px; }
+.qk-balken > span { display: block; height: 100%; border-radius: 6px; background: var(--grp-connect); }
+.qk-balken.ueber > span { background: var(--warnung); }
+.qk-balken i { position: absolute; top: -3px; width: 2px; height: 12px; background: var(--text); }
+.qk-notiz { align-self: flex-start; font-size: .78rem; border-radius: 6px; padding: 3px 8px; background: var(--ok-hell); color: #7a5a1e; text-decoration: none; }
+.qk-notiz.warnend { background: var(--kritisch-hell); color: var(--kritisch); font-weight: 700; }
+
+.matrix-karte { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); padding: 8px 0 12px; overflow-x: auto; }
+.matrix { min-width: 980px; }
+.mx-zeile { display: grid; grid-template-columns: 190px repeat(17, minmax(0, 1fr)); gap: 3px; align-items: center; padding: 2px 16px; }
+.mx-kopfzeile { padding-top: 6px; padding-bottom: 6px; font-size: .75rem; color: var(--text-leise); }
+.mx-name { font-size: .82rem; padding-left: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mx-kopfzeile .mx-name { padding-left: 0; }
+.mx-kopf { text-align: center; background: none; border: 0; padding: 4px 0; font-size: .75rem; color: var(--text-leise); border-radius: 5px; }
+button.mx-kopf { cursor: pointer; }
+button.mx-kopf:hover { background: var(--hintergrund); color: var(--text); }
+.mx-kopf.fett { font-weight: 700; color: var(--text); }
+.mx-kopf.jetzt { color: var(--akzent); font-weight: 700; }
+.mx-gruppe { display: flex; align-items: center; gap: 8px; padding: 10px 16px 4px; font-weight: 700; font-size: .85rem; }
+.mx-zelle { text-align: center; font-size: .78rem; border-radius: 5px; padding: 4px 0; background: var(--flaeche-warm); min-height: 1.2em; }
+.mx-zelle.fett { font-weight: 700; }
+.mx-zelle.leer { background: none; color: #d8cabb; }
+.mx-zelle.quartalsweise { background: none; color: #9c8b7e; }
+.mx-zelle.zu-wenig { background: var(--kritisch-hell); color: var(--kritisch); font-weight: 700; }
+.mx-zelle.zu-viel { background: var(--warnung-hell); color: var(--akzent-dunkel); font-weight: 700; }
+.mx-zeile > .mx-zelle:last-child { margin-left: 6px; }
+.matrix-legende { margin-top: 10px; font-size: .8rem; }
+.mx-muster { display: inline-block; width: 22px; height: 14px; border-radius: 4px; background: var(--flaeche-warm); }
+.mx-muster.zu-wenig { background: var(--kritisch-hell); }
+.mx-muster.zu-viel { background: var(--warnung-hell); }
+
+.quartals-spalten { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.quartals-spalte { background: var(--flaeche-warm); border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+.qs-kopf { display: flex; justify-content: space-between; align-items: baseline; padding: 2px 4px 4px; }
+.monats-kachel { display: flex; flex-direction: column; gap: 8px; text-align: left; background: var(--flaeche); border: 1px solid var(--linie);
+  border-radius: 12px; padding: 12px 14px; cursor: pointer; transition: transform .12s, box-shadow .12s; }
+.monats-kachel:hover { transform: translateY(-2px); box-shadow: var(--schatten); }
+.monats-kachel.jetzt { border: 2px solid var(--akzent); }
+.mk-kopf { display: flex; justify-content: space-between; align-items: baseline; font-size: .8rem; }
+.mk-kopf strong { font-size: .95rem; }
+.mk-zahl strong { font-size: 1.5rem; }
+.mk-mix { display: flex; gap: 2px; height: 10px; border-radius: 5px; overflow: hidden; background: #f1e6d8; }
+.mk-mix > span { background: var(--kat); }
+.mk-notiz { font-size: .78rem; }
+
+@media (max-width: 900px) {
+  .quartals-karten, .quartals-spalten { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .quartals-karten, .quartals-spalten { grid-template-columns: 1fr; }
+}
