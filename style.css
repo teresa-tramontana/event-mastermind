@@ -39,10 +39,10 @@
   --kat-collab: var(--grp-connect);
   --kat-cross: var(--grp-connect);
   --kat-partner: var(--grp-connect);
-  --kat-community: var(--grp-connect);
   --kat-winedowns: var(--grp-connect);
-  --kat-summer: var(--grp-celebrate);
-  --kat-quarterlies: var(--grp-celebrate);
+  --kat-summer: var(--grp-connect);
+  --kat-community: var(--grp-celebrate);      /* in Notion u. a. die Winter Party */
+  --kat-quarterlies: var(--grp-celebrate);    /* u. a. die Summer Party */
 
 
   /* Eingabefelder: weiß mit ruhigem Rahmen (gut lesbar) */

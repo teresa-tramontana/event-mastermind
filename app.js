@@ -41,11 +41,14 @@
   // Feiner beschreiben die Tags und (mit den echten Daten) das Setting – danach kann man filtern.
   const GRUPPEN = [
     { name: "Learn", klasse: "grp-learn", kategorien: ["Academy", "Drops of Inspiration", "Idea Starter Pack"],
-      text: "Content formats, expert-guided sessions and skillshare or peer-to-peer feedback formats." },
-    { name: "Connect", klasse: "grp-connect", kategorien: ["Community Weeklies", "Community Monthlies", "Winedowns", "Community", "Town Hall", "Group-Specific", "Collaboration", "Cross-Community", "Partner Deliverable"],
-      text: "Pure community formats and informal gatherings." },
-    { name: "Celebrate", klasse: "grp-celebrate", kategorien: ["Community Summer", "Community Quarterlies"],
-      text: "Our big celebrations: Summer Party and Winter Party." },
+      text: "Content-forward or expert-guided sessions, skillshare or peer-to-peer feedback formats.",
+      beispiele: "Academy · Drops of Inspiration · Idea Starter Pack · HiveMind · Morning Spark" },
+    { name: "Connect", klasse: "grp-connect", kategorien: ["Community Weeklies", "Community Monthlies", "Winedowns", "Town Hall", "Cross-Community", "Community Summer", "Group-Specific", "Collaboration", "Partner Deliverable"],
+      text: "Pure community formats and informal gatherings.",
+      beispiele: "Community Weeklies (Bier um Vier) · Community Monthlies (Wednesday Wraps) · Winedowns · Town Halls (Impact Disco, Impact Ball) · Cross-Community · Community Summer" },
+    { name: "Celebrate", klasse: "grp-celebrate", kategorien: ["Community", "Community Quarterlies"],
+      text: "Our big celebrations.",
+      beispiele: "Winter Party · Summer Party" },
   ];
   function gruppeVon(kat) {
     return GRUPPEN.find((g) => g.kategorien.includes(kat)) || GRUPPEN[1];
@@ -780,7 +783,7 @@
   function gruppenLegende() {
     return `<div class="gruppen-legende">${GRUPPEN.map((g) => `
       <div class="${g.klasse}"><span class="kat-punkt"></span><span><strong>${g.name}</strong> ${esc(g.text)}
-        <small>${g.kategorien.map(esc).join(" · ")}</small></span></div>`).join("")}</div>`;
+        <small>${esc(g.beispiele)}</small></span></div>`).join("")}</div>`;
   }
 
   /** Die Gruppen im Monat: Ist/Soll (nur Kategorien, die im Monat geprüft werden) */
