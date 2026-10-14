@@ -39,10 +39,10 @@
   --kat-collab: var(--grp-connect);
   --kat-cross: var(--grp-connect);
   --kat-partner: var(--grp-connect);
-  --kat-community: var(--grp-celebrate);
+  --kat-community: var(--grp-connect);
+  --kat-winedowns: var(--grp-connect);
   --kat-summer: var(--grp-celebrate);
   --kat-quarterlies: var(--grp-celebrate);
-  --kat-winedowns: var(--grp-celebrate);
 
 
   /* Eingabefelder: weiß mit ruhigem Rahmen (gut lesbar) */
@@ -874,3 +874,10 @@ a.banner-link:hover { border-color: var(--warnung); }
 .tag-suche { width: 100%; box-sizing: border-box; padding: 7px 10px; border: 1px solid var(--feld-rand); border-radius: var(--radius-klein); font: inherit; background: var(--feld); }
 .filter-chip.gewaehlt { background: var(--flaeche-warm); }
 .filter-menue-inhalt [hidden] { display: none; }
+
+/* Legende der Gruppen mit Erklärung (unter Kalender/Agenda) */
+.gruppen-legende { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.gruppen-legende > div { display: flex; gap: 8px; align-items: flex-start; font-size: .85rem; line-height: 1.4; }
+.gruppen-legende .kat-punkt { margin-top: 5px; }
+.gruppen-legende small { display: block; color: var(--text-leise); font-size: .75rem; margin-top: 2px; }
+@media (max-width: 900px) { .gruppen-legende { grid-template-columns: 1fr; } }

@@ -40,9 +40,12 @@
   // So bleibt der Kalender ruhig; die genaue Kategorie steht trotzdem überall als Text dabei.
   // Feiner beschreiben die Tags und (mit den echten Daten) das Setting – danach kann man filtern.
   const GRUPPEN = [
-    { name: "Learn", klasse: "grp-learn", kategorien: ["Academy", "Drops of Inspiration", "Idea Starter Pack"] },
-    { name: "Connect", klasse: "grp-connect", kategorien: ["Community Weeklies", "Community Monthlies", "Town Hall", "Group-Specific", "Collaboration", "Cross-Community", "Partner Deliverable"] },
-    { name: "Celebrate", klasse: "grp-celebrate", kategorien: ["Community", "Community Summer", "Community Quarterlies", "Winedowns"] },
+    { name: "Learn", klasse: "grp-learn", kategorien: ["Academy", "Drops of Inspiration", "Idea Starter Pack"],
+      text: "Content formats, expert-guided sessions and skillshare or peer-to-peer feedback formats." },
+    { name: "Connect", klasse: "grp-connect", kategorien: ["Community Weeklies", "Community Monthlies", "Winedowns", "Community", "Town Hall", "Group-Specific", "Collaboration", "Cross-Community", "Partner Deliverable"],
+      text: "Pure community formats and informal gatherings." },
+    { name: "Celebrate", klasse: "grp-celebrate", kategorien: ["Community Summer", "Community Quarterlies"],
+      text: "Our big celebrations: Summer Party and Winter Party." },
   ];
   function gruppeVon(kat) {
     return GRUPPEN.find((g) => g.kategorien.includes(kat)) || GRUPPEN[1];
@@ -505,7 +508,7 @@
     const settings = alleSettings();
     const gruppenKnoepfe = [["", "All"]].concat(GRUPPEN.map((g) => [g.name, g.name])).map(([wert, text]) => {
       const g = GRUPPEN.find((x) => x.name === wert);
-      return `<button type="button" class="filter-chip ${g ? g.klasse : ""}" data-filter-gruppe="${esc(wert)}" aria-pressed="${f.gruppe === wert}">${g ? '<span class="kat-punkt"></span>' : ""}${esc(text)}</button>`;
+      return `<button type="button" class="filter-chip ${g ? g.klasse : ""}" data-filter-gruppe="${esc(wert)}" aria-pressed="${f.gruppe === wert}" title="${g ? esc(g.text) : "Show all groups"}">${g ? '<span class="kat-punkt"></span>' : ""}${esc(text)}</button>`;
     }).join("");
     return `
       <div class="filter-leiste" role="group" aria-label="Filter events">
@@ -773,7 +776,14 @@
     return liste;
   }
 
-  /** Die 4 Gruppen im Monat: Ist/Soll (nur Kategorien, die im Monat geprüft werden) */
+  /** Legende: die 3 Gruppen mit kurzer Erklärung */
+  function gruppenLegende() {
+    return `<div class="gruppen-legende">${GRUPPEN.map((g) => `
+      <div class="${g.klasse}"><span class="kat-punkt"></span><span><strong>${g.name}</strong> ${esc(g.text)}
+        <small>${g.kategorien.map(esc).join(" · ")}</small></span></div>`).join("")}</div>`;
+  }
+
+  /** Die Gruppen im Monat: Ist/Soll (nur Kategorien, die im Monat geprüft werden) */
   function gruppenStand(v) {
     return GRUPPEN.map((g) => {
       const kats = v.kategorien.filter((k) => g.kategorien.includes(k.kat));
@@ -855,8 +865,7 @@
             </div>`;
         }
         return `<div class="kalender">${zellen}</div>
-          <div class="legende kalender-legende">${GRUPPEN.map((g) => `<span class="${g.klasse}"><span class="kat-punkt"></span>${g.name}</span>`).join("")}
-            <span class="legende-rechts">Thin bar = sign-ups · faded = done · <strong class="text-kritisch">!</strong> = needs attention</span></div>`;
+          <p class="legende kalender-legende"><span>Thin bar = sign-ups · faded = done · <strong class="text-kritisch">!</strong> = needs attention</span></p>`;
       };
 
       // ---- Agenda (Woche für Woche)
@@ -917,7 +926,7 @@
       const gruppen = gruppenStand(v).map((x) => `
         <details class="gruppe-zeile ${x.g.klasse}">
           <summary>
-            <span class="gruppe-name"><span class="kat-punkt"></span>${x.g.name}</span>
+            <span class="gruppe-name" title="${esc(x.g.text)}"><span class="kat-punkt"></span>${x.g.name}</span>
             <span class="gruppe-zahl ${x.auffaellig ? "text-kritisch" : ""}"><strong>${x.ist}</strong> / ${x.soll}</span>
             <span class="gruppe-balken ${x.auffaellig ? "warnend" : ""}"><span style="width:${x.soll ? Math.min(100, Math.round(100 * x.ist / x.soll)) : 100}%"></span></span>
           </summary>
@@ -930,7 +939,7 @@
         ${kennzahlen}
         ${filterLeiste([monatsEvents.filter(passtZumFilter).length, monatsEvents.length])}
         <div class="monat-layout">
-          <div class="monat-haupt">${darstellung === "agenda" ? agenda() : kalender()}</div>
+          <div class="monat-haupt">${darstellung === "agenda" ? agenda() : kalender()}${gruppenLegende()}</div>
           <aside class="monat-seite">
             ${darstellung === "agenda" ? miniKalender() : ""}
             <section class="seiten-karte">
