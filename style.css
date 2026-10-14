@@ -861,3 +861,16 @@ a.banner-link:hover { border-color: var(--warnung); }
 .filter-auswahl select { appearance: none; padding-right: 14px; }
 .filter-auswahl select:disabled { color: var(--text-leise); cursor: not-allowed; background: var(--hintergrund); }
 .filter-zahl { font-size: .85rem; margin-left: auto; }
+
+/* Tags in der Schublade direkt wählen */
+.tags-zeile { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.tag-waehler { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; padding: 12px; background: var(--hintergrund); border-radius: var(--radius-klein); }
+.tag-waehler p { flex-basis: 100%; }
+.tag-wahl { border: 1px solid var(--linie); background: var(--flaeche); border-radius: 999px; padding: 4px 12px; font-size: .82rem; cursor: pointer; }
+.tag-wahl:hover { border-color: var(--akzent); }
+.tag-wahl[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: #fff; }
+.tag-wahl[aria-pressed="true"]::before { content: "✓ "; }
+/* Tag-Filter: Suchfeld und gewählte Tags */
+.tag-suche { width: 100%; box-sizing: border-box; padding: 7px 10px; border: 1px solid var(--feld-rand); border-radius: var(--radius-klein); font: inherit; background: var(--feld); }
+.filter-chip.gewaehlt { background: var(--flaeche-warm); }
+.filter-menue-inhalt [hidden] { display: none; }

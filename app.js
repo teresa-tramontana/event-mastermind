@@ -513,10 +513,13 @@
         <details class="filter-menue" ${zustand.filterMenueOffen ? "open" : ""}>
           <summary class="${f.tags.length ? "aktiv" : ""}">Tags${f.tags.length ? ` · ${f.tags.length}` : ""} ▾</summary>
           <div class="filter-menue-inhalt">
+            <input type="search" class="tag-suche" data-tag-suche placeholder="Find a tag …" aria-label="Find a tag" autocomplete="off">
             <p class="leise klein-text">Shows events with at least one of the ticked tags.</p>
-            ${zustand.tags.map((t) => `<label class="haken"><input type="checkbox" data-filter-tag="${esc(t.tag)}" ${f.tags.includes(t.tag) ? "checked" : ""}> ${esc(t.tag)}</label>`).join("")}
+            ${zustand.tags.map((t) => `<label class="haken" data-tag-name="${esc(t.tag.toLowerCase())}"><input type="checkbox" data-filter-tag="${esc(t.tag)}" ${f.tags.includes(t.tag) ? "checked" : ""}> ${esc(t.tag)}</label>`).join("")}
+            <p class="leise klein-text tag-keine" hidden>No tag found.</p>
           </div>
         </details>
+        ${f.tags.map((t) => `<button type="button" class="filter-chip gewaehlt" data-filter-tag-weg="${esc(t)}" title="Remove this tag from the filter">${esc(t)} ×</button>`).join("")}
         <label class="filter-auswahl ${f.setting ? "aktiv" : ""}">
           <span class="sr-only">Setting</span>
           <select data-filter-setting ${settings.length ? "" : "disabled"} title="${settings.length ? "Filter by setting (placeholder list until the Notion data is connected)" : "Settings come with the real data from Notion"}">
@@ -550,7 +553,23 @@
       });
     }
     const menue = bereich.querySelector(".filter-menue");
-    if (menue) menue.addEventListener("toggle", () => { zustand.filterMenueOffen = menue.open; });
+    if (menue) menue.addEventListener("toggle", () => {
+      zustand.filterMenueOffen = menue.open;
+      if (menue.open) menue.querySelector("[data-tag-suche]").focus();
+    });
+    // Tag-Suche im Menü: blendet nur Einträge aus, nichts wird neu gezeichnet
+    const tagSuche = bereich.querySelector("[data-tag-suche]");
+    if (tagSuche) tagSuche.addEventListener("input", () => {
+      const wort = tagSuche.value.trim().toLowerCase();
+      let sichtbar = 0;
+      bereich.querySelectorAll("[data-tag-name]").forEach((l) => {
+        l.hidden = Boolean(wort) && !l.dataset.tagName.includes(wort);
+        if (!l.hidden) sichtbar++;
+      });
+      bereich.querySelector(".tag-keine").hidden = sichtbar > 0;
+    });
+    bereich.querySelectorAll("[data-filter-tag-weg]").forEach((b) =>
+      b.addEventListener("click", () => neu({ tags: zustand.filter.tags.filter((t) => t !== b.dataset.filterTagWeg) })));
     const auswahl = bereich.querySelector("[data-filter-setting]");
     if (auswahl) auswahl.addEventListener("change", () => neu({ setting: auswahl.value }));
     const reset = bereich.querySelector("[data-filter-reset]");
@@ -982,7 +1001,15 @@
           <div>
             ${e.zusammenfassung ? `<p class="summary">${esc(e.zusammenfassung)}</p>` : ""}
           </div>
-          <div class="tags">${tagPillen(e.tags)}</div>
+          <div class="tags-zeile">
+            <div class="tags">${(e.tags || []).length ? tagPillen(e.tags) : '<span class="leise klein-text">No tags yet</span>'}</div>
+            <button type="button" class="knopf klein leise" data-tags-umschalten aria-expanded="${drawerStand.tagsOffen === e.id}">${drawerStand.tagsOffen === e.id ? "Done" : "✎ Tags"}</button>
+          </div>
+          ${drawerStand.tagsOffen === e.id ? `
+          <div class="tag-waehler" role="group" aria-label="Choose tags">
+            <p class="leise klein-text">Click to add or remove a tag – saved right away.</p>
+            ${zustand.tags.map((t) => `<button type="button" class="tag-wahl" data-tag-wahl="${esc(t.tag)}" aria-pressed="${(e.tags || []).includes(t.tag)}" title="${esc(t.satz)}">${esc(t.tag)}</button>`).join("")}
+          </div>` : ""}
         </div>
         <div class="event-meta">
           <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span>${e.setting ? `<span>🎭 ${esc(e.setting)}</span>` : ""}<span>👤 ${esc(e.verantwortlich)}</span>
@@ -1011,6 +1038,24 @@
   function verbindeEventKarten(bereich) {
     bereich.querySelectorAll(".event-karte").forEach((karte) => {
       const event = zustand.events.find((e) => e.id === karte.dataset.event);
+      // Tags direkt hier wählen (ohne das ganze Formular); jede Änderung wird sofort gespeichert
+      const umschalter = karte.querySelector("[data-tags-umschalten]");
+      if (umschalter) umschalter.addEventListener("click", () => {
+        drawerStand.tagsOffen = drawerStand.tagsOffen === event.id ? null : event.id;
+        zeigeEventDrawer(event.id, true);
+      });
+      karte.querySelectorAll("[data-tag-wahl]").forEach((knopf) =>
+        knopf.addEventListener("click", async () => {
+          const tag = knopf.dataset.tagWahl;
+          const tags = (event.tags || []).filter((t) => t !== tag);
+          if (tags.length === (event.tags || []).length) tags.push(tag);
+          // Reihenfolge wie in der festen Tag-Liste
+          event.tags = zustand.tags.map((t) => t.tag).filter((t) => tags.includes(t));
+          await window.DataLayer.speichereEvent(event);
+          await ladeNeu();
+          zeichne();
+          zeigeMeldung(tags.includes(tag) ? `Tag “${tag}” added ✓` : `Tag “${tag}” removed`);
+        }));
       karte.querySelectorAll("[data-aufgabe]").forEach((box) =>
         box.addEventListener("change", async () => {
           event.aufgaben[Number(box.dataset.aufgabe)].erledigt = box.checked;
@@ -1138,7 +1183,7 @@
   const $drawer = document.getElementById("event-drawer");
   const $drawerSchatten = document.getElementById("drawer-schatten");
   // Was zeigt die Schublade gerade? modus "ansehen" = Details, "bearbeiten" = Formular
-  const drawerStand = { id: null, modus: "ansehen", abbrechen: null, geaendert: null };
+  const drawerStand = { id: null, modus: "ansehen", abbrechen: null, geaendert: null, tagsOffen: null };
 
   /** Kopf und Fußleiste der Schublade setzen und sie (falls zu) hereinfahren lassen */
   function fuelleDrawer({ pillen, titel, unter, fuss }) {
@@ -1166,6 +1211,7 @@
     if (!erzwingen && drawerStand.modus === "bearbeiten" && drawerStand.id === id && !$drawer.hidden) return;
     const e = zustand.events.find((x) => x.id === id);
     if (!e) return verbergeEventDrawer();
+    if (drawerStand.id !== id) drawerStand.tagsOffen = null; // Tag-Auswahl nur beim selben Event offen lassen
     Object.assign(drawerStand, { id, modus: "ansehen", abbrechen: null, geaendert: null });
     const z = eventZeitraum(e);
     const inhalt = fuelleDrawer({
