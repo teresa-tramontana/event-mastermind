@@ -27,6 +27,8 @@
     ansicht: "year",
     datum: null, // das Datum, um das sich die Ansicht dreht ("Cursor")
     suche: { text: "", kategorie: "", status: "", nurKommende: false, nurLuecken: false },
+    // Filter für Month und List: Gruppe, Tags (mind. einer muss passen), Setting (kommt mit den echten Daten)
+    filter: { gruppe: "", tags: [], setting: "" },
     benutzer: { angemeldet: false, email: "", mailMoeglich: false, kiMoeglich: false },
   };
 
@@ -34,14 +36,17 @@
   const KATEGORIEN = ["Community Monthlies", "Community Weeklies", "Academy", "Drops of Inspiration", "Winedowns",
     "Town Hall", "Group-Specific", "Collaboration", "Idea Starter Pack", "Cross-Community", "Community Quarterlies",
     "Partner Deliverable", "Community Summer", "Community"];
-  // Die 14 Kategorien in 4 Gruppen – eine Farbe pro Gruppe (CSS: --grp-… in style.css).
+  // Die 14 Kategorien in 3 Gruppen – eine Farbe pro Gruppe (CSS: --grp-… in style.css).
   // So bleibt der Kalender ruhig; die genaue Kategorie steht trotzdem überall als Text dabei.
+  // Feiner beschreiben die Tags und (mit den echten Daten) das Setting – danach kann man filtern.
   const GRUPPEN = [
-    { name: "Gather", klasse: "grp-gather", kategorien: ["Community Weeklies", "Community Monthlies", "Community Quarterlies", "Town Hall", "Winedowns"] },
     { name: "Learn", klasse: "grp-learn", kategorien: ["Academy", "Drops of Inspiration", "Idea Starter Pack"] },
-    { name: "Connect", klasse: "grp-connect", kategorien: ["Group-Specific", "Collaboration", "Cross-Community", "Partner Deliverable"] },
-    { name: "Celebrate", klasse: "grp-celebrate", kategorien: ["Community", "Community Summer"] },
+    { name: "Connect", klasse: "grp-connect", kategorien: ["Community Weeklies", "Community Monthlies", "Town Hall", "Group-Specific", "Collaboration", "Cross-Community", "Partner Deliverable"] },
+    { name: "Celebrate", klasse: "grp-celebrate", kategorien: ["Community", "Community Summer", "Community Quarterlies", "Winedowns"] },
   ];
+  function gruppeVon(kat) {
+    return GRUPPEN.find((g) => g.kategorien.includes(kat)) || GRUPPEN[1];
+  }
   const STATUS = ["Idea", "Planned", "Published", "Done"];
   const MONATE = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
@@ -476,6 +481,80 @@
   // ======================================================================
   const ANSICHTEN = {};
 
+  // ---------- Filter (Month und List): Gruppe · Tags · Setting
+  /** Alle Settings, die in den Daten vorkommen (Feld "setting"; im Demo noch leer, kommt mit Notion) */
+  function alleSettings() {
+    return [...new Set(zustand.events.map((e) => String(e.setting || "").trim()).filter(Boolean))].sort();
+  }
+  function filterAktiv() {
+    const f = zustand.filter;
+    return Boolean(f.gruppe || f.tags.length || f.setting);
+  }
+  function passtZumFilter(e) {
+    const f = zustand.filter;
+    if (f.gruppe && gruppeVon(e.kategorie).name !== f.gruppe) return false;
+    if (f.tags.length && !(e.tags || []).some((t) => f.tags.includes(t))) return false;
+    if (f.setting && String(e.setting || "").trim() !== f.setting) return false;
+    return true;
+  }
+  /** Filterleiste (HTML). "anzahl" = [passend, alle] für den Hinweis rechts */
+  function filterLeiste(anzahl) {
+    const f = zustand.filter;
+    const settings = alleSettings();
+    const gruppenKnoepfe = [["", "All"]].concat(GRUPPEN.map((g) => [g.name, g.name])).map(([wert, text]) => {
+      const g = GRUPPEN.find((x) => x.name === wert);
+      return `<button type="button" class="filter-chip ${g ? g.klasse : ""}" data-filter-gruppe="${esc(wert)}" aria-pressed="${f.gruppe === wert}">${g ? '<span class="kat-punkt"></span>' : ""}${esc(text)}</button>`;
+    }).join("");
+    return `
+      <div class="filter-leiste" role="group" aria-label="Filter events">
+        <div class="filter-chips">${gruppenKnoepfe}</div>
+        <details class="filter-menue" ${zustand.filterMenueOffen ? "open" : ""}>
+          <summary class="${f.tags.length ? "aktiv" : ""}">Tags${f.tags.length ? ` · ${f.tags.length}` : ""} ▾</summary>
+          <div class="filter-menue-inhalt">
+            <p class="leise klein-text">Shows events with at least one of the ticked tags.</p>
+            ${zustand.tags.map((t) => `<label class="haken"><input type="checkbox" data-filter-tag="${esc(t.tag)}" ${f.tags.includes(t.tag) ? "checked" : ""}> ${esc(t.tag)}</label>`).join("")}
+          </div>
+        </details>
+        <label class="filter-auswahl ${f.setting ? "aktiv" : ""}">
+          <span class="sr-only">Setting</span>
+          <select data-filter-setting ${settings.length ? "" : "disabled"} title="${settings.length ? "Filter by setting" : "Settings come with the real data from Notion"}">
+            ${settings.length
+              ? `<option value="">All settings</option>${settings.map((x) => `<option ${x === f.setting ? "selected" : ""}>${esc(x)}</option>`).join("")}`
+              : "<option>Setting · coming with Notion</option>"}
+          </select>
+        </label>
+        ${filterAktiv() ? `<button type="button" class="knopf klein leise" data-filter-reset>Reset filter</button>` : ""}
+        ${anzahl && filterAktiv() ? `<span class="filter-zahl leise">${anzahl[0]} of ${anzahl[1]} events shown</span>` : ""}
+      </div>`;
+  }
+  /** Filterleiste bedienbar machen; bei jeder Änderung wird die Ansicht neu gezeichnet */
+  function verbindeFilter(bereich) {
+    const neu = (aenderung) => { Object.assign(zustand.filter, aenderung); zeichne(); };
+    bereich.querySelectorAll("[data-filter-gruppe]").forEach((b) =>
+      b.addEventListener("click", () => neu({ gruppe: b.dataset.filterGruppe })));
+    bereich.querySelectorAll("[data-filter-tag]").forEach((c) => c.addEventListener("change", () => {
+      const tags = zustand.filter.tags.filter((t) => t !== c.dataset.filterTag);
+      if (c.checked) tags.push(c.dataset.filterTag);
+      zustand.filterMenueOffen = true; // Tag-Menü nach dem Neuzeichnen offen lassen
+      neu({ tags });
+    }));
+    // Klick irgendwo anders schließt das Tag-Menü (nur einmal einrichten)
+    if (!verbindeFilter.klickDaneben) {
+      verbindeFilter.klickDaneben = true;
+      document.addEventListener("click", (ev) => {
+        if (ev.target.closest(".filter-menue")) return;
+        document.querySelectorAll(".filter-menue[open]").forEach((m) => { m.open = false; });
+        zustand.filterMenueOffen = false;
+      });
+    }
+    const menue = bereich.querySelector(".filter-menue");
+    if (menue) menue.addEventListener("toggle", () => { zustand.filterMenueOffen = menue.open; });
+    const auswahl = bereich.querySelector("[data-filter-setting]");
+    if (auswahl) auswahl.addEventListener("change", () => neu({ setting: auswahl.value }));
+    const reset = bereich.querySelector("[data-filter-reset]");
+    if (reset) reset.addEventListener("click", () => { zustand.filterMenueOffen = false; neu({ gruppe: "", tags: [], setting: "" }); });
+  }
+
   // Kleine Symbole für den Umschalter ("Pille" neben dem Titel)
   const SYMBOL_KALENDER = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>';
   const SYMBOL_LISTE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>';
@@ -735,8 +814,8 @@
         for (let tag = new Date(start); tag <= ende; tag = plusTage(tag, 1)) {
           const text = alsText(tag);
           const fremd = tag.getMonth() !== monat - 1;
-          const events = fremd ? [] : zustand.events.filter((e) => e.datum === text)
-            .sort((a, b) => a.startzeit.localeCompare(b.startzeit));
+          const alleAmTag = fremd ? [] : zustand.events.filter((e) => e.datum === text);
+          const events = alleAmTag.filter(passtZumFilter).sort((a, b) => a.startzeit.localeCompare(b.startzeit));
           const chips = events.map((e) => {
             const problem = eventProbleme(e);
             return `
@@ -747,10 +826,10 @@
               ${anmeldeBalken(e)}
             </button>`;
           }).join("");
-          const konflikt = !fremd && events.length > maxProTag;
+          const konflikt = !fremd && alleAmTag.length > maxProTag;
           zellen += `
             <div class="tag-zelle ${fremd ? "fremd" : ""} ${text === heuteText ? "heute" : ""} ${events.length ? "" : "ohne-events"} ${konflikt ? "konflikt" : ""}">
-              <button class="tag-nr" data-datum="${text}" title="Open week">${tag.getDate()}<span class="tag-nr-wt"> ${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]}</span>${konflikt ? ` <span class="konflikt-text" title="${events.length} events on the same day">⚠ ${events.length}</span>` : ""}</button>
+              <button class="tag-nr" data-datum="${text}" title="Open week">${tag.getDate()}<span class="tag-nr-wt"> ${WOCHENTAGE_KURZ[(tag.getDay() + 6) % 7]}</span>${konflikt ? ` <span class="konflikt-text" title="${alleAmTag.length} events on the same day">⚠ ${alleAmTag.length}</span>` : ""}</button>
               ${chips}
             </div>`;
         }
@@ -765,7 +844,7 @@
         for (let w = new Date(start); w <= letzter; w = plusTage(w, 7)) {
           const wEnde = plusTage(w, 6);
           const alleWoche = eventsZwischen(w, wEnde);
-          const events = alleWoche.filter((e) => e.datum.startsWith(alsText(erster).slice(0, 7)));
+          const events = alleWoche.filter((e) => e.datum.startsWith(alsText(erster).slice(0, 7)) && passtZumFilter(e));
           const istJetzt = heuteText >= alsText(w) && heuteText <= alsText(wEnde);
           const zuViele = alleWoche.length > maxProWoche;
           const von = w.getMonth() === wEnde.getMonth() ? String(w.getDate()) : w.getDate() + " " + MONATE_KURZ[w.getMonth()];
@@ -789,7 +868,7 @@
                   <span class="agenda-anmeldung">${kap ? `<small><strong>${Number(e.anmeldungen) || 0}</strong> / ${kap} spots</small>${anmeldeBalken(e)}` : '<small class="leise">no spots set</small>'}</span>
                   <span class="agenda-info ${fehlt ? "text-kritisch" : "leise"}">${fehlt ? (fehlt === BESCHREIBUNG_TEILE.length ? "no description" : fehlt + " missing") : "complete"}</span>
                 </button>`;
-              }).join("") : '<p class="agenda-leer leise">Nothing planned.</p>'}
+              }).join("") : `<p class="agenda-leer leise">${filterAktiv() ? "No matching events." : "Nothing planned."}</p>`}
             </section>`;
         }
         return `<div class="agenda">${html}</div>`;
@@ -828,6 +907,7 @@
 
       $inhalt.innerHTML = `
         ${kennzahlen}
+        ${filterLeiste([monatsEvents.filter(passtZumFilter).length, monatsEvents.length])}
         <div class="monat-layout">
           <div class="monat-haupt">${darstellung === "agenda" ? agenda() : kalender()}</div>
           <aside class="monat-seite">
@@ -841,11 +921,12 @@
               <h2>Plan check</h2>
               ${notiz ? `<p class="leise klein-text">This month: ${esc(notiz)}</p>` : ""}
               <div class="gruppen-liste">${gruppen}</div>
-              <p class="leise klein-text">Click a group to see its categories.</p>
+              <p class="leise klein-text">Click a group to see its categories. Counts always include all events, also when a filter is set.</p>
             </section>
           </aside>
         </div>`;
 
+      verbindeFilter($inhalt);
       $inhalt.querySelectorAll(".tag-nr, .mini-tag").forEach((b) =>
         b.addEventListener("click", () => geheZu("week", alsDatum(b.dataset.datum))));
       $inhalt.querySelectorAll("[data-woche]").forEach((b) =>
@@ -902,7 +983,7 @@
           <div class="tags">${tagPillen(e.tags)}</div>
         </div>
         <div class="event-meta">
-          <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span><span>👤 ${esc(e.verantwortlich)}</span>
+          <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span>${e.setting ? `<span>🎭 ${esc(e.setting)}</span>` : ""}<span>👤 ${esc(e.verantwortlich)}</span>
           ${e.eventbriteId ? `<span title="Eventbrite ID (demo)">🎟 ${esc(e.eventbriteId)}</span>` : ""}
           ${e.kalenderId ? `<span title="Calendar ID (demo)">📅 ${esc(e.kalenderId)}</span>` : ""}
         </div>
@@ -1156,6 +1237,7 @@
       ["Category", e.kategorie],
       ["Status", e.status],
       ["Location", e.ort],
+      ["Setting", e.setting],
       ["Owner", e.verantwortlich],
       ["Tasks", (e.aufgaben || []).map((a) => a.text).join(", ")],
       ["Date", e.datum + " " + datumSchoen(e.datum, true) + " " + MONATE_KURZ[d.getMonth()] + " Q" + quartalVon(d)],
@@ -1194,6 +1276,7 @@
       .filter((e) => !s.status || e.status === s.status)
       .filter((e) => !s.nurKommende || e.datum >= heuteText)
       .filter((e) => !s.nurLuecken || beschreibungsStand(e) !== "ok")
+      .filter(passtZumFilter)
       .map((e) => {
         const felder = suchFelder(e);
         const alles = felder.map((f) => String(f[1] || "")).join(" \n ").toLowerCase();
@@ -1229,6 +1312,7 @@
           <p class="leise breit" style="margin:0;font-size:.82rem">Searches titles, summaries, descriptions, tags, locations, owners, tasks, dates and IDs.
             Several words = all must match. Tip: click a tag on a result to search for it.</p>
         </section>
+        <div class="abschnitt">${filterLeiste()}</div>
         <div id="suchergebnisse" class="abschnitt"></div>`;
 
       const gross = document.getElementById("suche-gross");
@@ -1237,6 +1321,7 @@
       document.getElementById("filter-status").addEventListener("change", (ev) => setzeSuche({ status: ev.target.value }));
       document.getElementById("filter-kommend").addEventListener("change", (ev) => setzeSuche({ nurKommende: ev.target.checked }));
       document.getElementById("filter-luecken").addEventListener("change", (ev) => setzeSuche({ nurLuecken: ev.target.checked }));
+      verbindeFilter($inhalt);
       zeichneSuchergebnisse();
       if (document.activeElement !== document.getElementById("suche")) gross.focus();
     },
@@ -1961,6 +2046,9 @@
             ${feldHtml("Location", `<input name="ort" list="orte" value="${esc(e.ort)}">`)}
             ${feldHtml("Owner", `<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}">`, '<span class="f-hilfe">a role, no real names</span>')}
           </div>
+          <div class="f-reihe">
+            ${feldHtml("Setting", `<input name="setting" list="settings" value="${esc(e.setting || "")}" placeholder="comes from Notion later">`, '<span class="f-hilfe">optional, used for filtering</span>')}
+          </div>
         </section>
 
         <section class="f-abschnitt">
@@ -1995,6 +2083,7 @@
 
         <datalist id="team">${team.map((x) => `<option value="${esc(x)}">`).join("")}</datalist>
         <datalist id="orte">${orte.map((x) => `<option value="${esc(x)}">`).join("")}</datalist>
+        <datalist id="settings">${alleSettings().map((x) => `<option value="${esc(x)}">`).join("")}</datalist>
         <p class="f-hinweis">Only title and date are required. Saved in this browser only – “Reset demo data” (bottom of the page) undoes everything.</p>
         <p id="formular-fehler" class="text-kritisch"></p>
       </form>`;
@@ -2091,6 +2180,7 @@
         kategorie: String(f.get("kategorie")),
         status: String(f.get("status")),
         ort: String(f.get("ort")).trim(),
+        setting: String(f.get("setting") || "").trim(),
         "kapazität": Math.max(0, Number(f.get("kapazität")) || 0),
         anmeldungen: Math.max(0, Number(f.get("anmeldungen")) || 0),
         verantwortlich: String(f.get("verantwortlich")).trim(),

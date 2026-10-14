@@ -25,25 +25,24 @@
   --kritisch-hell: #f9d9d4;
 
   /* Ein Farbton pro Kategorie */
-  /* 4 Gruppen – eine Farbe pro Gruppe (die 14 Kategorien bekommen die Farbe ihrer Gruppe) */
-  --grp-gather: #8e3b5e;         /* Pflaume */
+  /* 3 Gruppen – eine Farbe pro Gruppe (die 14 Kategorien bekommen die Farbe ihrer Gruppe) */
   --grp-learn: #d99a1e;          /* Safran */
-  --grp-connect: #d2552e;        /* Terrakotta */
+  --grp-connect: #8e3b5e;        /* Pflaume */
   --grp-celebrate: #e39aa3;      /* Rosé */
-  --kat-weeklies: var(--grp-gather);
-  --kat-monthlies: var(--grp-gather);
-  --kat-quarterlies: var(--grp-gather);
-  --kat-townhall: var(--grp-gather);
-  --kat-winedowns: var(--grp-gather);
   --kat-academy: var(--grp-learn);
   --kat-drops: var(--grp-learn);
   --kat-idee: var(--grp-learn);
+  --kat-weeklies: var(--grp-connect);
+  --kat-monthlies: var(--grp-connect);
+  --kat-townhall: var(--grp-connect);
   --kat-gruppe: var(--grp-connect);
   --kat-collab: var(--grp-connect);
   --kat-cross: var(--grp-connect);
   --kat-partner: var(--grp-connect);
   --kat-community: var(--grp-celebrate);
   --kat-summer: var(--grp-celebrate);
+  --kat-quarterlies: var(--grp-celebrate);
+  --kat-winedowns: var(--grp-celebrate);
 
 
   /* Eingabefelder: weiß mit ruhigem Rahmen (gut lesbar) */
@@ -277,7 +276,6 @@ button { font: inherit; color: inherit; }
 .kat-Community-Summer { --kat: var(--kat-summer); }
 .kat-Community { --kat: var(--kat-community); }
 .kat-auslastung { --kat: var(--akzent); }
-.grp-gather { --kat: var(--grp-gather); }
 .grp-learn { --kat: var(--grp-learn); }
 .grp-connect { --kat: var(--grp-connect); }
 .grp-celebrate { --kat: var(--grp-celebrate); }
@@ -838,3 +836,28 @@ a.banner-link:hover { border-color: var(--warnung); }
   .agenda-anmeldung { grid-column: 2; }
 }
 .blaettern { flex-wrap: wrap; }
+
+/* ---------------------------------------------------------- Filterleiste (Month, List) */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.filter-leiste { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 14px; }
+.filter-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.filter-chip, .filter-menue summary, .filter-auswahl select {
+  display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--linie); background: var(--flaeche);
+  border-radius: 999px; padding: 6px 14px; font-size: .85rem; font-weight: 500; cursor: pointer; color: var(--text);
+}
+.filter-chip:hover, .filter-menue summary:hover { border-color: var(--akzent); }
+.filter-chip[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: #fff; }
+.filter-chip .kat-punkt { width: 8px; height: 8px; }
+.filter-menue { position: relative; }
+.filter-menue summary { list-style: none; }
+.filter-menue summary::-webkit-details-marker { display: none; }
+.filter-menue summary.aktiv, .filter-auswahl.aktiv select { background: var(--text); border-color: var(--text); color: #fff; }
+.filter-menue-inhalt {
+  position: absolute; z-index: 20; top: calc(100% + 6px); left: 0; width: 260px; max-height: 340px; overflow: auto;
+  background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--radius); box-shadow: var(--schatten);
+  padding: 12px; display: flex; flex-direction: column; gap: 6px;
+}
+.filter-menue-inhalt .haken { display: flex; align-items: center; gap: 8px; font-size: .88rem; }
+.filter-auswahl select { appearance: none; padding-right: 14px; }
+.filter-auswahl select:disabled { color: var(--text-leise); cursor: not-allowed; background: var(--hintergrund); }
+.filter-zahl { font-size: .85rem; margin-left: auto; }
