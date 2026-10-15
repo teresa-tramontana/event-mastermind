@@ -264,11 +264,13 @@
       : `<span class="abzeichen" title="Missing: ${esc(fehlendeTeile(e).join(", "))}">⚠ ${fehlendeTeile(e).length} missing</span>`;
   }
   /** Die ganze Description, gegliedert; fehlende Abschnitte deutlich markiert */
-  function beschreibungHtml(b, kategorie) {
+  /** ohne: Abschnitte, die woanders stehen (z. B. "betreuung" oben in der Schublade) */
+  function beschreibungHtml(b, kategorie, ohne) {
     b = normBeschreibung(b);
-    const gruppen = [...new Set(BESCHREIBUNG_TEILE.map((t) => t.gruppe))];
+    const sichtbar = BESCHREIBUNG_TEILE.filter((t) => !(ohne || []).includes(t.schluessel));
+    const gruppen = [...new Set(sichtbar.map((t) => t.gruppe))];
     const inhalt = gruppen.map((gruppe) => {
-      const teile = BESCHREIBUNG_TEILE.filter((t) => t.gruppe === gruppe);
+      const teile = sichtbar.filter((t) => t.gruppe === gruppe);
       return `<div class="b-gruppe"><h4>${esc(gruppe)}</h4>${teile.map((t) => `
         ${t.frage !== gruppe ? `<h5>${esc(t.frage)}</h5>` : ""}
         ${b[t.schluessel]
@@ -1075,35 +1077,10 @@
   };
 
   // ---------------------------------------------------------------- Week
-  /** Was sollte als Nächstes passieren? (Reminder-Hinweis) */
-  function reminderHinweis(e) {
-    const d = tageBis(e.datum);
-    const offen = (e.aufgaben || []).filter((a) => !a.erledigt).map((a) => a.text);
-    const tagVorher = (n) => datumSchoen(alsText(plusTage(alsDatum(e.datum), -n)));
-    if (e.status === "Done" || d < 0) {
-      if (offen.length) return { stufe: "ruhig", text: "📝 Follow-up still open: " + offen.join(", ") };
-      return null;
-    }
-    if (e.status === "Idea") {
-      return { stufe: d <= 30 ? "dringend" : "ruhig", text: `💡 Still an idea – confirm date, room and speaker${d <= 30 ? ` (only ${d} days left!)` : ""}.` };
-    }
-    if (e.status === "Planned") {
-      if (d <= 21) return { stufe: "dringend", text: `📣 Not published yet – only ${d} days until the event!` };
-      return { stufe: "ruhig", text: `📣 Publish on Eventbrite by ${tagVorher(21)} at the latest.` };
-    }
-    // Published
-    if (offen.includes("Send reminder email")) {
-      if (d <= 1) return { stufe: "dringend", text: `⏰ Send the reminder email ${d === 0 ? "first thing today" : "today"} – the event is ${d === 0 ? "today" : "tomorrow"}!` };
-      if (d <= 7) return { stufe: "", text: `⏰ Send the reminder email on ${tagVorher(2)} (2 days before).` };
-      return { stufe: "ruhig", text: `⏰ Reminder email scheduled for ${tagVorher(2)}.` };
-    }
-    return { stufe: "ruhig", text: "✓ Reminder has been sent." };
-  }
-
   function eventKarte(e) {
     const kap = Number(e["kapazität"]) || 0;
     const quote = kap ? e.anmeldungen / kap : 0;
-    const r = reminderHinweis(e);
+    const betreuung = normBeschreibung(e.beschreibung).betreuung;
     const aufgaben = (e.aufgaben || []).map((a, i) => `
       <li class="${a.erledigt ? "erledigt" : ""}">
         <input type="checkbox" data-aufgabe="${i}" ${a.erledigt ? "checked" : ""} id="a-${esc(e.id)}-${i}">
@@ -1113,9 +1090,6 @@
     return `
       <article class="event-karte ${katKlasse(e.kategorie)}" id="event-${esc(e.id)}" data-event="${esc(e.id)}">
         <div class="event-kopf">
-          <div>
-            ${e.zusammenfassung ? `<p class="summary">${esc(e.zusammenfassung)}</p>` : ""}
-          </div>
           <div class="tags-zeile">
             <div class="tags">${(e.tags || []).length ? tagPillen(e.tags) : '<span class="leise klein-text">No tags yet</span>'}</div>
             <button type="button" class="knopf klein leise" data-tags-umschalten aria-expanded="${drawerStand.tagsOffen === e.id}">${drawerStand.tagsOffen === e.id ? "Done" : "✎ Tags"}</button>
@@ -1127,9 +1101,7 @@
           </div>` : ""}
         </div>
         <div class="event-meta">
-          <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span>${e.setting ? `<span>🎭 ${esc(e.setting)}</span>` : ""}<span>👤 ${esc(e.verantwortlich)}</span>
-          ${e.eventbriteId ? `<span title="Eventbrite ID (demo)">🎟 ${esc(e.eventbriteId)}</span>` : ""}
-          ${e.kalenderId ? `<span title="Calendar ID (demo)">📅 ${esc(e.kalenderId)}</span>` : ""}
+          <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span><span title="Attended by / responsibility">👤 ${betreuung ? esc(betreuung) : `Lead: ${esc(e.verantwortlich || "–")} <span class="fehlt-text">· ⚠ attended by missing</span>`}</span>
         </div>
         <div class="event-raster">
           <div>
@@ -1144,8 +1116,7 @@
         </div>
         ${anmeldeHinweis(e)}
         ${lueckenHinweis(e)}
-        ${beschreibungsStand(e) !== "keine" ? `<section class="drawer-abschnitt beschreibung-offen"><h3>Description${beschreibungsStand(e) === "luecken" ? ' <span class="text-kritisch">· incomplete</span>' : ""}</h3>${beschreibungHtml(e.beschreibung, e.kategorie)}</section>` : ""}
-        ${r ? `<div class="reminder ${r.stufe}">${esc(r.text)}</div>` : ""}
+        ${beschreibungsStand(e) !== "keine" ? `<section class="drawer-abschnitt beschreibung-offen"><h3>Description${beschreibungsStand(e) === "luecken" ? ' <span class="text-kritisch">· incomplete</span>' : ""}</h3>${beschreibungHtml(e.beschreibung, e.kategorie, ["betreuung"])}</section>` : ""}
       </article>`;
   }
 
@@ -1301,9 +1272,12 @@
   const drawerStand = { id: null, modus: "ansehen", abbrechen: null, geaendert: null, tagsOffen: null };
 
   /** Kopf und Fußleiste der Schublade setzen und sie (falls zu) hereinfahren lassen */
-  function fuelleDrawer({ pillen, titel, unter, fuss }) {
+  function fuelleDrawer({ pillen, titel, summary, unter, fuss }) {
     document.getElementById("drawer-pillen").innerHTML = pillen || "";
     document.getElementById("drawer-titel").textContent = titel;
+    const $summary = document.getElementById("drawer-summary");
+    $summary.textContent = summary || "";
+    $summary.hidden = !summary;
     document.getElementById("drawer-datum").textContent = unter || "";
     document.getElementById("drawer-fuss").innerHTML = fuss || "";
     const inhalt = document.getElementById("drawer-inhalt");
@@ -1332,6 +1306,7 @@
     const inhalt = fuelleDrawer({
       pillen: `${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)} ${anmeldeAbzeichen(e)}`,
       titel: e.titel,
+      summary: e.zusammenfassung,
       unter: datumSchoen(e.datum, true) + " · " + uhrzeit(z.von) + " – " + uhrzeit(z.bis),
       fuss: `
         <button type="button" class="knopf klein" data-aktion="social">✨ Social post</button>
@@ -2109,8 +2084,9 @@
     });
   }
 
-  const STANDARD_AUFGABEN = ["Ask speaker", "Book room", "Create Eventbrite page",
-    "Plan social post", "Send reminder email"];
+  const STANDARD_AUFGABEN = ["Room booked (Huble)", "Eventbrite page live",
+    "Event shared on Social Media", "Event shared with members (weekly email)",
+    "Reminder sent", "Shared via WhatsApp", "KPIs collected"];
 
   /** Häufigster Wert eines Feldes bei Events einer Kategorie (z. B. übliche Startzeit) */
   function ueblich(kategorie, feld, ersatz) {

@@ -35,15 +35,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -82,15 +98,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -128,15 +160,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -174,15 +222,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -221,15 +285,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -266,15 +346,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -312,15 +408,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -359,15 +471,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -406,15 +534,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -453,15 +597,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -499,15 +659,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -546,15 +722,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -592,15 +784,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -638,15 +846,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -684,15 +908,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -730,15 +970,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -776,15 +1032,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -821,15 +1093,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -867,15 +1155,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -914,15 +1218,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -960,15 +1280,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1007,15 +1343,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send feedback email",
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1053,15 +1405,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1100,15 +1468,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1147,15 +1531,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1193,15 +1593,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1239,15 +1655,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1286,15 +1718,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1332,15 +1780,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send feedback email",
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1379,15 +1843,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1425,15 +1905,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1470,15 +1966,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1516,15 +2028,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1563,15 +2091,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1610,15 +2154,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1657,15 +2217,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1703,15 +2279,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1750,15 +2342,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1797,15 +2405,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1843,15 +2467,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1890,15 +2530,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1936,15 +2592,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -1982,15 +2654,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2028,15 +2716,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2074,15 +2778,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2121,15 +2841,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2168,15 +2904,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -2215,15 +2967,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2261,15 +3029,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2307,15 +3091,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2354,15 +3154,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2400,15 +3216,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2447,15 +3279,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -2493,15 +3341,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2539,15 +3403,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2585,15 +3465,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2632,15 +3528,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2679,15 +3591,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2725,15 +3653,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2770,15 +3714,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2816,15 +3776,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2863,15 +3839,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2910,15 +3902,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -2955,15 +3963,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3002,15 +4026,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -3048,15 +4088,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3095,15 +4151,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3142,15 +4214,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3188,15 +4276,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -3235,15 +4339,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3281,15 +4401,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3328,15 +4464,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -3375,15 +4527,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send feedback email",
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3421,15 +4589,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -3466,15 +4650,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3512,15 +4712,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3559,15 +4775,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3606,15 +4838,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3652,15 +4900,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3699,15 +4963,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3746,15 +5026,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3793,15 +5089,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3840,15 +5152,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -3887,15 +5215,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3933,15 +5277,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -3979,15 +5339,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4025,15 +5401,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4071,15 +5463,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4118,15 +5526,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4165,15 +5589,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4212,15 +5652,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4258,15 +5714,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4304,15 +5776,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4351,15 +5839,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4398,15 +5902,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4445,15 +5965,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4492,15 +6028,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4538,15 +6090,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send feedback email",
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4584,15 +6152,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4629,15 +6213,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4675,15 +6275,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4721,15 +6337,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4767,15 +6399,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4813,15 +6461,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
      "erledigt": false
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4859,15 +6523,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4905,15 +6585,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4951,15 +6647,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -4998,15 +6710,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5044,15 +6772,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5091,15 +6835,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5137,15 +6897,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5184,15 +6960,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5230,15 +7022,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -5277,15 +7085,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -5324,15 +7148,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5371,15 +7211,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5418,15 +7274,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
-     "erledigt": false
-    },
-    {
-     "text": "Send feedback email",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Eventbrite page live",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5464,15 +7336,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5510,15 +7398,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5556,15 +7460,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5603,15 +7523,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Share photos",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Send feedback email",
+     "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Add numbers to Notion",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": true
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": true
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": true
     }
    ]
@@ -5649,19 +7585,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -5699,19 +7647,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -5749,19 +7709,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -5800,20 +7772,32 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": true
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
-     "erledigt": true
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
+     "erledigt": false
     }
    ]
   },
@@ -5851,19 +7835,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -5902,19 +7898,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": true
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -5952,19 +7960,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": true
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6003,19 +8023,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6053,20 +8085,32 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": true
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
+     "erledigt": true
+    },
+    {
+     "text": "Reminder sent",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
-     "erledigt": true
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
+     "erledigt": false
     }
    ]
   },
@@ -6103,19 +8147,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6154,19 +8210,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": true
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6205,19 +8273,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": true
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6256,19 +8336,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
+     "text": "Room booked (Huble)",
+     "erledigt": true
+    },
+    {
      "text": "Eventbrite page live",
      "erledigt": true
     },
     {
-     "text": "Share social post",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Send reminder email",
+     "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Confirm catering",
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6306,15 +8398,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6352,15 +8460,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6398,15 +8522,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6445,15 +8585,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6492,15 +8648,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6539,15 +8711,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6586,15 +8774,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6632,15 +8836,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6678,15 +8898,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6724,15 +8960,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6771,15 +9023,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6818,15 +9086,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6864,15 +9148,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6909,15 +9209,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Ask speaker",
+     "text": "Room booked (Huble)",
      "erledigt": false
     },
     {
-     "text": "Book room",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Clarify budget",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -6955,15 +9271,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Ask speaker",
+     "text": "Room booked (Huble)",
      "erledigt": false
     },
     {
-     "text": "Book room",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Clarify budget",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -7001,15 +9333,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -7048,15 +9396,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -7095,15 +9459,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -7141,15 +9521,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -7188,15 +9584,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Ask speaker",
+     "text": "Room booked (Huble)",
      "erledigt": false
     },
     {
-     "text": "Book room",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Clarify budget",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -7234,15 +9646,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]
@@ -7281,15 +9709,31 @@ window.DEMO_DATEN = {
    },
    "aufgaben": [
     {
-     "text": "Book room",
+     "text": "Room booked (Huble)",
      "erledigt": true
     },
     {
-     "text": "Create Eventbrite page",
+     "text": "Eventbrite page live",
      "erledigt": false
     },
     {
-     "text": "Plan social post",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Event shared with members (weekly email)",
+     "erledigt": false
+    },
+    {
+     "text": "Reminder sent",
+     "erledigt": false
+    },
+    {
+     "text": "Shared via WhatsApp",
+     "erledigt": false
+    },
+    {
+     "text": "KPIs collected",
      "erledigt": false
     }
    ]

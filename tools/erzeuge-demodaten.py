@@ -760,13 +760,18 @@ def nter_wochentag(m, wochentag, n):
 TEAM = ["Community Lead", "Programme Team", "Host Team",
         "Membership Team", "Events Intern"]
 
+# Feste Aufgabenliste für jedes Event (Reihenfolge = Anzeige, gleiche Liste wie STANDARD_AUFGABEN in app.js).
+# True/False = erledigt ja/nein, None = Zufall. Je Status gleich viele None wie früher,
+# damit der feste Zufall (und damit alle anderen Demo-Daten) gleich bleibt.
+AUFGABEN_TEXTE = ["Room booked (Huble)", "Eventbrite page live",
+                  "Event shared on Social Media", "Event shared with members (weekly email)",
+                  "Reminder sent", "Shared via WhatsApp", "KPIs collected"]
 AUFGABEN = {
-    "Idea": [("Ask speaker", False), ("Book room", False), ("Clarify budget", False)],
-    "Planned": [("Book room", True), ("Create Eventbrite page", False), ("Plan social post", False)],
-    "Published": [("Eventbrite page live", True), ("Share social post", None),
-                  ("Send reminder email", False), ("Confirm catering", None)],
-    "Done": [("Share photos", None), ("Send feedback email", None),
-             ("Add numbers to Notion", None)],
+    "Idea": [False, False, False, False, False, False, False],
+    "Planned": [True, False, False, False, False, False, False],
+    # "Reminder sent" wird unten nach Datum gesetzt (2 Tage vorher)
+    "Published": [True, True, None, None, False, False, False],
+    "Done": [True, True, None, True, True, None, None],
 }
 # Im Dezember sind diese Kategorien noch reine Ideen
 IDEEN_IM_DEZEMBER = ("Community Quarterlies", "Drops of Inspiration", "Collaboration")
@@ -815,9 +820,11 @@ for m in range(1, 13):
             tags = immer + random.sample(manchmal, random.randint(1, min(2, len(manchmal))))
 
             aufgaben = []
-            for text, erledigt in AUFGABEN[status]:
+            for text, erledigt in zip(AUFGABEN_TEXTE, AUFGABEN[status]):
                 if erledigt is None:
                     erledigt = random.random() < (0.85 if status == "Done" else 0.5)
+                if status == "Published" and text == "Reminder sent":
+                    erledigt = tage_bis < 2
                 aufgaben.append({"text": text, "erledigt": erledigt})
 
             ort = random.choice(KAT[kat]["orte"])

@@ -416,14 +416,15 @@ button { font: inherit; color: inherit; }
   padding: 18px 16px 16px 24px; border-bottom: 1px solid var(--linie); background: var(--flaeche);
 }
 .drawer-titel-block { min-width: 0; }
-.drawer-pillen { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+.drawer-pillen { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0 6px; }
 .drawer-pillen:empty { display: none; }
-.drawer-kopf h2 { font-size: 1.45rem; line-height: 1.25; margin: 0 0 4px; }
+/* Titel als große Überschrift ganz oben, Mini-Summary hell und kursiv darunter */
+.drawer-kopf h2 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 6px; }
+.drawer-summary { margin: 0; color: var(--text-leise); font-size: 1.05rem; font-style: italic; line-height: 1.4; }
 .drawer-datum { color: var(--text-leise); font-size: .92rem; }
 .drawer-inhalt { flex: 1; overflow-y: auto; padding: 20px 24px 24px; }
 /* In der Schublade ist das Event keine Karte mehr, sondern füllt die Fläche */
 .drawer-inhalt .event-karte { margin: 0; padding: 0; border: none; box-shadow: none; background: none; }
-.drawer-inhalt .event-kopf .summary { font-size: 1rem; }
 .drawer-inhalt .event-raster { grid-template-columns: minmax(200px, 260px) 1fr; }
 /* Fußleiste der Schublade: alle Knöpfe an einer Stelle, immer sichtbar */
 .drawer-formular .formular { margin-bottom: 8px; }
