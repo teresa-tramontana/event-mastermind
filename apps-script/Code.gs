@@ -120,7 +120,7 @@ const KI_ANWEISUNG = [
   "All data is fictional demo data.",
   "",
   "Glossary of German field names: titel=title, datum=date, startzeit=start time, kategorie=category, ort=place,",
-  "kapazität=capacity, anmeldungen=registrations, verantwortlich=responsible role, zusammenfassung=summary,",
+  "kapazität=capacity, anmeldungen=registrations, verantwortlich=event lead (role), zusammenfassung=summary,",
   "beschreibung=description sections (worum=what is it about, rahmen=setting, haeufigkeit=frequency, warum=why,",
   "zielgruppe=target group, ergebnis=outcome, agenda, tickets, betreuung=attended by), aufgaben=tasks (erledigt=done),",
   "soll=planned/target number, ist=actual number, zielAuslastung=target occupancy in %, heute=today's date in the demo.",

@@ -1101,7 +1101,8 @@
           </div>` : ""}
         </div>
         <div class="event-meta">
-          <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span><span title="Attended by / responsibility">👤 ${betreuung ? esc(betreuung) : `Lead: ${esc(e.verantwortlich || "–")} <span class="fehlt-text">· ⚠ attended by missing</span>`}</span>
+          <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span><span>👤 Event lead: ${e.verantwortlich ? esc(e.verantwortlich) : '<span class="fehlt-text">⚠ missing</span>'}</span>
+          <span>🤝 Attended by: ${betreuung ? esc(betreuung) : '<span class="fehlt-text">⚠ missing</span>'}</span>
         </div>
         <div class="event-raster">
           <div>
@@ -1376,7 +1377,7 @@
       ["Status", e.status],
       ["Location", e.ort],
       ["Setting", e.setting],
-      ["Owner", e.verantwortlich],
+      ["Event lead", e.verantwortlich],
       ["Tasks", (e.aufgaben || []).map((a) => a.text).join(", ")],
       ["Date", e.datum + " " + datumSchoen(e.datum, true) + " " + MONATE_KURZ[d.getMonth()] + " Q" + quartalVon(d)],
       ["IDs", [e.id, e.eventbriteId, e.kalenderId].filter(Boolean).join(" ")],
@@ -1447,7 +1448,7 @@
             <label class="haken"><input type="checkbox" id="filter-kommend" ${s.nurKommende ? "checked" : ""}> Upcoming only</label>
             <label class="haken"><input type="checkbox" id="filter-luecken" ${s.nurLuecken ? "checked" : ""}> ⚠ Missing description info</label>
           </div>
-          <p class="leise breit" style="margin:0;font-size:.82rem">Searches titles, summaries, descriptions, tags, locations, owners, tasks, dates and IDs.
+          <p class="leise breit" style="margin:0;font-size:.82rem">Searches titles, summaries, descriptions, tags, locations, event leads, tasks, dates and IDs.
             Several words = all must match. Tip: click a tag on a result to search for it.</p>
         </section>
         <div class="abschnitt">${filterLeiste()}</div>
@@ -1918,7 +1919,7 @@
         <p class="leise" style="margin-top:0">Each category has a template. It is used for new event drafts, for title, description and summary suggestions,
           and for social post and email suggestions. Placeholders like <code>{titel}</code>, <code>{datum}</code>, <code>{uhrzeit}</code>,
           <code>{ort}</code> and <code>{summary}</code> are filled in automatically; <code>{thema}</code> is the event's topic,
-          <code>{kapazitaet}</code> the number of spots and <code>{verantwortlich}</code> the owner.</p>
+          <code>{kapazitaet}</code> the number of spots and <code>{verantwortlich}</code> the event lead.</p>
         <div class="vorlagen">${zustand.templates.map((t, i) => {
           const anzahl = zustand.events.filter((e) => e.kategorie === t.kategorie && e.datum.startsWith(String(jahr))).length;
           const thema = (text) => esc(text).replace(/\{thema\}/g, '<span class="platzhalter">topic</span>');
@@ -2183,7 +2184,7 @@
           </div>
           <div class="f-reihe">
             ${feldHtml("Location", `<input name="ort" list="orte" value="${esc(e.ort)}">`)}
-            ${feldHtml("Owner", `<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}">`, '<span class="f-hilfe">a role, no real names</span>')}
+            ${feldHtml("Event lead", `<input name="verantwortlich" list="team" value="${esc(e.verantwortlich)}">`, '<span class="f-hilfe">a role, no real names</span>')}
           </div>
           <div class="f-reihe">
             ${feldHtml("Setting", `<select name="setting"><option value="">– none –</option>${alleSettings().map((x) => `<option ${x === e.setting ? "selected" : ""}>${esc(x)}</option>`).join("")}</select>`, '<span class="f-hilfe">used for filtering</span>')}
@@ -2568,7 +2569,7 @@
     "kapazität", "status", "kategorie", "verantwortlich"];
   const KI_FELD_NAMEN = {
     titel: "Title", zusammenfassung: "Summary", tags: "Tags", datum: "Date", startzeit: "Start time", ort: "Location",
-    "kapazität": "Capacity", status: "Status", kategorie: "Category", verantwortlich: "Owner",
+    "kapazität": "Capacity", status: "Status", kategorie: "Category", verantwortlich: "Event lead",
   };
 
   /** Antwort zerlegen in Text-Stücke und ```change …```-Blöcke */

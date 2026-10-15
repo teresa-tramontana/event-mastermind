@@ -31,7 +31,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -94,7 +94,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on circular business\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on circular business\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -156,7 +156,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -218,7 +218,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -281,7 +281,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
     "agenda": "17:00 – Arrival\n17:10 – Update from the team\n17:40 – Q&A and feedback\n18:20 – Drinks\n19:00 – End",
     "tickets": "Members only, free. Please register via Eventbrite (80 seats).",
-    "betreuung": "Lead: Events Intern · On site: whole team · Moderation: Community Lead"
+    "betreuung": "On site: whole team · Moderation: Community Lead"
    },
    "aufgaben": [
     {
@@ -342,7 +342,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on business beyond growth\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on business beyond growth\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -404,7 +404,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on storytelling\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on storytelling\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -467,7 +467,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -530,7 +530,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Membership Team · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -593,7 +593,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -655,7 +655,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Membership Team · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -718,7 +718,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about winter reds\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -780,7 +780,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -904,7 +904,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -966,7 +966,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1028,7 +1028,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on urban green spaces\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on urban green spaces\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -1089,7 +1089,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
     "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
     "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
-    "betreuung": "Lead: Events Intern · On site: Host Team and partner team (demo)"
+    "betreuung": "On site: Host Team and partner team (demo)"
    },
    "aufgaben": [
     {
@@ -1151,7 +1151,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Expert knowledge on sustainable procurement\n• Contacts to the partner\n• Fulfilled partner deliverable",
     "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
     "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Programme Team · Partner contact: partner team (demo)"
+    "betreuung": "On site: Programme Team · Partner contact: partner team (demo)"
    },
    "aufgaben": [
     {
@@ -1214,7 +1214,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1276,7 +1276,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Membership Team · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -1339,7 +1339,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on dealing with your inner critic\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on dealing with your inner critic\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -1401,7 +1401,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
     "agenda": "15:00 – Welcome\n15:10 – Intros from each Hub\n15:30 – Breakout matchmaking\n16:20 – Wrap-up\n16:30 – End",
     "tickets": "Free for members. 60 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team · Co-hosts from partner Hubs (demo)"
+    "betreuung": "On site: Host Team · Co-hosts from partner Hubs (demo)"
    },
    "aufgaben": [
     {
@@ -1464,7 +1464,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1527,7 +1527,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Community Lead · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -1589,7 +1589,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about natural wines\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -1651,7 +1651,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1714,7 +1714,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on pitch decks\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on pitch decks\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -1776,7 +1776,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -1839,7 +1839,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -1901,7 +1901,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on AI for the common good\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on AI for the common good\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -1962,7 +1962,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
     "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
     "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
-    "betreuung": "Lead: Community Lead · On site: Host Team and partner team (demo)"
+    "betreuung": "On site: Host Team and partner team (demo)"
    },
    "aufgaben": [
     {
@@ -2024,7 +2024,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -2087,7 +2087,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Programme Team · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -2150,7 +2150,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on design thinking\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on design thinking\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -2213,7 +2213,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -2275,7 +2275,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
     "agenda": "17:30 – Check-in\n17:40 – Method input: finding the real problem\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
     "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
-    "betreuung": "Lead: Programme Team · Coach: external coach (demo)"
+    "betreuung": "Coach: external coach (demo)"
    },
    "aufgaben": [
     {
@@ -2338,7 +2338,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Events Intern · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -2401,7 +2401,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about spring whites\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -2463,7 +2463,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Seeing what the community achieved\n• Meeting people from all corners of the Hub\n• A great evening",
     "agenda": "17:00 – Doors open\n17:30 – Look back & member awards\n18:00 – Food, drinks & music\n21:00 – End",
     "tickets": "Free for members, €10 for guests. 120 tickets via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: whole team, Host Team (bar & tech)"
+    "betreuung": "On site: whole team, Host Team (bar & tech)"
    },
    "aufgaben": [
     {
@@ -2526,7 +2526,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -2588,7 +2588,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -2650,7 +2650,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on social media on a budget\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on social media on a budget\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -2712,7 +2712,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on democracy and entrepreneurship\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on democracy and entrepreneurship\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -2774,7 +2774,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -2837,7 +2837,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
     "agenda": "17:00 – Arrival\n17:10 – Update from the team\n17:40 – Q&A and feedback\n18:20 – Drinks\n19:00 – End",
     "tickets": "Members only, free. Please register via Eventbrite (80 seats).",
-    "betreuung": "Lead: Programme Team · On site: whole team · Moderation: Community Lead"
+    "betreuung": "On site: whole team · Moderation: Community Lead"
    },
    "aufgaben": [
     {
@@ -2900,7 +2900,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on impact measurement\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on impact measurement\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -2963,7 +2963,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -3025,7 +3025,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -3087,7 +3087,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Membership Team · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -3150,7 +3150,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -3212,7 +3212,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
     "agenda": "17:30 – Check-in\n17:40 – Method input: talking to users\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
     "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
-    "betreuung": "Lead: Membership Team · Coach: external coach (demo)"
+    "betreuung": "Coach: external coach (demo)"
    },
    "aufgaben": [
     {
@@ -3275,7 +3275,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about local vineyards\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -3337,7 +3337,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -3399,7 +3399,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on funding\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on funding\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -3461,7 +3461,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -3524,7 +3524,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Expert knowledge on green mobility\n• Contacts to the partner\n• Fulfilled partner deliverable",
     "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
     "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Programme Team · Partner contact: partner team (demo)"
+    "betreuung": "On site: Programme Team · Partner contact: partner team (demo)"
    },
    "aufgaben": [
     {
@@ -3587,7 +3587,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -3649,7 +3649,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on circular fashion\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on circular fashion\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -3710,7 +3710,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
     "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
     "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
-    "betreuung": "Lead: Host Team · On site: Host Team and partner team (demo)"
+    "betreuung": "On site: Host Team and partner team (demo)"
    },
    "aufgaben": [
     {
@@ -3772,7 +3772,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
     "agenda": "15:00 – Welcome\n15:10 – Intros from each Hub\n15:30 – Breakout matchmaking\n16:20 – Wrap-up\n16:30 – End",
     "tickets": "Free for members. 60 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team · Co-hosts from partner Hubs (demo)"
+    "betreuung": "On site: Host Team · Co-hosts from partner Hubs (demo)"
    },
    "aufgaben": [
     {
@@ -3835,7 +3835,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -3898,7 +3898,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Events Intern · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -3959,7 +3959,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on failing and starting over\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on failing and starting over\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -4022,7 +4022,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on pricing\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on pricing\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -4084,7 +4084,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -4147,7 +4147,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
     "agenda": "17:30 – Check-in\n17:40 – Method input: a first prototype\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
     "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
-    "betreuung": "Lead: Events Intern · Coach: external coach (demo)"
+    "betreuung": "Coach: external coach (demo)"
    },
    "aufgaben": [
     {
@@ -4210,7 +4210,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Events Intern · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -4272,7 +4272,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about rosé\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -4335,7 +4335,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -4397,7 +4397,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on freelance basics\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on freelance basics\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -4460,7 +4460,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -4523,7 +4523,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -4585,7 +4585,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on energy communities\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on energy communities\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -4646,7 +4646,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
     "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
     "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
-    "betreuung": "Lead: Events Intern · On site: Host Team and partner team (demo)"
+    "betreuung": "On site: Host Team and partner team (demo)"
    },
    "aufgaben": [
     {
@@ -4708,7 +4708,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -4771,7 +4771,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Membership Team · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -4834,7 +4834,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on inclusive communication\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on inclusive communication\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -4896,7 +4896,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
     "agenda": "18:00 – Get together\n18:30 – Main activity: the start of summer\n21:00 – End",
     "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team"
+    "betreuung": "On site: Host Team"
    },
    "aufgaben": [
     {
@@ -4959,7 +4959,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -5022,7 +5022,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Host Team · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -5085,7 +5085,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about sparkling wines\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -5148,7 +5148,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Seeing what the community achieved\n• Meeting people from all corners of the Hub\n• A great evening",
     "agenda": "17:00 – Doors open\n17:30 – Look back & member awards\n18:00 – Food, drinks & music\n21:00 – End",
     "tickets": "Free for members, €10 for guests. 120 tickets via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: whole team, Host Team (bar & tech)"
+    "betreuung": "On site: whole team, Host Team (bar & tech)"
    },
    "aufgaben": [
     {
@@ -5211,7 +5211,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -5273,7 +5273,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
     "agenda": "18:00 – Get together\n18:30 – Main activity: an open-air film\n21:00 – End",
     "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team"
+    "betreuung": "On site: Host Team"
    },
    "aufgaben": [
     {
@@ -5335,7 +5335,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -5397,7 +5397,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on crowdfunding\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on crowdfunding\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -5459,7 +5459,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on impact investing\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on impact investing\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -5522,7 +5522,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -5585,7 +5585,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
     "agenda": "17:00 – Arrival\n17:10 – Update from the team\n17:40 – Q&A and feedback\n18:20 – Drinks\n19:00 – End",
     "tickets": "Members only, free. Please register via Eventbrite (80 seats).",
-    "betreuung": "Lead: Events Intern · On site: whole team · Moderation: Community Lead"
+    "betreuung": "On site: whole team · Moderation: Community Lead"
    },
    "aufgaben": [
     {
@@ -5648,7 +5648,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on feedback culture\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on feedback culture\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -5710,7 +5710,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
     "agenda": "18:00 – Get together\n18:30 – Main activity: grilling together\n21:00 – End",
     "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team"
+    "betreuung": "On site: Host Team"
    },
    "aufgaben": [
     {
@@ -5772,7 +5772,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -5835,7 +5835,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Membership Team · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -5898,7 +5898,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -5961,7 +5961,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about the harvest\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -6024,7 +6024,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -6086,7 +6086,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -6148,7 +6148,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
     "agenda": "18:00 – Get together\n18:30 – Main activity: Vienna's vineyards\n21:00 – End",
     "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team"
+    "betreuung": "On site: Host Team"
    },
    "aufgaben": [
     {
@@ -6209,7 +6209,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
     "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
     "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
-    "betreuung": "Lead: Membership Team · On site: Host Team and partner team (demo)"
+    "betreuung": "On site: Host Team and partner team (demo)"
    },
    "aufgaben": [
     {
@@ -6271,7 +6271,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -6333,7 +6333,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed summer evenings together\n• New friends\n• Staying connected over summer",
     "agenda": "18:00 – Get together\n18:30 – Main activity: the end of summer\n21:00 – End",
     "tickets": "Free for members, €5 for guests. 70 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team"
+    "betreuung": "On site: Host Team"
    },
    "aufgaben": [
     {
@@ -6395,7 +6395,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on access to finance\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on access to finance\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -6457,7 +6457,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -6519,7 +6519,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -6581,7 +6581,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on the urban food transition\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on the urban food transition\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -6643,7 +6643,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
     "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
     "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
-    "betreuung": "Lead: Programme Team · On site: Host Team and partner team (demo)"
+    "betreuung": "On site: Host Team and partner team (demo)"
    },
    "aufgaben": [
     {
@@ -6706,7 +6706,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Expert knowledge on social innovation\n• Contacts to the partner\n• Fulfilled partner deliverable",
     "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
     "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Programme Team · Partner contact: partner team (demo)"
+    "betreuung": "On site: Programme Team · Partner contact: partner team (demo)"
    },
    "aufgaben": [
     {
@@ -6768,7 +6768,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -6831,7 +6831,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Programme Team · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -6893,7 +6893,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on time management\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on time management\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -6956,7 +6956,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
     "agenda": "15:00 – Welcome\n15:10 – Intros from each Hub\n15:30 – Breakout matchmaking\n16:20 – Wrap-up\n16:30 – End",
     "tickets": "Free for members. 60 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team · Co-hosts from partner Hubs (demo)"
+    "betreuung": "On site: Host Team · Co-hosts from partner Hubs (demo)"
    },
    "aufgaben": [
     {
@@ -7018,7 +7018,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -7081,7 +7081,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
     "agenda": "17:30 – Check-in\n17:40 – Method input: finding the real problem\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
     "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · Coach: external coach (demo)"
+    "betreuung": "Coach: external coach (demo)"
    },
    "aufgaben": [
     {
@@ -7144,7 +7144,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Programme Team · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -7207,7 +7207,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about orange wines\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -7270,7 +7270,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Seeing what the community achieved\n• Meeting people from all corners of the Hub\n• A great evening",
     "agenda": "17:00 – Doors open\n17:30 – Look back & member awards\n18:00 – Food, drinks & music\n21:00 – End",
     "tickets": "Free for members, €10 for guests. 120 tickets via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: whole team, Host Team (bar & tech)"
+    "betreuung": "On site: whole team, Host Team (bar & tech)"
    },
    "aufgaben": [
     {
@@ -7332,7 +7332,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -7394,7 +7394,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -7456,7 +7456,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on annual planning\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on annual planning\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -7519,7 +7519,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -7581,7 +7581,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -7643,7 +7643,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing what's planned and why\n• Your feedback heard\n• Clear next steps",
     "agenda": "17:00 – Arrival\n17:10 – Update from the team\n17:40 – Q&A and feedback\n18:20 – Drinks\n19:00 – End",
     "tickets": "Members only, free. Please register via Eventbrite (80 seats).",
-    "betreuung": "Lead: Host Team · On site: whole team · Moderation: Community Lead"
+    "betreuung": "On site: whole team · Moderation: Community Lead"
    },
    "aufgaben": [
     {
@@ -7705,7 +7705,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on mental health in startup life\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on mental health in startup life\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Programme Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -7768,7 +7768,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on circular business\n• Feedback from peers",
     "agenda": "14:00 – Arrival & check-in\n14:15 – Input on circular business\n14:45 – Exercises in small teams\n16:00 – Share-back & peer feedback\n16:40 – Wrap-up: next steps\n17:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Membership Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -7831,7 +7831,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -7894,7 +7894,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -7956,7 +7956,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -8019,7 +8019,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
     "agenda": "17:30 – Check-in\n17:40 – Method input: talking to users\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
     "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
-    "betreuung": "Lead: Programme Team · Coach: external coach (demo)"
+    "betreuung": "Coach: external coach (demo)"
    },
    "aufgaben": [
     {
@@ -8081,7 +8081,7 @@ window.DEMO_DATEN = {
     "ergebnis": "",
     "agenda": "",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Events Intern · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -8143,7 +8143,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about alcohol-free pairings\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -8206,7 +8206,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -8269,7 +8269,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -8332,7 +8332,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -8394,7 +8394,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A new perspective on inclusion\n• Direct exchange with the speaker\n• Ideas for your own work",
     "agenda": "12:30 – Arrival with lunch\n12:40 – Input on inclusion\n13:00 – Q&A\n13:30 – End",
     "tickets": "Free, open to everyone. 40 seats – please register via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    },
    "aufgaben": [
     {
@@ -8456,7 +8456,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• New contacts outside your bubble\n• Ideas for joint projects\n• A stronger network",
     "agenda": "18:00 – Welcome\n18:15 – Short intros from both sides\n18:45 – Matchmaking & mingling\n20:30 – End",
     "tickets": "Free. 50 spots via Eventbrite, shared with the partner.",
-    "betreuung": "Lead: Events Intern · On site: Host Team and partner team (demo)"
+    "betreuung": "On site: Host Team and partner team (demo)"
    },
    "aufgaben": [
     {
@@ -8518,7 +8518,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Expert knowledge on digital inclusion\n• Contacts to the partner\n• Fulfilled partner deliverable",
     "agenda": "10:00 – Welcome\n10:10 – Partner input\n11:00 – Group work\n11:50 – Wrap-up\n12:00 – End",
     "tickets": "Free (funded by the partner). 40 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Programme Team · Partner contact: partner team (demo)"
+    "betreuung": "On site: Programme Team · Partner contact: partner team (demo)"
    },
    "aufgaben": [
     {
@@ -8581,7 +8581,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -8707,7 +8707,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Contacts in other cities\n• Ideas from other communities\n• Possible joint projects",
     "agenda": "15:00 – Welcome\n15:10 – Intros from each Hub\n15:30 – Breakout matchmaking\n16:20 – Wrap-up\n16:30 – End",
     "tickets": "Free for members. 60 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · On site: Host Team · Co-hosts from partner Hubs (demo)"
+    "betreuung": "On site: Host Team · Co-hosts from partner Hubs (demo)"
    },
    "aufgaben": [
     {
@@ -8770,7 +8770,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Membership Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -8832,7 +8832,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A sharper idea\n• A concrete next step\n• Peers who keep you accountable",
     "agenda": "17:30 – Check-in\n17:40 – Method input: a first prototype\n18:10 – Work on your idea\n19:10 – Feedback round\n19:30 – End",
     "tickets": "€10 per session, free for members. 15 spots via Eventbrite.",
-    "betreuung": "Lead: Membership Team · Coach: external coach (demo)"
+    "betreuung": "Coach: external coach (demo)"
    },
    "aufgaben": [
     {
@@ -8894,7 +8894,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Host Team · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -8956,7 +8956,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about mulled wine\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -9019,7 +9019,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A concrete next step for your project\n• Tools and templates on storytelling\n• Feedback from peers",
     "agenda": "10:00 – Arrival & check-in\n10:15 – Input on storytelling\n10:45 – Exercises in small teams\n12:00 – Share-back & peer feedback\n12:40 – Wrap-up: next steps\n13:00 – End",
     "tickets": "Free for members, €15 for guests. 20 spots, registration via Eventbrite.",
-    "betreuung": "Lead: Host Team · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    },
    "aufgaben": [
     {
@@ -9082,7 +9082,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• 3–5 meaningful new contacts\n• Knowing who can help with what\n• Feeling at home at the Hub",
     "agenda": "18:00 – Doors open, welcome drink\n18:20 – Welcome & member news\n18:40 – Guided networking rounds\n19:40 – Open mingling\n20:30 – End",
     "tickets": "Free for members and guests. Please register via Eventbrite (60 spots).",
-    "betreuung": "Lead: Programme Team · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    },
    "aufgaben": [
     {
@@ -9144,7 +9144,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Community Lead · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -9329,7 +9329,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -9392,7 +9392,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Answers to your current challenge\n• A trusted peer group\n• Less feeling alone",
     "agenda": "18:00 – Check-in round\n18:15 – Case clinic: two challenges\n19:15 – Takeaways\n19:30 – End",
     "tickets": "Members only, free. 20 spots via Eventbrite.",
-    "betreuung": "Lead: Community Lead · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    },
    "aufgaben": [
     {
@@ -9455,7 +9455,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Events Intern · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -9517,7 +9517,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Knowing your coworking neighbours\n• Quick help with a current question\n• A real lunch break 🙂",
     "agenda": "12:30 – Set the table\n12:40 – Quick round: name & project\n12:50 – Lunch & conversations\n13:30 – Asks & offers\n13:45 – End",
     "tickets": "Members only, free. Sign-up via Eventbrite (30 seats).",
-    "betreuung": "Lead: Community Lead · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    },
    "aufgaben": [
     {
@@ -9642,7 +9642,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• A clear goal for the week\n• Quick help from neighbours\n• Knowing who's in the house",
     "agenda": "09:30 – Coffee & arrival\n09:35 – Round: one goal, one ask\n09:55 – Announcements\n10:00 – End",
     "tickets": "Free, members only, no registration needed (max. 25).",
-    "betreuung": "Lead: Host Team · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    },
    "aufgaben": [
     {
@@ -9705,7 +9705,7 @@ window.DEMO_DATEN = {
     "ergebnis": "• Relaxed conversations beyond work\n• New friends at the Hub\n• A good end to the month",
     "agenda": "18:30 – Doors open\n18:45 – A few words about winter reds\n19:00 – Tasting & mingling\n21:00 – End",
     "tickets": "€5 for members, €10 for guests (incl. two drinks). 50 spots via Eventbrite.",
-    "betreuung": "Lead: Events Intern · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    },
    "aufgaben": [
     {
@@ -9786,7 +9786,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free for members and guests. Please register via Eventbrite ({kapazitaet} spots).",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team (welcome & bar), Membership Team"
+    "betreuung": "On site: Host Team (welcome & bar), Membership Team"
    }
   },
   {
@@ -9831,7 +9831,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free, members only, no registration needed (max. {kapazitaet}).",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team (coffee & moderation)"
+    "betreuung": "On site: Host Team (coffee & moderation)"
    }
   },
   {
@@ -9884,7 +9884,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free for members, €15 for guests. {kapazitaet} spots, registration via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team · Facilitation: external trainer (demo)"
+    "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
    }
   },
   {
@@ -9928,7 +9928,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free, open to everyone. {kapazitaet} seats – please register via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team (tech) · Speaker: external guest (demo)"
+    "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
    }
   },
   {
@@ -9973,7 +9973,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "€5 for members, €10 for guests (incl. two drinks). {kapazitaet} spots via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team (bar)"
+    "betreuung": "On site: Host Team (bar)"
    }
   },
   {
@@ -10022,7 +10022,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Members only, free. Please register via Eventbrite ({kapazitaet} seats).",
-    "betreuung": "Lead: {verantwortlich} · On site: whole team · Moderation: Community Lead"
+    "betreuung": "On site: whole team · Moderation: Community Lead"
    }
   },
   {
@@ -10067,7 +10067,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Members only, free. {kapazitaet} spots via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · Facilitation: Community Lead or a member host"
+    "betreuung": "Facilitation: Community Lead or a member host"
    }
   },
   {
@@ -10111,7 +10111,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free. {kapazitaet} spots via Eventbrite, shared with the partner.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team and partner team (demo)"
+    "betreuung": "On site: Host Team and partner team (demo)"
    }
   },
   {
@@ -10160,7 +10160,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "€10 per session, free for members. {kapazitaet} spots via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · Coach: external coach (demo)"
+    "betreuung": "Coach: external coach (demo)"
    }
   },
   {
@@ -10209,7 +10209,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free for members. {kapazitaet} spots via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team · Co-hosts from partner Hubs (demo)"
+    "betreuung": "On site: Host Team · Co-hosts from partner Hubs (demo)"
    }
   },
   {
@@ -10254,7 +10254,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free for members, €10 for guests. {kapazitaet} tickets via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · On site: whole team, Host Team (bar & tech)"
+    "betreuung": "On site: whole team, Host Team (bar & tech)"
    }
   },
   {
@@ -10303,7 +10303,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free (funded by the partner). {kapazitaet} spots via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · On site: Programme Team · Partner contact: partner team (demo)"
+    "betreuung": "On site: Programme Team · Partner contact: partner team (demo)"
    }
   },
   {
@@ -10344,7 +10344,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free for members, €5 for guests. {kapazitaet} spots via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · On site: Host Team"
+    "betreuung": "On site: Host Team"
    }
   },
   {
@@ -10393,7 +10393,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Members only, free. Sign-up via Eventbrite ({kapazitaet} seats).",
-    "betreuung": "Lead: {verantwortlich} · On site: Membership Team (hosting the table)"
+    "betreuung": "On site: Membership Team (hosting the table)"
    }
   },
   {
@@ -10442,7 +10442,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Members only, free. {kapazitaet} spots via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · Hosting: Programme Team"
+    "betreuung": "Hosting: Programme Team"
    }
   },
   {
@@ -10487,7 +10487,7 @@ window.DEMO_DATEN = {
      ]
     ],
     "tickets": "Free for members, {kapazitaet} spots via Eventbrite.",
-    "betreuung": "Lead: {verantwortlich} · Input: guest expert or member"
+    "betreuung": "Input: guest expert or member"
    }
   }
  ],

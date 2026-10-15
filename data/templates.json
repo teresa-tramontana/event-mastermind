@@ -45,7 +45,7 @@
         ]
       ],
       "tickets": "Free for members and guests. Please register via Eventbrite ({kapazitaet} spots).",
-      "betreuung": "Lead: {verantwortlich} · On site: Host Team (welcome & bar), Membership Team"
+      "betreuung": "On site: Host Team (welcome & bar), Membership Team"
     }
   },
   {
@@ -90,7 +90,7 @@
         ]
       ],
       "tickets": "Free, members only, no registration needed (max. {kapazitaet}).",
-      "betreuung": "Lead: {verantwortlich} · On site: Host Team (coffee & moderation)"
+      "betreuung": "On site: Host Team (coffee & moderation)"
     }
   },
   {
@@ -143,7 +143,7 @@
         ]
       ],
       "tickets": "Free for members, €15 for guests. {kapazitaet} spots, registration via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · On site: Host Team · Facilitation: external trainer (demo)"
+      "betreuung": "On site: Host Team · Facilitation: external trainer (demo)"
     }
   },
   {
@@ -187,7 +187,7 @@
         ]
       ],
       "tickets": "Free, open to everyone. {kapazitaet} seats – please register via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · On site: Host Team (tech) · Speaker: external guest (demo)"
+      "betreuung": "On site: Host Team (tech) · Speaker: external guest (demo)"
     }
   },
   {
@@ -232,7 +232,7 @@
         ]
       ],
       "tickets": "€5 for members, €10 for guests (incl. two drinks). {kapazitaet} spots via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · On site: Host Team (bar)"
+      "betreuung": "On site: Host Team (bar)"
     }
   },
   {
@@ -281,7 +281,7 @@
         ]
       ],
       "tickets": "Members only, free. Please register via Eventbrite ({kapazitaet} seats).",
-      "betreuung": "Lead: {verantwortlich} · On site: whole team · Moderation: Community Lead"
+      "betreuung": "On site: whole team · Moderation: Community Lead"
     }
   },
   {
@@ -326,7 +326,7 @@
         ]
       ],
       "tickets": "Members only, free. {kapazitaet} spots via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · Facilitation: Community Lead or a member host"
+      "betreuung": "Facilitation: Community Lead or a member host"
     }
   },
   {
@@ -370,7 +370,7 @@
         ]
       ],
       "tickets": "Free. {kapazitaet} spots via Eventbrite, shared with the partner.",
-      "betreuung": "Lead: {verantwortlich} · On site: Host Team and partner team (demo)"
+      "betreuung": "On site: Host Team and partner team (demo)"
     }
   },
   {
@@ -419,7 +419,7 @@
         ]
       ],
       "tickets": "€10 per session, free for members. {kapazitaet} spots via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · Coach: external coach (demo)"
+      "betreuung": "Coach: external coach (demo)"
     }
   },
   {
@@ -468,7 +468,7 @@
         ]
       ],
       "tickets": "Free for members. {kapazitaet} spots via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · On site: Host Team · Co-hosts from partner Hubs (demo)"
+      "betreuung": "On site: Host Team · Co-hosts from partner Hubs (demo)"
     }
   },
   {
@@ -513,7 +513,7 @@
         ]
       ],
       "tickets": "Free for members, €10 for guests. {kapazitaet} tickets via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · On site: whole team, Host Team (bar & tech)"
+      "betreuung": "On site: whole team, Host Team (bar & tech)"
     }
   },
   {
@@ -562,7 +562,7 @@
         ]
       ],
       "tickets": "Free (funded by the partner). {kapazitaet} spots via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · On site: Programme Team · Partner contact: partner team (demo)"
+      "betreuung": "On site: Programme Team · Partner contact: partner team (demo)"
     }
   },
   {
@@ -603,7 +603,7 @@
         ]
       ],
       "tickets": "Free for members, €5 for guests. {kapazitaet} spots via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · On site: Host Team"
+      "betreuung": "On site: Host Team"
     }
   },
   {
@@ -652,7 +652,7 @@
         ]
       ],
       "tickets": "Members only, free. Sign-up via Eventbrite ({kapazitaet} seats).",
-      "betreuung": "Lead: {verantwortlich} · On site: Membership Team (hosting the table)"
+      "betreuung": "On site: Membership Team (hosting the table)"
     }
   },
   {
@@ -701,7 +701,7 @@
         ]
       ],
       "tickets": "Members only, free. {kapazitaet} spots via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · Hosting: Programme Team"
+      "betreuung": "Hosting: Programme Team"
     }
   },
   {
@@ -746,7 +746,7 @@
         ]
       ],
       "tickets": "Free for members, {kapazitaet} spots via Eventbrite.",
-      "betreuung": "Lead: {verantwortlich} · Input: guest expert or member"
+      "betreuung": "Input: guest expert or member"
     }
   }
 ]
