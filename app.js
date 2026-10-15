@@ -2086,8 +2086,8 @@
   }
 
   const STANDARD_AUFGABEN = ["Room booked (Huble)", "Eventbrite page live",
-    "Event shared on Social Media", "Event shared with members (weekly email)",
-    "Reminder sent", "Shared via WhatsApp", "KPIs collected"];
+    "Event shared with members (weekly email)", "Reminder sent (email)",
+    "Event shared on Social Media", "Shared on WhatsApp", "KPIs collected"];
 
   /** Häufigster Wert eines Feldes bei Events einer Kategorie (z. B. übliche Startzeit) */
   function ueblich(kategorie, feld, ersatz) {

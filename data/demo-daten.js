@@ -43,19 +43,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -106,19 +106,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -168,19 +168,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -230,19 +230,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -293,19 +293,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -354,19 +354,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -416,19 +416,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -479,19 +479,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -542,19 +542,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -605,19 +605,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -667,19 +667,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -730,19 +730,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -792,19 +792,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -854,19 +854,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -916,19 +916,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -978,19 +978,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1040,19 +1040,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1101,19 +1101,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -1163,19 +1163,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1226,19 +1226,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -1288,19 +1288,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1351,19 +1351,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -1413,19 +1413,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1476,19 +1476,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -1539,19 +1539,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1601,19 +1601,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1663,19 +1663,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1726,19 +1726,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1788,19 +1788,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -1851,19 +1851,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -1913,19 +1913,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -1974,19 +1974,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2036,19 +2036,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2099,19 +2099,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2162,19 +2162,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2225,19 +2225,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2287,19 +2287,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2350,19 +2350,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2413,19 +2413,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2475,19 +2475,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2538,19 +2538,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2600,19 +2600,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2662,19 +2662,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2724,19 +2724,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2786,19 +2786,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2849,19 +2849,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2912,19 +2912,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -2975,19 +2975,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3037,19 +3037,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3099,19 +3099,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3162,19 +3162,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3224,19 +3224,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3287,19 +3287,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3349,19 +3349,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3411,19 +3411,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3473,19 +3473,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3536,19 +3536,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3599,19 +3599,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3661,19 +3661,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3722,19 +3722,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3784,19 +3784,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3847,19 +3847,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3910,19 +3910,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -3971,19 +3971,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4034,19 +4034,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4096,19 +4096,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -4159,19 +4159,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4222,19 +4222,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4284,19 +4284,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4347,19 +4347,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4409,19 +4409,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4472,19 +4472,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4535,19 +4535,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -4597,19 +4597,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4658,19 +4658,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -4720,19 +4720,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -4783,19 +4783,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4846,19 +4846,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4908,19 +4908,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -4971,19 +4971,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5034,19 +5034,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -5097,19 +5097,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5160,19 +5160,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5223,19 +5223,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -5285,19 +5285,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5347,19 +5347,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5409,19 +5409,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5471,19 +5471,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5534,19 +5534,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5597,19 +5597,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5660,19 +5660,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5722,19 +5722,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5784,19 +5784,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5847,19 +5847,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5910,19 +5910,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -5973,19 +5973,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6036,19 +6036,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6098,19 +6098,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -6160,19 +6160,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6221,19 +6221,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6283,19 +6283,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6345,19 +6345,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -6407,19 +6407,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -6469,19 +6469,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -6531,19 +6531,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6593,19 +6593,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6655,19 +6655,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6718,19 +6718,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6780,19 +6780,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6843,19 +6843,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6905,19 +6905,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -6968,19 +6968,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7030,19 +7030,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7093,19 +7093,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7156,19 +7156,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7219,19 +7219,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7282,19 +7282,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7344,19 +7344,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7406,19 +7406,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7468,19 +7468,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7531,19 +7531,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": true
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": true
     },
     {
@@ -7593,19 +7593,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -7655,19 +7655,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -7717,19 +7717,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -7780,19 +7780,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -7843,19 +7843,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -7906,19 +7906,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
+     "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Event shared with members (weekly email)",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -7968,19 +7968,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
+     "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Event shared with members (weekly email)",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8031,19 +8031,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8093,19 +8093,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": true
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": true
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8155,19 +8155,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8218,19 +8218,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
+     "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Event shared with members (weekly email)",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8281,19 +8281,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
+     "text": "Event shared with members (weekly email)",
      "erledigt": true
     },
     {
-     "text": "Event shared with members (weekly email)",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Event shared on Social Media",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8344,19 +8344,19 @@ window.DEMO_DATEN = {
      "erledigt": true
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8406,19 +8406,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8468,19 +8468,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8530,19 +8530,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8593,19 +8593,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8656,19 +8656,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8719,19 +8719,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8782,19 +8782,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8844,19 +8844,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8906,19 +8906,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -8968,19 +8968,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9031,19 +9031,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9094,19 +9094,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9156,19 +9156,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9217,19 +9217,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9279,19 +9279,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9341,19 +9341,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9404,19 +9404,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9467,19 +9467,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9529,19 +9529,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9592,19 +9592,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9654,19 +9654,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {
@@ -9717,19 +9717,19 @@ window.DEMO_DATEN = {
      "erledigt": false
     },
     {
-     "text": "Event shared on Social Media",
-     "erledigt": false
-    },
-    {
      "text": "Event shared with members (weekly email)",
      "erledigt": false
     },
     {
-     "text": "Reminder sent",
+     "text": "Reminder sent (email)",
      "erledigt": false
     },
     {
-     "text": "Shared via WhatsApp",
+     "text": "Event shared on Social Media",
+     "erledigt": false
+    },
+    {
+     "text": "Shared on WhatsApp",
      "erledigt": false
     },
     {

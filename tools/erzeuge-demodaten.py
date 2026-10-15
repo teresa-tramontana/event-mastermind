@@ -764,14 +764,14 @@ TEAM = ["Community Lead", "Programme Team", "Host Team",
 # True/False = erledigt ja/nein, None = Zufall. Je Status gleich viele None wie früher,
 # damit der feste Zufall (und damit alle anderen Demo-Daten) gleich bleibt.
 AUFGABEN_TEXTE = ["Room booked (Huble)", "Eventbrite page live",
-                  "Event shared on Social Media", "Event shared with members (weekly email)",
-                  "Reminder sent", "Shared via WhatsApp", "KPIs collected"]
+                  "Event shared with members (weekly email)", "Reminder sent (email)",
+                  "Event shared on Social Media", "Shared on WhatsApp", "KPIs collected"]
 AUFGABEN = {
     "Idea": [False, False, False, False, False, False, False],
     "Planned": [True, False, False, False, False, False, False],
     # "Reminder sent" wird unten nach Datum gesetzt (2 Tage vorher)
-    "Published": [True, True, None, None, False, False, False],
-    "Done": [True, True, None, True, True, None, None],
+    "Published": [True, True, None, False, None, False, False],
+    "Done": [True, True, True, True, None, None, None],
 }
 # Im Dezember sind diese Kategorien noch reine Ideen
 IDEEN_IM_DEZEMBER = ("Community Quarterlies", "Drops of Inspiration", "Collaboration")
@@ -823,7 +823,7 @@ for m in range(1, 13):
             for text, erledigt in zip(AUFGABEN_TEXTE, AUFGABEN[status]):
                 if erledigt is None:
                     erledigt = random.random() < (0.85 if status == "Done" else 0.5)
-                if status == "Published" and text == "Reminder sent":
+                if status == "Published" and text == "Reminder sent (email)":
                     erledigt = tage_bis < 2
                 aufgaben.append({"text": text, "erledigt": erledigt})
 
