@@ -9,6 +9,10 @@
  * Aktuell (Demo):
  *   - Grunddaten kommen aus data/demo-daten.js (automatisch erzeugt aus data/*.json)
  *   - Eigene Änderungen werden nur im Browser gespeichert (localStorage)
+ *   - Jede Speicherung wird hier gestempelt ("Last edited by"): wer, wann, welche Felder
+ *     (Felder geaendertVon, geaendertAm, verlauf[]). Online ist "wer" die Google-Adresse der
+ *     angemeldeten Person, per Doppelklick "Demo user (offline)". Die Oberfläche setzt das NIE selbst.
+ *     Später (Notion/Server) muss der Server stempeln, nicht der Browser.
  *   - In der Apps-Script-Version (online): Benutzer-Menü, Test-Reminder-Mail und
  *     "Ask AI" (Gemini; schlägt Änderungen nur vor, gespeichert wird per speichereEvent nach Klick)
  *     über apps-script/Code.gs (google.script.run). Per Doppelklick gibt es beides nicht.
@@ -90,8 +94,50 @@
     const original = new Map(basis.events.map((e) => [e.id, e]));
     gespeichert.forEach((e) => {
       if (!("setting" in e) && original.has(e.id)) e.setting = original.get(e.id).setting || "";
+      // … und auch noch keinen Bearbeitungs-Verlauf ("Last edited by")
+      if (!("verlauf" in e) && original.has(e.id)) {
+        const o = original.get(e.id);
+        ["verlauf", "geaendertVon", "geaendertAm"].forEach((k) => { if (k in o) e[k] = kopie(o[k]); });
+      }
     });
     return gespeichert;
+  }
+
+  // ---------- "Last edited by": wer bearbeitet gerade?
+  const OFFLINE_BENUTZER = "Demo user (offline)";
+  const MAX_VERLAUF = 30; // so viele Einträge pro Event merken (neueste zuerst)
+  const NICHT_VERGLEICHEN = ["geaendertVon", "geaendertAm", "verlauf"];
+  let benutzerVersprechen = null; // nur einmal beim Server nachfragen
+
+  function werBearbeitet() {
+    if (!inAppsScript()) return Promise.resolve(OFFLINE_BENUTZER);
+    if (!benutzerVersprechen) {
+      benutzerVersprechen = rufeServer("holeBenutzer")
+        .then((a) => (a && a.email) || "Unknown user")
+        .catch(() => "Unknown user");
+    }
+    return benutzerVersprechen;
+  }
+
+  /** Welche Felder unterscheiden sich? Bei der Description einzeln je Abschnitt ("beschreibung.agenda") */
+  function geaenderteFelder(alt, neu) {
+    const gleich = (a, b) => JSON.stringify(a === undefined ? null : a) === JSON.stringify(b === undefined ? null : b);
+    const felder = [];
+    const schluessel = new Set(Object.keys(alt || {}).concat(Object.keys(neu || {})));
+    schluessel.forEach((k) => {
+      if (NICHT_VERGLEICHEN.includes(k) || gleich(alt[k], neu[k])) return;
+      // Bei Tags zählt nur, welche gewählt sind, nicht die Reihenfolge
+      if (k === "tags" && gleich([...(alt[k] || [])].sort(), [...(neu[k] || [])].sort())) return;
+      const a = alt[k], b = neu[k];
+      if (k === "beschreibung" && a && b && typeof a === "object" && typeof b === "object") {
+        new Set(Object.keys(a).concat(Object.keys(b))).forEach((t) => {
+          if (!gleich(a[t] || "", b[t] || "")) felder.push("beschreibung." + t);
+        });
+      } else {
+        felder.push(k);
+      }
+    });
+    return felder;
   }
 
   function neueId(events) {
@@ -118,17 +164,40 @@
       };
     },
 
-    /** Ein Event anlegen (ohne id) oder ändern (mit id). Gibt das gespeicherte Event zurück. */
-    async speichereEvent(event) {
+    /**
+     * Ein Event anlegen (ohne id) oder ändern (mit id). Gibt das gespeicherte Event zurück.
+     * info (freiwillig): { hinweis } – z. B. "AI suggestion applied", steht dann im Verlauf.
+     * Stempelt automatisch geaendertVon / geaendertAm und ergänzt verlauf[] (neueste zuerst).
+     * Hat sich nichts geändert, bleibt der Stempel, wie er ist.
+     */
+    async speichereEvent(event, info) {
       const events = await aktuelleEvents();
       const neu = kopie(event);
+      const i = neu.id ? events.findIndex((e) => e.id === neu.id) : -1;
+      const alt = i >= 0 ? events[i] : null;
+      const felder = alt ? geaenderteFelder(alt, neu) : [];
+      // Verlauf immer vom gespeicherten Stand nehmen (die Oberfläche kann ihn nicht verändern)
+      NICHT_VERGLEICHEN.forEach((k) => { delete neu[k]; });
+      if (alt) NICHT_VERGLEICHEN.forEach((k) => { if (k in alt) neu[k] = kopie(alt[k]); });
+      if (!alt || felder.length) {
+        const eintrag = {
+          von: await werBearbeitet(),
+          am: new Date().toISOString(),
+          aktion: alt ? "edited" : "created",
+          felder,
+        };
+        if (info && info.hinweis) eintrag.hinweis = String(info.hinweis);
+        neu.verlauf = [eintrag].concat(neu.verlauf || []).slice(0, MAX_VERLAUF);
+        neu.geaendertVon = eintrag.von;
+        neu.geaendertAm = eintrag.am;
+      }
       if (!neu.id) {
         neu.id = neueId(events);
         events.push(neu);
+      } else if (i >= 0) {
+        events[i] = neu;
       } else {
-        const i = events.findIndex((e) => e.id === neu.id);
-        if (i >= 0) events[i] = neu;
-        else events.push(neu);
+        events.push(neu);
       }
       events.sort((a, b) => (a.datum + a.startzeit).localeCompare(b.datum + b.startzeit));
       schreibeSpeicher(SPEICHER_EVENTS, events);

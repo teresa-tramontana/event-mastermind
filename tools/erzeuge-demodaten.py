@@ -872,6 +872,52 @@ for e in events:
             e["beschreibung"][k] = ""
 
 
+# Bearbeitungs-Verlauf ("Last edited by"): wer hat das Event angelegt / zuletzt geändert?
+# Eigener Zufall, damit sich die übrigen Demo-Daten dadurch nicht verändern.
+# Nur Rollen mit "(demo)", keine echten Namen oder Adressen. Online stempelt die App
+# echte Änderungen mit der Google-Adresse der angemeldeten Person (data-layer.js).
+from datetime import datetime, timedelta  # noqa: E402
+
+zufall_verlauf = random.Random(4711)
+BEARBEITER = [t + " (demo)" for t in TEAM]
+GEAENDERTE_FELDER = [["beschreibung.worum", "beschreibung.agenda"], ["zusammenfassung"], ["tags"],
+                     ["beschreibung.tickets"], ["ort", "startzeit"], ["status"], ["beschreibung.zielgruppe"],
+                     ["kapazität"], ["aufgaben"], ["titel", "zusammenfassung"]]
+DEMO_JETZT = datetime.combine(DEMO_HEUTE, datetime.min.time()).replace(hour=17, minute=30)
+
+
+def zeitpunkt(von, bis):
+    """Zufälliger Zeitpunkt zur Bürozeit zwischen von und bis (nie nach bis)."""
+    if bis < von:
+        von = bis
+    tag = von.date() + timedelta(days=zufall_verlauf.randint(0, (bis.date() - von.date()).days))
+    t = datetime.combine(tag, datetime.min.time()).replace(
+        hour=zufall_verlauf.randint(9, 17), minute=zufall_verlauf.choice([5, 12, 20, 34, 41, 48, 57]))
+    return min(max(t, von), bis)
+
+
+for e in events:
+    termin = datetime.fromisoformat(e["datum"] + "T" + e["startzeit"])
+    angelegt = zeitpunkt(termin - timedelta(days=75), min(termin - timedelta(days=25), DEMO_JETZT - timedelta(days=3)))
+    verlauf = [{"von": zufall_verlauf.choice(BEARBEITER), "am": angelegt.isoformat(timespec="minutes"),
+                "aktion": "created", "felder": []}]
+    letzte = angelegt
+    ende = min(termin + timedelta(days=6), DEMO_JETZT)
+    for _ in range(0 if e["status"] == "Idea" else zufall_verlauf.randint(1, 3)):
+        letzte = zeitpunkt(letzte + timedelta(hours=2), ende)
+        if letzte >= DEMO_JETZT:
+            break
+        felder = zufall_verlauf.choice(GEAENDERTE_FELDER)
+        if e["status"] == "Done" and letzte > termin:
+            felder = ["anmeldungen", "aufgaben"]          # Nachbereitung nach dem Event
+        verlauf.append({"von": zufall_verlauf.choice(BEARBEITER), "am": letzte.isoformat(timespec="minutes"),
+                        "aktion": "edited", "felder": felder})
+    verlauf.sort(key=lambda v: v["am"], reverse=True)      # neueste zuerst
+    e["verlauf"] = verlauf
+    e["geaendertVon"] = verlauf[0]["von"]
+    e["geaendertAm"] = verlauf[0]["am"]
+
+
 def schreibe(name, daten):
     (DATA / name).write_text(json.dumps(daten, ensure_ascii=False, indent=2) + "\n",
                              encoding="utf-8")

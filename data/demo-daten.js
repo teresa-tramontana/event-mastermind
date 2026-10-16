@@ -62,7 +62,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2025-12-14T14:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2025-10-30T16:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2025-12-14T14:48"
   },
   {
    "id": "evt-006",
@@ -125,7 +144,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-01-12T10:00",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-08T17:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2025-12-31T13:12",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2025-10-24T15:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-01-12T10:00"
   },
   {
    "id": "evt-001",
@@ -187,7 +242,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-01-13T11:41",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-11T10:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2025-12-12T13:12",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2025-12-12T11:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-01-13T11:41"
   },
   {
    "id": "evt-003",
@@ -249,7 +340,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2025-12-12T13:57",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2025-11-16T14:41",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2025-11-04T11:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2025-12-12T13:57"
   },
   {
    "id": "evt-010",
@@ -312,7 +429,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-01-05T15:41",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-03T13:41",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2025-12-02T14:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-01-05T15:41"
   },
   {
    "id": "evt-008",
@@ -373,7 +516,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-01-19T11:41",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2025-12-19T09:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2025-12-03T15:05",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2025-11-29T13:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-01-19T11:41"
   },
   {
    "id": "evt-007",
@@ -435,7 +614,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-14T14:57",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2025-12-10T13:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-01-14T14:57"
   },
   {
    "id": "evt-004",
@@ -498,7 +696,41 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-12T10:34",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2025-12-30T12:41",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2025-12-03T12:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2025-12-02T12:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-01-12T10:34"
   },
   {
    "id": "evt-011",
@@ -561,7 +793,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-01-24T14:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-07T10:20",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2025-12-24T16:34",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2025-12-19T13:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-01-24T14:20"
   },
   {
    "id": "evt-005",
@@ -624,7 +891,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-31T20:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-01-31T18:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-31T16:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2025-12-26T14:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-01-31T20:20"
   },
   {
    "id": "evt-012",
@@ -686,7 +990,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2025-12-02T17:41",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2025-11-23T16:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2025-11-21T16:41",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2025-11-21T14:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2025-12-02T17:41"
   },
   {
    "id": "evt-009",
@@ -749,7 +1088,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-01-22T10:12",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2025-12-07T17:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-01-22T10:12"
   },
   {
    "id": "evt-014",
@@ -811,7 +1168,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-01-31T16:34",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-01-30T17:41",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2025-11-27T15:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-01-31T16:34"
   },
   {
    "id": "evt-018",
@@ -873,7 +1257,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-02-08T17:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-28T16:12",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-04T11:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-02-08T17:20"
   },
   {
    "id": "evt-013",
@@ -935,7 +1346,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-26T10:20",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-15T10:12",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2025-12-09T17:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-01-26T10:20"
   },
   {
    "id": "evt-015",
@@ -997,7 +1434,41 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-02-03T17:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-18T11:05",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-01-17T14:05",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-01-01T12:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-02-03T17:12"
   },
   {
    "id": "evt-020",
@@ -1059,7 +1530,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-13T15:12",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-01-03T13:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-01-13T15:12"
   },
   {
    "id": "evt-023",
@@ -1120,7 +1609,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-13T09:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-05T16:20",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-01-12T11:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2025-12-18T12:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-02-13T09:12"
   },
   {
    "id": "evt-025",
@@ -1182,7 +1706,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-02-04T16:12",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-01-01T17:34",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2025-12-08T10:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-02-04T16:12"
   },
   {
    "id": "evt-016",
@@ -1245,7 +1796,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-18T12:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-02-16T17:41",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2025-12-19T17:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-02-18T12:05"
   },
   {
    "id": "evt-022",
@@ -1307,7 +1886,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-22T19:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-02-22T17:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-02-17T14:48",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-22T15:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-02-22T19:12"
   },
   {
    "id": "evt-019",
@@ -1370,7 +1986,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-20T17:48",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-16T11:48",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-13T16:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-02-20T17:48"
   },
   {
    "id": "evt-024",
@@ -1432,7 +2075,41 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-19T13:48",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-14T15:12",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-12T10:20",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2025-12-18T12:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-02-19T13:48"
   },
   {
    "id": "evt-017",
@@ -1495,7 +2172,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-21T09:48",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2025-12-16T09:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-02-21T09:48"
   },
   {
    "id": "evt-026",
@@ -1558,7 +2254,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-25T14:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-31T12:34",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-01-23T15:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-02-25T14:05"
   },
   {
    "id": "evt-021",
@@ -1620,7 +2343,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-02-23T13:12",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-04T12:41",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-01-26T10:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-02-23T13:12"
   },
   {
    "id": "evt-028",
@@ -1682,7 +2431,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-07T11:20",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-02-04T17:20",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-25T15:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-02-07T11:20"
   },
   {
    "id": "evt-032",
@@ -1745,7 +2520,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-02-12T09:34",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-01T17:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-02-12T09:34"
   },
   {
    "id": "evt-027",
@@ -1807,7 +2600,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-10T15:57",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-05T09:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-01-14T14:57",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-10T12:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-03-10T15:57"
   },
   {
    "id": "evt-029",
@@ -1870,7 +2699,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-03-10T16:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-02-05T14:48",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-01-06T13:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-03-10T16:12"
   },
   {
    "id": "evt-034",
@@ -1932,7 +2788,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-03-01T15:12",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-04T11:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-03-01T15:12"
   },
   {
    "id": "evt-037",
@@ -1993,7 +2868,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-03-13T10:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-02T12:20",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-29T15:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-03-13T10:05"
   },
   {
    "id": "evt-030",
@@ -2055,7 +2958,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-03-22T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-03-20T17:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-20T15:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-01T11:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-03-22T09:30"
   },
   {
    "id": "evt-036",
@@ -2118,7 +3058,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-22T12:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-03-08T14:48",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-27T15:12",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-02-11T11:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-03-22T12:12"
   },
   {
    "id": "evt-033",
@@ -2181,7 +3157,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-20T14:34",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-02-12T16:41",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-02-01T09:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-02-20T14:34"
   },
   {
    "id": "evt-031",
@@ -2244,7 +3246,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-19T13:57",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-19T17:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-03-19T13:57"
   },
   {
    "id": "evt-038",
@@ -2306,7 +3327,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-03-30T09:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-25T11:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-01T15:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-03-30T09:05"
   },
   {
    "id": "evt-040",
@@ -2369,7 +3418,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-20T16:34",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-03-17T17:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-14T15:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-03-20T16:34"
   },
   {
    "id": "evt-035",
@@ -2432,7 +3507,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-19T15:41",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-01-31T12:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-03-19T15:41"
   },
   {
    "id": "evt-039",
@@ -2494,7 +3587,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-01-22T13:41",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-01-17T13:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-01-22T13:41"
   },
   {
    "id": "evt-041",
@@ -2557,7 +3669,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-23T13:05",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-03-22T09:57",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-20T11:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-03-23T13:05"
   },
   {
    "id": "evt-042",
@@ -2619,7 +3757,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-12T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-21T13:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-21T17:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-04-12T09:30"
   },
   {
    "id": "evt-046",
@@ -2681,7 +3846,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-16T15:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-15T09:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-03-16T15:05"
   },
   {
    "id": "evt-048",
@@ -2743,7 +3927,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-04-09T09:41",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-02T09:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-07T10:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-04-09T09:41"
   },
   {
    "id": "evt-043",
@@ -2805,7 +4016,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-19T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-02-22T14:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-04-19T09:30"
   },
   {
    "id": "evt-050",
@@ -2868,7 +4098,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-04-07T14:20",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-02-15T15:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-04-07T14:20"
   },
   {
    "id": "evt-047",
@@ -2931,7 +4179,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-12T09:12",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-06T10:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-03T16:20",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-13T16:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-04-12T09:12"
   },
   {
    "id": "evt-044",
@@ -2994,7 +4278,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-25T18:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-04-25T16:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-04T13:34",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-03-26T09:30",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-04-25T18:12"
   },
   {
    "id": "evt-051",
@@ -3056,7 +4377,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-04-27T14:34",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-25T13:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-20T14:12",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-03-17T17:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-04-27T14:34"
   },
   {
    "id": "evt-053",
@@ -3118,7 +4476,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-19T10:20",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-08T11:48",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-02-27T11:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-04-19T10:20"
   },
   {
    "id": "evt-045",
@@ -3181,7 +4566,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-03-14T14:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-05T14:41",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-15T10:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-03-14T14:05"
   },
   {
    "id": "evt-052",
@@ -3243,7 +4655,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-04-18T11:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-14T09:41",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-04T13:05",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-02-16T11:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-04-18T11:48"
   },
   {
    "id": "evt-049",
@@ -3306,7 +4753,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-25T17:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-06T10:57",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-03-12T09:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-04-25T17:48"
   },
   {
    "id": "evt-055",
@@ -3368,7 +4841,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-24T15:41",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-05T11:12",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-03T11:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-04-24T15:41"
   },
   {
    "id": "evt-059",
@@ -3430,7 +4929,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-05-06T11:48",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-03-27T12:48",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-03-02T12:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-05-06T11:48"
   },
   {
    "id": "evt-054",
@@ -3492,7 +5018,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-16T11:34",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-04T16:41",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-04T14:41",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-04T09:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-04-16T11:34"
   },
   {
    "id": "evt-068",
@@ -3555,7 +5117,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-03T17:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-27T17:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-16T17:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-05-03T17:34"
   },
   {
    "id": "evt-056",
@@ -3618,7 +5208,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-29T17:12",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-20T11:34",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-14T17:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-04-29T17:12"
   },
   {
    "id": "evt-061",
@@ -3680,7 +5297,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-15T11:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-05-09T15:57",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-08T14:12",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-12T12:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-05-15T11:12"
   },
   {
    "id": "evt-065",
@@ -3741,7 +5395,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-09T11:41",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-08T17:41",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-17T13:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-05-09T11:41"
   },
   {
    "id": "evt-067",
@@ -3803,7 +5485,41 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-08T12:48",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-05-01T09:05",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-18T11:20",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-27T10:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-05-08T12:48"
   },
   {
    "id": "evt-057",
@@ -3866,7 +5582,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-22T12:34",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-15T14:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-14T17:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-04-05T14:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-05-22T12:34"
   },
   {
    "id": "evt-064",
@@ -3929,7 +5680,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-05-18T10:20",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-05T16:05",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-30T17:57",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-23T15:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-05-18T10:20"
   },
   {
    "id": "evt-062",
@@ -3990,7 +5776,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-03T11:34",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-21T14:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-05-03T11:34"
   },
   {
    "id": "evt-060",
@@ -4053,7 +5857,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-04-18T11:57",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-03-12T16:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-04-18T11:57"
   },
   {
    "id": "evt-058",
@@ -4115,7 +5938,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-05-31T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-05-31T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-31T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-25T13:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-05-31T09:30"
   },
   {
    "id": "evt-066",
@@ -4178,7 +6038,41 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-05-19T15:12",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-11T17:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-16T10:34",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-03-13T09:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-05-19T15:12"
   },
   {
    "id": "evt-069",
@@ -4241,7 +6135,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-26T14:20",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-04-15T15:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-05-26T14:20"
   },
   {
    "id": "evt-063",
@@ -4303,7 +6215,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-27T10:12",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-25T15:20",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-22T13:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-05T09:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-05-27T10:12"
   },
   {
    "id": "evt-071",
@@ -4366,7 +6314,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-21T14:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-03-23T09:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-05-21T14:34"
   },
   {
    "id": "evt-075",
@@ -4428,7 +6394,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-06-08T10:00",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-06-07T15:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-05-04T09:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-06-08T10:00"
   },
   {
    "id": "evt-070",
@@ -4491,7 +6485,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-06-08T11:41",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-08T09:41",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-28T10:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-05-09T10:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-06-08T11:41"
   },
   {
    "id": "evt-072",
@@ -4554,7 +6584,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-06-10T13:41",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-04-08T16:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-06-10T13:41"
   },
   {
    "id": "evt-077",
@@ -4616,7 +6665,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-01T10:57",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-15T14:57",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-14T14:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-06-01T10:57"
   },
   {
    "id": "evt-080",
@@ -4677,7 +6753,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-26T17:48",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-18T14:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-16T13:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-05-26T17:48"
   },
   {
    "id": "evt-073",
@@ -4739,7 +6841,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-13T16:20",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-11T11:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-05-13T16:20"
   },
   {
    "id": "evt-079",
@@ -4802,7 +6922,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-06-02T09:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-04-29T10:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-06-02T09:48"
   },
   {
    "id": "evt-076",
@@ -4865,7 +7003,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-21T15:57",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-08T14:12",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-05-16T12:41",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-04-29T14:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-06-21T15:57"
   },
   {
    "id": "evt-082",
@@ -4927,7 +7100,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-08T16:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-07T16:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-06-08T16:05"
   },
   {
    "id": "evt-074",
@@ -4990,7 +7182,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-05T10:12",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-06-04T11:12",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-04-28T10:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-06-05T10:12"
   },
   {
    "id": "evt-083",
@@ -5053,7 +7272,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-25T14:57",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-06-24T10:34",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-05-21T10:20",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-04-19T10:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-06-25T14:57"
   },
   {
    "id": "evt-078",
@@ -5116,7 +7371,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-18T09:48",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-25T10:20",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-24T12:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-06-18T09:48"
   },
   {
    "id": "evt-081",
@@ -5179,7 +7460,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-02T09:48",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-07-01T16:57",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-26T10:20",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-04T09:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-07-02T09:48"
   },
   {
    "id": "evt-084",
@@ -5242,7 +7559,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-07-07T12:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-05-17T12:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-07-07T12:05"
   },
   {
    "id": "evt-095",
@@ -5304,7 +7640,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-02T17:05",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-06-28T14:05",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-06-20T13:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-04-29T17:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-07-02T17:05"
   },
   {
    "id": "evt-085",
@@ -5366,7 +7737,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-15T15:12",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-06-08T17:48",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-05-23T15:20",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-05-19T17:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-06-15T15:12"
   },
   {
    "id": "evt-089",
@@ -5428,7 +7834,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-07-10T17:48",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-07T13:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-22T09:48",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-22T16:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-07-10T17:48"
   },
   {
    "id": "evt-091",
@@ -5490,7 +7932,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-07-03T17:57",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-06-25T14:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-05-16T11:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-07-03T17:57"
   },
   {
    "id": "evt-086",
@@ -5553,7 +8021,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-19T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-07-01T17:05",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-06-14T10:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-07-19T09:30"
   },
   {
    "id": "evt-093",
@@ -5616,7 +8111,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-07-14T15:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-07-05T10:57",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-02T16:20",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-05-12T15:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-07-14T15:34"
   },
   {
    "id": "evt-090",
@@ -5679,7 +8209,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-07-17T16:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-17T14:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-07-05T10:34",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-17T14:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-07-17T16:12"
   },
   {
    "id": "evt-096",
@@ -5741,7 +8307,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-07-06T17:34",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-24T16:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-07-06T17:34"
   },
   {
    "id": "evt-087",
@@ -5803,7 +8388,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-26T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-07-25T10:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-07-24T11:48",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-09T10:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-07-26T09:30"
   },
   {
    "id": "evt-094",
@@ -5866,7 +8488,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-07-06T14:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-05-25T15:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-07-06T14:48"
   },
   {
    "id": "evt-088",
@@ -5929,7 +8569,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-07-03T14:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-06-17T11:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-14T10:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-07-03T14:12"
   },
   {
    "id": "evt-092",
@@ -5992,7 +8660,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-07-12T12:05",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-07-12T09:05",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-25T16:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-07-12T12:05"
   },
   {
    "id": "evt-098",
@@ -6055,7 +8749,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-06-25T16:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-22T15:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-06-25T16:34"
   },
   {
    "id": "evt-097",
@@ -6117,7 +8829,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-03T10:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-14T09:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-08-03T10:12"
   },
   {
    "id": "evt-101",
@@ -6179,7 +8910,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-07T10:05",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-07-27T16:57",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-05-31T16:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-08-07T10:05"
   },
   {
    "id": "evt-100",
@@ -6240,7 +8999,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-07-26T11:48",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-07-19T17:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-06-12T16:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-07-26T11:48"
   },
   {
    "id": "evt-099",
@@ -6302,7 +9088,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-08-13T09:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-23T11:57",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-06-10T14:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-08-13T09:05"
   },
   {
    "id": "evt-102",
@@ -6364,7 +9176,41 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-08-11T09:05",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-08T09:20",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-01T16:48",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-28T17:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-08-11T09:05"
   },
   {
    "id": "evt-108",
@@ -6426,7 +9272,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-12T11:41",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-06-30T10:12",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-06-18T12:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-07-12T11:41"
   },
   {
    "id": "evt-103",
@@ -6488,7 +9360,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-28T09:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-08-04T10:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-08-28T09:05"
   },
   {
    "id": "evt-104",
@@ -6550,7 +9441,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-03T11:41",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-08-10T15:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-09-03T11:41"
   },
   {
    "id": "evt-110",
@@ -6612,7 +9521,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-08-26T15:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-06-27T12:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-08-26T15:05"
   },
   {
    "id": "evt-113",
@@ -6674,7 +9602,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-08-21T14:57",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-13T10:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-08-06T14:57",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-08-06T12:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-08-21T14:57"
   },
   {
    "id": "evt-117",
@@ -6737,7 +9700,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-08-30T12:41",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-13T11:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-08-30T12:41"
   },
   {
    "id": "evt-105",
@@ -6799,7 +9780,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-14T11:20",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-07-30T16:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-08-14T11:20"
   },
   {
    "id": "evt-112",
@@ -6862,7 +9862,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-04T14:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-08-03T12:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-09-04T14:12"
   },
   {
    "id": "evt-109",
@@ -6924,7 +9942,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-18T16:41",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-16T10:05",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-03T16:12",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-20T16:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-09-18T16:41"
   },
   {
    "id": "evt-115",
@@ -6987,7 +10040,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-23T15:34",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-22T15:48",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-09-19T17:34",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-07-26T15:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-09-23T15:34"
   },
   {
    "id": "evt-106",
@@ -7049,7 +10139,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-25T09:48",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-09T10:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-07-24T10:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-09-25T09:48"
   },
   {
    "id": "evt-114",
@@ -7112,7 +10229,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-08-19T13:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-08-10T15:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-08-19T13:57"
   },
   {
    "id": "evt-118",
@@ -7175,7 +10310,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-09-25T15:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-10T11:41",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-08-27T13:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-09-25T15:12"
   },
   {
    "id": "evt-111",
@@ -7238,7 +10400,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-07T10:41",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-08-30T15:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-09-07T10:41"
   },
   {
    "id": "evt-116",
@@ -7301,7 +10481,44 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-30T12:12",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-26T12:20",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-08T09:20",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-14T14:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-09-30T12:12"
   },
   {
    "id": "evt-107",
@@ -7363,7 +10580,43 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-04T09:30",
+     "aktion": "edited",
+     "felder": [
+      "anmeldungen",
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-14T17:20",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-02T12:34",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-08-25T11:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-10-04T09:30"
   },
   {
    "id": "evt-120",
@@ -7425,7 +10678,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-04T09:20",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-03T19:57",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-03T17:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-03T17:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-10-04T09:20"
   },
   {
    "id": "evt-124",
@@ -7487,7 +10775,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-02T14:34",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-02T12:34",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-03T15:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-10-02T14:34"
   },
   {
    "id": "evt-119",
@@ -7550,7 +10865,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": true
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-09-04T15:05",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-09-04T13:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-07-31T11:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-09-04T15:05"
   },
   {
    "id": "evt-121",
@@ -7612,7 +10953,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-08-28T16:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-08-27T16:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-08-28T16:12"
   },
   {
    "id": "evt-128",
@@ -7674,7 +11034,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-08T10:41",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-08-09T15:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-09-08T10:41"
   },
   {
    "id": "evt-126",
@@ -7736,7 +11114,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-10T17:05",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-10T09:57",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-09T09:12",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-11T14:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-10T17:05"
   },
   {
    "id": "evt-125",
@@ -7799,7 +11212,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-09T10:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-06T09:41",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-17T15:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-10-09T10:57"
   },
   {
    "id": "evt-122",
@@ -7862,7 +11302,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-25T17:48",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-25T11:57",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-08-28T13:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-09-25T17:48"
   },
   {
    "id": "evt-129",
@@ -7925,7 +11392,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-09T09:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-29T10:12",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-08-29T11:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-09T09:57"
   },
   {
    "id": "evt-123",
@@ -7987,7 +11481,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-03T14:20",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-02T13:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-03T14:20"
   },
   {
    "id": "evt-130",
@@ -8050,7 +11563,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-10T11:12",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-08-30T16:41",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-08-28T15:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-10-10T11:12"
   },
   {
    "id": "evt-131",
@@ -8112,7 +11652,41 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-10T12:34",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-10T10:34",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-05T13:34",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-08-21T15:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-10-10T12:34"
   },
   {
    "id": "evt-127",
@@ -8174,7 +11748,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-08T19:05",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-08T17:05",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-08T10:05",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-02T13:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-10-08T19:05"
   },
   {
    "id": "evt-133",
@@ -8237,7 +11846,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-10T10:20",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-09-26T16:05",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-16T15:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-10-10T10:20"
   },
   {
    "id": "evt-132",
@@ -8300,7 +11935,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-10T13:12",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-04T16:41",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-08-27T14:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-08-26T11:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-10-10T13:12"
   },
   {
    "id": "evt-134",
@@ -8363,7 +12033,17 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-13T09:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-09-13T09:12"
   },
   {
    "id": "evt-137",
@@ -8425,7 +12105,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-01T11:20",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-09-19T09:41",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-15T15:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-01T11:20"
   },
   {
    "id": "evt-140",
@@ -8487,7 +12193,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-03T13:20",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-09-27T09:05",
+     "aktion": "edited",
+     "felder": [
+      "tags"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-18T11:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-10-03T13:20"
   },
   {
    "id": "evt-143",
@@ -8549,7 +12281,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-22T15:12",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-09T10:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-09-22T15:12"
   },
   {
    "id": "evt-135",
@@ -8612,7 +12362,41 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-10T14:48",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-10T12:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-10T10:48",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-27T12:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-10-10T14:48"
   },
   {
    "id": "evt-139",
@@ -8675,7 +12459,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-28T15:05",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-28T13:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-21T17:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-09-28T15:05"
   },
   {
    "id": "evt-142",
@@ -8738,7 +12548,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-02T10:05",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-22T14:34",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-10-02T10:05"
   },
   {
    "id": "evt-136",
@@ -8801,7 +12629,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-05T15:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-24T17:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-10-05T15:57"
   },
   {
    "id": "evt-141",
@@ -8863,7 +12710,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-09T17:34",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-08T12:05",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-30T16:34",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-28T13:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-09T17:34"
   },
   {
    "id": "evt-144",
@@ -8925,7 +12807,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-30T15:41",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-22T11:57",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-09-20T12:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-09-30T15:41"
   },
   {
    "id": "evt-138",
@@ -8987,7 +12895,33 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-02T15:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-30T17:05",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-09-17T13:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-02T15:05"
   },
   {
    "id": "evt-150",
@@ -9050,7 +12984,35 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-08T15:57",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-07T15:57",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-05T17:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-10-08T15:57"
   },
   {
    "id": "evt-145",
@@ -9113,7 +13075,34 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-10T10:41",
+     "aktion": "edited",
+     "felder": [
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-06T13:41",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.worum",
+      "beschreibung.agenda"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-09-19T10:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Membership Team (demo)",
+   "geaendertAm": "2026-10-10T10:41"
   },
   {
    "id": "evt-146",
@@ -9175,7 +13164,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-08T11:12",
+     "aktion": "edited",
+     "felder": [
+      "kapazität"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-04T16:20",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-02T17:05",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-09-26T13:20",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-10-08T11:12"
   },
   {
    "id": "evt-151",
@@ -9236,7 +13260,17 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-09-26T15:57",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-09-26T15:57"
   },
   {
    "id": "evt-154",
@@ -9298,7 +13332,17 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-06T12:48",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-10-06T12:48"
   },
   {
    "id": "evt-147",
@@ -9360,7 +13404,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Community Lead (demo)",
+     "am": "2026-10-08T10:41",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-01T10:41",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Community Lead (demo)",
+   "geaendertAm": "2026-10-08T10:41"
   },
   {
    "id": "evt-153",
@@ -9423,7 +13486,25 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-05T14:05",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-04T14:12",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-05T14:05"
   },
   {
    "id": "evt-148",
@@ -9486,7 +13567,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-08T10:12",
+     "aktion": "edited",
+     "felder": [
+      "aufgaben"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-07T18:05",
+     "aktion": "edited",
+     "felder": [
+      "status"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-07T16:05",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-07T14:05",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-08T10:12"
   },
   {
    "id": "evt-156",
@@ -9548,7 +13664,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-10T11:12",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-07T17:30",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-10-10T11:12"
   },
   {
    "id": "evt-155",
@@ -9611,7 +13746,17 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Events Intern (demo)",
+     "am": "2026-10-07T17:30",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Events Intern (demo)",
+   "geaendertAm": "2026-10-07T17:30"
   },
   {
    "id": "evt-149",
@@ -9673,7 +13818,26 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-10T16:12",
+     "aktion": "edited",
+     "felder": [
+      "titel",
+      "zusammenfassung"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-07T17:30",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Programme Team (demo)",
+   "geaendertAm": "2026-10-10T16:12"
   },
   {
    "id": "evt-152",
@@ -9736,7 +13900,42 @@ window.DEMO_DATEN = {
      "text": "KPIs collected",
      "erledigt": false
     }
-   ]
+   ],
+   "verlauf": [
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-10T16:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.zielgruppe"
+     ]
+    },
+    {
+     "von": "Membership Team (demo)",
+     "am": "2026-10-10T14:48",
+     "aktion": "edited",
+     "felder": [
+      "beschreibung.tickets"
+     ]
+    },
+    {
+     "von": "Host Team (demo)",
+     "am": "2026-10-09T13:48",
+     "aktion": "edited",
+     "felder": [
+      "ort",
+      "startzeit"
+     ]
+    },
+    {
+     "von": "Programme Team (demo)",
+     "am": "2026-10-07T17:30",
+     "aktion": "created",
+     "felder": []
+    }
+   ],
+   "geaendertVon": "Host Team (demo)",
+   "geaendertAm": "2026-10-10T16:48"
   }
  ],
  "templates": [

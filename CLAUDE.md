@@ -53,7 +53,8 @@ IT-KURZINFO.html             dasselbe als HTML zum Kopieren in eine E-Mail
 
 ### Datenmodell
 
-- **Event:** `id, titel, datum (JJJJ-MM-TT), startzeit (HH:MM), kategorie, status (Idea | Planned | Published | Done), ort, kapazität, anmeldungen, verantwortlich, eventbriteId, kalenderId, tags[], setting (Format des Events; vorläufige Platzhalter-Liste in `model.json` → `settings`: Workshop, Training, 1:1 Consulting, Keynote, Panel, Group Setting, Pairs; echte Werte kommen mit Notion; Demo-Verteilung `SETTING_JE_KAT` in `tools/erzeuge-demodaten.py`), zusammenfassung (Summary), beschreibung (Description, gegliedert – siehe unten)`, zusätzlich `aufgaben[] ({text, erledigt})` für die Wochenansicht.
+- **Event:** `id, titel, datum (JJJJ-MM-TT), startzeit (HH:MM), kategorie, status (Idea | Planned | Published | Done), ort, kapazität, anmeldungen, verantwortlich, eventbriteId, kalenderId, tags[], setting (Format des Events; vorläufige Platzhalter-Liste in `model.json` → `settings`: Workshop, Training, 1:1 Consulting, Keynote, Panel, Group Setting, Pairs; echte Werte kommen mit Notion; Demo-Verteilung `SETTING_JE_KAT` in `tools/erzeuge-demodaten.py`), zusammenfassung (Summary), beschreibung (Description, gegliedert – siehe unten)`, zusätzlich `aufgaben[] ({text, erledigt})` für die Wochenansicht und die Bearbeitungs-Stempel (siehe unten).
+- **„Last edited by“:** `geaendertVon` (wer zuletzt geändert hat: online die Google-Adresse, offline „Demo user (offline)“, in den Demo-Daten Rollen mit „(demo)“), `geaendertAm` (Zeitpunkt, ISO-Text) und `verlauf[]` (neueste zuerst, max. 30: `{von, am, aktion: "created" | "edited", felder[], hinweis?}`; `felder` sind Feldnamen, Description-Abschnitte als `beschreibung.<abschnitt>`, z. B. `beschreibung.tickets`). **Nur `data-layer.js` setzt diese Felder** (in `speichereEvent`); `app.js` liest sie nur. Speichern ohne Änderung erzeugt keinen Eintrag; Tag-Reihenfolge zählt nicht als Änderung. Löschen wird noch nicht protokolliert. Der Verlauf geht **nicht** an die KI (`kiKontext` lässt ihn weg). Demo-Verlauf: `tools/erzeuge-demodaten.py` (eigener Zufall `zufall_verlauf`, ändert die übrigen Demo-Daten nicht).
 - **Description (`beschreibung`)** ist ein Objekt mit festen Abschnitten (Reihenfolge = Anzeige):
   `worum` (What is it about?) · `rahmen` (Setting/framework) · `haeufigkeit` (Frequency) · `warum` (Why are we doing this? / Outcome) · `zielgruppe` (For whom is it? / Target group) · `ergebnis` (Outcome for members & goals) · `agenda` (What's on the agenda?, eine Zeile pro Punkt) · `tickets` (Ticket info) · `betreuung` (Attended by / responsibility – welches Team leitet/betreut).
   Leere Abschnitte = fehlende Info → werden **überall deutlich markiert** (Woche, Monat, Event-Schublade, Liste, Jahres-Kennzahl, Abweichungs-Seite, Navigations-Zähler). Fehlende Infos nie still mit erfundenem Text füllen, sondern sichtbar lassen, bis ein Mensch sie ergänzt oder einen Vorschlag übernimmt.
@@ -63,7 +64,7 @@ IT-KURZINFO.html             dasselbe als HTML zum Kopieren in eine E-Mail
 
 ### DataLayer-Schnittstelle (nicht umbenennen)
 
-`ladeAlles() → {events, templates, model, tags}` · `speichereEvent(event) → event` · `loescheEvent(id)` · `setzeDemoZurueck()` · `hatEigeneAenderungen()` · `ladeEinstellungen()` / `speichereEinstellungen(obj)` · `ladeVerbindungen()` · `ladeBenutzer() → {angemeldet, email, mailMoeglich, kiMoeglich}` · `sendeTestMail(betreff, text) → {an, rest}` · `frageKI(frage, verlauf, kontext) → {antwort, modell}` · Eigenschaft `quelle` (Text für die Fußzeile). Alle Lade-/Speicherfunktionen geben ein Promise zurück.
+`ladeAlles() → {events, templates, model, tags}` · `speichereEvent(event, info?) → event` (stempelt „Last edited by“; `info.hinweis` steht im Verlauf, z. B. „AI suggestion applied“) · `loescheEvent(id)` · `setzeDemoZurueck()` · `hatEigeneAenderungen()` · `ladeEinstellungen()` / `speichereEinstellungen(obj)` · `ladeVerbindungen()` · `ladeBenutzer() → {angemeldet, email, mailMoeglich, kiMoeglich}` · `sendeTestMail(betreff, text) → {an, rest}` · `frageKI(frage, verlauf, kontext) → {antwort, modell}` · Eigenschaft `quelle` (Text für die Fußzeile). Alle Lade-/Speicherfunktionen geben ein Promise zurück.
 
 `ladeBenutzer` liefert zusätzlich `kiMoeglich` (Schlüssel vorhanden). `ladeBenutzer`, `sendeTestMail` und `frageKI` funktionieren nur in der Apps-Script-Version (sie rufen Funktionen aus `apps-script/Code.gs` über `google.script.run` auf). Per Doppelklick gibt es kein Benutzer-Menü, keinen Test-Mail-Knopf und kein „Ask AI“.
 
@@ -94,6 +95,7 @@ IT-KURZINFO.html             dasselbe als HTML zum Kopieren in eine E-Mail
 - **Gruppen-Legende** (`gruppenLegende`, unter Month und Year): eine Zeile mit den 4 Gruppen-Punkten, direkt daneben Knopf „ⓘ Info“; Klick klappt Erklärung (`text`) und Beispiele auf („Hide“ klappt zu). Offen/zu merkt sich `legendeOffen` nur für die Sitzung.
 - Jahr: Monatskacheln werden **nicht** nach Abweichung eingefärbt, nur ein roter ⚠-Hinweistext; in der Plan matrix sind nur die abweichenden Felder farbig.
 - Alle Warn-Kacheln (Jahr: occupancy, low sign-ups, scheduling conflicts, months deviating, missing info; Quartal: occupancy, deviations) sind Links auf den passenden Abschnitt der Abweichungs-Seite. Dort je Abweichung Bedeutung, Tipp und die Events dahinter (klickbar, `abweichungDetails`).
+- **„Last edited by“ in der Oberfläche:** Schublade: Zeile unter Zeit/Raum/Lead (`zuletztZeile`) und Abschnitt „Edit history“ ganz unten (`verlaufHtml`); Formular-Kopf; Liste: kurze Zeile je Treffer, Suche findet auch Bearbeitende („Edited by“); unter dem Titel von Month/Week/Year/List „Last change in this …“ (`zeigeLetzteAenderung`, Platz `#zuletzt-ansicht`, Klick öffnet das Event). „vor X Tagen“ rechnet mit der echten Uhrzeit, nicht mit `demoHeute`.
 - „Heute“ ist in der Demo fest `model.demoHeute` (2026-10-10), damit die Daten stimmig bleiben.
 
 ## Veröffentlichung (Google Apps Script)
@@ -148,6 +150,7 @@ Regeln:
 
 1. **Notion als Datenquelle:** API-Token, zunächst nur lesen. Notion-Datenbank mit denselben Feldern wie `events.json`. Achtung: Ein Token darf nie im Code oder auf GitHub landen, die Abfrage läuft serverseitig in `apps-script/Code.gs` (`UrlFetchApp`), der Token liegt in den **Script Properties**; `data-layer.js` ruft das per `google.script.run` auf.
    - Zugang: Secret `NOTION_PAT` (siehe oben, noch nicht nutzen).
+   - **„Last edited by“ dann serverseitig:** `geaendertVon`/`geaendertAm`/`verlauf` setzt `Code.gs` mit `Session.getActiveUser().getEmail()`, nie der Browser (sonst fälschbar). Die Felder als Notion-Spalten anlegen (Notion hat außerdem eigene „Last edited by“-Infos, die man zusätzlich lesen kann).
 2. **Soll-Ist-Abgleich mit echten Modell-Daten:** Modell (Soll je Monat/Kategorie, Ziel-Auslastung) ebenfalls aus Notion lesen.
 3. **Eventbrite:** Entwürfe aus Vorlagen anlegen, Anmeldezahlen zurücklesen (`eventbriteId`). Zugang: Secret `EVENTBRITE_PRIVATE_TOKEN` (noch nicht nutzen). Die Organisations-ID ist nicht geheim und wird per API abgefragt.
 4. **Google Calendar und Gmail:** Login mit Google (OAuth), minimale Rechte; Kalendereinträge anlegen (`kalenderId`), Mails nur als **Entwurf**, nie automatisch senden.
@@ -188,6 +191,7 @@ Ein Backend ist nötig, weil Zugangsschlüssel nie im Browser liegen dürfen.
 - **Auftragsverarbeitung (AVV/DPA)** mit allen Anbietern prüfen: Notion, Eventbrite, Google (Workspace/Cloud), ggf. KI-Anbieter, GitHub.
 - **Drittlandtransfer:** Notion und Eventbrite sind US-Anbieter → Datenschutzrahmen (EU-US Data Privacy Framework / Standardvertragsklauseln) prüfen.
 - **Zugriff** nur für das Community-Team (Login mit Firmen-Google-Konto).
+- **„Last edited by“:** Gespeichert wird die Firmen-Adresse der Person, die ein Event ändert (Mitarbeitenden-Daten, Zweck: Nachvollziehbarkeit im Team). Mit IT/Datenschutz klären: Ist das ok, wie lange aufheben (aktuell max. 30 Einträge je Event)? Der Verlauf geht nicht an die KI.
 - Ggf. **Datenschutz-Folgenabschätzung**, falls Gmail-Inhalte von einer KI gelesen werden sollen (siehe Punkt 6).
 
 **Offene Fragen an die IT:** Wer ist Ansprechperson Datenschutz? Gibt es bereits AVVs mit Notion/Eventbrite/Google? Welche Daten dürfen in welche Systeme?

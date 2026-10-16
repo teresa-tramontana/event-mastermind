@@ -958,3 +958,35 @@ button.mx-kopf:hover { background: var(--hintergrund); color: var(--text); }
 @media (max-width: 640px) {
   .quartals-karten, .quartals-spalten { grid-template-columns: 1fr; }
 }
+
+/* ---------------------------------------------------------- "Last edited by" & Verlauf */
+.zuletzt-ansicht { flex-basis: 100%; margin: 2px 0 0; font-size: .85rem; color: var(--text-leise); }
+.zuletzt-ansicht strong { color: var(--text); font-weight: 500; }
+.link-knopf {
+  border: 0; background: none; padding: 0; font: inherit; color: var(--akzent-dunkel);
+  text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+}
+.link-knopf:hover { color: var(--akzent); }
+.zuletzt-zeile { margin: -4px 0 10px; }
+.zuletzt { font-size: .82rem; color: var(--text-leise); }
+.zuletzt strong { color: var(--text); font-weight: 500; }
+.treffer-zuletzt { margin-left: auto; }
+.verlauf h3 { margin-bottom: 6px; }
+.verlauf-liste { list-style: none; margin: 0 0 6px; padding: 0; border-left: 2px solid var(--linie); }
+.verlauf-liste li {
+  display: grid; grid-template-columns: 140px 1fr; gap: 0 10px; padding: 5px 0 5px 12px;
+  font-size: .85rem; position: relative;
+}
+.verlauf-liste li::before {
+  content: ""; position: absolute; left: -5px; top: 11px; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--flaeche); border: 2px solid var(--akzent);
+}
+.verlauf-liste li:first-child::before { background: var(--akzent); }
+.verlauf-wann { color: var(--text-leise); font-variant-numeric: tabular-nums; grid-row: span 2; }
+.verlauf-wer { font-weight: 500; overflow-wrap: anywhere; }
+.verlauf-was { color: var(--text-leise); }
+@media (max-width: 640px) {
+  .verlauf-liste li { grid-template-columns: 1fr; }
+  .verlauf-wann { grid-row: auto; }
+  .treffer-zuletzt { margin-left: 0; flex-basis: 100%; }
+}

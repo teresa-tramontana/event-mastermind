@@ -43,6 +43,13 @@ Eine kleine Website, die zeigt, wie ein Event-Manager später aussehen könnte:
 
 **Fehlende Infos werden sofort sichtbar:** Ist ein Abschnitt leer, erscheint ein ⚠-Hinweis: in Woche und Monat, in der Event-Schublade, als Abzeichen in der Liste, als rote Kennzahl in der Jahresansicht und als orangener Zähler im Menü bei „Deviations“. Auf der Seite **Deviations** gibt es eine Liste „Missing event information“ mit allen betroffenen Events (kommende zuerst) und einem Knopf „Fill in“ (ausfüllen). In der Liste filtert „⚠ Missing description info“ genau diese Events.
 
+**Wer hat zuletzt etwas geändert? („Last edited by“)** Jede Änderung an einem Event wird automatisch mit *wer*, *wann* und *was* vermerkt, auch das Abhaken einer Aufgabe oder das Übernehmen eines KI-Vorschlags.
+- In den Event-Details steht oben „✎ Last edited by … · 3 days ago“, ganz unten der **Edit history** (Verlauf, neueste zuerst).
+- Unter dem Titel von Month, Week, Year und List steht „✎ Last change in this month: …“ (Klick öffnet das Event).
+- In der Liste steht an jedem Event, wer zuletzt geändert hat. Man kann auch nach einer Person suchen.
+- **Online** (mit Google-Login) wird deine Impact-Hub-Adresse eingetragen, **per Doppelklick** „Demo user (offline)“. Die Demo-Events haben einen erfundenen Verlauf mit Rollen wie „Host Team (demo)“.
+- Solange die Daten noch nur im Browser liegen, sieht jede Person nur ihre eigenen Änderungen. Für alle gemeinsam sichtbar wird es mit der Notion-Anbindung.
+
 **Vorschläge für Titel, Description und Summary:** Im Event-Formular gibst du ein Thema ein (z. B. „crowdfunding“), wählst Tags und klickst auf **„✨ Suggest title, description & summary“**. Du bekommst mehrere Titel-Ideen, eine Kurzbeschreibung (Summary) und eine komplette Description mit allen Abschnitten. Mit „Fill missing sections only“ werden nur die leeren Abschnitte gefüllt, was du schon geschrieben hast, bleibt stehen. Mit „Replace all sections“ wird alles ersetzt. Danach kannst du alles frei ändern. Die Vorschläge entstehen aus der Vorlage der Kategorie und aus den gewählten Tags. Es ist noch keine KI dabei, das kommt laut Fahrplan später.
 
 Die 14 Kategorien (wie in Notion) sind: Community Monthlies, Community Weeklies, Academy, Drops of Inspiration, Winedowns, Town Hall, Group-Specific, Collaboration, Idea Starter Pack, Cross-Community, Community Quarterlies, Partner Deliverable, Community Summer, Community. Jede hat eine eigene warme Farbe (kein Grün, kein Blau, darum weichen manche Farben von Notion ab).

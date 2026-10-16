@@ -157,6 +157,86 @@
     const p = Math.round(wert * 100);
     return (p > 0 ? "+" : p < 0 ? "−" : "±") + Math.abs(p) + "%";
   }
+  // ---------- "Last edited by": wer hat wann was geändert?
+  // Die Stempel (geaendertVon, geaendertAm, verlauf[]) setzt NUR data-layer.js beim Speichern.
+
+  const FELD_NAMEN = {
+    titel: "Title", datum: "Date", startzeit: "Start time", kategorie: "Category", status: "Status",
+    ort: "Room", "kapazität": "Capacity", anmeldungen: "Registrations", verantwortlich: "Event lead",
+    eventbriteId: "Eventbrite ID", kalenderId: "Calendar ID", tags: "Tags", setting: "Setting",
+    zusammenfassung: "Summary", aufgaben: "Tasks", beschreibung: "Description",
+  };
+  /** "beschreibung.tickets" -> "Ticket info", "anmeldungen" -> "Registrations" */
+  function feldName(feld) {
+    if (String(feld).startsWith("beschreibung.")) {
+      const teil = BESCHREIBUNG_TEILE.find((t) => "beschreibung." + t.schluessel === feld);
+      return teil ? (teil.schluessel === "betreuung" ? "Attended by" : teil.frage) : "Description";
+    }
+    return FELD_NAMEN[feld] || feld;
+  }
+  /** Liste der geänderten Felder lesbar, gleiche Namen nur einmal */
+  function felderText(felder) {
+    return [...new Set((felder || []).map(feldName))].join(", ");
+  }
+  function alsZeitpunkt(iso) {
+    const d = new Date(iso);
+    return isNaN(d) ? null : d;
+  }
+  /** "16 Oct 2026, 14:32" */
+  function zeitpunktText(iso) {
+    const d = alsZeitpunkt(iso);
+    if (!d) return "";
+    return d.getDate() + " " + MONATE_KURZ[d.getMonth()] + " " + d.getFullYear() + ", " +
+      String(d.getHours()).padStart(2, "0") + ":" + String(d.getMinutes()).padStart(2, "0");
+  }
+  /** "just now", "5 min ago", "3 h ago", "yesterday", "6 days ago" – gemessen an der echten Uhrzeit */
+  function vorWann(iso) {
+    const d = alsZeitpunkt(iso);
+    if (!d) return "";
+    const minuten = Math.round((Date.now() - d.getTime()) / 60000);
+    if (minuten < 1) return "just now";
+    if (minuten < 60) return minuten + " min ago";
+    if (minuten < 24 * 60) return Math.round(minuten / 60) + " h ago";
+    const tage = Math.round(minuten / (24 * 60));
+    if (tage === 1) return "yesterday";
+    if (tage < 31) return tage + " days ago";
+    return zeitpunktText(iso).split(",")[0];
+  }
+  /** Bei E-Mail-Adressen in kurzen Zeilen nur den Teil vor dem @ zeigen (ganze Adresse im Tooltip) */
+  function bearbeiterKurz(von) {
+    const text = String(von || "Unknown");
+    return text.includes("@") ? text.split("@")[0] : text;
+  }
+  /** Das zuletzt geänderte Event aus einer Liste (oder null) */
+  function zuletztGeaendert(events) {
+    return events.filter((e) => alsZeitpunkt(e.geaendertAm))
+      .sort((a, b) => alsZeitpunkt(b.geaendertAm) - alsZeitpunkt(a.geaendertAm))[0] || null;
+  }
+  /** Kurze Zeile "✎ Last edited by … · 3 days ago" (kompakt = ohne "Last edited by") */
+  function zuletztZeile(e, kompakt) {
+    if (!e.geaendertAm) return `<span class="zuletzt leise">✎ ${kompakt ? "no edit info" : "No edit info yet"}</span>`;
+    const wer = `<strong title="${esc(e.geaendertVon)}">${esc(kompakt ? bearbeiterKurz(e.geaendertVon) : e.geaendertVon)}</strong>`;
+    return `<span class="zuletzt" title="${esc(zeitpunktText(e.geaendertAm))}">✎ ${kompakt ? "" : "Last edited by "}${wer} · ${esc(vorWann(e.geaendertAm))}</span>`;
+  }
+  /** Ganzer Verlauf eines Events (neueste zuerst) */
+  function verlaufHtml(e) {
+    const verlauf = e.verlauf || [];
+    if (!verlauf.length) {
+      return `<section class="drawer-abschnitt verlauf"><h3>Edit history</h3>
+        <p class="leise klein-text">No edit info yet. From now on every change is recorded with who and when.</p></section>`;
+    }
+    return `<section class="drawer-abschnitt verlauf">
+      <h3>Edit history <span class="leise">(${verlauf.length})</span></h3>
+      <ol class="verlauf-liste">${verlauf.map((v) => `
+        <li>
+          <span class="verlauf-wann" title="${esc(vorWann(v.am))}">${esc(zeitpunktText(v.am))}</span>
+          <span class="verlauf-wer">${esc(v.von)}</span>
+          <span class="verlauf-was">${v.aktion === "created" ? "created the event" : "changed " + esc(felderText(v.felder) || "details")}${v.hinweis ? ` <span class="leise">(${esc(v.hinweis)})</span>` : ""}</span>
+        </li>`).join("")}</ol>
+      <p class="leise klein-text">${zustand.benutzer.angemeldet ? "Changes are recorded with your Google account." : "Offline/demo: changes are recorded as “Demo user (offline)”. Online, your Google account is used."}</p>
+    </section>`;
+  }
+
   function zeigeMeldung(text) {
     const el = document.getElementById("meldung");
     el.textContent = text;
@@ -1119,6 +1199,7 @@
           <span>🕒 ${esc(e.startzeit)}</span><span>📍 ${esc(e.ort)}</span><span>👤 Event lead: ${e.verantwortlich ? esc(e.verantwortlich) : '<span class="fehlt-text">⚠ missing</span>'}</span>
           <span>🤝 Attended by: ${betreuung ? esc(betreuung) : '<span class="fehlt-text">⚠ missing</span>'}</span>
         </div>
+        <div class="zuletzt-zeile">${zuletztZeile(e)}</div>
         <div class="event-raster">
           <div>
             <strong>${esc(e.anmeldungen)}</strong> <span class="leise">of ${kap} spots registered</span>
@@ -1133,6 +1214,7 @@
         ${anmeldeHinweis(e)}
         ${lueckenHinweis(e)}
         ${beschreibungsStand(e) !== "keine" ? `<section class="drawer-abschnitt beschreibung-offen"><h3>Description${beschreibungsStand(e) === "luecken" ? ' <span class="text-kritisch">· incomplete</span>' : ""}</h3>${beschreibungHtml(e.beschreibung, e.kategorie, ["betreuung"])}</section>` : ""}
+        ${verlaufHtml(e)}
       </article>`;
   }
 
@@ -1396,6 +1478,7 @@
       ["Tasks", (e.aufgaben || []).map((a) => a.text).join(", ")],
       ["Date", e.datum + " " + datumSchoen(e.datum, true) + " " + MONATE_KURZ[d.getMonth()] + " Q" + quartalVon(d)],
       ["IDs", [e.id, e.eventbriteId, e.kalenderId].filter(Boolean).join(" ")],
+      ["Edited by", [...new Set((e.verlauf || []).map((v) => v.von))].join(", ")],
     ];
   }
 
@@ -1497,7 +1580,8 @@
         <div class="treffer-datum"><strong>${alsDatum(e.datum).getDate()}</strong><span>${MONATE_KURZ[alsDatum(e.datum).getMonth()]}</span></div>
         <div class="treffer-inhalt">
           <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">${katPille(e.kategorie)} ${statusPille(e.status)} ${lueckenAbzeichen(e)} ${anmeldeAbzeichen(e)}
-            <span class="leise" style="font-size:.82rem">${esc(datumSchoen(e.datum))} · ${esc(e.startzeit)} · ${markiere(e.ort, woerter)}</span></div>
+            <span class="leise" style="font-size:.82rem">${esc(datumSchoen(e.datum))} · ${esc(e.startzeit)} · ${markiere(e.ort, woerter)}</span>
+            <span class="treffer-zuletzt">${zuletztZeile(e, true)}</span></div>
           <h3>${markiere(e.titel, woerter)}</h3>
           ${e.zusammenfassung ? `<p class="summary">${markiere(e.zusammenfassung, woerter)}</p>` : ""}
           ${fundstellen.filter(([name]) => !["Summary", "Location", "Category", "Status", "Tags", "Missing"].includes(name)).slice(0, 2).map(([name, wert]) =>
@@ -2174,7 +2258,8 @@
     Object.assign(drawerStand, { id: e.id || null, modus: "bearbeiten", abbrechen, geaendert: null });
     const drawerInhalt = fuelleDrawer({
       titel: neu ? (e.ausVorlage ? "New draft from template" : "New event") : "Edit event",
-      unter: neu ? "Fill in the details and click Save" : e.titel,
+      unter: neu ? "Fill in the details and click Save"
+        : e.titel + (e.geaendertAm ? " · last edited by " + bearbeiterKurz(e.geaendertVon) + ", " + vorWann(e.geaendertAm) : ""),
       fuss: `
         ${neu ? "" : '<button type="button" class="knopf gefahr leise" id="loeschen">Delete</button>'}
         <span class="fuss-luecke"></span>
@@ -2422,10 +2507,35 @@
 
     document.getElementById("umschalter").innerHTML = ""; // nur Ansichten mit Umschalter füllen ihn
     a.zeichne(zustand.datum, fokus);
+    zeigeLetzteAenderung(ansicht, zustand.datum);
     aktualisiereWarnZaehler();
     // Ist in der Adresse ein Event angegeben? Dann Details in der Schublade zeigen
     if (fokus && zustand.events.some((e) => e.id === fokus)) zeigeEventDrawer(fokus);
     else verbergeEventDrawer();
+  }
+
+  /** Zeile unter dem Titel: welches Event im angezeigten Zeitraum wurde zuletzt geändert, von wem? */
+  function zeigeLetzteAenderung(ansicht, d) {
+    const ziel = document.getElementById("zuletzt-ansicht");
+    if (!ziel) return;
+    const jahr = d.getFullYear();
+    const bereiche = {
+      month: () => ["this month", eventsImMonat(jahr, d.getMonth() + 1)],
+      week: () => ["this week", eventsZwischen(wochenStart(d), plusTage(wochenStart(d), 6))],
+      year: () => ["this year", eventsZwischen(new Date(jahr, 0, 1), new Date(jahr, 11, 31))],
+      search: () => ["the list", zustand.events],
+    };
+    if (!bereiche[ansicht]) { ziel.innerHTML = ""; ziel.hidden = true; return; }
+    const [wo, events] = bereiche[ansicht]();
+    const e = zuletztGeaendert(events);
+    ziel.hidden = false;
+    if (!e) { ziel.innerHTML = `<span class="leise">✎ No changes recorded in ${wo} yet</span>`; return; }
+    const letzter = (e.verlauf || [])[0];
+    const was = letzter && letzter.aktion === "created" ? "created" : (letzter && felderText(letzter.felder)) || "edited";
+    ziel.innerHTML = `✎ Last change in ${wo}: <button type="button" class="link-knopf" data-zuletzt="${esc(e.id)}">${esc(e.titel)}</button>
+      <span class="leise">(${esc(was)})</span> by <strong title="${esc(e.geaendertVon)}">${esc(e.geaendertVon)}</strong>
+      · <span title="${esc(zeitpunktText(e.geaendertAm))}">${esc(vorWann(e.geaendertAm))}</span>`;
+    ziel.querySelector("[data-zuletzt]").addEventListener("click", () => oeffneEvent(e.id));
   }
 
   function aktualisiereWarnZaehler() {
@@ -2549,7 +2659,8 @@
         };
       })(),
       modell: zustand.model,
-      events: zustand.events,
+      // ohne "Last edited by"-Verlauf: die Google-Adressen der Bearbeitenden gehen nicht an die KI
+      events: zustand.events.map(({ verlauf, geaendertVon, geaendertAm, ...rest }) => rest),
       vorlagen: zustand.templates,
       tags: zustand.tags,
     };
@@ -2723,13 +2834,13 @@
       const aktuell = zustand.events.find((e) => e.id === v.id);
       if (!aktuell) { status('<span class="leise">⚠ This event no longer exists.</span>'); return; }
       const vorher = JSON.parse(JSON.stringify(aktuell));
-      await window.DataLayer.speichereEvent(kiWendeAn(aktuell, v.felder));
+      await window.DataLayer.speichereEvent(kiWendeAn(aktuell, v.felder), { hinweis: "AI suggestion applied" });
       await ladeNeu();
       zeichne();
       zeigeMeldung("AI suggestion applied ✓");
       status('<span class="ki-erledigt">✓ Applied</span> <button type="button" class="knopf klein leise" data-ki="undo">Undo</button>');
       knoepfe.querySelector('[data-ki="undo"]').addEventListener("click", async () => {
-        await window.DataLayer.speichereEvent(vorher);
+        await window.DataLayer.speichereEvent(vorher, { hinweis: "undo of AI suggestion" });
         await ladeNeu();
         zeichne();
         zeigeMeldung("Change undone");
