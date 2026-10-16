@@ -889,7 +889,7 @@ a.banner-link:hover { border-color: var(--warnung); }
 .legende-info summary::-webkit-details-marker { display: none; }
 .legende-info summary > span { display: inline-flex; align-items: center; gap: 6px; }
 .legende-info .info-knopf {
-  margin-left: auto; padding: 3px 10px; border: 1px solid var(--linie); border-radius: 999px;
+  padding: 3px 10px; border: 1px solid var(--linie); border-radius: 999px;
   color: var(--text-leise); font-size: .8rem; background: var(--flaeche);
 }
 .legende-info summary:hover .info-knopf, .legende-info[open] .info-knopf { color: var(--text); border-color: var(--text-leise); }
