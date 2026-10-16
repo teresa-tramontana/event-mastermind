@@ -883,6 +883,16 @@ a.banner-link:hover { border-color: var(--warnung); }
 .filter-menue-inhalt [hidden] { display: none; }
 
 /* Legende der Gruppen mit Erklärung (unter Kalender/Agenda) */
+/* Gruppen-Legende: eine Zeile, Erklärungen per Info-Knopf */
+.legende-info { margin-top: 12px; }
+.legende-info summary { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; cursor: pointer; list-style: none; font-size: .85rem; }
+.legende-info summary::-webkit-details-marker { display: none; }
+.legende-info summary > span { display: inline-flex; align-items: center; gap: 6px; }
+.legende-info .info-knopf {
+  margin-left: auto; padding: 3px 10px; border: 1px solid var(--linie); border-radius: 999px;
+  color: var(--text-leise); font-size: .8rem; background: var(--flaeche);
+}
+.legende-info summary:hover .info-knopf, .legende-info[open] .info-knopf { color: var(--text); border-color: var(--text-leise); }
 .gruppen-legende { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
 .gruppen-legende > div { display: flex; gap: 8px; align-items: flex-start; font-size: .85rem; line-height: 1.4; }
 .gruppen-legende .kat-punkt { margin-top: 5px; }

@@ -884,12 +884,27 @@
     return liste;
   }
 
-  /** Legende: die 3 Gruppen mit kurzer Erklärung */
+  /** Legende: die Gruppen in einer Zeile, Erklärung und Beispiele per Info-Knopf aufklappbar */
+  let legendeOffen = false; // bleibt beim Neuzeichnen erhalten (nur für die Sitzung)
   function gruppenLegende() {
-    return `<div class="gruppen-legende">${GRUPPEN.map((g) => `
-      <div class="${g.klasse}"><span class="kat-punkt"></span><span><strong>${g.name}</strong> ${esc(g.text)}
-        <small>${esc(g.beispiele)}</small></span></div>`).join("")}</div>`;
+    return `<details class="legende-info" ${legendeOffen ? "open" : ""}>
+      <summary>
+        ${GRUPPEN.map((g) => `<span class="${g.klasse}"><span class="kat-punkt"></span>${g.name}</span>`).join("")}
+        <span class="info-knopf" aria-label="What do the groups mean?">ⓘ <span class="info-text">${legendeOffen ? "Hide" : "Info"}</span></span>
+      </summary>
+      <div class="gruppen-legende">${GRUPPEN.map((g) => `
+        <div class="${g.klasse}"><span class="kat-punkt"></span><span><strong>${g.name}</strong> ${esc(g.text)}
+          <small>${esc(g.beispiele)}</small></span></div>`).join("")}</div>
+    </details>`;
   }
+  // "toggle" steigt nicht auf, darum hier im Capture-Schritt mithören
+  document.addEventListener("toggle", (ev) => {
+    const d = ev.target;
+    if (!d.classList || !d.classList.contains("legende-info")) return;
+    legendeOffen = d.open;
+    const t = d.querySelector(".info-text");
+    if (t) t.textContent = d.open ? "Hide" : "Info";
+  }, true);
 
   /** Die Gruppen im Monat: Ist/Soll (nur Kategorien, die im Monat geprüft werden) */
   function gruppenStand(v) {
